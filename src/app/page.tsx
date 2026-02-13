@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import AboutIntro from "@/components/sections/AboutIntro";
 import FeatureGrid from "@/components/sections/FeatureGrid";
+import Locations from "@/components/sections/Locations";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <AboutIntro />
         <FeatureGrid />
+        <Locations />
       </main>
       <Footer />
     </div>
