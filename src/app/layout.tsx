@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald, Open_Sans } from "next/font/google";
+import { Oswald, Open_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -14,6 +14,12 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Siesel's",
   description: "Siesel's Website",
@@ -25,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${oswald.variable} ${openSans.variable}`}>
+    <html lang="en" className={`${oswald.variable} ${openSans.variable} ${playfairDisplay.variable}`}>
       <body className="font-body antialiased">{children}</body>
     </html>
   );

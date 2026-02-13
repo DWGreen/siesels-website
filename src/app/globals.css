@@ -11,6 +11,7 @@
 @theme inline {
   --font-heading: var(--font-oswald), sans-serif;
   --font-body: var(--font-open-sans), sans-serif;
+  --font-serif: var(--font-playfair), serif;
 }
 
 @utility bg-wood-texture {
