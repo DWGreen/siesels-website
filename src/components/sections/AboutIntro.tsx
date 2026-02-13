@@ -36,7 +36,7 @@ export default function AboutIntro() {
         <div className="mt-8">
           <Link
             href="/about"
-            className="inline-block border-2 border-brand-black px-8 py-3 font-heading text-sm font-semibold uppercase tracking-widest text-brand-black transition-colors duration-200 hover:bg-brand-black hover:text-brand-white"
+            className="btn-outline-black"
           >
             About Us &gt;
           </Link>

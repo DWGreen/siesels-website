@@ -29,7 +29,7 @@ export default function FeatureGrid() {
             <div className="mt-8">
               <Link
                 href="/order-online"
-                className="inline-block border-2 border-white px-8 py-3 font-heading text-sm font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-white hover:text-brand-black"
+                className="btn-outline-white"
               >
                 Order Online &gt;
               </Link>
@@ -49,7 +49,7 @@ export default function FeatureGrid() {
             <div className="mt-8">
               <Link
                 href="/specials"
-                className="inline-block border-2 border-white px-8 py-3 font-heading text-sm font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-white hover:text-brand-black"
+                className="btn-outline-white"
               >
                 View Specials &gt;
               </Link>

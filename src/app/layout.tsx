@@ -21,8 +21,29 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Siesel's",
-  description: "Siesel's Website",
+  metadataBase: new URL("https://www.bestmeatssandiego.com"),
+  title:
+    "Iowa Meat Farms & Siesel's Meats | Expert Butcher Shop in San Diego Since 1968",
+  description:
+    "San Diego's premier butcher shops since 1968. Fresh-cut meats, deli sandwiches, weekly specials & more. Two locations: Iowa Meat Farms and Siesel's Meats.",
+  openGraph: {
+    title:
+      "Iowa Meat Farms & Siesel's Meats | Expert Butcher Shop in San Diego Since 1968",
+    description:
+      "San Diego's premier butcher shops since 1968. Fresh-cut meats, deli sandwiches, weekly specials & more. Two locations: Iowa Meat Farms and Siesel's Meats.",
+    url: "https://www.bestmeatssandiego.com",
+    siteName: "Siesel's Meats",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Iowa Meat Farms & Siesel's Meats — San Diego's Expert Butcher Shops Since 1968",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -31,8 +52,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${oswald.variable} ${openSans.variable} ${playfairDisplay.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+    <html lang="en" data-scroll-behavior="smooth" className={`${oswald.variable} ${openSans.variable} ${playfairDisplay.variable}`}>
+      <body className="font-body antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-brand-black focus:px-4 focus:py-2 focus:text-brand-white"
+        >
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
