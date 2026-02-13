@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import AboutIntro from "@/components/sections/AboutIntro";
 import FeatureGrid from "@/components/sections/FeatureGrid";
 import Locations from "@/components/sections/Locations";
+import InstagramGallery from "@/components/sections/InstagramGallery";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <AboutIntro />
         <FeatureGrid />
         <Locations />
+        <InstagramGallery />
       </main>
       <Footer />
     </div>
