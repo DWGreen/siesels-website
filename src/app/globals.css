@@ -12,3 +12,9 @@
   --font-heading: var(--font-oswald), sans-serif;
   --font-body: var(--font-open-sans), sans-serif;
 }
+
+@utility bg-wood-texture {
+  background-image: url('/images/textures/wood-grain.jpg');
+  background-size: cover;
+  background-position: center;
+}
