@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import AboutIntro from "@/components/sections/AboutIntro";
+import FeatureGrid from "@/components/sections/FeatureGrid";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <AboutIntro />
+        <FeatureGrid />
       </main>
       <Footer />
     </div>
