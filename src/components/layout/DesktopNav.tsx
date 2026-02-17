@@ -59,7 +59,7 @@ export default function DesktopNav() {
       {/* Center logo */}
       <Link href="/" className="relative z-10 -mb-8 flex-shrink-0">
         <Image
-          src="/images/logos/siesels-logo.png"
+          src="/images/logos/logo.png"
           alt="Siesel's Meats"
           width={100}
           height={100}

@@ -8,7 +8,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative aspect-[3/2]">
           <Image
-            src="/images/features/deli-sandwich.jpg"
+            src="/images/features/sandwich.png"
             alt="Roast beef deli sandwich with greens on artisan bread, served on a wooden cutting board"
             fill
             className="object-cover"
@@ -19,7 +19,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Right: Order Online CTA */}
         <div
           className="relative flex aspect-[3/2] items-center justify-center bg-[#6B4226] bg-cover bg-center px-8 py-16 md:px-[60px]"
-          style={{ backgroundImage: "url('/images/textures/wood-grain-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood.png')" }}
         >
           <div className="text-center">
             <h2 className="font-serif text-2xl font-bold uppercase leading-tight text-white md:text-[28px] md:leading-snug">
@@ -40,7 +40,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
         <div
           className="relative order-4 flex aspect-[3/2] items-center justify-center bg-[#8B6914] bg-cover bg-center px-8 py-16 md:order-none md:px-[60px]"
-          style={{ backgroundImage: "url('/images/textures/wood-endgrain.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood.png')" }}
         >
           <div className="text-center">
             <h2 className="font-serif text-2xl font-bold uppercase leading-tight text-white md:text-[28px] md:leading-snug">
@@ -60,7 +60,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Right: Blueberries photo (on mobile this comes BEFORE specials) */}
         <div className="relative order-3 aspect-[3/2] md:order-none">
           <Image
-            src="/images/features/blueberries.jpg"
+            src="/images/features/blueberries.png"
             alt="Child's hands holding fresh blueberries over green grass"
             fill
             className="object-cover"

@@ -19,7 +19,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-4 py-3 lg:hidden">
         <Link href="/">
           <Image
-            src="/images/logos/siesels-logo.png"
+            src="/images/logos/logo.png"
             alt="Siesel's Meats"
             width={50}
             height={50}

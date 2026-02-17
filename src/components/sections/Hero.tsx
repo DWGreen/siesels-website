@@ -1,8 +1,16 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden lg:h-[85vh]">
-      {/* Dark placeholder background — replace with next/image once asset is ready */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-dark to-brand-black" />
+    <section className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden lg:h-[45vh]">
+      {/* Hero background image */}
+      <Image
+        src="/images/hero/hero_image.png"
+        alt="Siesel's Meats butcher shop"
+        fill
+        className="object-cover"
+        priority
+      />
 
       {/* Overlay for extra contrast */}
       <div className="absolute inset-0 bg-black/30" />
@@ -10,45 +18,13 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-4 lg:flex-row lg:gap-12">
         {/* Master Meat Cutters badge */}
-        <div className="flex size-[60px] shrink-0 items-center justify-center rounded-full border-2 border-white/80 lg:size-[120px] lg:border-[3px]">
-          <div className="flex size-[50px] items-center justify-center rounded-full border border-white/40 lg:size-[100px]">
-            <svg
-              viewBox="0 0 200 200"
-              className="size-[46px] lg:size-[94px]"
-              aria-label="Master Meat Cutters — I.M.S. — San Diego — Est 1968"
-            >
-              {/* Circular text path */}
-              <defs>
-                <path
-                  id="badge-circle"
-                  d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"
-                />
-              </defs>
-              <text
-                fill="white"
-                fontSize="15"
-                fontWeight="600"
-                letterSpacing="3"
-                className="uppercase"
-              >
-                <textPath href="#badge-circle" startOffset="0%">
-                  MASTER MEAT CUTTERS • I.M.S. • SAN DIEGO • EST 1968 •
-                </textPath>
-              </text>
-              {/* Center star/dot */}
-              <text
-                x="100"
-                y="108"
-                textAnchor="middle"
-                fill="white"
-                fontSize="28"
-                fontWeight="bold"
-              >
-                ★
-              </text>
-            </svg>
-          </div>
-        </div>
+        <Image
+          src="/images/logos/logo_master-cutter.png"
+          alt="Master Meat Cutters — I.M.S. — San Diego — Est 1968"
+          width={120}
+          height={120}
+          className="size-[60px] shrink-0 lg:size-[120px]"
+        />
 
         {/* Text block */}
         <div className="flex flex-col items-center text-center">
