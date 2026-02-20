@@ -16,7 +16,6 @@
 
 @utility bg-wood-texture {
   background-image: url('/images/textures/wood.png');
-  background-size: cover;
   background-position: center;
 }
 
