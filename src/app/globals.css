@@ -15,7 +15,8 @@
 }
 
 @utility bg-wood-texture {
-  background-image: url('/images/textures/wood.png');
+  background-image: url('/images/textures/wood-alt.jpg');
+  background-size: contain;
   background-position: center;
 }
 

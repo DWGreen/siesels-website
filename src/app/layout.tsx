@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${oswald.variable} ${openSans.variable} ${playfairDisplay.variable}`}>
-      <body className="font-body antialiased">
+      <body className="mx-auto max-w-[1440px] font-body antialiased">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-brand-black focus:px-4 focus:py-2 focus:text-brand-white"

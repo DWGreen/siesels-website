@@ -14,7 +14,7 @@ const iconMap = {
 
 export default function DesktopNav() {
   return (
-    <nav className="mx-auto hidden max-w-7xl items-center justify-between px-6 py-4 lg:flex">
+    <nav className="mx-auto hidden max-w-7xl items-center justify-between px-6 py-6 lg:flex">
       {/* Left nav group */}
       <ul className="flex items-center gap-8">
         {leftNavItems.map((item) => (
@@ -26,7 +26,7 @@ export default function DesktopNav() {
               <>
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 font-heading text-sm uppercase tracking-widest text-brand-white transition-colors hover:text-brand-wood"
+                  className="flex items-center gap-1 font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]"
                 >
                   {item.label}
                   <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
@@ -47,7 +47,7 @@ export default function DesktopNav() {
             ) : (
               <Link
                 href={item.href}
-                className="font-heading text-sm uppercase tracking-widest text-brand-white transition-colors hover:text-brand-wood"
+                className="font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]"
               >
                 {item.label}
               </Link>
@@ -57,15 +57,25 @@ export default function DesktopNav() {
       </ul>
 
       {/* Center logo */}
-      <Link href="/" className="relative z-10 -mb-8 flex-shrink-0">
-        <Image
-          src="/images/logos/logo.png"
-          alt="Siesel's Meats"
-          width={100}
-          height={100}
-          className="h-20 w-auto object-contain lg:h-24"
-          priority
-        />
+      <Link href="/" className="relative z-10 -mb-24 flex-shrink-0">
+        <div className="relative">
+          <Image
+            src="/images/logos/logo-background.png"
+            alt=""
+            width={140}
+            height={140}
+            className="absolute inset-0 h-full w-full scale-110 object-contain"
+            aria-hidden="true"
+          />
+          <Image
+            src="/images/logos/logo.png"
+            alt="Siesel's Meats"
+            width={140}
+            height={140}
+            className="relative z-10 h-32 w-auto object-contain lg:h-36"
+            priority
+          />
+        </div>
       </Link>
 
       {/* Right nav group + social icons */}
@@ -74,7 +84,7 @@ export default function DesktopNav() {
           <li key={item.label}>
             <Link
               href={item.href}
-              className="font-heading text-sm uppercase tracking-widest text-brand-white transition-colors hover:text-brand-wood"
+              className="font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]"
             >
               {item.label}
             </Link>
@@ -89,7 +99,7 @@ export default function DesktopNav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="text-brand-white transition-colors hover:text-brand-wood"
+                className="text-brand-white transition-colors hover:text-[#f8f0c6]"
               >
                 <Icon className="h-5 w-5" />
               </a>

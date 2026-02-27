@@ -19,7 +19,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Right: Order Online CTA */}
         <div
           className="relative flex aspect-[3/2] items-center justify-center bg-[#6B4226] bg-cover bg-center px-8 py-16 md:px-[60px]"
-          style={{ backgroundImage: "url('/images/textures/wood.png')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="text-center">
             <h2 className="font-serif text-2xl font-bold uppercase leading-tight text-white md:text-[28px] md:leading-snug">
@@ -40,7 +40,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
         <div
           className="relative order-4 flex aspect-[3/2] items-center justify-center bg-[#8B6914] bg-cover bg-center px-8 py-16 md:order-none md:px-[60px]"
-          style={{ backgroundImage: "url('/images/textures/wood.png')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="text-center">
             <h2 className="font-serif text-2xl font-bold uppercase leading-tight text-white md:text-[28px] md:leading-snug">
