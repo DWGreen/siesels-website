@@ -3,7 +3,7 @@
 @theme {
   --color-brand-black: #1a1a1a;
   --color-brand-white: #ffffff;
-  --color-brand-gray: #f5f5f5;
+  --color-brand-gray: #e5e5e5;
   --color-brand-wood: #8B6914;
   --color-brand-dark: #2d2d2d;
 }
@@ -12,6 +12,8 @@
   --font-heading: var(--font-oswald), sans-serif;
   --font-body: var(--font-open-sans), sans-serif;
   --font-serif: var(--font-playfair), serif;
+  --font-barlow: var(--font-barlow-condensed), sans-serif;
+  --font-zilla: var(--font-zilla-slab), serif;
 }
 
 @utility bg-wood-texture {
@@ -34,14 +36,14 @@
 /* Button outline styles */
 .btn-outline-white {
   display: inline-block;
-  border: 2px solid white;
   padding: 0.75rem 2rem;
   font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: white;
+  color: var(--color-brand-black);
+  background-color: white;
   transition: background-color 200ms, color 200ms;
 }
 .btn-outline-white:hover {
@@ -51,14 +53,14 @@
 
 .btn-outline-black {
   display: inline-block;
-  border: 2px solid var(--color-brand-black);
   padding: 0.75rem 2rem;
   font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-brand-black);
+  background-color: var(--color-brand-white);
   transition: background-color 200ms, color 200ms;
 }
 .btn-outline-black:hover {

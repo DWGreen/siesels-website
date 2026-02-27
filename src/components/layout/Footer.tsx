@@ -14,9 +14,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
           {/* Left column — social + nav links */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-10">
             {/* Social icons */}
-            <div className="mb-8 flex gap-5">
+            <div className="flex gap-5">
               {socialLinks.map((link) => {
                 const Icon = iconMap[link.icon];
                 return (
@@ -41,7 +41,7 @@ export default function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="font-heading text-[13px] uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60"
+                      className="font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60"
                     >
                       {item.label}
                     </Link>
@@ -53,16 +53,16 @@ export default function Footer() {
 
           {/* Right column — newsletter signup */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="mb-6 max-w-md text-center font-serif text-[22px] leading-snug font-bold uppercase text-brand-white md:text-left">
+            <h3 className="mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]">
               Sign Up to Receive Weekly Specials, Promotions and More!
             </h3>
 
-            <form className="flex w-full max-w-md flex-col gap-3 sm:flex-row sm:gap-0">
+            <form className="flex w-full max-w-lg flex-col gap-3 sm:flex-row sm:gap-0">
               <input
                 type="email"
                 required
                 placeholder="Enter Your Email Address"
-                className="h-12 flex-1 bg-brand-white px-4 font-body text-sm text-brand-black placeholder:text-gray-400 focus:outline-none sm:rounded-none"
+                className="h-12 flex-1 border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:rounded-none"
               />
               <button
                 type="submit"

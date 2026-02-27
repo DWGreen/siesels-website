@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald, Open_Sans, Playfair_Display } from "next/font/google";
+import { Oswald, Open_Sans, Playfair_Display, Barlow_Condensed, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -17,6 +17,20 @@ const openSans = Open_Sans({
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  display: "swap",
+});
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
+});
+
+const zillaSlab = Zilla_Slab({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-zilla-slab",
   display: "swap",
 });
 
@@ -52,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${oswald.variable} ${openSans.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${oswald.variable} ${openSans.variable} ${playfairDisplay.variable} ${barlowCondensed.variable} ${zillaSlab.variable}`}>
       <body className="mx-auto max-w-[1440px] font-body antialiased">
         <a
           href="#main-content"

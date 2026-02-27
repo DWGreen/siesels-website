@@ -33,7 +33,7 @@ export default function Locations() {
         </div>
 
         {/* Heading */}
-        <h2 className="mb-10 text-center font-serif text-[28px] font-bold uppercase leading-tight text-brand-black">
+        <h2 className="mb-10 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]">
           Visit One of Our Two Locations
         </h2>
 
@@ -42,18 +42,18 @@ export default function Locations() {
           {locations.map((loc) => (
             <div
               key={loc.name}
-              className="overflow-hidden rounded bg-white shadow-sm ring-1 ring-gray-200"
+              className="overflow-hidden border-2 border-brand-black bg-white p-3"
             >
               <iframe
                 title={`Map of ${loc.name}`}
                 src={`https://www.google.com/maps?q=${loc.mapQuery}&output=embed`}
-                className="h-[200px] w-full md:h-[250px]"
+                className="h-[350px] w-full md:h-[400px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <div className="p-5 text-sm text-gray-700">
-                <h3 className="mb-2 font-heading text-base font-bold uppercase tracking-wide text-brand-black">
+              <div className="p-5 text-sm font-medium text-gray-700">
+                <h3 className="mb-2 font-heading text-xl font-bold uppercase tracking-[0.1em] text-brand-black">
                   {loc.name}
                 </h3>
                 <p>{loc.address}</p>
