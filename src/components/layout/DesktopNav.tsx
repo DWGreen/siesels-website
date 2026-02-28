@@ -90,11 +90,12 @@ export default function DesktopNav() {
             </Link>
           </li>
         ))}
-        {socialLinks.map((social) => {
-          const Icon = iconMap[social.icon];
-          return (
-            <li key={social.label}>
+        <li className="flex items-center gap-3">
+          {socialLinks.map((social) => {
+            const Icon = iconMap[social.icon];
+            return (
               <a
+                key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -103,9 +104,9 @@ export default function DesktopNav() {
               >
                 <Icon className="h-5 w-5" />
               </a>
-            </li>
-          );
-        })}
+            );
+          })}
+        </li>
       </ul>
     </nav>
   );

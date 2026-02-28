@@ -10,8 +10,8 @@ export const leftNavItems: NavItem[] = [
     label: "Order Online",
     href: "/order",
     children: [
-      { label: "Siesel's Meats", href: "/order/siesels" },
-      { label: "Iowa Meat Farms", href: "/order/iowa-meat-farms" },
+      { label: "Sandwich Ordering", href: "/sandwiches" },
+      { label: "Instacart", href: "/order/instacart" },
     ],
   },
   { label: "Cooking", href: "/cooking" },
