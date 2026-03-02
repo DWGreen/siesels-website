@@ -16,7 +16,7 @@ export default function DesktopNav() {
   return (
     <nav className="mx-auto hidden max-w-7xl items-center justify-between px-6 py-6 lg:flex">
       {/* Left nav group */}
-      <ul className="flex items-center gap-8">
+      <ul className="flex flex-1 items-center gap-8">
         {leftNavItems.map((item) => (
           <li
             key={item.label}
@@ -79,7 +79,7 @@ export default function DesktopNav() {
       </Link>
 
       {/* Right nav group + social icons */}
-      <ul className="flex items-center gap-8">
+      <ul className="flex flex-1 items-center justify-end gap-8">
         {rightNavItems.map((item) => (
           <li key={item.label}>
             <Link
