@@ -35,7 +35,7 @@ const instagramPhotos = [
 
 export default function InstagramGallery() {
   return (
-    <section className="bg-brand-dark py-12 md:py-20">
+    <section className="pt-12 pb-6 md:pt-20 md:pb-10">
       <div>
         {/* Heading */}
         <h2 className="mb-8 px-4 text-center font-barlow text-lg font-bold tracking-[0.15em] text-brand-white md:mb-12 md:text-xl">

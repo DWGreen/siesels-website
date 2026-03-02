@@ -15,9 +15,11 @@ export default function Home() {
         <AboutIntro />
         <FeatureGrid />
         <Locations />
-        <InstagramGallery />
       </main>
-      <Footer />
+      <div className="bg-footer-texture">
+        <InstagramGallery />
+        <Footer />
+      </div>
     </div>
   );
 }

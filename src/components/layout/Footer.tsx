@@ -9,9 +9,9 @@ const iconMap = {
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-black text-brand-white">
+    <footer className="text-brand-white">
       {/* Main footer content */}
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-6 pt-10 pb-16 md:pt-12 md:pb-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
           {/* Left column — social + nav links */}
           <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-10">

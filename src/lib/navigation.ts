@@ -35,12 +35,12 @@ export const footerNavItems: NavItem[] = [
 export const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com",
+    href: "https://instagram.com/bestmeatssandiego",
     icon: "instagram" as const,
   },
   {
     label: "Facebook",
-    href: "https://facebook.com",
+    href: "https://facebook.com/BestMeatsSanDiego",
     icon: "facebook" as const,
   },
 ];
