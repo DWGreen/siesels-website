@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function AboutIntro() {
+interface AboutIntroProps {
+  hideButton?: boolean;
+}
+
+export default function AboutIntro({ hideButton = false }: AboutIntroProps) {
   return (
     <section className="bg-brand-gray px-4 py-12 md:py-20">
       <div className="mx-auto max-w-[840px] text-center">
@@ -33,14 +37,16 @@ export default function AboutIntro() {
         </p>
 
         {/* CTA Button */}
-        <div className="mt-8">
-          <Link
-            href="/about"
-            className="btn-outline-black"
-          >
-            About Us &gt;
-          </Link>
-        </div>
+        {!hideButton && (
+          <div className="mt-8">
+            <Link
+              href="/about"
+              className="btn-outline-black"
+            >
+              About Us &gt;
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

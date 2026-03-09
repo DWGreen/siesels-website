@@ -1,23 +1,26 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import InteriorHero from "@/components/sections/InteriorHero";
+import AboutIntro from "@/components/sections/AboutIntro";
+import AboutFeatureGrid from "@/components/sections/AboutFeatureGrid";
 
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main id="main-content" className="flex flex-1 flex-col">
-        <section className="flex flex-1 items-center justify-center bg-brand-gray px-4 py-20 lg:py-32">
-          <div className="text-center">
-            <h1 className="font-heading text-5xl font-bold uppercase tracking-[0.15em] text-brand-black sm:text-6xl lg:text-8xl">
-              About
-            </h1>
-            <p className="mt-6 font-body text-lg tracking-[0.2em] text-brand-dark lg:text-xl">
-              Our story is coming soon. Check back to learn more about Siesel&apos;s Meats.
-            </p>
-          </div>
-        </section>
+      <main id="main-content" className="flex flex-1 flex-col gap-2">
+        <InteriorHero
+          title="About"
+          backgroundImage="/images/hero/butcher.jpg"
+          backgroundAlt="Butcher at work at Siesel's Meats"
+          showMasterLogo
+        />
+        <AboutIntro hideButton />
+        <AboutFeatureGrid />
       </main>
-      <Footer />
+      <div className="bg-footer-texture">
+        <Footer />
+      </div>
     </div>
   );
 }
