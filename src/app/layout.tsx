@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import {
+  CartProvider
+} from "@/context/CartContext";
 import { Oswald, Open_Sans, Playfair_Display, Barlow_Condensed, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 
@@ -74,7 +77,9 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
