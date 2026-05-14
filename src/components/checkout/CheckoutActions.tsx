@@ -3,7 +3,11 @@
 import { useRouter }
   from "next/navigation";
 
-export default function CheckoutActions() {
+  type Props = {
+  onCheckout: () => void;
+};
+
+export default function CheckoutActions({ onCheckout }: Props) {
 
   const router =
     useRouter();
@@ -27,6 +31,7 @@ export default function CheckoutActions() {
           hover:opacity-90
           transition
         "
+        onClick={onCheckout}
       >
         Continue To Payment
       </button>

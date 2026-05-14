@@ -1,6 +1,6 @@
 import { Product, ProductOrder } from "./product";
 import { CustomSandwich, FinalizedCustomSandwich } from "./builder";
-import { Ingredient, IngredientOverrideDefinition, IngredientSelection } from "./ingredients";
+import { Ingredient, IngredientOverrideDefinition, IngredientOverrideSelectionDraft, IngredientSelection } from "./ingredients";
 import { LargeNumberLike } from "crypto";
 
 export interface CartItem {
@@ -79,28 +79,28 @@ export interface CartModifierOptionGroupSelection {
   selectedOptions: CartModifierOptionSelection[];
 }
 export interface CartModifierOptionSelection {
-  id: number;
+  id: string;
 
   name: string;
 
   price: number;
 }
 export interface ModifierOptionDefinition {
-  id: number;
+  id: string;
 
   name: string;
   description?: string;
   price?: number;
 
   image?: {
-    id: number;
+    id: string;
     src: string;
     alt?: string;
   };
 }
 
 export type ModifierSelectionState =
-  Record<string, number[]>;
+  Record<string, string[]>;
 
 export interface ModifierDraft {
   enabled: boolean;
@@ -111,10 +111,83 @@ export interface ModifierDraft {
 }
 export interface ProductWorkflowTrigger {
 
-  productId: number;
+  productId: string;
 
   workflow:
     "build-your-own-sandwich";
 
   route: string;
+}
+
+export interface CheckoutValidationRequest {
+  items: CheckoutItemRequest[];
+}
+//we are using one single shape for all products. We keep track of the cart id, we keep track of the base product id that the cartitem is based on, whether its a custom sandwich or not, it still has a base product and
+// a base price based on that base product, and then everything else flows out of that and this is ultimately very flexible.
+export interface CheckoutItemRequest {
+cartItemId: string;
+ type: "product" | "custom-sandwich";
+productId: number;
+quantity: number;
+ingredients: ProductIngredientRequest[];
+modifiers: ProductModifierRequest[];
+
+}
+//this is the request shape for things like making a product into a combo, we dont actually list all the options that were selected in relation to the combo or half sandwich/soup, we just need to know that
+//"this product has been made into a combo and here is the additional charge for that combo" or "this product has been made into a half sandwich/soup and here is the additional charge for that"
+export interface ProductModifierRequest {
+modifierDefinitionId: string;
+modifierProductId: number;
+
+
+
+}
+//this is largely for the build your own sandwich component, since there are extras that can be added to those sandwiches that modify the price, such as "gluten free bread 2.00"
+//for these we need to know the name of the extra, the price, and the base product it is being added to, so that we can calculate the total price of the sandwich correctly at checkout
+export interface ProductIngredientRequest {
+  productId: number;
+}
+
+export interface CheckoutValidationResponse {
+  items: ValidatedCheckoutItem[];
+  subtotal: number;
+  total: number;
+  isValid: boolean;
+  errors: CheckoutValidationError[];
+}
+
+export interface ValidatedCheckoutItem {
+  cartItemId: string;
+  type: "product" | "custom-sandwich";
+  productId: number;
+  name: string;
+  quantity: number;
+
+  basePrice: number;
+  ingredientTotal: number;
+  modifierTotal: number;
+  unitPrice: number;
+  totalPrice: number;
+
+  ingredients: ValidatedProductIngredient[];
+  modifiers: ValidatedProductModifier[];
+}
+
+export interface ValidatedProductIngredient {
+  productId: number;
+  name: string;
+  price: number;
+}
+
+export interface ValidatedProductModifier {
+  modifierDefinitionId: string;
+  modifierProductId: number;
+  name: string;
+  price: number;
+  overrideBasePrice: boolean;
+}
+
+export interface CheckoutValidationError {
+  cartItemId?: string;
+  message: string;
 }

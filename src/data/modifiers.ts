@@ -88,3 +88,11 @@ export function getModifierDefinitionsForCategories(
     ).values()
   );
 }
+
+export function getModifierByDefinitionId(
+  id: string
+): ModifierDefinition | undefined {
+  return modifierDefinitions.find(
+    definition => definition.id === id
+  );
+}

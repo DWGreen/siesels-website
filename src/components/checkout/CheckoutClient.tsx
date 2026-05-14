@@ -19,8 +19,33 @@ import CheckoutActions
 import {
   useRouter
 } from "next/navigation";
+import { createCheckoutValidationRequest} from "@/utils/pricingRequestFactory";
+
 
 import { routes } from "@/utils/routes";
+import { CartItem } from "@/types/cart";
+
+
+async function validateCart(cartItems: CartItem[]) {
+  const request = createCheckoutValidationRequest(cartItems);
+
+  const response = await fetch("/api/checkout/validate", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    console.error("Validation failed:", result.errors);
+    return null;
+  }
+ console.log("Validation succeeded:", result);
+  return result;
+}
 
 export default function CheckoutClient() {
       const router = useRouter();
@@ -136,7 +161,7 @@ export default function CheckoutClient() {
             estimatedTotal={estimatedTotal}
           />
 
-          <CheckoutActions />
+          <CheckoutActions onCheckout={() => validateCart(cart.items)} />
 
         </div>
 

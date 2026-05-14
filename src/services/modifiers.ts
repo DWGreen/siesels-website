@@ -26,7 +26,7 @@ export async function getHydratedModifierDefinition(
   const baseProduct =
     baseProductId
       ? await getProductById(
-          String(baseProductId)
+          baseProductId
         )
       : null;
 

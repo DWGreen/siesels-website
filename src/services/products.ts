@@ -1,6 +1,7 @@
 import api from "@/lib/woocommerce";
 import { mapWooProduct }
   from "./mappers/productMapper";
+import { Product } from "@/types/product";
 
 export async function getProducts() {
   try {
@@ -13,7 +14,7 @@ export async function getProducts() {
   }
 }
 
-export async function getProductById(id: string) {
+export async function getProductById(id: number) {
   try {
     const response = await api.get(`products/${id}`);
 
@@ -21,6 +22,17 @@ export async function getProductById(id: string) {
   } catch (error) {
     console.error(`Failed to fetch product with id ${id}:`, error);
     return null;
+  }
+}
+
+export async function getProductsByIds(ids: number[]) : Promise<Product[]> {
+  try {
+    const response = await api.get(`products?include=${ids.join(",")}`);
+
+    return response.data.map(mapWooProduct);
+  } catch (error) {
+    console.error(`Failed to fetch products with ids ${ids.join(",")}:`, error);
+    return [];
   }
 }
 
