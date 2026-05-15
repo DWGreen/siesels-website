@@ -4,13 +4,16 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   onCheckout: () => void;
+  disabled?: boolean;
+  isLoading?: boolean;
 };
 
 export default function CheckoutActions({
   onCheckout,
+  disabled = false,
+  isLoading = false,
 }: Props) {
-  const router =
-    useRouter();
+  const router = useRouter();
 
   return (
     <div
@@ -21,6 +24,7 @@ export default function CheckoutActions({
     >
       <button
         type="button"
+        disabled={disabled || isLoading}
         className="
           w-full
           border
@@ -36,16 +40,22 @@ export default function CheckoutActions({
           transition
           hover:bg-white
           hover:text-neutral-950
+          disabled:cursor-not-allowed
+          disabled:opacity-50
+          disabled:hover:bg-neutral-950
+          disabled:hover:text-white
         "
         onClick={onCheckout}
       >
-        Continue To Payment
+        {isLoading
+          ? "Preparing Checkout..."
+          : "Continue To Payment"}
       </button>
 
       <button
         type="button"
         onClick={() =>
-          router.push("/sandwiches/menu")
+          router.push("/sandwiches/")
         }
         className="
           w-full

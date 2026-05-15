@@ -1,7 +1,7 @@
 import SandwichBuilder from "@/components/sandwich-builder/SandwichBuilder";
 
 export const routes = {
-  menu: "/sandwiches/menu",
+  menu: "/sandwiches/",
   cart: "/sandwiches/cart",
   checkout: "/sandwiches/checkout",
 

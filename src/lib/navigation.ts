@@ -8,7 +8,7 @@ export const leftNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
   {
     label: "Order Online",
-    href: "/order",
+    href: "/sandwiches",
     children: [
       { label: "Sandwich Ordering", href: "/sandwiches" },
       { label: "Instacart", href: "/order/instacart" },
@@ -24,7 +24,7 @@ export const rightNavItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
-  { label: "Order Sandwiches Online", href: "/order" },
+  { label: "Order Sandwiches Online", href: "/sandwiches" },
   { label: "Gift Cards", href: "/gift-cards" },
   { label: "Cooking", href: "/cooking" },
   { label: "Locations", href: "/locations" },

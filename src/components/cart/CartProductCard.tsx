@@ -1,8 +1,9 @@
-import { CartItem } from "@/types/cart";
+import { CartItem, ValidatedCheckoutItem } from "@/types/cart";
 import QuickIngredientsList
   from "@/components/menu/QuickIngredientsList";
 import { IngredientSelection } from "@/types/ingredients";
 import CartModifierList from "./CartModifierList";
+import { formatCurrencyFromCents } from "@/utils/money";
 
 type Props = {
   item: CartItem;
@@ -12,12 +13,18 @@ type Props = {
   onToggleIngredient?: (
     ingredient: IngredientSelection
   ) => void;
+  onQuantityChange?: (
+  quantity: number
+) => void;
+validatedItem?: ValidatedCheckoutItem;
 };
 
 export default function CartProductCard({
   item,
   onRemove,
   onEdit,
+  onQuantityChange,
+  validatedItem,
 }: Props) {
   const productEditable =
     (item.product?.ingredientSelections.length ?? 0) > 0 ||
@@ -72,17 +79,58 @@ export default function CartProductCard({
               {itemName}
             </h3>
 
-            <span
-              className="
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.14em]
-                text-neutral-700
-              "
-            >
-              x{item.quantity}
-            </span>
+            <label
+  className="
+    flex
+    items-center
+    gap-2
+    text-xs
+    font-black
+    uppercase
+    tracking-[0.14em]
+    text-neutral-700
+  "
+>
+  Qty
+
+  <select
+    value={item.quantity}
+    onChange={(event) =>
+      onQuantityChange?.(
+        Number(event.target.value)
+      )
+    }
+    className="
+      border
+      border-neutral-950
+      bg-[#e6e6e6]
+      px-2
+      py-1
+      text-xs
+      font-black
+      uppercase
+      tracking-[0.12em]
+      text-neutral-950
+      outline-none
+      transition
+      focus:bg-white
+    "
+  >
+    {Array.from(
+      {
+        length: 10,
+      },
+      (_, index) => index + 1
+    ).map(quantity => (
+      <option
+        key={quantity}
+        value={quantity}
+      >
+        {quantity}
+      </option>
+    ))}
+  </select>
+</label>
 
             {productEditable && (
               <button
@@ -157,7 +205,9 @@ export default function CartProductCard({
               tracking-[0.12em]
             "
           >
-            ${item.totalPrice.toFixed(2)}
+           {validatedItem
+  ? formatCurrencyFromCents(validatedItem.totalPriceCents)
+  : `$${item.totalPrice.toFixed(2)}`}
           </span>
 
           <button

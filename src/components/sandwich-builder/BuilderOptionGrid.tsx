@@ -15,11 +15,10 @@ export default function BuilderOptionGrid({
   return (
     <div
       className="
-        grid
+       grid
         grid-cols-1
         sm:grid-cols-2
-        lg:grid-cols-3
-        gap-x-10
+        gap-x-8
         gap-y-3
       "
     >

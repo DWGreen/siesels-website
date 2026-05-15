@@ -12,7 +12,7 @@ import {
 } from "@/services/categories";
 type Props = {
   searchParams: Promise<{
-    productId?: string;
+    productId?: number;
     editCartItemId?: string;
     returnTo?: string;
   }>;
@@ -36,7 +36,7 @@ if (!product) {
   notFound();
 }
 
-const returnTo = params.returnTo || "/sandwiches/menu";
+const returnTo = params.returnTo || "/sandwiches/";
 const fullProductCategories =
   await Promise.all(
     product.categories.map(

@@ -44,7 +44,7 @@ export function finalizeCustomSandwich(
     ingredients,
    selections: sandwich.selections,
     baseProductId: sandwich.baseProductId,
-    quantity: sandwich.quantity,
+   
 
     pricing: pricing,
   };

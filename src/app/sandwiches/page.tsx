@@ -7,31 +7,27 @@ import { getProducts }
 import MenuGrid
   from "@/components/menu/MenuGrid";
 
-export default async function SandwichesPage() {
-  const products = await getProducts();
+  import { getMenuStructure } from "@/services/menu";
+import MenuClient
+  from "./MenuClient";
 
+import {
+  getProductsByCategoryId
+} from "@/services/products";
+
+export default async function SandwichesPage() {
+
+const menuStructure =
+    await getMenuStructure();
   return (
     <>
-      <InteriorHero
-        title="Sandwiches"
-        backgroundImage="/images/hero/butcher.jpg"
-        backgroundAlt="Butcher at work at Siesel's Meats"
-      />
+     
 
-      <section
-        className="
-          flex
-          flex-1
-          items-center
-          justify-center
-          bg-brand-gray
-          px-4
-          py-20
-          lg:py-32
-        "
-      >
-        <MenuGrid products={products} />
-      </section>
+      
+          <MenuClient
+              menuStructure={menuStructure}
+            />
+      
     </>
   );
 }

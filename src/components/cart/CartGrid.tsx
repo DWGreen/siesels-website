@@ -14,6 +14,10 @@ type Props = {
     itemId: string,
     baseProductId: number
   ) => void;
+  onQuantityChange?: (
+  itemId: string,
+  quantity: number
+) => void;
 };
 
 export default function CartGrid({
@@ -22,6 +26,7 @@ export default function CartGrid({
   onToggleIngredient,
   onEditItem,
   onEditCustomItem,
+  onQuantityChange,
 }: Props) {
   if (items.length === 0) {
     return (
@@ -49,6 +54,12 @@ export default function CartGrid({
           onRemove={() =>
             onRemove?.(item.id)
           }
+          onQuantityChange={(quantity) =>
+    onQuantityChange?.(
+      item.id,
+      quantity
+    )
+  }
           onToggleIngredient={(ingredient) =>
             onToggleIngredient?.(
               item.id,

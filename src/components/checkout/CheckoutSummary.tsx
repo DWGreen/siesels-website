@@ -1,13 +1,19 @@
+import { formatCurrencyFromCents } from "@/utils/money";
+
 type Props = {
-  subtotal: number;
-  estimatedTax: number;
-  estimatedTotal: number;
+  subtotalCents: number;
+  taxCents: number;
+  totalCents: number;
+  isValidating?: boolean;
+  isValidated?: boolean;
 };
 
 export default function CheckoutSummary({
-  subtotal,
-  estimatedTax,
-  estimatedTotal,
+  subtotalCents,
+  taxCents,
+  totalCents,
+  isValidating = false,
+  isValidated = false,
 }: Props) {
   return (
     <section
@@ -35,6 +41,23 @@ export default function CheckoutSummary({
 
       <div
         className="
+          mb-5
+          text-xs
+          font-black
+          uppercase
+          tracking-[0.16em]
+          text-neutral-700
+        "
+      >
+        {isValidating
+          ? "Validating totals..."
+          : isValidated
+            ? "Validated totals"
+            : "Estimated totals"}
+      </div>
+
+      <div
+        className="
           space-y-4
           text-sm
           font-semibold
@@ -57,7 +80,7 @@ export default function CheckoutSummary({
           </span>
 
           <span>
-            ${subtotal.toFixed(2)}
+            {formatCurrencyFromCents(subtotalCents)}
           </span>
         </div>
 
@@ -74,11 +97,11 @@ export default function CheckoutSummary({
               tracking-[0.16em]
             "
           >
-            Estimated Tax
+            Tax
           </span>
 
           <span>
-            ${estimatedTax.toFixed(2)}
+            {formatCurrencyFromCents(taxCents)}
           </span>
         </div>
 
@@ -104,7 +127,7 @@ export default function CheckoutSummary({
           </span>
 
           <span>
-            ${estimatedTotal.toFixed(2)}
+            {formatCurrencyFromCents(totalCents)}
           </span>
         </div>
       </div>

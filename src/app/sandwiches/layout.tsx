@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CartGrid from "@/components/cart/CartGrid";
-import CartSidebar from "@/components/cart/CartSideBar";
+import InteriorHero from "@/components/sections/InteriorHero";
+
 
 export default function SandwichesLayout({
   children,
@@ -16,8 +16,13 @@ export default function SandwichesLayout({
         id="main-content"
         className="flex flex-1 flex-col"
       >
+         <InteriorHero
+                title="Sandwiches"
+                backgroundImage="/images/hero/butcher.jpg"
+                backgroundAlt="Butcher at work at Siesel's Meats"
+              />
         {children}
-      <CartSidebar/>
+
       </main>
 
       <div className="bg-footer-texture">

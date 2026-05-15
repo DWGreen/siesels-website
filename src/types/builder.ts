@@ -18,7 +18,7 @@ export interface CustomSandwich {
 
   selections: BuilderSelections;
 
-  quantity: number;
+
     baseProductId: number;
 
 }
@@ -36,7 +36,7 @@ export interface FinalizedCustomSandwich {
   ingredients:
     FinalizedIngredient[];
   baseProductId: number;
-  quantity: number;
+
 
   pricing: SandwichPricing;
 }

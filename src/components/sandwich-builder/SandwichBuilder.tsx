@@ -24,6 +24,8 @@ import { calculateSandwichPrice } from "@/pricing/priceCalculations";
 import ModifierSection from "../modifiers/ModifierSection";
 import { createModifierDraft, toggleModifierOption, modifierDraftToCartModifier} from "@/utils/modifierDraftFactory";
 import { modifierDefinitions } from "@/data/modifiers";
+import { calculateCartItemPrice } from "@/utils/cartPricing";
+import { validateModifierDrafts } from "@/utils/modifierHelpers";
 
 type Props = {
   steps: BuilderStep[];
@@ -32,6 +34,8 @@ type Props = {
   returnTo: string;
   modifierDefinitions: ModifierDefinition[];
 };
+
+
 
 function isStepComplete(
   step: BuilderStep,
@@ -62,7 +66,7 @@ function handleAddToCart(
     modifiers: CartModifier[],
   editingItem?: CartItem,
   product: Product | null = null,
-  
+  quantity: number = 1
 
 ) {
 
@@ -86,7 +90,8 @@ finalizeCustomSandwich(
   const cartItem =
     customSandwichToCartItem(
       finalized,
-      modifiers
+      modifiers,
+      quantity
     );
 if (editingItem) {
   updateItem(
@@ -156,8 +161,7 @@ function buildInitialSandwichState(
             steps
           ),
 
-    quantity:
-      editingItem?.quantity || 1,
+
 
     
     baseProductId:
@@ -273,6 +277,7 @@ const { addItem, updateItem } =
         editingItem
       )
     );  
+    
   const initialModifiers =
     useMemo(
       () =>
@@ -283,7 +288,37 @@ const { addItem, updateItem } =
         editingItem,
       ]
     );   
-
+    function buildInitialQuantity(
+  editingItem?: CartItem
+): number {
+  return editingItem?.quantity ?? 1;
+}
+  const initialQuantity =
+    useMemo(
+      () =>
+        buildInitialQuantity(
+          editingItem
+        ),
+      [
+        editingItem,
+      ]
+    );
+     const [
+    quantity,
+    setQuantity,
+  ] = useState<number>(
+    initialQuantity
+  );
+    function handleQuantityChange(
+    value: number
+  ) {
+    setQuantity(
+      Math.max(
+        1,
+        value || 1
+      )
+    );
+  }
       const [
       modifierDrafts,
       setModifierDrafts,
@@ -318,7 +353,79 @@ const { addItem, updateItem } =
           Boolean(modifier)
       );
   }
+  const liveModifiers =
+  useMemo(
+    () =>
+      buildCartModifiers(),
+    [
+      modifierDrafts,
+      modifierDefinitions,
+    ]
+  );
+
+const sandwichPricing =
+  useMemo(
+    () =>
+      calculateSandwichPrice(
+        sandwich,
+        steps,
+        product
+      ),
+    [
+      sandwich,
+      steps,
+      product,
+    ]
+  );
+
+const livePrice =
+  useMemo(
+    () =>
+      calculateCartItemPrice(
+        sandwichPricing.basePrice,
+        sandwichPricing.additionalPrice,
+        quantity,
+        liveModifiers
+      ),
+    [
+      sandwichPricing.basePrice,
+      sandwichPricing.additionalPrice,
+      quantity,
+      liveModifiers,
+    ]
+  );
+  const modifierValidation =
+    validateModifierDrafts({
+      modifierDefinitions,
+  
+      modifierDrafts,
+  
+     
+
+    });
+    const canSave =
+    modifierValidation.isValid;
+    console.log(
+      "Modifier validation result:",
+      modifierValidation
+    );
   function handleSave() {
+    const validation =
+    validateModifierDrafts({
+      modifierDefinitions,
+
+      modifierDrafts,
+
+    
+    });
+
+  if (!validation.isValid) {
+    alert(
+      validation.errors.join("\n")
+    );
+
+    return;
+  }
   const modifiers =
     buildCartModifiers();
 
@@ -336,7 +443,8 @@ const { addItem, updateItem } =
     returnTo,
     modifiers,
     editingItem,
-    product
+    product,
+    quantity
   );
 }
       function handleModifierDraftChange(
@@ -379,7 +487,7 @@ const { addItem, updateItem } =
 const builderComplete =
   steps.every(step =>
     isStepComplete(step, sandwich.selections)
-  );
+  ) && canSave;
 
   
   function toggleProduct(
@@ -507,40 +615,48 @@ const maxSelections =
         "
       >
         <div
-          className="
-            border-2
-            border-neutral-900
-            p-4
-          "
-        >
-          {product?.image?.src ? (
-            <img
-              src={product.image.src}
-              alt={product.name}
-              className="
-                h-[280px]
-                w-full
-                object-cover
-              "
-            />
-          ) : (
-            <div
-              className="
-                flex
-                h-[280px]
-                items-center
-                justify-center
-                bg-neutral-200
-                text-sm
-                uppercase
-                tracking-[0.2em]
-                text-neutral-500
-              "
-            >
-              No Image
-            </div>
-          )}
-        </div>
+  className="
+    border-2
+    border-neutral-900
+    bg-[#e6e6e6]
+    p-3
+  "
+>
+  <div
+    className="
+      flex
+      h-[280px]
+      w-full
+      items-center
+      justify-center
+      bg-white
+    "
+  >
+    {product?.image?.src ? (
+      <img
+        src={product.image.src}
+        alt={product.image.alt || product.name}
+        className="
+          max-h-full
+          max-w-full
+          object-contain
+        "
+      />
+    ) : (
+      <span
+        className="
+          text-sm
+          font-black
+          uppercase
+          tracking-[0.25em]
+          text-neutral-500
+        "
+      >
+        No Image
+      </span>
+    )}
+  </div>
+</div>
 
         <div
           className="
@@ -608,12 +724,9 @@ const maxSelections =
             </label>
 
             <select
-              value={sandwich.quantity}
+              value={quantity}
               onChange={(event) =>
-                setSandwich(prev => ({
-                  ...prev,
-                  quantity: Number(event.target.value),
-                }))
+                handleQuantityChange(Number(event.target.value))
               }
               className="
                 w-full
@@ -740,7 +853,7 @@ const maxSelections =
         >
           Subtotal:
           <span className="ml-4">
-            {/* Replace this with your calculated subtotal when ready */}
+            {`$${livePrice.totalPrice.toFixed(2)}`}
           </span>
         </div>
 
@@ -780,7 +893,7 @@ const maxSelections =
             type="button"
             onClick={handleSave}
             disabled={!builderComplete}
-            className="
+            className={`
               border
               border-white
               px-8
@@ -795,7 +908,12 @@ const maxSelections =
               hover:text-neutral-950
               disabled:cursor-not-allowed
               disabled:opacity-40
-            "
+              ${
+      canSave
+        ? "hover:bg-white hover:text-neutral-950"
+        : "cursor-not-allowed opacity-40"
+    }
+  `}
           >
             {editingItem ? "Update Sandwich" : "Add To Cart >"}
           </button>

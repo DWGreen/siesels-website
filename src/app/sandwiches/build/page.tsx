@@ -14,7 +14,7 @@ import { getModifierDefinitionsForCategories } from "@/data/modifiers";
 import { getHydratedModifierDefinitions } from "@/services/modifiers";
 type Props = {
   searchParams: Promise<{
-    productId?: string;
+    productId?: number;
     editCartItemId?: string;
     returnTo?: string;
   }>;
@@ -29,7 +29,7 @@ export default async function BuildPage({
     params.productId;
 
   console.log("productid:", productId);
-  const returnTo = params.returnTo || "/sandwiches/menu";
+  const returnTo = params.returnTo || "/sandwiches/";
 const editCartItemId = params.editCartItemId;
 const product =
     productId

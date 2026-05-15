@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import ModifierSection from "@/components/modifiers/ModifierSection";
 
@@ -24,6 +24,12 @@ import {
   ModifierDefinition,
   ModifierDraft,
 } from "@/types/cart";
+import { calculateSandwichPrice } from "@/pricing/priceCalculations";
+import { calculateCartItemPrice } from "@/utils/cartPricing";
+import {
+  validateModifierDrafts,
+} from "@/utils/modifierHelpers";
+
 
 type Props = {
   product: Product;
@@ -377,7 +383,34 @@ function updateIngredient(
       };
     });
   }
+ const liveModifiers =
+  useMemo(
+    () =>
+      buildCartModifiers(),
+    [
+      modifierDrafts,
+      modifierDefinitions,
+    ]
+  );
 
+
+
+const livePrice =
+  useMemo(
+    () =>
+      calculateCartItemPrice(
+        productOrder.pricing.basePrice,
+        productOrder.pricing.additionalPrice,
+        quantity,
+        liveModifiers
+      ),
+    [
+      productOrder.pricing.basePrice,
+      productOrder.pricing.additionalPrice,
+      quantity,
+      liveModifiers,
+    ]
+  );
   function buildCartModifiers(): CartModifier[] {
     return modifierDefinitions
       .map(definition => {
@@ -402,21 +435,46 @@ function updateIngredient(
           Boolean(modifier)
       );
   }
+const showIngredientOverrideSelector =
+  shouldShowIngredientOverrideSelector(
+    product,
+    modifierDefinitions,
+    modifierDrafts
+  );
+const modifierValidation =
+  validateModifierDrafts({
+    modifierDefinitions,
 
+    modifierDrafts,
+
+    requiresIngredientOverrideSelection:
+      showIngredientOverrideSelector,
+
+    selectedOverrideIngredientName,
+  });
+  const canSave =
+  modifierValidation.isValid;
+  console.log(
+    "Modifier validation result:",
+    modifierValidation
+  );
  function handleSave() {
-  const showIngredientOverrideSelector =
-    shouldShowIngredientOverrideSelector(
-      product,
+  
+const validation =
+    validateModifierDrafts({
       modifierDefinitions,
-      modifierDrafts
-    );
 
-  if (
-    showIngredientOverrideSelector &&
-    !selectedOverrideIngredientName
-  ) {
+      modifierDrafts,
+
+      requiresIngredientOverrideSelection:
+        showIngredientOverrideSelector,
+
+      selectedOverrideIngredientName,
+    });
+
+  if (!validation.isValid) {
     alert(
-      "Please choose one ingredient option."
+      validation.errors.join("\n")
     );
 
     return;
@@ -436,12 +494,6 @@ function updateIngredient(
     modifiers
   );
 }
-const showIngredientOverrideSelector =
-  shouldShowIngredientOverrideSelector(
-    product,
-    modifierDefinitions,
-    modifierDrafts
-  );
 
 const ingredientOverrideOptions =
   product.ingredientOverrideDefinition
@@ -662,41 +714,48 @@ const ingredientOverrideOptions =
         "
       >
         <div
-          className="
-            border-2
-            border-neutral-900
-            p-4
-          "
-        >
-          {product.image ? (
-            <img
-              src={product.image.src}
-              alt={product.name}
-              className="
-                h-[280px]
-                w-full
-                object-cover
-              "
-            />
-          ) : (
-            <div
-              className="
-                flex
-                h-[280px]
-                items-center
-                justify-center
-                bg-neutral-200
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.25em]
-                text-neutral-500
-              "
-            >
-              No Image
-            </div>
-          )}
-        </div>
+  className="
+    border-2
+    border-neutral-900
+    bg-[#e6e6e6]
+    p-3
+  "
+>
+  <div
+    className="
+      flex
+      h-[280px]
+      w-full
+      items-center
+      justify-center
+      bg-white
+    "
+  >
+    {product?.image?.src ? (
+      <img
+        src={product.image.src}
+        alt={product.image.alt || product.name}
+        className="
+          max-h-full
+          max-w-full
+          object-contain
+        "
+      />
+    ) : (
+      <span
+        className="
+          text-sm
+          font-black
+          uppercase
+          tracking-[0.25em]
+          text-neutral-500
+        "
+      >
+        No Image
+      </span>
+    )}
+  </div>
+</div>
 
         <div
           className="
@@ -830,6 +889,7 @@ const ingredientOverrideOptions =
           lg:divide-neutral-900
         "
       >
+       {draftProductOrder.ingredientSelections.length > 0 && (
         <section
           className="
             border-t
@@ -879,7 +939,7 @@ const ingredientOverrideOptions =
             }
           />
         </section>
-
+       )}
         {modifierDefinitions.length > 0 && (
           <>
             {modifierDefinitions.map(
@@ -958,7 +1018,7 @@ return (
           md:justify-between
         "
       >
-        <div
+       <div
           className="
             text-2xl
             font-black
@@ -966,9 +1026,10 @@ return (
             tracking-[0.28em]
           "
         >
-          {isEditing
-            ? "Update Item"
-            : "Add Item"}
+          Subtotal:
+          <span className="ml-4">
+            {`$${livePrice.totalPrice.toFixed(2)}`}
+          </span>
         </div>
 
         <div
@@ -1003,7 +1064,7 @@ return (
           <button
             type="button"
             onClick={handleSave}
-            className="
+            className={`
               border
               border-white
               px-8
@@ -1016,7 +1077,14 @@ return (
               transition
               hover:bg-white
               hover:text-neutral-950
-            "
+               ${
+      canSave
+        ? "hover:bg-white hover:text-neutral-950"
+        : "cursor-not-allowed opacity-40"
+    }
+  `}
+            
+            
           >
             {isEditing
               ? "Update Cart"

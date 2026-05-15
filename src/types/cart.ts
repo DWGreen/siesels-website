@@ -146,13 +146,13 @@ modifierProductId: number;
 //for these we need to know the name of the extra, the price, and the base product it is being added to, so that we can calculate the total price of the sandwich correctly at checkout
 export interface ProductIngredientRequest {
   productId: number;
-}
-
-export interface CheckoutValidationResponse {
-  items: ValidatedCheckoutItem[];
-  subtotal: number;
-  total: number;
+}export interface CheckoutValidationResponse {
   isValid: boolean;
+  items: ValidatedCheckoutItem[];
+  subtotalCents: number;
+  taxCents: number;
+  totalCents: number;
+  taxRate: number;
   errors: CheckoutValidationError[];
 }
 
@@ -163,11 +163,12 @@ export interface ValidatedCheckoutItem {
   name: string;
   quantity: number;
 
-  basePrice: number;
-  ingredientTotal: number;
-  modifierTotal: number;
-  unitPrice: number;
-  totalPrice: number;
+  basePriceCents: number;
+  effectiveBasePriceCents: number;
+  ingredientTotalCents: number;
+  modifierTotalCents: number;
+  unitPriceCents: number;
+  totalPriceCents: number;
 
   ingredients: ValidatedProductIngredient[];
   modifiers: ValidatedProductModifier[];
@@ -176,14 +177,14 @@ export interface ValidatedCheckoutItem {
 export interface ValidatedProductIngredient {
   productId: number;
   name: string;
-  price: number;
+  priceCents: number;
 }
 
 export interface ValidatedProductModifier {
   modifierDefinitionId: string;
   modifierProductId: number;
   name: string;
-  price: number;
+  priceCents: number;
   overrideBasePrice: boolean;
 }
 

@@ -42,7 +42,7 @@ export default function BuilderOptionCard({
         group
         flex
         w-full
-        items-center
+        items-start
         gap-3
         text-left
         text-sm
@@ -51,6 +51,7 @@ export default function BuilderOptionCard({
     >
       <span
         className={`
+          mt-0.5
           flex
           h-6
           w-6
@@ -76,15 +77,13 @@ export default function BuilderOptionCard({
 
       <span
         className="
-          flex
           min-w-0
           flex-1
-          items-baseline
-          gap-2
         "
       >
         <span
           className="
+            block
             font-semibold
             leading-snug
           "
@@ -95,12 +94,14 @@ export default function BuilderOptionCard({
         {price && (
           <span
             className="
+              mt-0.5
+              block
               text-xs
               font-semibold
               text-neutral-700
             "
           >
-            / {price}
+            {price}
           </span>
         )}
       </span>

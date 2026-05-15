@@ -33,6 +33,7 @@ export default function CartSidebar() {
     cart,
     removeItem,
     clearCart,
+    updateQuantity,
   } = useCart();
 
   function onEditCustomItem(
@@ -122,6 +123,15 @@ export default function CartSidebar() {
         onRemove={(itemId) => {
           removeItem(itemId);
         }}
+        onQuantityChange={(
+    itemId,
+    quantity
+  ) => {
+    updateQuantity(
+      itemId,
+      quantity
+    );
+  }}
         onEditItem={(itemId) => {
           const baseProductId =
             cart.items.find(

@@ -1,35 +1,39 @@
 "use client";
 
-import { useMemo } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import { useCart } from "@/context/CartContext";
 
-import CartItemCard
-  from "@/components/cart/CartProductCard";
+import CartItemCard from "@/components/cart/CartProductCard";
 
-import CheckoutCustomerForm
-  from "./CheckoutCustomerForm";
+import CheckoutCustomerForm from "./CheckoutCustomerForm";
+import CheckoutSummary from "./CheckoutSummary";
+import CheckoutActions from "./CheckoutActions";
 
-import CheckoutSummary
-  from "./CheckoutSummary";
-
-import CheckoutActions
-  from "./CheckoutActions";
-
-import {
-  useRouter,
-} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
   createCheckoutValidationRequest,
 } from "@/utils/pricingRequestFactory";
 
+import {
+  dollarsToCents,
+} from "@/utils/money";
+
 import { routes } from "@/utils/routes";
-import { CartItem } from "@/types/cart";
+
+import {
+  CartItem,
+  CheckoutValidationResponse,
+} from "@/types/cart";
 
 async function validateCart(
   cartItems: CartItem[]
-) {
+): Promise<CheckoutValidationResponse | null> {
   const request =
     createCheckoutValidationRequest(
       cartItems
@@ -71,13 +75,35 @@ async function validateCart(
 }
 
 export default function CheckoutClient() {
-  const router =
-    useRouter();
+  const router = useRouter();
 
   const {
     cart,
     removeItem,
+    updateQuantity
   } = useCart();
+
+  const [
+    validatedCheckout,
+    setValidatedCheckout,
+  ] = useState<CheckoutValidationResponse | null>(
+    null
+  );
+
+  const [
+    isValidating,
+    setIsValidating,
+  ] = useState(false);
+
+  const [
+    validationError,
+    setValidationError,
+  ] = useState<string | null>(null);
+
+  const [
+    isStartingCheckout,
+    setIsStartingCheckout,
+  ] = useState(false);
 
   function onEditCustomItem(
     itemId: string,
@@ -105,20 +131,156 @@ export default function CheckoutClient() {
     );
   }
 
-  const subtotal =
-    useMemo(() => {
-      return cart.items.reduce(
-        (sum, item) =>
-          sum + item.totalPrice,
-        0
+  const clientSubtotal = useMemo(() => {
+    return cart.items.reduce(
+      (sum, item) =>
+        sum + item.totalPrice,
+      0
+    );
+  }, [cart.items]);
+
+  const clientSubtotalCents =
+    dollarsToCents(clientSubtotal);
+
+  const estimatedTaxCents =
+    Math.round(clientSubtotalCents * 0.081);
+
+  const estimatedTotalCents =
+    clientSubtotalCents + estimatedTaxCents;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function runValidation() {
+      if (cart.items.length === 0) {
+        setValidatedCheckout(null);
+        setValidationError(null);
+        setIsValidating(false);
+        return;
+      }
+
+      setIsValidating(true);
+      setValidationError(null);
+
+      const result =
+        await validateCart(cart.items);
+
+      if (cancelled) {
+        return;
+      }
+
+      if (!result) {
+        setValidatedCheckout(null);
+        setValidationError(
+          "Some items in your cart need to be reviewed before checkout."
+        );
+        setIsValidating(false);
+        return;
+      }
+
+      setValidatedCheckout(result);
+      setValidationError(null);
+      setIsValidating(false);
+    }
+
+    runValidation();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [cart.items]);
+const validatedItemByCartItemId = new Map(
+  validatedCheckout?.items.map(item => [
+    item.cartItemId,
+    item,
+  ]) ?? []
+);
+  const displaySubtotalCents =
+    validatedCheckout?.subtotalCents ??
+    clientSubtotalCents;
+
+  const displayTaxCents =
+    validatedCheckout?.taxCents ??
+    estimatedTaxCents;
+
+  const displayTotalCents =
+    validatedCheckout?.totalCents ??
+    estimatedTotalCents;
+
+  async function handleCheckout() {
+  if (cart.items.length === 0) {
+    return;
+  }
+
+  setIsStartingCheckout(true);
+  setValidationError(null);
+
+  try {
+    const request =
+      createCheckoutValidationRequest(
+        cart.items
       );
-    }, [cart.items]);
 
-  const estimatedTax =
-    subtotal * 0.08;
+    const response =
+      await fetch(
+        "/api/checkout/create-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+          body: JSON.stringify(
+            request
+          ),
+        }
+      );
 
-  const estimatedTotal =
-    subtotal + estimatedTax;
+    const result =
+      await response.json();
+
+    if (!response.ok) {
+      console.error(
+        "Checkout session failed:",
+        result
+      );
+
+      setValidationError(
+        "Unable to start checkout. Please review your cart."
+      );
+
+      return;
+    }
+
+    if (!result.url) {
+      setValidationError(
+        "Checkout session did not return a payment URL."
+      );
+
+      return;
+    }
+
+    window.location.href =
+      result.url;
+  } catch (error) {
+    console.error(
+      "Checkout failed:",
+      error
+    );
+
+    setValidationError(
+      "Unable to start checkout. Please try again."
+    );
+  } finally {
+    setIsStartingCheckout(false);
+  }
+}
+
+  const canCheckout =
+    cart.items.length > 0 &&
+    !!validatedCheckout &&
+    !isValidating &&
+    !validationError;
 
   return (
     <div
@@ -256,6 +418,23 @@ export default function CheckoutClient() {
                 </span>
               </div>
 
+              {validationError && (
+                <div
+                  className="
+                    mb-5
+                    border
+                    border-neutral-950
+                    bg-white
+                    p-4
+                    text-sm
+                    font-semibold
+                    text-neutral-950
+                  "
+                >
+                  {validationError}
+                </div>
+              )}
+
               <div
                 className="
                   border-b
@@ -280,6 +459,18 @@ export default function CheckoutClient() {
                     <CartItemCard
                       key={item.id}
                       item={item}
+                      validatedItem={
+    validatedItemByCartItemId.get(item.id)
+  }
+   onQuantityChange={(
+    
+    quantity
+  ) => {
+    updateQuantity(
+      item.id,
+      quantity
+    );
+  }}
                       onEdit={() => {
                         if (item.customSandwich) {
                           const baseProductId =
@@ -315,16 +506,32 @@ export default function CheckoutClient() {
 
           <div>
             <CheckoutSummary
-              subtotal={subtotal}
-              estimatedTax={estimatedTax}
-              estimatedTotal={
-                estimatedTotal
+              subtotalCents={
+                displaySubtotalCents
+              }
+              taxCents={
+                displayTaxCents
+              }
+              totalCents={
+                displayTotalCents
+              }
+              isValidating={
+                isValidating
+              }
+              isValidated={
+                !!validatedCheckout
               }
             />
 
             <CheckoutActions
-              onCheckout={() =>
-                validateCart(cart.items)
+              onCheckout={
+                handleCheckout
+              }
+              disabled={
+                !canCheckout
+              }
+              isLoading={
+                isStartingCheckout
               }
             />
           </div>

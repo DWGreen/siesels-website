@@ -14,6 +14,8 @@ import {
   getProductsByIds,
 } from "@/services/products";
 
+import { calculateTax } from "@/services/checkout/taxService";
+
 export async function validateCheckoutRequest(
   request: CheckoutValidationRequest
 ): Promise<CheckoutValidationResponse> {
@@ -24,8 +26,10 @@ export async function validateCheckoutRequest(
     return {
       isValid: false,
       items: [],
-      subtotal: 0,
-      total: 0,
+      subtotalCents: 0,
+      taxCents: 0,
+      totalCents: 0,
+      taxRate: 0,
       errors: [{ message: "Cart is empty." }],
     };
   }
@@ -45,16 +49,25 @@ export async function validateCheckoutRequest(
     }
   }
 
-  const subtotal = validatedItems.reduce(
-    (sum, item) => sum + item.totalPrice,
+  const subtotalCents = validatedItems.reduce(
+    (sum, item) => sum + item.totalPriceCents,
     0
   );
+
+  const taxResult = calculateTax({
+    subtotalCents,
+  });
+
+  const totalCents =
+    subtotalCents + taxResult.taxCents;
 
   return {
     isValid: errors.length === 0,
     items: validatedItems,
-    subtotal,
-    total: subtotal,
+    subtotalCents,
+    taxCents: taxResult.taxCents,
+    totalCents,
+    taxRate: taxResult.taxRate,
     errors,
   };
 }
@@ -77,34 +90,41 @@ async function validateCheckoutItem(
 
   const validatedModifiers = await validateModifiers(item);
 
-  const basePrice = parsePrice(baseProduct.price);
+  const basePriceCents = parsePriceToCents(baseProduct.price);
 
   const overrideModifiers = validatedModifiers.filter(
     (modifier) => modifier.overrideBasePrice
   );
- if (overrideModifiers.length > 1) {
+
+  if (overrideModifiers.length > 1) {
     throw new Error("Only one price override modifier can be selected.");
   }
 
   const overrideModifier = overrideModifiers[0];
 
-  const effectiveBasePrice = overrideModifier
-    ? overrideModifier.price
-    : basePrice;
+  const effectiveBasePriceCents = overrideModifier
+    ? overrideModifier.priceCents
+    : basePriceCents;
 
-    
-  const modifierTotal = validatedModifiers
+  const modifierTotalCents = validatedModifiers
     .filter((modifier) => !modifier.overrideBasePrice)
-    .reduce((sum, modifier) => sum + modifier.price, 0);
+    .reduce(
+      (sum, modifier) => sum + modifier.priceCents,
+      0
+    );
 
-  const ingredientTotal = validatedIngredients.reduce(
-    (sum, ingredient) => sum + ingredient.price,
+  const ingredientTotalCents = validatedIngredients.reduce(
+    (sum, ingredient) => sum + ingredient.priceCents,
     0
   );
-   
-  const unitPrice = effectiveBasePrice + modifierTotal + ingredientTotal;
 
-  const totalPrice = unitPrice * item.quantity;
+  const unitPriceCents =
+    effectiveBasePriceCents +
+    modifierTotalCents +
+    ingredientTotalCents;
+
+  const totalPriceCents =
+    unitPriceCents * item.quantity;
 
   return {
     cartItemId: item.cartItemId,
@@ -113,11 +133,12 @@ async function validateCheckoutItem(
     name: baseProduct.name,
     quantity: item.quantity,
 
-    basePrice: effectiveBasePrice,
-    ingredientTotal,
-    modifierTotal,
-    unitPrice,
-    totalPrice,
+    basePriceCents,
+    effectiveBasePriceCents,
+    ingredientTotalCents,
+    modifierTotalCents,
+    unitPriceCents,
+    totalPriceCents,
 
     ingredients: validatedIngredients,
     modifiers: validatedModifiers,
@@ -146,7 +167,9 @@ function validateBasicItemShape(item: CheckoutItemRequest) {
   }
 }
 
-async function validateCustomSandwichIngredients(item: CheckoutItemRequest) {
+async function validateCustomSandwichIngredients(
+  item: CheckoutItemRequest
+) {
   if (item.type !== "custom-sandwich") {
     return [];
   }
@@ -159,13 +182,19 @@ async function validateCustomSandwichIngredients(item: CheckoutItemRequest) {
     return [];
   }
 
-  const ingredientProducts = await getProductsByIds(ingredientProductIds);
+  const ingredientProducts = await getProductsByIds(
+    ingredientProductIds
+  );
 
   return ingredientProductIds.map((productId) => {
-    const product = ingredientProducts.find((p) => p.id === productId);
+    const product = ingredientProducts.find(
+      (p) => p.id === productId
+    );
 
     if (!product) {
-      throw new Error(`Ingredient product ${productId} was not found.`);
+      throw new Error(
+        `Ingredient product ${productId} was not found.`
+      );
     }
 
     // Later: validate category/step here.
@@ -177,10 +206,11 @@ async function validateCustomSandwichIngredients(item: CheckoutItemRequest) {
     return {
       productId: product.id,
       name: product.name,
-      price: parsePrice(product.price),
+      priceCents: parsePriceToCents(product.price),
     };
   });
 }
+
 async function validateModifiers(
   item: CheckoutItemRequest
 ): Promise<ValidatedProductModifier[]> {
@@ -191,37 +221,48 @@ async function validateModifiers(
   if (modifierProductIds.length === 0) {
     return [];
   }
-  const modifierDefinitionIds = item.modifiers.map(
-    (modifier) => modifier.modifierDefinitionId
-  );
-  const modifierProducts = await getProductsByIds(modifierProductIds);
 
-  return modifierProductIds.map((productId) => {
-    const product = modifierProducts.find((p) => p.id === productId);
+  const modifierProducts = await getProductsByIds(
+    modifierProductIds
+  );
+
+  return item.modifiers.map((modifier) => {
+    const product = modifierProducts.find(
+      (p) => p.id === modifier.modifierProductId
+    );
 
     if (!product) {
-      throw new Error(`Modifier product ${productId} was not found.`);
+      throw new Error(
+        `Modifier product ${modifier.modifierProductId} was not found.`
+      );
     }
 
     return {
-        modifierDefinitionId: modifierDefinitionIds.find((id, index) => item.modifiers[index].modifierProductId === productId) ?? "",
+      modifierDefinitionId: modifier.modifierDefinitionId,
       modifierProductId: product.id,
       name: product.name,
-      price: parsePrice(product.price),
-      overrideBasePrice: product.config?.priceOverride ?? false,
+      priceCents: parsePriceToCents(product.price),
+      overrideBasePrice:
+        product.config?.priceOverride ?? false,
     };
   });
 }
-function parsePrice(price: string | number | undefined): number {
-  if (typeof price === "number") {
-    return price;
-  }
 
-  if (!price) {
+function parsePriceToCents(
+  price: string | number | undefined
+): number {
+  if (price === undefined || price === null || price === "") {
     return 0;
   }
 
-  const parsed = Number(price);
+  const parsed =
+    typeof price === "number"
+      ? price
+      : Number(price);
 
-  return Number.isNaN(parsed) ? 0 : parsed;
+  if (Number.isNaN(parsed)) {
+    return 0;
+  }
+
+  return Math.round(parsed * 100);
 }

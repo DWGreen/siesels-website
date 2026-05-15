@@ -124,7 +124,8 @@ export function
 customSandwichToCartItem(
   
   sandwich: FinalizedCustomSandwich,
-  modifiers: CartModifier[]
+  modifiers: CartModifier[],
+  quantity: number = 1
 ): CartItem {
 console.log("INSIDE customSandwichToCartItem modifiers:", modifiers);
 console.log("INSIDE customSandwichToCartItem sandwich.pricing:", sandwich.pricing);
@@ -138,13 +139,13 @@ console.log("price calculation for override ", calculateCartItemUnitPrice(
 
     type: "custom-sandwich",
 
-    quantity: 1,
+    quantity: quantity,
 
     totalPrice:
-      calculateCartItemUnitPrice(
+     quantity * (calculateCartItemUnitPrice(
         Number(sandwich.pricing.basePrice),
         modifiers
-      ) +     Number(sandwich.pricing.additionalPrice),
+      ) +     Number(sandwich.pricing.additionalPrice)),
 
 
     customSandwich: sandwich,
