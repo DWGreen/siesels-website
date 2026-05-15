@@ -27,82 +27,100 @@ export default function ModifierOptionCard({
       disabled={disabled}
       onClick={onToggle}
       className={`
+        group
+        flex
+        w-full
+        items-start
+        gap-3
         text-left
-        rounded-2xl
-        border
-        p-3
-        transition
-        ${
-          selected
-            ? "border-black bg-gray-100"
-            : "border-gray-200 bg-white"
-        }
+        text-sm
+        text-neutral-950
+
         ${
           disabled
-            ? "cursor-default opacity-80"
-            : "cursor-pointer hover:border-gray-400"
+            ? "cursor-default opacity-70"
+            : "cursor-pointer"
         }
       `}
     >
-      <div
-        className="
+      <span
+        className={`
+          mt-0.5
           flex
-          gap-3
-          items-start
+          h-6
+          w-6
+          shrink-0
+          items-center
+          justify-center
+          border
+          text-sm
+          font-black
+          leading-none
+          transition
+
+          ${
+            selected
+              ? "border-neutral-950 bg-neutral-950 text-white"
+              : "border-neutral-300 bg-white text-transparent group-hover:border-neutral-950"
+          }
+        `}
+      >
+        ✓
+      </span>
+
+      <span
+        className="
+          min-w-0
+          flex-1
         "
       >
-        {option.image && (
-          <img
-            src={option.image.src}
-            alt={
-              option.image.alt ??
-              option.name
-            }
-            className="
-              h-16
-              w-16
-              rounded-xl
-              object-cover
-              flex-shrink-0
-            "
-          />
-        )}
-
-        <div className="space-y-1">
-          <div
+        <span
+          className="
+            flex
+            flex-wrap
+            items-baseline
+            gap-x-2
+            gap-y-1
+          "
+        >
+          <span
             className="
               font-semibold
-              text-sm
+              leading-snug
             "
           >
             {option.name}
-          </div>
-
-          {option.description && (
-            <div
-              className="
-                text-xs
-                text-gray-500
-                line-clamp-2
-              "
-              dangerouslySetInnerHTML={{
-                __html: option.description,
-              }}
-            />
-          )}
+          </span>
 
           {price > 0 && (
-            <div
+            <span
               className="
                 text-xs
-                font-medium
+                font-semibold
+                text-neutral-700
               "
             >
-              +${price.toFixed(2)}
-            </div>
+              / ${price.toFixed(2)}
+            </span>
           )}
-        </div>
-      </div>
+        </span>
+
+        {option.description && (
+          <span
+            className="
+              mt-1
+              block
+              text-xs
+              italic
+              leading-relaxed
+              text-neutral-600
+            "
+            dangerouslySetInnerHTML={{
+              __html: option.description,
+            }}
+          />
+        )}
+      </span>
     </button>
   );
 }

@@ -1,10 +1,6 @@
 "use client";
 
-import { BuilderStep }
-  from "@/types/builder";
-
-import ProductGrid
-  from "@/components/menu/ProductGrid";
+import { BuilderStep } from "@/types/builder";
 import BuilderOptionGrid from "./BuilderOptionGrid";
 
 type Props = {
@@ -18,26 +14,34 @@ export default function BuilderStepSection({
   selected,
   onToggle,
 }: Props) {
+  const { category, products } = step;
 
-  const {
-    category,
-    products,
+  const maxSelections =
+    category.config.maxSelections;
 
-  } = step;
+  const isDefaultIncluded =
+    category.config.initializeAllSelected;
 
   return (
     <section
       className="
-        space-y-6
+        border-t
+        border-black/70
+        pt-6
       "
     >
-
-      <div>
-
+      <div
+        className="
+          mb-5
+        "
+      >
         <h2
           className="
-            text-3xl
-            font-bold
+            text-sm
+            font-black
+            uppercase
+            tracking-[0.28em]
+            text-neutral-950
           "
         >
           {category.name}
@@ -45,34 +49,34 @@ export default function BuilderStepSection({
 
         <div
           className="
-            flex
-            gap-4
             mt-2
-            text-sm
-            text-gray-500
+            max-w-xl
+            text-xs
+            italic
+            leading-relaxed
+            text-neutral-700
           "
         >
-
-          {category.config.maxSelections && (
+          {maxSelections && (
             <span>
-              Max selections:
-              {" "}
-              {category.config.maxSelections}
+              Choose up to {maxSelections}.
             </span>
           )}
 
-          {category.config.initializeAllSelected && (
+          {isDefaultIncluded && (
             <span>
-              Default included
+              {maxSelections ? " " : ""}
+              Items in this section are included by default.
             </span>
           )}
-
         </div>
-
       </div>
 
-      <BuilderOptionGrid products={products} selected={selected} onToggle={onToggle} />
-
+      <BuilderOptionGrid
+        products={products}
+        selected={selected}
+        onToggle={onToggle}
+      />
     </section>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+
 import { Product } from "@/types/product";
 
 type Props = {
@@ -7,51 +8,161 @@ type Props = {
   onClick?: () => void;
 };
 
+function formatPrice(
+  price: Product["price"]
+): string | null {
+  if (
+    price === null ||
+    price === undefined ||
+    price === "" ||
+    isNaN(Number(price))
+  ) {
+    return null;
+  }
+
+  return `$${Number(price).toFixed(2)}`;
+}
+
 export default function ProductCard({
   product,
   onClick,
 }: Props) {
+  const price =
+    formatPrice(product.price);
+
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
       className="
-        border
-        rounded-2xl
-        overflow-hidden
-        bg-white
-        shadow-sm
-        hover:shadow-md
-        transition
-        cursor-pointer
+        group
+        block
+        w-full
+        text-left
       "
     >
-      {product.image && (
-        <img
-          src={product.image.src}
-          alt={product.image.alt || product.name}
-          className="
-            w-full
-            h-52
-            object-cover
-          "
-        />
-      )}
-
-      <div className="p-4">
-        <h2 className="text-xl font-semibold">
-          {product.name}
-        </h2>
-
-        <p className="text-gray-500 mt-1">
-          ${product.price}
-        </p>
-
-        {product.shortDescription && (
-          <p className="text-sm text-gray-600 mt-2">
-            {product.shortDescription}
-          </p>
+      <div
+        className="
+          border-2
+          border-neutral-900
+          bg-[#e6e6e6]
+          p-3
+          transition
+          group-hover:bg-white
+        "
+      >
+        {product.image ? (
+          <img
+            src={product.image.src}
+            alt={
+              product.image.alt ||
+              product.name
+            }
+            className="
+              h-52
+              w-full
+              object-cover
+            "
+          />
+        ) : (
+          <div
+            className="
+              flex
+              h-52
+              w-full
+              items-center
+              justify-center
+              bg-neutral-200
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.25em]
+              text-neutral-500
+            "
+          >
+            No Image
+          </div>
         )}
       </div>
-    </div>
+
+      <div
+        className="
+          mt-4
+        "
+      >
+        <div
+          className="
+            flex
+            items-start
+            justify-between
+            gap-4
+          "
+        >
+          <h2
+            className="
+              text-xl
+              font-black
+              uppercase
+              leading-tight
+              tracking-[0.18em]
+              text-neutral-950
+            "
+          >
+            {product.name}
+          </h2>
+
+          {price && (
+            <p
+              className="
+                shrink-0
+                text-lg
+                font-black
+                tracking-[0.12em]
+                text-neutral-950
+              "
+            >
+              {price}
+            </p>
+          )}
+        </div>
+
+        {product.shortDescription && (
+          <div
+            className="
+              mt-3
+              text-xs
+              italic
+              leading-relaxed
+              text-neutral-700
+              line-clamp-3
+            "
+            dangerouslySetInnerHTML={{
+              __html: product.shortDescription,
+            }}
+          />
+        )}
+
+        <div
+          className="
+            mt-4
+            inline-flex
+            border
+            border-neutral-950
+            px-4
+            py-2
+            text-xs
+            font-black
+            uppercase
+            tracking-[0.22em]
+            text-neutral-950
+            transition
+            group-hover:bg-neutral-950
+            group-hover:text-white
+          "
+        >
+          Customize
+        </div>
+      </div>
+    </button>
   );
 }

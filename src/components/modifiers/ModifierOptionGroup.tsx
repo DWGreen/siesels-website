@@ -24,50 +24,52 @@ export default function ModifierOptionGroup({
     group.autoAddAllProducts;
 
   return (
-    <div className="space-y-3">
-      <div className="space-y-1">
+    <div>
+      <div
+        className="
+          mb-4
+        "
+      >
         <h3
           className="
-            text-base
-            font-semibold
+            text-xs
+            font-black
+            uppercase
+            tracking-[0.25em]
+            text-neutral-950
           "
         >
           {group.name}
         </h3>
 
-        {group.required && (
-          <p
-            className="
-              text-xs
-              text-gray-500
-            "
-          >
-            Required
-          </p>
-        )}
+        <div
+          className="
+            mt-1
+            text-xs
+            italic
+            leading-relaxed
+            text-neutral-700
+          "
+        >
+          {group.required && (
+            <span>
+              Required.
+            </span>
+          )}
 
-        {group.maxSelections && !isAutoAddGroup && (
-          <p
-            className="
-              text-xs
-              text-gray-500
-            "
-          >
-            Choose up to{" "}
-            {group.maxSelections}
-          </p>
-        )}
+          {group.maxSelections && !isAutoAddGroup && (
+            <span>
+              {group.required ? " " : ""}
+              Choose up to {group.maxSelections}.
+            </span>
+          )}
 
-        {isAutoAddGroup && (
-          <p
-            className="
-              text-xs
-              text-gray-500
-            "
-          >
-            Included automatically
-          </p>
-        )}
+          {isAutoAddGroup && (
+            <span>
+              Included automatically.
+            </span>
+          )}
+        </div>
       </div>
 
       <ModifierOptionGrid

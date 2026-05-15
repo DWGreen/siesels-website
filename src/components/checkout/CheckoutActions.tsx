@@ -1,35 +1,41 @@
 "use client";
 
-import { useRouter }
-  from "next/navigation";
+import { useRouter } from "next/navigation";
 
-  type Props = {
+type Props = {
   onCheckout: () => void;
 };
 
-export default function CheckoutActions({ onCheckout }: Props) {
-
+export default function CheckoutActions({
+  onCheckout,
+}: Props) {
   const router =
     useRouter();
 
   return (
-
     <div
       className="
         mt-6
-        space-y-4
+        space-y-3
       "
     >
-
       <button
+        type="button"
         className="
           w-full
-         border
-          rounded-xl
+          border
+          border-neutral-950
+          bg-neutral-950
+          px-5
           py-4
-          font-semibold
-          hover:opacity-90
+          text-xs
+          font-black
+          uppercase
+          tracking-[0.25em]
+          text-white
           transition
+          hover:bg-white
+          hover:text-neutral-950
         "
         onClick={onCheckout}
       >
@@ -37,20 +43,28 @@ export default function CheckoutActions({ onCheckout }: Props) {
       </button>
 
       <button
+        type="button"
         onClick={() =>
           router.push("/sandwiches/menu")
         }
         className="
           w-full
           border
-          rounded-xl
+          border-neutral-950
+          px-5
           py-4
-          font-semibold
+          text-xs
+          font-black
+          uppercase
+          tracking-[0.25em]
+          text-neutral-950
+          transition
+          hover:bg-neutral-950
+          hover:text-white
         "
       >
         Continue Shopping
       </button>
-
     </div>
   );
 }

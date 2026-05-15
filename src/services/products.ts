@@ -3,18 +3,27 @@ import { mapWooProduct }
   from "./mappers/productMapper";
 import { Product } from "@/types/product";
 
-export async function getProducts() {
+export async function getProducts(): Promise<Product[]> {
   try {
-    const response = await api.get("products");
+    const response =
+      await api.get(
+        "products?per_page=100&orderby=menu_order&order=asc"
+      );
 
-    return response.data;
+    return response.data.map(
+      mapWooProduct
+    );
   } catch (error) {
-    console.error("Failed to fetch products:", error);
+    console.error(
+      "Failed to fetch products:",
+      error
+    );
+
     return [];
   }
 }
 
-export async function getProductById(id: number) {
+export async function getProductById(id: number): Promise<Product | null> {
   try {
     const response = await api.get(`products/${id}`);
 
@@ -27,7 +36,7 @@ export async function getProductById(id: number) {
 
 export async function getProductsByIds(ids: number[]) : Promise<Product[]> {
   try {
-    const response = await api.get(`products?include=${ids.join(",")}`);
+    const response = await api.get(`products?include=${ids.join(",")}&orderby=menu_order&order=asc`);
 
     return response.data.map(mapWooProduct);
   } catch (error) {
@@ -39,9 +48,9 @@ export async function getProductsByIds(ids: number[]) : Promise<Product[]> {
 export async function
 getProductsByCategoryId(
   id: string
-) {
+): Promise<Product[]> {
    const response = await api.get(
-    `products?category=${id}`
+    `products?category=${id}&orderby=menu_order&order=asc`
   );
 
   console.log(response.data);

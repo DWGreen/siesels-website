@@ -79,14 +79,14 @@ export interface CartModifierOptionGroupSelection {
   selectedOptions: CartModifierOptionSelection[];
 }
 export interface CartModifierOptionSelection {
-  id: string;
+  id: number;
 
   name: string;
 
   price: number;
 }
 export interface ModifierOptionDefinition {
-  id: string;
+  id: number;
 
   name: string;
   description?: string;
@@ -100,7 +100,7 @@ export interface ModifierOptionDefinition {
 }
 
 export type ModifierSelectionState =
-  Record<string, string[]>;
+  Record<string, number[]>;
 
 export interface ModifierDraft {
   enabled: boolean;

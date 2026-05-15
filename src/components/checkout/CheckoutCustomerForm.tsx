@@ -1,14 +1,32 @@
 export default function CheckoutCustomerForm() {
+  const inputClass = `
+    w-full
+    border
+    border-neutral-950
+    bg-white
+    px-4
+    py-3
+    text-sm
+    outline-none
+    placeholder:text-neutral-500
+    focus:bg-[#f5f5f5]
+  `;
 
   return (
-
-    <section>
-
+    <section
+      className="
+        border-t
+        border-neutral-950
+        pt-8
+      "
+    >
       <h2
         className="
-          text-2xl
-          font-semibold
           mb-6
+          text-xl
+          font-black
+          uppercase
+          tracking-[0.25em]
         "
       >
         Customer Information
@@ -20,49 +38,33 @@ export default function CheckoutCustomerForm() {
           gap-4
         "
       >
-
         <input
           type="text"
           placeholder="Full Name"
-          className="
-            border
-            rounded-lg
-            p-3
-          "
+          className={inputClass}
         />
 
         <input
           type="email"
           placeholder="Email Address"
-          className="
-            border
-            rounded-lg
-            p-3
-          "
+          className={inputClass}
         />
 
         <input
           type="tel"
           placeholder="Phone Number"
-          className="
-            border
-            rounded-lg
-            p-3
-          "
+          className={inputClass}
         />
 
         <textarea
           placeholder="Order Notes"
-          className="
-            border
-            rounded-lg
-            p-3
+          className={`
+            ${inputClass}
             min-h-[120px]
-          "
+            resize-y
+          `}
         />
-
       </div>
-
     </section>
   );
 }

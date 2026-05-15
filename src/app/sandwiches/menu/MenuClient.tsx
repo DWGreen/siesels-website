@@ -1,140 +1,287 @@
 "use client";
 
+import {
+  useMemo,
+  useState,
+} from "react";
+
 import ProductGrid
   from "@/components/menu/ProductGrid";
 
-import {
-  useCart
-} from "@/context/CartContext";
-
-import {routes} from "@/utils/routes";
+import { routes }
+  from "@/utils/routes";
 
 import {
-  Product
+  Product,
 } from "@/types/product";
-import ProductCard from "@/components/menu/ProductCard";
-import { getWorkflowTriggerForProduct } from "@/data/triggerData";
+
 import {
-  useRouter
+  MenuStructure,
+} from "@/types/menu";
+
+import {
+  getWorkflowTriggerForProduct,
+} from "@/data/triggerData";
+
+import {
+  useRouter,
 } from "next/navigation";
 
 type Props = {
-  allSandwiches:
-    Product[];
+  menuStructure: MenuStructure;
 };
 
-
-
 export default function MenuClient({
-  allSandwiches,
+  menuStructure,
 }: Props) {
+  const router =
+    useRouter();
 
-  
-  const router = useRouter();
-
-console.log("all sandwiches:", allSandwiches);
-    const specialty =
-  allSandwiches.filter(product =>
-
-    product.categories.some(
-      category =>
-        category.slug ===
-        "specialty-sandwiches"
-    )
-  );
-  const buildYourOwn =
-  allSandwiches.find(product =>
-
-    product.categories.some(
-      category =>
-        category.slug ===
-        "build-your-own"
-    )
-  );
-  return (
-
-    <main className="p-8 space-y-12">
-
-      <section>
-
-        <h1
-          className="
-            text-4xl
-            font-bold
-            mb-6
-          "
-        >
-          Specialty Sandwiches
-        </h1>
-
-        <ProductGrid
-          products={
-            specialty }
-
-          onProductClick={(
-            product
-          ) =>
-{
-
-
-    
-router.push(
-      routes.productCustomizer({productId: product.id})
-    );
-   
-}
-          }
-        />
-
-      </section>
-      <section>
-
-        <h1
-          className="
-            text-4xl
-            font-bold
-            mb-6
-          "
-        >
-          Build Your Own Sandwich
-        </h1>
-        {buildYourOwn && (  
-        <ProductCard
-          product={
-            buildYourOwn }
-
-          onClick={(
-            
-          ) =>
-
-            {
-            
-
-  const trigger =
-    getWorkflowTriggerForProduct(
-      buildYourOwn.id
+  const sections =
+    menuStructure.sections.filter(
+      section =>
+        section.products.length > 0
     );
 
-  if (trigger) {
+  const [
+    activeCategoryId,
+    setActiveCategoryId,
+  ] = useState<number | null>(
+    sections[0]?.category.id ?? null
+  );
+
+  const activeSection =
+    useMemo(
+      () =>
+        sections.find(
+          section =>
+            section.category.id ===
+            activeCategoryId
+        ) ?? sections[0],
+      [
+        sections,
+        activeCategoryId,
+      ]
+    );
+
+  function handleProductClick(
+    product: Product
+  ) {
+    const trigger =
+      getWorkflowTriggerForProduct(
+        product.id
+      );
+
+    if (trigger) {
+      router.push(
+        `${trigger.route}?productId=${product.id}`
+      );
+
+      return;
+    }
 
     router.push(
-      `${trigger.route}?productId=${buildYourOwn.id}`
+      routes.productCustomizer({
+        productId: product.id,
+      })
     );
   }
-}
-          }
-          
-        />
-        )}
 
-        {!buildYourOwn && (
-          <p>
-            Build Your Own Sandwich is currently unavailable. Please check back later!
+  return (
+    <main
+      className="
+        min-h-screen
+        bg-[#e6e6e6]
+        text-neutral-950
+      "
+    >
+      <div
+        className="
+          mx-auto
+          max-w-6xl
+          px-6
+          py-14
+        "
+      >
+        <header
+          className="
+            mb-14
+            text-center
+          "
+        >
+          <div
+            className="
+              mb-5
+              flex
+              items-center
+              justify-center
+              gap-5
+            "
+          >
+            <span
+              className="
+                h-px
+                w-20
+                bg-neutral-700
+                sm:w-28
+              "
+            />
+
+            <span
+              className="
+                text-sm
+                font-black
+                uppercase
+                tracking-[0.45em]
+                sm:text-lg
+              "
+            >
+              Order Online
+            </span>
+
+            <span
+              className="
+                h-px
+                w-20
+                bg-neutral-700
+                sm:w-28
+              "
+            />
+          </div>
+
+          <h1
+            className="
+              text-5xl
+              font-black
+              uppercase
+              tracking-[0.28em]
+              md:text-7xl
+            "
+          >
+            {menuStructure.rootCategory.name}
+          </h1>
+
+          <p
+            className="
+              mt-5
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.28em]
+              sm:text-sm
+            "
+          >
+            Available 7:00 AM - 6:30 PM Daily
           </p>
+        </header>
+
+        {sections.length === 0 ? (
+          <p
+            className="
+              border-t
+              border-neutral-950
+              py-8
+              text-center
+              text-sm
+              italic
+              text-neutral-700
+            "
+          >
+            No menu sections are currently available.
+          </p>
+        ) : (
+          <>
+            <nav
+              className="
+                mb-10
+                border-y
+                border-neutral-950
+                py-4
+              "
+              aria-label="Menu sections"
+            >
+              <div
+                className="
+                  flex
+                  gap-3
+                  overflow-x-auto
+                  pb-1
+                "
+              >
+                {sections.map(section => {
+                  const isActive =
+                    section.category.id ===
+                    activeSection?.category.id;
+
+                  return (
+                    <button
+                      key={section.category.id}
+                      type="button"
+                      onClick={() =>
+                        setActiveCategoryId(
+                          section.category.id
+                        )
+                      }
+                      className={`
+                        shrink-0
+                        border
+                        border-neutral-950
+                        px-5
+                        py-3
+                        text-xs
+                        font-black
+                        uppercase
+                        tracking-[0.22em]
+                        transition
+
+                        ${
+                          isActive
+                            ? "bg-neutral-950 text-white"
+                            : "text-neutral-950 hover:bg-neutral-950 hover:text-white"
+                        }
+                      `}
+                    >
+                      {section.category.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </nav>
+
+            {activeSection && (
+              <section>
+                <div
+                  className="
+                    mb-8
+                  "
+                >
+                  <h2
+                    className="
+                      text-xl
+                      font-black
+                      uppercase
+                      tracking-[0.25em]
+                    "
+                  >
+                    {activeSection.category.name}
+                  </h2>
+
+                
+                </div>
+
+                <ProductGrid
+                  products={
+                    activeSection.products
+                  }
+                  onProductClick={
+                    handleProductClick
+                  }
+                />
+              </section>
+            )}
+          </>
         )}
-
-      </section>
-
+      </div>
     </main>
   );
 }

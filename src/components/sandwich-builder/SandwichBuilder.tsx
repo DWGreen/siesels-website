@@ -225,7 +225,7 @@ function createModifierDraftFromCartModifier(
     );
   }
 
-  const selectionsByGroup =
+  const selectionsByGroup: Record<string, number[]> =
     Object.fromEntries(
       cartModifier.selectedGroups.map(
         group => [
@@ -426,73 +426,382 @@ const maxSelections =
   }
 
   return (
-    <div className="space-y-12">
+  <div
+    className="
+      bg-[#e6e6e6]
+      text-neutral-950
+    "
+  >
+    <div
+      className="
+        mx-auto
+        max-w-6xl
+        px-6
+        py-14
+      "
+    >
+      <header
+        className="
+          mb-12
+          text-center
+        "
+      >
+        <div
+          className="
+            mb-5
+            flex
+            items-center
+            justify-center
+            gap-5
+          "
+        >
+          <span className="h-px w-28 bg-neutral-700" />
 
-      {steps.map((step) => (
+          <span
+            className="
+              text-lg
+              font-black
+              uppercase
+              tracking-[0.45em]
+            "
+          >
+            Order Online
+          </span>
 
-        <BuilderStepSection 
-          key={step.category.id}
-          step={step}
-          selected={sandwich.selections[step.category.id] || []}
-          onToggle={(productId) =>
-            toggleProduct(step, productId)
-          }
-        />
+          <span className="h-px w-28 bg-neutral-700" />
+        </div>
 
-      ))}
+        <h1
+          className="
+            text-5xl
+            font-black
+            uppercase
+            tracking-[0.35em]
+            md:text-7xl
+          "
+        >
+          Sandwiches
+        </h1>
 
-            {modifierDefinitions.length > 0 && (
-              <section className="space-y-4">
-                {modifierDefinitions.map(
-                  definition => {
-                    const draft =
-                      modifierDrafts[
-                        definition.id
-                      ];
-      
-                    if (!draft) {
-                      return null;
-                    }
-      
-                    return (
-                      <ModifierSection
-                        key={definition.id}
-                        definition={definition}
-                        draft={draft}
-                        onDraftChange={
-                          nextDraft =>
-                            handleModifierDraftChange(
-                              definition.id,
-                              nextDraft
-                            )
-                        }
-                        onToggleOption={(
+        <p
+          className="
+            mt-5
+            text-sm
+            font-black
+            uppercase
+            tracking-[0.28em]
+          "
+        >
+          Available 7:00 AM - 6:30 PM Daily
+        </p>
+      </header>
+
+      <section
+        className="
+          mb-10
+          grid
+          grid-cols-1
+          gap-10
+          md:grid-cols-[1.05fr_0.95fr]
+          md:items-start
+        "
+      >
+        <div
+          className="
+            border-2
+            border-neutral-900
+            p-4
+          "
+        >
+          {product?.image?.src ? (
+            <img
+              src={product.image.src}
+              alt={product.name}
+              className="
+                h-[280px]
+                w-full
+                object-cover
+              "
+            />
+          ) : (
+            <div
+              className="
+                flex
+                h-[280px]
+                items-center
+                justify-center
+                bg-neutral-200
+                text-sm
+                uppercase
+                tracking-[0.2em]
+                text-neutral-500
+              "
+            >
+              No Image
+            </div>
+          )}
+        </div>
+
+        <div
+          className="
+            pt-2
+          "
+        >
+          <h2
+            className="
+              text-4xl
+              font-black
+              uppercase
+              tracking-[0.18em]
+              leading-tight
+            "
+          >
+            {sandwich.name}
+          </h2>
+
+          {product?.price !== null &&
+            product?.price !== undefined &&
+            product?.price !== "" && (
+              <div
+                className="
+                  mt-1
+                  text-3xl
+                  font-black
+                  tracking-[0.18em]
+                "
+              >
+                ${Number(product.price).toFixed(2)}
+              </div>
+            )}
+
+          <p
+            className="
+              mt-7
+              max-w-md
+              text-xs
+              italic
+              leading-relaxed
+              text-neutral-700
+            "
+          >
+            Sandwiches may contain wheat, milk, egg or soy.
+            Customize your selections below.
+          </p>
+
+          <div
+            className="
+              mt-8
+              max-w-xs
+            "
+          >
+            <label
+              className="
+                mb-2
+                block
+                text-xs
+                font-black
+                uppercase
+                tracking-[0.25em]
+              "
+            >
+              Quantity
+            </label>
+
+            <select
+              value={sandwich.quantity}
+              onChange={(event) =>
+                setSandwich(prev => ({
+                  ...prev,
+                  quantity: Number(event.target.value),
+                }))
+              }
+              className="
+                w-full
+                border-0
+                bg-white
+                px-4
+                py-2
+                text-sm
+                outline-none
+              "
+            >
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(quantity => (
+                <option
+                  key={quantity}
+                  value={quantity}
+                >
+                  {quantity}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <div
+        className="
+          grid
+          grid-cols-1
+          gap-10
+          lg:grid-cols-3
+        "
+      >
+        {steps.map((step) => (
+          <BuilderStepSection
+            key={step.category.id}
+            step={step}
+            selected={sandwich.selections[step.category.id] || []}
+            onToggle={(productId) =>
+              toggleProduct(step, productId)
+            }
+          />
+        ))}
+
+        {modifierDefinitions.length > 0 && (
+          <section
+            className="
+              border-t
+              border-black/70
+              pt-6
+              lg:col-span-3
+            "
+          >
+            <div
+              className="
+                grid
+                grid-cols-1
+                gap-10
+                lg:grid-cols-3
+              "
+            >
+              {modifierDefinitions.map(
+                definition => {
+                  const draft =
+                    modifierDrafts[
+                      definition.id
+                    ];
+
+                  if (!draft) {
+                    return null;
+                  }
+
+                  return (
+                    <ModifierSection
+                      key={definition.id}
+                      definition={definition}
+                      draft={draft}
+                      onDraftChange={
+                        nextDraft =>
+                          handleModifierDraftChange(
+                            definition.id,
+                            nextDraft
+                          )
+                      }
+                      onToggleOption={(
+                        groupId,
+                        optionId
+                      ) =>
+                        handleToggleModifierOption(
+                          definition,
                           groupId,
                           optionId
-                        ) =>
-                          handleToggleModifierOption(
-                            definition,
-                            groupId,
-                            optionId
-                          )
-                        }
-                      />
-                    );
-                  }
-                )}
-              </section>
-            )}
-<div className="flex gap-4">
+                        )
+                      }
+                    />
+                  );
+                }
+              )}
+            </div>
+          </section>
+        )}
+      </div>
 
-  <button onClick={() => handleCancel(router, returnTo)} className="flex-1 border rounded-xl py-4 font-semibold">
-    Cancel
-  </button>
+      <div
+        className="
+          mt-12
+          flex
+          flex-col
+          gap-4
+          bg-neutral-950
+          p-5
+          text-white
+          md:flex-row
+          md:items-center
+          md:justify-between
+        "
+      >
+        <div
+          className="
+            text-2xl
+            font-black
+            uppercase
+            tracking-[0.28em]
+          "
+        >
+          Subtotal:
+          <span className="ml-4">
+            {/* Replace this with your calculated subtotal when ready */}
+          </span>
+        </div>
 
-  <button onClick={handleSave} disabled={!builderComplete}>
-    {editingItem ? "Update Sandwich" : "Add To Cart"}
-  </button>
+        <div
+          className="
+            flex
+            gap-3
+          "
+        >
+          <button
+            type="button"
+            onClick={() =>
+              handleCancel(
+                router,
+                returnTo
+              )
+            }
+            className="
+              border
+              border-white/60
+              px-6
+              py-3
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.25em]
+              text-white
+              transition
+              hover:bg-white
+              hover:text-neutral-950
+            "
+          >
+            Cancel
+          </button>
 
-</div>
+          <button
+            type="button"
+            onClick={handleSave}
+            disabled={!builderComplete}
+            className="
+              border
+              border-white
+              px-8
+              py-3
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.25em]
+              text-white
+              transition
+              hover:bg-white
+              hover:text-neutral-950
+              disabled:cursor-not-allowed
+              disabled:opacity-40
+            "
+          >
+            {editingItem ? "Update Sandwich" : "Add To Cart >"}
+          </button>
+        </div>
+      </div>
     </div>
-  );
+  </div>
+);
 }

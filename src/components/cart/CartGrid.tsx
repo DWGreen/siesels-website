@@ -1,14 +1,19 @@
 import { CartItem } from "@/types/cart";
 import CartProductCard
   from "./CartProductCard";
-import { IngredientSelection } from "@/types/ingredients";
 
 type Props = {
   items: CartItem[];
   onRemove?: (itemId: string) => void;
-  onToggleIngredient?: (itemId: string, ingredientName: string) => void;
+  onToggleIngredient?: (
+    itemId: string,
+    ingredientName: string
+  ) => void;
   onEditItem?: (itemId: string) => void;
-  onEditCustomItem?: (itemId: string, baseProductId: number) => void;
+  onEditCustomItem?: (
+    itemId: string,
+    baseProductId: number
+  ) => void;
 };
 
 export default function CartGrid({
@@ -16,27 +21,55 @@ export default function CartGrid({
   onRemove,
   onToggleIngredient,
   onEditItem,
-    onEditCustomItem,
+  onEditCustomItem,
 }: Props) {
+  if (items.length === 0) {
+    return (
+      <div
+        className="
+          border-t
+          border-neutral-950
+          py-6
+          text-sm
+          italic
+          text-neutral-700
+        "
+      >
+        Your order is currently empty.
+      </div>
+    );
+  }
+
   return (
-    <div className="space-y-2">
+    <div>
       {items.map((item) => (
         <CartProductCard
           key={item.id}
           item={item}
-          onRemove={() => onRemove?.(item.id)}
-          onToggleIngredient={(ingredient) => onToggleIngredient?.(item.id, ingredient.name)}
-          
-        onEdit={() => {
-        if (item.customSandwich) {
-            const baseProductId = item.customSandwich?.baseProductId || 0;
-            onEditCustomItem?.(item.id, baseProductId);
-        } else {
-            onEditItem?.(item.id);
-        }
-        }}  
-  
-      />
+          onRemove={() =>
+            onRemove?.(item.id)
+          }
+          onToggleIngredient={(ingredient) =>
+            onToggleIngredient?.(
+              item.id,
+              ingredient.name
+            )
+          }
+          onEdit={() => {
+            if (item.customSandwich) {
+              const baseProductId =
+                item.customSandwich
+                  ?.baseProductId || 0;
+
+              onEditCustomItem?.(
+                item.id,
+                baseProductId
+              );
+            } else {
+              onEditItem?.(item.id);
+            }
+          }}
+        />
       ))}
     </div>
   );

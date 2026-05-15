@@ -56,20 +56,32 @@ function updateIngredientMode(
   };
 }
 
-function getButtonClass(
-  active: boolean
+function getModeLabel(
+  mode: IngredientMode
 ): string {
-  return active
-    ? `
-      bg-black
-      text-white
-      border-black
-    `
-    : `
-      bg-white
-      text-gray-600
-      border-gray-200
-    `;
+  if (mode === "removed") {
+    return "No";
+  }
+
+  if (mode === "extra") {
+    return "Extra";
+  }
+
+  return "Regular";
+}
+
+function getNextMode(
+  mode: IngredientMode
+): IngredientMode {
+  if (mode === "regular") {
+    return "extra";
+  }
+
+  if (mode === "extra") {
+    return "removed";
+  }
+
+  return "regular";
 }
 
 export default function EditableIngredientList({
@@ -79,10 +91,7 @@ export default function EditableIngredientList({
   return (
     <div
       className="
-        grid
-        grid-cols-1
-        sm:grid-cols-2
-        gap-3
+        space-y-3
       "
     >
       {ingredientSelection.map(
@@ -96,142 +105,169 @@ export default function EditableIngredientList({
               ingredient
             );
 
+          const nextMode =
+            getNextMode(mode);
+
+          const isRemoved =
+            mode === "removed";
+
+          const isExtra =
+            mode === "extra";
+
           return (
             <div
               key={ingredient.name}
               className="
-                rounded-2xl
-                bg-gray-100
-                px-2
-                py-1
-                space-y-2
+                flex
+                items-start
+                justify-between
+                gap-4
               "
             >
-              <div
+              <button
+                type="button"
+                onClick={() =>
+                  onChangeIngredient?.(
+                    updateIngredientMode(
+                      ingredient,
+                      nextMode
+                    )
+                  )
+                }
                 className="
+                  group
                   flex
+                  min-w-0
+                  flex-1
                   items-start
-                  justify-between
                   gap-3
+                  text-left
+                  text-sm
+                  text-neutral-950
                 "
               >
-                <div
+                <span
+                  className={`
+                    mt-0.5
+                    flex
+                    h-6
+                    w-6
+                    shrink-0
+                    items-center
+                    justify-center
+                    border
+                    text-sm
+                    font-black
+                    leading-none
+                    transition
+
+                    ${
+                      isRemoved
+                        ? "border-neutral-300 bg-white text-transparent group-hover:border-neutral-950"
+                        : "border-neutral-950 bg-neutral-950 text-white"
+                    }
+                  `}
+                >
+                  ✓
+                </span>
+
+                <span
                   className="
                     min-w-0
+                    flex-1
                   "
                 >
-                  <div
-                    className="
-                      text-sm
-                      font-medium
-                      text-gray-900
-                      leading-tight
-                    "
+                  <span
+                    className={`
+                      block
+                      font-semibold
+                      leading-snug
+
+                      ${
+                        isRemoved
+                          ? "text-neutral-500 line-through"
+                          : "text-neutral-950"
+                      }
+                    `}
                   >
                     {ingredient.name}
-                  </div>
+                  </span>
 
                   {ingredient.price ? (
-                    <div
+                    <span
                       className="
                         mt-1
+                        block
                         text-xs
-                        text-gray-500
+                        font-semibold
+                        text-neutral-700
                       "
                     >
-                      Extra +$
+                      Extra / $
                       {ingredient.price.toFixed(
                         2
                       )}
-                    </div>
+                    </span>
                   ) : null}
-                </div>
-              </div>
+                </span>
+              </button>
 
               <div
                 className="
-                  grid
-                  grid-cols-3
-                  gap-2
+                  flex
+                  shrink-0
+                  items-center
+                  gap-1
+                  border
+                  border-neutral-300
+                  bg-white
+                  p-1
                 "
               >
-                <button
-                  type="button"
-                  onClick={() =>
-                    onChangeIngredient?.(
-                      updateIngredientMode(
-                        ingredient,
-                        "removed"
-                      )
-                    )
-                  }
-                  className={`
-                    rounded-full
-                    border
-                    px-2
-                    py-2
-                    text-xs
-                    font-medium
-                    transition
-                    ${getButtonClass(
-                      mode === "removed"
-                    )}
-                  `}
-                >
-                  No
-                </button>
+                {(
+                  [
+                    "removed",
+                    "regular",
+                    "extra",
+                  ] as IngredientMode[]
+                ).map(optionMode => {
+                  const active =
+                    mode === optionMode;
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    onChangeIngredient?.(
-                      updateIngredientMode(
-                        ingredient,
-                        "regular"
-                      )
-                    )
-                  }
-                  className={`
-                    rounded-full
-                    border
-                    px-2
-                    py-2
-                    text-xs
-                    font-medium
-                    transition
-                    ${getButtonClass(
-                      mode === "regular"
-                    )}
-                  `}
-                >
-                  Regular
-                </button>
+                  return (
+                    <button
+                      key={optionMode}
+                      type="button"
+                      onClick={() =>
+                        onChangeIngredient?.(
+                          updateIngredientMode(
+                            ingredient,
+                            optionMode
+                          )
+                        )
+                      }
+                      className={`
+                        px-2
+                        py-1
+                        text-[10px]
+                        font-black
+                        uppercase
+                        tracking-[0.12em]
+                        transition
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    onChangeIngredient?.(
-                      updateIngredientMode(
-                        ingredient,
-                        "extra"
-                      )
-                    )
-                  }
-                  className={`
-                    rounded-full
-                    border
-                    px-2
-                    py-2
-                    text-xs
-                    font-medium
-                    transition
-                    ${getButtonClass(
-                      mode === "extra"
-                    )}
-                  `}
-                >
-                  Extra
-                </button>
+                        ${
+                          active
+                            ? "bg-neutral-950 text-white"
+                            : "bg-white text-neutral-600 hover:bg-neutral-100"
+                        }
+                      `}
+                    >
+                      {getModeLabel(
+                        optionMode
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           );

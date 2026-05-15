@@ -1,16 +1,15 @@
 "use client";
+
 import { Product } from "@/types/product";
 import ProductCard from "./ProductCard";
-
-
-
 
 type Props = {
   products: Product[];
 
-  onProductClick?: (product: Product) => void;
+  onProductClick?: (
+    product: Product
+  ) => void;
 };
-
 
 export default function ProductGrid({
   products,
@@ -21,9 +20,10 @@ export default function ProductGrid({
       className="
         grid
         grid-cols-1
+        gap-x-10
+        gap-y-14
         sm:grid-cols-2
         lg:grid-cols-3
-        gap-6
       "
     >
       {products.map((product) => (

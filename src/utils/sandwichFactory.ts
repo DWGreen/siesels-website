@@ -32,6 +32,7 @@ export function finalizeCustomSandwich(
         id: product.id,
         price: product.price ? Number(product.price) : undefined,
         name: product.name,
+        included:true
       }))
     );
   }

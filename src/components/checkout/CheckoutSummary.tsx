@@ -9,43 +9,73 @@ export default function CheckoutSummary({
   estimatedTax,
   estimatedTotal,
 }: Props) {
-
   return (
-
     <section
       className="
-        border
-        rounded-2xl
-        p-6
-        bg-white
-        shadow-sm
         sticky
         top-6
+        border-2
+        border-neutral-950
+        bg-[#e6e6e6]
+        p-6
+        text-neutral-950
       "
     >
-
       <h2
         className="
-          text-2xl
-          font-semibold
           mb-6
+          text-xl
+          font-black
+          uppercase
+          tracking-[0.25em]
         "
       >
         Order Summary
       </h2>
 
-      <div className="space-y-4">
-
-        <div className="flex justify-between">
-          <span>Subtotal</span>
+      <div
+        className="
+          space-y-4
+          text-sm
+          font-semibold
+        "
+      >
+        <div
+          className="
+            flex
+            justify-between
+            gap-4
+          "
+        >
+          <span
+            className="
+              uppercase
+              tracking-[0.16em]
+            "
+          >
+            Subtotal
+          </span>
 
           <span>
             ${subtotal.toFixed(2)}
           </span>
         </div>
 
-        <div className="flex justify-between">
-          <span>Estimated Tax</span>
+        <div
+          className="
+            flex
+            justify-between
+            gap-4
+          "
+        >
+          <span
+            className="
+              uppercase
+              tracking-[0.16em]
+            "
+          >
+            Estimated Tax
+          </span>
 
           <span>
             ${estimatedTax.toFixed(2)}
@@ -55,22 +85,29 @@ export default function CheckoutSummary({
         <div
           className="
             border-t
+            border-neutral-950
             pt-4
             flex
             justify-between
-            font-bold
+            gap-4
             text-lg
+            font-black
           "
         >
-          <span>Total</span>
+          <span
+            className="
+              uppercase
+              tracking-[0.18em]
+            "
+          >
+            Total
+          </span>
 
           <span>
             ${estimatedTotal.toFixed(2)}
           </span>
         </div>
-
       </div>
-
     </section>
   );
 }

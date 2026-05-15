@@ -1,37 +1,8 @@
 import Link from "next/link";
 
-const instagramPhotos = [
-  {
-    id: 1,
-    alt: "Holiday ham dinner spread",
-    color: "from-amber-900 to-amber-800",
-    label: "Holiday Ham",
-  },
-  {
-    id: 2,
-    alt: "Prime rib rack of lamb dinner",
-    color: "from-red-900 to-red-800",
-    label: "Prime Rib",
-  },
-  {
-    id: 3,
-    alt: "Iowa Meat Farms gift cards",
-    color: "from-yellow-800 to-yellow-700",
-    label: "Gift Cards",
-  },
-  {
-    id: 4,
-    alt: "Store interior and staff",
-    color: "from-stone-700 to-stone-600",
-    label: "Our Team",
-  },
-  {
-    id: 5,
-    alt: "Fresh cuts display",
-    color: "from-rose-900 to-rose-800",
-    label: "Fresh Cuts",
-  },
-];
+import { InstagramImage } from "@/types/images";
+
+import { instagramPhotos } from "@/data/images";
 
 export default function InstagramGallery() {
   return (
@@ -61,9 +32,7 @@ export default function InstagramGallery() {
               className="group relative aspect-square overflow-hidden"
             >
               {/* Placeholder gradient — replace with real images later */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${photo.color}`}
-              />
+              <img src={photo.src} alt={photo.alt} className="object-cover w-full h-full" />
 
               {/* Placeholder label */}
               <div className="absolute inset-0 flex items-center justify-center">

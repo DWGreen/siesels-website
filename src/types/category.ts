@@ -9,6 +9,7 @@ export interface CategoryConfig {
   canMakeHalfSandwichSoup?: boolean;
 
   selectionRequired?: boolean;
+  menuOrder?: number;
 }
 
 export interface Category {
@@ -21,6 +22,6 @@ export interface Category {
   description?: string;
 
   config: CategoryConfig;
-
+ menuOrder?: number;
 
 }

@@ -1,105 +1,109 @@
 "use client";
 
-import { Product }
-  from "@/types/product";
+import { Product } from "@/types/product";
 
 type Props = {
   product: Product;
   selected: boolean;
-
   onToggle: () => void;
 };
+
+function formatPrice(price: Product["price"]) {
+  if (
+    price === null ||
+    price === undefined ||
+    price === "" ||
+    isNaN(Number(price))
+  ) {
+    return null;
+  }
+
+  const numericPrice = Number(price);
+
+  if (numericPrice === 0) {
+    return null;
+  }
+
+  return `$${numericPrice.toFixed(2)}`;
+}
 
 export default function BuilderOptionCard({
   product,
   selected,
   onToggle,
 }: Props) {
-console.log("product image:" , product.image?.src || "no image");
+  const price = formatPrice(product.price);
+
   return (
     <button
-    onClick={onToggle}
-      className={`
-        relative
-        border
-        rounded-md
-        p-4
-        transition
+      type="button"
+      onClick={onToggle}
+      className="
+        group
+        flex
+        w-full
+        items-center
+        gap-3
         text-left
-        
-
-        ${
-          selected
-            ? "border-black ring-2 ring-black shadow-lg"
-            : "border-gray-200 bg-white"
-        }
-      `}
+        text-sm
+        text-neutral-950
+      "
     >
+      <span
+        className={`
+          flex
+          h-6
+          w-6
+          shrink-0
+          items-center
+          justify-center
+          border
+          border-neutral-300
+          text-sm
+          font-black
+          leading-none
+          transition
 
-      {product.image && (
-        <div
-  className="
-    w-full
-    h-24
-    overflow-hidden
-  "
->
-  <img
-    src={product.image.src}
-    alt={product.name}
-    className="
-      w-full
-      h-full
-      object-cover
-    "
-  />
-</div>
-      )}
+          ${
+            selected
+              ? "bg-neutral-950 text-white border-neutral-950"
+              : "bg-white text-transparent group-hover:border-neutral-950"
+          }
+        `}
+      >
+        ✓
+      </span>
 
-      <div>
-
-        <h3 className="font-semibold">
+      <span
+        className="
+          flex
+          min-w-0
+          flex-1
+          items-baseline
+          gap-2
+        "
+      >
+        <span
+          className="
+            font-semibold
+            leading-snug
+          "
+        >
           {product.name}
-         
-        </h3>
+        </span>
 
-       <p
-  className="
-    text-sm
-    text-gray-500
-    mt-1
-  "
->
-  {product.price !== null &&
-   product.price !== undefined &&
-   product.price !== "" &&
-   !isNaN(Number(product.price))
-    ? `$${product.price}`
-    : null}
-</p>
-{selected && (
-  <div
-    className="
-      absolute
-      top-2
-      right-2
-      w-6
-      h-6
-      rounded-full
-      bg-black
-      text-dark 
-      flex
-      items-center
-      justify-center
-      text-sm
-      font-bold
-    "
-  >
-    ✓
-  </div>
-)}
-      </div>
-
+        {price && (
+          <span
+            className="
+              text-xs
+              font-semibold
+              text-neutral-700
+            "
+          >
+            / {price}
+          </span>
+        )}
+      </span>
     </button>
   );
 }

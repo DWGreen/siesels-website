@@ -1,3 +1,4 @@
+import { getMenuStructure } from "@/services/menu";
 import MenuClient
   from "./MenuClient";
 
@@ -11,13 +12,13 @@ export default async function MenuPage() {
     await getProductsByCategoryId(
       "34"
     );
+const menuStructure =
+    await getMenuStructure();
 
   return (
 
     <MenuClient
-      allSandwiches={
-        allSandwiches
-      }
+      menuStructure={menuStructure}
     />
   );
 }

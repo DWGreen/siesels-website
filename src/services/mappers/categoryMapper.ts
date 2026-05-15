@@ -6,6 +6,7 @@ type WooCategory = {
   name: string;
   slug: string;
   description?: string;
+  menu_order?: number;
 };
 
 export function mapWooCategory(
@@ -18,6 +19,9 @@ export function mapWooCategory(
     description: wooCategory.description,
     config: parseCategoryConfig(
       wooCategory.description
+      
     ),
+    menuOrder: wooCategory.menu_order ?? 0,
   };
 }
+

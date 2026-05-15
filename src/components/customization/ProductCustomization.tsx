@@ -70,6 +70,44 @@ function buildInitialModifierDrafts(
     )
   );
 }
+function getInitialOverrideIngredientName(
+  product: Product,
+  productOrder: ProductOrder
+): string | undefined {
+  const overrideIngredientNames =
+    new Set(
+      product.ingredientOverrideDefinition
+        ?.ingredientOptions
+        ?.map(ingredient =>
+          normalizeIngredientName(
+            ingredient.name
+          )
+        ) ?? []
+    );
+
+  if (overrideIngredientNames.size === 0) {
+    return undefined;
+  }
+
+  const selectedIngredient =
+    productOrder.ingredientSelections.find(
+      ingredient => {
+        const ingredientName =
+          normalizeIngredientName(
+            ingredient.name
+          );
+
+        return (
+          overrideIngredientNames.has(
+            ingredientName
+          ) &&
+          ingredient.included
+        );
+      }
+    );
+
+  return selectedIngredient?.name;
+}
 function normalizeIngredientName(
   name: string
 ): string {
@@ -84,7 +122,30 @@ function getSelectedModifierDefinitions(
       modifierDrafts[definition.id]?.enabled
   );
 }
+function shouldShowIngredientOverrideSelectorForModifier(
+  product: Product,
+  definition: ModifierDefinition,
+  draft?: ModifierDraft
+): boolean {
+  const hasIngredientOverrides =
+    Boolean(
+      product.ingredientOverrideDefinition
+        ?.ingredientOptions
+        ?.length
+    );
 
+  if (!hasIngredientOverrides) {
+    return false;
+  }
+
+  if (!draft?.enabled) {
+    return false;
+  }
+
+  return Boolean(
+    definition.requiresIngredientOverrideSelectionIfPresent
+  );
+}
 function shouldShowIngredientOverrideSelector(
   product: Product,
   modifierDefinitions: ModifierDefinition[],
@@ -174,7 +235,11 @@ const [
   selectedOverrideIngredientName,
   setSelectedOverrideIngredientName,
 ] = useState<string | undefined>(
-  undefined
+  () =>
+    getInitialOverrideIngredientName(
+      product,
+      productOrder
+    )
 );
 
 function applyIngredientOverride(
@@ -381,152 +446,58 @@ const showIngredientOverrideSelector =
 const ingredientOverrideOptions =
   product.ingredientOverrideDefinition
     ?.ingredientOptions ?? [];
+
+
+  function renderIngredientOverrideSelector() {
+  if (
+    ingredientOverrideOptions.length === 0
+  ) {
+    return null;
+  }
+
   return (
     <div
       className="
-        max-w-2xl
-        mx-auto
-        px-4
-        py-10
-        space-y-8
+        mt-6
+       
+        pt-5
       "
     >
-      <div className="space-y-3">
-        <h1
+      <div
+        className="
+          mb-4
+        "
+      >
+        <h3
           className="
-            text-3xl
-            font-bold
+            text-xs
+            font-black
+            uppercase
+            tracking-[0.25em]
+            text-neutral-950
           "
         >
-          {draftProductOrder.name}
-        </h1>
+          Choose One
+        </h3>
 
         <p
           className="
-            text-gray-500
+            mt-1
+            text-xs
+            italic
+            leading-relaxed
+            text-neutral-700
           "
         >
-          {product.shortDescription}
+          Select the ingredient option for this modifier.
         </p>
       </div>
 
-      {product.image && (
-        <img
-          src={product.image.src}
-          alt={product.name}
-          className="
-            w-full
-            h-64
-            object-cover
-            rounded-2xl
-          "
-        />
-      )}
-
-      <section className="space-y-4">
-        <h2
-          className="
-            text-xl
-            font-semibold
-          "
-        >
-          Ingredients
-        </h2>
-
-        <EditableIngredientList
-          ingredientSelection={
-            draftProductOrder
-              .ingredientSelections
-          }
-          onChangeIngredient={
-            updateIngredient
-          }
-        />
-      </section>
-
-      <section className="space-y-3">
-        <h2
-          className="
-            text-xl
-            font-semibold
-          "
-        >
-          Quantity
-        </h2>
-
-        <input
-          type="number"
-          min={1}
-          value={quantity}
-          onChange={(e) =>
-            handleQuantityChange(
-              Number(e.target.value)
-            )
-          }
-          className="
-            border
-            rounded-xl
-            px-4
-            py-3
-            w-24
-          "
-        />
-      </section>
-
-      {modifierDefinitions.length > 0 && (
-        <section className="space-y-4">
-          {modifierDefinitions.map(
-            definition => {
-              const draft =
-                modifierDrafts[
-                  definition.id
-                ];
-
-              if (!draft) {
-                return null;
-              }
-
-              return (
-                <ModifierSection
-                  key={definition.id}
-                  definition={definition}
-                  draft={draft}
-                  onDraftChange={
-                    nextDraft =>
-                      handleModifierDraftChange(
-                        definition.id,
-                        nextDraft
-                      )
-                  }
-                  onToggleOption={(
-                    groupId,
-                    optionId
-                  ) =>
-                    handleToggleModifierOption(
-                      definition,
-                      groupId,
-                      optionId
-                    )
-                  }
-                />
-              );
-            }
-          )}
-        </section>
-      )}
-{showIngredientOverrideSelector &&
-  ingredientOverrideOptions.length > 0 && (
-    <section className="space-y-4">
-      <h2
+      <div
         className="
-          text-xl
-          font-semibold
+          space-y-3
         "
       >
-        Choose One
-      </h2>
-
-      <div className="space-y-3">
         {ingredientOverrideOptions.map(
           ingredient => {
             const isSelected =
@@ -542,65 +513,518 @@ const ingredientOverrideOptions =
                     ingredient.name
                   )
                 }
-                className={`
+                className="
+                  group
+                  flex
                   w-full
-                  border
-                  rounded-xl
-                  px-4
-                  py-3
+                  items-center
+                  gap-3
                   text-left
-                  font-medium
-                  ${
-                    isSelected
-                      ? "bg-black text-white"
-                      : "bg-white"
-                  }
-                `}
+                  text-sm
+                  text-neutral-950
+                "
               >
-                {ingredient.name}
+                <span
+                  className={`
+                    flex
+                    h-6
+                    w-6
+                    shrink-0
+                    items-center
+                    justify-center
+                    border
+                    text-sm
+                    font-black
+                    leading-none
+                    transition
+
+                    ${
+                      isSelected
+                        ? "border-neutral-950 bg-neutral-950 text-white"
+                        : "border-neutral-300 bg-white text-transparent group-hover:border-neutral-950"
+                    }
+                  `}
+                >
+                  ✓
+                </span>
+
+                <span
+                  className="
+                    font-semibold
+                    leading-snug
+                  "
+                >
+                  {ingredient.name}
+                </span>
               </button>
             );
           }
         )}
       </div>
-    </section>
-  )}
-      <div
+    </div>
+  );
+}  
+  return (
+  <div
+    className="
+      bg-[#e6e6e6]
+      text-neutral-950
+    "
+  >
+    <div
+      className="
+        mx-auto
+        max-w-6xl
+        px-6
+        py-14
+      "
+    >
+      <header
         className="
-          flex
-          gap-4
-          pt-4
+          mb-12
+          text-center
         "
       >
-        <button
-          onClick={onCancel}
+        <div
           className="
-            flex-1
-            border
-            rounded-xl
-            py-4
-            font-semibold
+            mb-5
+            flex
+            items-center
+            justify-center
+            gap-5
           "
         >
-          Cancel
-        </button>
+          <span
+            className="
+              h-px
+              w-20
+              bg-neutral-700
+              sm:w-28
+            "
+          />
 
-        <button
-          onClick={handleSave}
+          <span
+            className="
+              text-sm
+              font-black
+              uppercase
+              tracking-[0.45em]
+              sm:text-lg
+            "
+          >
+            Order Online
+          </span>
+
+          <span
+            className="
+              h-px
+              w-20
+              bg-neutral-700
+              sm:w-28
+            "
+          />
+        </div>
+
+        <h1
           className="
-            flex-1
-            bg-black
-            text-white
-            rounded-xl
-            py-4
-            font-semibold
+            text-5xl
+            font-black
+            uppercase
+            tracking-[0.28em]
+            md:text-7xl
+          "
+        >
+          Sandwiches
+        </h1>
+
+        <p
+          className="
+            mt-5
+            text-xs
+            font-black
+            uppercase
+            tracking-[0.28em]
+            sm:text-sm
+          "
+        >
+          Available 7:00 AM - 6:30 PM Daily
+        </p>
+      </header>
+
+      <section
+        className="
+          mb-10
+          grid
+          grid-cols-1
+          gap-10
+          md:grid-cols-[1.05fr_0.95fr]
+          md:items-start
+        "
+      >
+        <div
+          className="
+            border-2
+            border-neutral-900
+            p-4
+          "
+        >
+          {product.image ? (
+            <img
+              src={product.image.src}
+              alt={product.name}
+              className="
+                h-[280px]
+                w-full
+                object-cover
+              "
+            />
+          ) : (
+            <div
+              className="
+                flex
+                h-[280px]
+                items-center
+                justify-center
+                bg-neutral-200
+                text-xs
+                font-black
+                uppercase
+                tracking-[0.25em]
+                text-neutral-500
+              "
+            >
+              No Image
+            </div>
+          )}
+        </div>
+
+        <div
+          className="
+            pt-2
+          "
+        >
+          <h2
+            className="
+              text-4xl
+              font-black
+              uppercase
+              leading-tight
+              tracking-[0.18em]
+            "
+          >
+            {draftProductOrder.name}
+          </h2>
+
+          {product.price !== null &&
+            product.price !== undefined &&
+            product.price !== "" && (
+              <div
+                className="
+                  mt-1
+                  text-3xl
+                  font-black
+                  tracking-[0.18em]
+                "
+              >
+                ${Number(product.price).toFixed(2)}
+              </div>
+            )}
+
+          {product.shortDescription && (
+            <div
+              className="
+                mt-7
+                max-w-md
+                text-xs
+                italic
+                leading-relaxed
+                text-neutral-700
+              "
+              dangerouslySetInnerHTML={{
+                __html: product.shortDescription,
+              }}
+            />
+          )}
+
+          <p
+            className="
+              mt-4
+              max-w-md
+              text-xs
+              italic
+              leading-relaxed
+              text-neutral-700
+            "
+          >
+            Sandwiches may contain wheat, milk, egg or soy.
+            Customize your selections below.
+          </p>
+
+          <div
+            className="
+              mt-8
+              max-w-xs
+            "
+          >
+            <label
+              className="
+                mb-2
+                block
+                text-xs
+                font-black
+                uppercase
+                tracking-[0.25em]
+              "
+            >
+              Quantity
+            </label>
+
+            <select
+              value={quantity}
+              onChange={(event) =>
+                handleQuantityChange(
+                  Number(event.target.value)
+                )
+              }
+              className="
+                w-full
+                border-0
+                bg-white
+                px-4
+                py-2
+                text-sm
+                outline-none
+              "
+            >
+              {[
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+              ].map(value => (
+                <option
+                  key={value}
+                  value={value}
+                >
+                  {value}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <div
+        className="
+          grid
+          grid-cols-1
+          gap-10
+          lg:grid-cols-3
+          lg:divide-x
+          lg:divide-neutral-900
+        "
+      >
+        <section
+          className="
+            border-t
+            border-black/70
+            pt-6
+            lg:border-t-0
+            lg:pr-8
+          "
+        >
+          <div
+            className="
+              mb-5
+            "
+          >
+            <h2
+              className="
+                text-sm
+                font-black
+                uppercase
+                tracking-[0.28em]
+              "
+            >
+              Ingredients
+            </h2>
+
+            <p
+              className="
+                mt-2
+                max-w-md
+                text-xs
+                italic
+                leading-relaxed
+                text-neutral-700
+              "
+            >
+              Choose how each ingredient should be prepared.
+            </p>
+          </div>
+
+          <EditableIngredientList
+            ingredientSelection={
+              draftProductOrder
+                .ingredientSelections
+            }
+            onChangeIngredient={
+              updateIngredient
+            }
+          />
+        </section>
+
+        {modifierDefinitions.length > 0 && (
+          <>
+            {modifierDefinitions.map(
+              definition => {
+                const draft =
+                  modifierDrafts[
+                    definition.id
+                  ];
+
+                if (!draft) {
+                  return null;
+                }
+
+                const showOverrideForThisModifier =
+  shouldShowIngredientOverrideSelectorForModifier(
+    product,
+    definition,
+    draft
+  );
+
+return (
+  <div
+    key={definition.id}
+    className="
+      border-t
+      border-black/70
+      pt-6
+      lg:border-t-0
+      lg:px-8
+    "
+  >
+    <ModifierSection
+      definition={definition}
+      draft={draft}
+      onDraftChange={
+        nextDraft =>
+          handleModifierDraftChange(
+            definition.id,
+            nextDraft
+          )
+      }
+      onToggleOption={(
+        groupId,
+        optionId
+      ) =>
+        handleToggleModifierOption(
+          definition,
+          groupId,
+          optionId
+        )
+      }
+    />
+
+    {showOverrideForThisModifier &&
+      renderIngredientOverrideSelector()}
+  </div>
+);
+              }
+            )}
+          </>
+        )}
+
+      </div>
+
+      <div
+        className="
+          mt-12
+          flex
+          flex-col
+          gap-4
+          bg-neutral-950
+          p-5
+          text-white
+          md:flex-row
+          md:items-center
+          md:justify-between
+        "
+      >
+        <div
+          className="
+            text-2xl
+            font-black
+            uppercase
+            tracking-[0.28em]
           "
         >
           {isEditing
-            ? "Update Cart"
-            : "Add To Cart"}
-        </button>
+            ? "Update Item"
+            : "Add Item"}
+        </div>
+
+        <div
+          className="
+            flex
+            flex-col
+            gap-3
+            sm:flex-row
+          "
+        >
+          <button
+            type="button"
+            onClick={onCancel}
+            className="
+              border
+              border-white/60
+              px-6
+              py-3
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.25em]
+              text-white
+              transition
+              hover:bg-white
+              hover:text-neutral-950
+            "
+          >
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            onClick={handleSave}
+            className="
+              border
+              border-white
+              px-8
+              py-3
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.25em]
+              text-white
+              transition
+              hover:bg-white
+              hover:text-neutral-950
+            "
+          >
+            {isEditing
+              ? "Update Cart"
+              : "Add To Cart >"}
+          </button>
+        </div>
       </div>
     </div>
-  );
+  </div>
+);
 }

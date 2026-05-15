@@ -28,8 +28,7 @@ export default function ModifierOptionGrid({
       className="
         grid
         grid-cols-1
-        sm:grid-cols-2
-        gap-3
+        gap-y-3
       "
     >
       {options.map(option => (

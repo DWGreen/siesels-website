@@ -14,7 +14,7 @@ function formatPrice(
   return `$${price.toFixed(2)}`;
 }
 
-export default function QuickModifierList({
+export default function CartModifierList({
   modifiers = [],
 }: Props) {
   if (modifiers.length === 0) {
@@ -24,38 +24,51 @@ export default function QuickModifierList({
   return (
     <div
       className="
-        flex
-        flex-col
-        gap-2
+        space-y-3
       "
     >
       {modifiers.map(modifier => (
         <div
           key={modifier.name}
           className="
+            border-l
+            border-neutral-950
+            pl-3
             text-xs
-            bg-gray-100
-            rounded-xl
-            px-2
-            py-1
+            leading-relaxed
+            text-neutral-800
           "
         >
           <div
             className="
               flex
-              items-center
+              flex-wrap
+              items-baseline
               justify-between
-              gap-3
-              
+              gap-x-3
+              gap-y-1
             "
           >
-            <span>
-              ✓ <b>{modifier.name}</b>
+            <span
+              className="
+                font-black
+                uppercase
+                tracking-[0.14em]
+                text-neutral-950
+              "
+            >
+              {modifier.name}
             </span>
 
             {modifier.price ? (
-              <span>
-                {modifier.priceOverride ? "Changes Price To: " : " + "}
+              <span
+                className="
+                  font-semibold
+                "
+              >
+                {modifier.priceOverride
+                  ? "Changes Price To "
+                  : "+ "}
                 {formatPrice(
                   modifier.price
                 )}
@@ -63,39 +76,36 @@ export default function QuickModifierList({
             ) : null}
           </div>
 
-          <div
-            className="
-              mt-1
-              flex
-              flex-col
-              gap-1
-              text-gray-600
-            "
-          >
-            {modifier.selectedGroups.flatMap(
-              group =>
-                group.selectedOptions.map(
-                  option => (
-                    <div
-                      key={`${group.groupId}-${option.id}`}
-                      className="
-                        pl-3
-                      "
-                    >
-                      - {option.name}
-                      {option.price ? (
-                        <span>
-                          {" "}
-                          {formatPrice(
-                            option.price
-                          )}
-                        </span>
-                      ) : null}
-                    </div>
+          {modifier.selectedGroups.length > 0 && (
+            <div
+              className="
+                mt-1
+                space-y-1
+                text-neutral-700
+              "
+            >
+              {modifier.selectedGroups.flatMap(
+                group =>
+                  group.selectedOptions.map(
+                    option => (
+                      <div
+                        key={`${group.groupId}-${option.id}`}
+                      >
+                        — {option.name}
+                        {option.price ? (
+                          <span>
+                            {" "}
+                            / {formatPrice(
+                              option.price
+                            )}
+                          </span>
+                        ) : null}
+                      </div>
+                    )
                   )
-                )
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       ))}
     </div>
