@@ -1,8 +1,27 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
+import { searchRecipes } from "@/services/recipes";
+import RecipeSearchBar from "@/components/recipes/RecipeSearchBar";
+import RecipeGrid from "@/components/recipes/RecipeGrid";
 
-export default function CookingPage() {
+type PageProps = {
+  searchParams: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+};
+
+export default async function CookingPage({ searchParams }: PageProps) {
+  const params = await searchParams;
+
+  const page = Number(params.page ?? 1);
+
+  const result = await searchRecipes({
+    query: params.query,
+    page,
+    limit: 12,
+  });
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -12,13 +31,13 @@ export default function CookingPage() {
           backgroundImage="/images/hero/butcher.jpg"
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
-        <section className="flex flex-1 items-center justify-center bg-brand-gray px-4 py-20 lg:py-32">
-          <div className="text-center">
-            <p className="font-body text-lg tracking-[0.2em] text-brand-dark lg:text-xl">
-              Cooking content is coming soon. Check back for recipes and tips.
-            </p>
-          </div>
-        </section>
+    
+         <div className="bg-brand-gray">
+        <RecipeSearchBar />
+      </div>
+<section className="flex flex-1 items-center justify-center bg-brand-gray px-4 py-20 lg:py-32">
+      <RecipeGrid recipes={result.recipes} />
+      </section>
       </main>
       <div className="bg-footer-texture">
         <Footer />
