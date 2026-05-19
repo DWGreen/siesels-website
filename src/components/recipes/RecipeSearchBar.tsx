@@ -1,61 +1,206 @@
-// src/components/recipes/RecipeSearchBar.tsx
-
 "use client";
 
-import { FormEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { RecipeFilters } from "@/types/recipes";
 
-export default function RecipeSearchBar() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+type CategoryGroup = {
+  label: string;
+  prefix: string;
+  options: string[];
+};
 
-  const [query, setQuery] = useState(searchParams.get("query") ?? "");
+type Props = {
+  filters: RecipeFilters;
+  categoryGroups: CategoryGroup[];
+  onChange: (
+    key: keyof RecipeFilters,
+    value: string
+  ) => void;
+  onClear: () => void;
+  onAdvancedSearch?: () => void;
+};
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (query.trim()) {
-      params.set("query", query.trim());
-    } else {
-      params.delete("query");
-    }
-
-    params.set("page", "1");
-
-    router.push(`/cooking?${params.toString()}`);
-  }
-
+export default function RecipeSearchBar({
+  filters,
+  categoryGroups,
+  onChange,
+  onClear,
+  onAdvancedSearch,
+}: Props) {
   return (
-    <form
-      onSubmit={handleSubmit}
+    <div
       className="
-        flex flex-col gap-3 border-none border-neutral-900 bg-white p-3
-        sm:flex-row
+        border-b
+        border-neutral-300
+        bg-white
+        px-4
+        py-4
       "
     >
-      <input
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        placeholder="Search recipes..."
+      <div
         className="
-          min-h-12 flex-1 border border-neutral-900 px-4
-          text-base font-bold outline-none
-          placeholder:text-neutral-400
-        "
-      />
-
-      <button
-        type="submit"
-        className="
-          min-h-12 border-2 border-neutral-900 bg-neutral-950 px-6
-          text-sm font-black uppercase tracking-[0.2em] text-white
-          transition hover:bg-white hover:text-neutral-950
+          grid
+          gap-3
+          lg:grid-cols-[260px_1fr_auto_auto]
         "
       >
-        Search
-      </button>
-    </form>
+        <select
+          value={filters.categoryValue}
+          onChange={event =>
+            onChange(
+              "categoryValue",
+              event.target.value
+            )
+          }
+          className="
+            border
+            border-neutral-900
+            px-3
+            py-2
+            text-sm
+            font-bold
+          "
+        >
+          <option value="">
+            Browse Recipe Categories
+          </option>
+
+          {categoryGroups.map(group => (
+            <optgroup
+              key={group.label}
+              label={group.label}
+            >
+              {group.options.map(option => (
+                <option
+                  key={`${group.prefix}|${option}`}
+                  value={`${group.prefix}|${option}`}
+                >
+                  {option}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+
+        <div
+          className="
+            flex
+            border
+            border-neutral-900
+          "
+        >
+          <input
+            value={filters.searchTerm}
+            onChange={event =>
+              onChange(
+                "searchTerm",
+                event.target.value
+              )
+            }
+            placeholder="FIND RECIPES"
+            className="
+              min-w-0
+              flex-1
+              px-3
+              py-2
+              text-sm
+              font-bold
+              uppercase
+              outline-none
+            "
+          />
+
+          <button
+            type="button"
+            className="
+              border-l
+              border-neutral-900
+              bg-neutral-900
+              px-4
+              text-sm
+              font-black
+              uppercase
+              tracking-widest
+              text-white
+            "
+          >
+            Search
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={onAdvancedSearch}
+          className="
+            border
+            border-neutral-900
+            px-4
+            py-2
+            text-sm
+            font-black
+            uppercase
+            tracking-widest
+          "
+        >
+          Advanced
+        </button>
+
+        <button
+          type="button"
+          onClick={onClear}
+          className="
+            border
+            border-neutral-900
+            px-4
+            py-2
+            text-sm
+            font-black
+            uppercase
+            tracking-widest
+          "
+        >
+          Clear
+        </button>
+      </div>
+
+      <div
+        className="
+          mt-3
+          flex
+          flex-wrap
+          items-center
+          gap-4
+          text-sm
+        "
+      >
+        <span className="font-black uppercase tracking-widest">
+          Match:
+        </span>
+
+        {[
+          ["every", "Every Word"],
+          ["any", "Any Word"],
+          ["exact", "Exact Phrase"],
+        ].map(([value, label]) => (
+          <label
+            key={value}
+            className="flex items-center gap-2"
+          >
+            <input
+              type="radio"
+              name="matchMode"
+              value={value}
+              checked={filters.matchMode === value}
+              onChange={() =>
+                onChange(
+                  "matchMode",
+                  value
+                )
+              }
+            />
+            {label}
+          </label>
+        ))}
+      </div>
+    </div>
   );
 }
