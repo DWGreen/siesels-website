@@ -187,6 +187,12 @@ export function useRecipeBox() {
     weekKey = formatWeekKey(),
     day = "sunday"
   ) {
+      console.log("ADD MENU DEBUG", {
+    recipeId,
+    weekKey,
+    day,
+  });
+
     setState(current => {
       const week =
         current.menuByWeek[weekKey] ??

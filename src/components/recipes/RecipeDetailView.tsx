@@ -1,16 +1,22 @@
 "use client";
 
 import Link from "next/link";
+
+import { buildRecipeFilterUrl } from "@/lib/recipes/recipeUrls";
 import { Recipe } from "@/types/recipes";
 import { useRecipeBox } from "@/hooks/useRecipeBox";
 import { getSimilarRecipes } from "@/lib/recipes/recipeLookup";
 import RecipeModuleHeader from "./RecipeModuleHeader";
+import AddToMenuDialog from "./AddToMenuDialog";
+
 type Props = {
   recipe: Recipe;
+    
 };
 
 export default function RecipeDetailView({
   recipe,
+
 }: Props) {
   const recipeBox = useRecipeBox();
   const similarRecipes = getSimilarRecipes(recipe);
@@ -19,7 +25,7 @@ export default function RecipeDetailView({
     recipeBox.savedRecipeIds.includes(recipe.id);
 
   return (
-    <div className="bg-white text-neutral-950">
+    <div className="bg-white py-2 text-neutral-950">
      <RecipeModuleHeader
   title={recipe.name}
   subtitle={`${recipe.course} · Serves ${recipe.servings}`}
@@ -224,24 +230,44 @@ export default function RecipeDetailView({
                     recipe.id
                   )
                 }
-                className="action-button"
+                className="  border
+  border-neutral-900
+  bg-neutral-900
+  px-3
+  py-3
+  text-center
+  text-xs
+  font-black
+  uppercase
+  tracking-widest
+  text-white"
               >
                 {isSaved
                   ? "Remove from My Recipes"
                   : "Add to My Recipes"}
               </button>
 
-              <button
-                type="button"
-                onClick={() =>
-                  recipeBox.addRecipeToMenu(
-                    recipe.id
-                  )
-                }
-                className="action-button"
-              >
-                Add to My Menu
-              </button>
+              <AddToMenuDialog
+  recipeName={recipe.name}
+  buttonClassName="  border
+  border-neutral-900
+  bg-neutral-900
+  px-3
+  py-3
+  text-center
+  text-xs
+  font-black
+  uppercase
+  tracking-widest
+  text-white"
+  onAdd={day =>
+    recipeBox.addRecipeToMenu(
+      recipe.id,
+      undefined,
+      day
+    )
+  }
+/>
 
               <button
                 type="button"
@@ -270,7 +296,17 @@ export default function RecipeDetailView({
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="action-button"
+                className="  border
+  border-neutral-900
+  bg-neutral-900
+  px-3
+  py-3
+  text-center
+  text-xs
+  font-black
+  uppercase
+  tracking-widest
+  text-white"
               >
                 Print Recipe
               </button>
@@ -288,30 +324,32 @@ export default function RecipeDetailView({
               See Other Recipes Like This
             </h2>
 
-            <div className="flex flex-wrap gap-2">
-              {[
-                ...(recipe.meta.cuisine ?? []),
-                ...(recipe.meta.diet ?? []),
-                ...(recipe.meta.mainIngredient ?? []),
-                ...(recipe.meta.holiday ?? []),
-                ...(recipe.meta.cookingMethod ?? []),
-              ].map(tag => (
-                <span
-                  key={tag}
-                  className="
-                    border
-                    border-neutral-300
-                    px-2
-                    py-1
-                    text-xs
-                    font-bold
-                    uppercase
-                  "
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+           <div className="flex flex-wrap gap-2">
+  <RecipeTagLinks
+    filter="cuisine"
+    values={recipe.meta.cuisine}
+  />
+
+  <RecipeTagLinks
+    filter="diet"
+    values={recipe.meta.diet}
+  />
+
+  <RecipeTagLinks
+    filter="mainIngredient"
+    values={recipe.meta.mainIngredient}
+  />
+
+  <RecipeTagLinks
+    filter="holiday"
+    values={recipe.meta.holiday}
+  />
+
+  <RecipeTagLinks
+    filter="cookingMethod"
+    values={recipe.meta.cookingMethod}
+  />
+</div>
           </div>
 
           <div
@@ -336,7 +374,7 @@ export default function RecipeDetailView({
                   "
                 >
                   <Link
-                    href={`/cooking/${item.slug}`}
+                    href={`/recipes/${item.slug}`}
                     className="
                       text-sm
                       font-black
@@ -378,5 +416,50 @@ function MetaPill({
     >
       {children}
     </span>
+  );
+}
+
+function RecipeTagLinks({
+  filter,
+  values,
+}: {
+  filter:
+    | "cuisine"
+    | "diet"
+    | "mainIngredient"
+    | "holiday"
+    | "cookingMethod"
+    | "course";
+  values?: string[];
+}) {
+  if (!values?.length) return null;
+
+  return (
+    <>
+      {values.map(value => (
+        <Link
+          key={`${filter}-${value}`}
+          href={buildRecipeFilterUrl(
+            filter,
+            value
+          )}
+          className="
+            border
+            border-neutral-300
+            px-2
+            py-1
+            text-xs
+            font-bold
+            uppercase
+            transition
+            hover:border-neutral-900
+            hover:bg-neutral-900
+            hover:text-white
+          "
+        >
+          {value}
+        </Link>
+      ))}
+    </>
   );
 }

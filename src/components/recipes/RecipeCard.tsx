@@ -2,13 +2,21 @@
 
 import Link from "next/link";
 import { Recipe } from "@/types/recipes";
+import AddToMenuDialog from "./AddToMenuDialog";
 
+import { buildRecipeFilterUrl } from "@/lib/recipes/recipeUrls";
 type Props = {
   recipe: Recipe;
   isSaved: boolean;
   onToggleSaved: (recipeId: number) => void;
   onAddIngredients: (recipe: Recipe) => void;
-  onAddToMenu?: (recipeId: number) => void;
+  onAddToMenu: (
+    recipeId: number,
+    weekId: string | undefined,
+    day: string
+  ) => void;
+  onSelectTag: (group: string, value: string) => void;
+  weekKey: string;  
 };
 
 export default function RecipeCard({
@@ -17,7 +25,10 @@ export default function RecipeCard({
   onToggleSaved,
   onAddIngredients,
   onAddToMenu,
+  onSelectTag,
+  weekKey,
 }: Props) {
+   
   return (
     <article
       className="
@@ -30,8 +41,7 @@ export default function RecipeCard({
       <Link href={`/recipes/${recipe.slug}`}>
         <div
           className="
-            border-2
-            border-neutral-900
+  
             bg-[#e6e6e6]
             p-2
           "
@@ -115,28 +125,24 @@ export default function RecipeCard({
             gap-2
           "
         >
-          {[
-            ...(recipe.meta.cuisine ?? []),
-            ...(recipe.meta.diet ?? []),
-            ...(recipe.meta.mainIngredient ?? []),
-          ]
-            .slice(0, 5)
-            .map(tag => (
-              <span
-                key={tag}
-                className="
-                  border
-                  border-neutral-300
-                  px-2
-                  py-1
-                  text-xs
-                  font-bold
-                  uppercase
-                "
-              >
-                {tag}
-              </span>
-            ))}
+            <RecipeTagLinks
+    filter="cuisine"
+    values={recipe.meta.cuisine}
+    onSelectTag={onSelectTag}
+  />
+
+  <RecipeTagLinks
+    filter="diet"
+    values={recipe.meta.diet}
+    onSelectTag={onSelectTag}
+  />
+
+  <RecipeTagLinks
+    filter="mainIngredient"
+    values={recipe.meta.mainIngredient}
+    onSelectTag={onSelectTag}
+  />
+         
         </div>
 
         <div
@@ -168,26 +174,29 @@ export default function RecipeCard({
               : "Add to My Recipes"}
           </button>
 
-          {onAddToMenu && (
-            <button
-              type="button"
-              onClick={() =>
-                onAddToMenu(recipe.id)
-              }
-              className="
-                border
-                border-neutral-900
-                px-3
-                py-2
-                text-xs
-                font-black
-                uppercase
-                tracking-widest
-              "
-            >
-              Add to Menu
-            </button>
-          )}
+         
+           <AddToMenuDialog
+  recipeName={recipe.name}
+  buttonLabel="Add to Menu"
+  buttonClassName="
+    border
+    border-neutral-900
+    px-3
+    py-2
+    text-xs
+    font-black
+    uppercase
+    tracking-widest
+  "
+  onAdd={day =>
+    onAddToMenu(
+      recipe.id,
+      weekKey,
+      day
+    )
+  }
+/>
+          
 
           <button
             type="button"
@@ -212,5 +221,51 @@ export default function RecipeCard({
         </div>
       </div>
     </article>
+  );
+}
+
+
+function RecipeTagLinks({
+  filter,
+  values,
+  onSelectTag,
+}: {
+  filter:
+    | "cuisine"
+    | "diet"
+    | "mainIngredient"
+    | "holiday"
+    | "cookingMethod"
+    | "course";
+  values?: string[];
+  onSelectTag: (group: string, value: string) => void;
+}) {
+  if (!values?.length) return null;
+
+  return (
+    <>
+      {values.map(value => (
+        <button
+              key={value}
+              type="button"
+              onClick={() =>
+                onSelectTag(filter, value)
+              }
+              className="
+                border
+                border-neutral-300
+                px-2
+                py-1
+                text-xs
+                font-bold
+                uppercase
+                hover:border-neutral-900
+              "
+            >
+              {value}
+            </button>
+       
+      ))}
+    </>
   );
 }

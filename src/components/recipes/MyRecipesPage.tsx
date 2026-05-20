@@ -11,6 +11,7 @@ import {
 } from "@/types/recipes";
 import { getRecipesByIds } from "@/lib/recipes/recipeLookup";
 import RecipeModuleHeader from "./RecipeModuleHeader";
+import AddToMenuDialog from "./AddToMenuDialog";
 
 export default function MyRecipesPage() {
   const recipeBox = useRecipeBox();
@@ -50,7 +51,7 @@ export default function MyRecipesPage() {
   ]);
 
   return (
-    <div className="bg-white text-neutral-950">
+    <div className="bg-neutral-100 py-2 text-neutral-950">
       <RecipeModuleHeader
         title="My Recipes"
         subtitle="Saved recipes are stored locally on this computer."
@@ -79,6 +80,7 @@ export default function MyRecipesPage() {
               text-sm
               font-bold
               uppercase
+              bg-white
             "
           />
 
@@ -97,6 +99,7 @@ export default function MyRecipesPage() {
               py-2
               text-sm
               font-bold
+              bg-white
             "
           >
             <option value="dateAdded">
@@ -128,6 +131,7 @@ export default function MyRecipesPage() {
                   border-2
                   border-neutral-900
                   p-4
+                  bg-white
                 "
               >
                 <div
@@ -172,27 +176,28 @@ export default function MyRecipesPage() {
                   </div>
 
                   <div className="flex gap-2">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        recipeBox.addRecipeToMenu(
-                          recipe.id
-                        )
-                      }
-                      className="
-  border
-  border-neutral-900
-  px-3
-  py-2
-  text-xs
-  font-black
-  uppercase
-  tracking-widest
-  whitespace-nowrap
-"
-                    >
-                      Add to Menu
-                    </button>
+                      
+                              <AddToMenuDialog
+                     recipeName={recipe.name}
+                     buttonLabel="Add to Menu"
+                     buttonClassName="
+                       border
+                       border-neutral-900
+                       px-3
+                       py-2
+                       text-xs
+                       font-black
+                       uppercase
+                       tracking-widest
+                     "
+                     onAdd={day =>
+                       recipeBox.addRecipeToMenu(
+                         recipe.id,
+                         undefined,
+                         day
+                       )
+                     }
+                   />
 
                     <button
                       type="button"

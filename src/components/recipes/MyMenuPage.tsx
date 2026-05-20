@@ -70,7 +70,7 @@ export default function MyMenuPage() {
   }, [weekMenu]);
 
   return (
-    <div className="bg-white text-neutral-950">
+    <div className="bg-neutral-100 py-2 text-neutral-950">
       <RecipeModuleHeader
         title="My Menu"
         subtitle="Plan weekly meals and build a shopping list from your recipes."

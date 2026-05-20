@@ -38,7 +38,7 @@ export default function RecipeRightRail({
       className="
         border-l
         border-neutral-300
-        bg-white
+              bg-neutral-100
         p-4
       "
     >
@@ -57,6 +57,7 @@ export default function RecipeRightRail({
 
         <ul className="space-y-2 text-sm">
           {healthyChoices.slice(0, 5).map(recipe => (
+            
             <li
               key={recipe.id}
               className="
@@ -66,7 +67,7 @@ export default function RecipeRightRail({
                 font-bold
               "
             >
-              {recipe.name}
+              <a href={`/recipes/${recipe.slug}`}>{recipe.name}</a>
             </li>
           ))}
         </ul>

@@ -20,6 +20,7 @@ export default function RecipeModuleHeader({
         px-4
         py-5
         text-white
+        bg-wood-texture
       "
     >
       <div
@@ -35,22 +36,11 @@ export default function RecipeModuleHeader({
         "
       >
         <div>
-          <Link
-            href="/recipes"
-            className="
-              text-xs
-              font-black
-              uppercase
-              tracking-[0.25em]
-              text-white/70
-              hover:text-white
-            "
-          >
-            Cooking
-          </Link>
+         
 
           <h1
             className="
+            font-heading
               mt-2
               text-4xl
               font-black
@@ -63,7 +53,7 @@ export default function RecipeModuleHeader({
           </h1>
 
           {subtitle && (
-            <p className="mt-2 max-w-2xl text-sm text-white/70">
+            <p className="mt-2 max-w-2xl text-sm text-white">
               {subtitle}
             </p>
           )}
@@ -109,7 +99,7 @@ function HeaderLink({
       href={href}
       className="
         border
-        border-white/40
+        border-white/70
         px-3
         py-2
         text-xs

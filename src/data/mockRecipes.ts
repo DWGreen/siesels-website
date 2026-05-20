@@ -8,7 +8,7 @@ export const mockRecipes: Recipe[] = [
     course: "Side",
     servings: "4",
     rating: 4.5,
-    image: "/images/recipes/grilled-sweet-peppers.jpg",
+    image: "/images/recipes/grilled-peppers.webp",
     intro:
       "Colorful sweet peppers grilled until tender and finished with herbs, olive oil, and a little sea salt.",
     prepTimeMinutes: 10,

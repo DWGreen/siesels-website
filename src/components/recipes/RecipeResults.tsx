@@ -8,7 +8,14 @@ type Props = {
   savedRecipeIds: number[];
   onToggleSaved: (recipeId: number) => void;
   onAddIngredients: (recipe: Recipe) => void;
-  onAddToMenu?: (recipeId: number) => void;
+onAddToMenu: (
+    recipeId: number,
+    weekId: string | undefined,
+    day: string
+  ) => void;
+  onSelectTag: (group: string, value: string) => void;
+  weekKey: string;
+
 };
 
 export default function RecipeResults({
@@ -17,6 +24,9 @@ export default function RecipeResults({
   onToggleSaved,
   onAddIngredients,
   onAddToMenu,
+  onSelectTag,
+  weekKey,
+
 }: Props) {
   return (
     <div className="p-4">
@@ -75,6 +85,7 @@ export default function RecipeResults({
         >
           {recipes.map(recipe => (
             <RecipeCard
+            onSelectTag={onSelectTag}
               key={recipe.id}
               recipe={recipe}
               isSaved={savedRecipeIds.includes(
@@ -82,7 +93,8 @@ export default function RecipeResults({
               )}
               onToggleSaved={onToggleSaved}
               onAddIngredients={onAddIngredients}
-              onAddToMenu={onAddToMenu}
+          onAddToMenu={onAddToMenu}
+              weekKey={weekKey}
             />
           ))}
         </div>

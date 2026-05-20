@@ -35,7 +35,7 @@ export default function ShoppingListPage() {
   }, [recipeBox.state.shoppingList]);
 
   return (
-    <div className="bg-white text-neutral-950">
+    <div className="bg-neutral-100 py-2 text-neutral-950">
   <RecipeModuleHeader
   title="My Shopping List"
   subtitle="Build your grocery list from recipes, weekly menus, and custom items."
@@ -48,6 +48,7 @@ export default function ShoppingListPage() {
             border-2
             border-neutral-900
             p-4
+            bg-white
           "
         >
           <h2
@@ -120,6 +121,7 @@ export default function ShoppingListPage() {
                 font-black
                 uppercase
                 tracking-widest
+                bg-white
               "
             >
               Clear List
@@ -154,6 +156,7 @@ export default function ShoppingListPage() {
               border-neutral-300
               p-8
               text-center
+              bg-white
             "
           >
             <h2 className="font-black uppercase tracking-widest">
@@ -180,6 +183,7 @@ export default function ShoppingListPage() {
                     border-2
                     border-neutral-900
                     p-4
+                    bg-white
                   "
                 >
                   <h2

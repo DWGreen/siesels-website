@@ -5,12 +5,27 @@ import {
   RecipeBoxState,
 } from "@/types/recipes";
 import Link from "next/link";
+import {
+  capitalizeDay,
+  formatWeekKey,
+  getEmptyWeekMenu,
+  menuDays,
+} from "@/lib/recipes/dateWeeks";
+import { useMemo, useState } from "react";
+import { getRecipeById } from "@/lib/recipes/recipeLookup";
+
 type Props = {
   recipes: Recipe[];
   state: RecipeBoxState;
   onRemoveSavedRecipe: (recipeId: number) => void;
   onAddCustomShoppingItem: (name: string) => void;
   onRemoveShoppingItem: (itemId: string) => void;
+  onRemoveRecipeFromMenu: (
+    recipeId: number,
+    weekKey: string,
+    day: string
+  ) => void;
+  weekKey: string;
 };
 
 export default function RecipeBoxSidebar({
@@ -19,6 +34,8 @@ export default function RecipeBoxSidebar({
   onRemoveSavedRecipe,
   onAddCustomShoppingItem,
   onRemoveShoppingItem,
+  onRemoveRecipeFromMenu,
+  weekKey,
 }: Props) {
   const savedRecipes = state.savedRecipes
     .map(saved =>
@@ -27,6 +44,15 @@ export default function RecipeBoxSidebar({
       )
     )
     .filter(Boolean) as Recipe[];
+
+
+
+  const weekMenu = useMemo(
+    () =>
+      state.menuByWeek[weekKey] ??
+      getEmptyWeekMenu(),
+    [state.menuByWeek, weekKey]
+  );
 
   return (
     <aside
@@ -80,51 +106,135 @@ export default function RecipeBoxSidebar({
             ))}
           </ul>
         )}
+
         <Link
-  href="/cooking/my-recipes"
-  className="
-    mt-3
-    block
-    w-full
-    border
-    border-neutral-900
-    px-3
-    py-2
-    text-center
-    text-xs
-    font-black
-    uppercase
-    tracking-widest
-  "
->
-  View My Recipes
-</Link>
+          href="/recipes/my-recipes"
+          className="
+            mt-3
+            block
+            w-full
+            border
+            border-neutral-900
+            px-3
+            py-2
+            text-center
+            text-xs
+            font-black
+            uppercase
+            tracking-widest
+          "
+        >
+          View My Recipes
+        </Link>
       </SidebarSection>
 
       <SidebarSection title="My Menu">
-        <p className="text-sm text-neutral-600">
-          Weekly menu planning comes next.
-        </p>
+        <div className="space-y-2">
+          {menuDays.map(day => {
+            const recipeIds = weekMenu[day] ?? [];
+
+            return (
+              <section
+                key={day}
+                className="bg-white p-3"
+              >
+                <h2
+                  className="
+                    mb-3
+                    border-b
+                    border-neutral-300
+                    pb-2
+                    text-sm
+                    font-black
+                    uppercase
+                    tracking-[0.2em]
+                  "
+                >
+                  {capitalizeDay(day)}
+                </h2>
+
+                {recipeIds.length === 0 ? (
+                  <p className="text-sm text-neutral-500">
+                    No recipes planned.
+                  </p>
+                ) : (
+                  <ul className="space-y-3">
+                    {recipeIds.map(recipeId => {
+                      const recipe =
+                        getRecipeById(recipeId);
+
+                      if (!recipe) return null;
+
+                      return (
+                        <li
+                          key={`${day}-${recipeId}`}
+                          className="
+                            border-b
+                            border-neutral-200
+                            pb-2
+                          "
+                        >
+                          <Link
+                            href={`/recipes/${recipe.slug}`}
+                            className="
+                              text-sm
+                              font-black
+                              uppercase
+                              hover:underline
+                            "
+                          >
+                            {recipe.name}
+                          </Link>
+
+                          <button
+                            type="button"
+                            onClick={() =>
+                              onRemoveRecipeFromMenu(
+                                recipe.id,
+                                weekKey,
+                                day
+                              )
+                            }
+                            className="
+                              mt-1
+                              block
+                              text-xs
+                              font-black
+                              uppercase
+                              text-neutral-500
+                            "
+                          >
+                            Remove
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </section>
+            );
+          })}
+        </div>
 
         <Link
-  href="/cooking/my-menu"
-  className="
-    mt-3
-    block
-    w-full
-    border
-    border-neutral-900
-    px-3
-    py-2
-    text-center
-    text-xs
-    font-black
-    uppercase
-    tracking-widest
-  "
->
-  View My Menu
-</Link>
+          href="/recipes/my-menu"
+          className="
+            mt-3
+            block
+            w-full
+            border
+            border-neutral-900
+            px-3
+            py-2
+            text-center
+            text-xs
+            font-black
+            uppercase
+            tracking-widest
+          "
+        >
+          View My Menu
+        </Link>
       </SidebarSection>
 
       <SidebarSection title="My Shopping List">
@@ -174,25 +284,26 @@ export default function RecipeBoxSidebar({
             ))}
           </ul>
         )}
+
         <Link
-  href="/shoppinglist"
-  className="
-    mt-3
-    block
-    w-full
-    border
-    border-neutral-900
-    px-3
-    py-2
-    text-center
-    text-xs
-    font-black
-    uppercase
-    tracking-widest
-  "
->
-  View Shopping List
-</Link>
+          href="/recipes/shoppinglist"
+          className="
+            mt-3
+            block
+            w-full
+            border
+            border-neutral-900
+            px-3
+            py-2
+            text-center
+            text-xs
+            font-black
+            uppercase
+            tracking-widest
+          "
+        >
+          View Shopping List
+        </Link>
       </SidebarSection>
 
       <AddShoppingItemForm
@@ -209,7 +320,8 @@ export default function RecipeBoxSidebar({
           text-neutral-500
         "
       >
-        My Recipe Box info is saved locally on this computer for 30 days.
+        My Recipe Box info is saved locally on this
+        computer for 30 days.
       </div>
     </aside>
   );
