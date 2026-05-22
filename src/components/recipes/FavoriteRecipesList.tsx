@@ -43,7 +43,7 @@ export default function FavoriteRecipesList({
         </h2>
 
         <Link
-          href="/recipes?match=every"
+          href="/cooking?match=every"
           className="
             text-xs
             font-black
@@ -69,7 +69,7 @@ export default function FavoriteRecipesList({
         {favoriteRecipes.map((recipe, index) => (
           <Link
             key={recipe.id}
-            href={`/recipes/${recipe.slug}`}
+            href={`/cooking/${recipe.slug}`}
             className="
               group
               block

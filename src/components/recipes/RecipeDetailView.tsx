@@ -374,7 +374,7 @@ export default function RecipeDetailView({
                   "
                 >
                   <Link
-                    href={`/recipes/${item.slug}`}
+                    href={`/cooking/${item.slug}`}
                     className="
                       text-sm
                       font-black

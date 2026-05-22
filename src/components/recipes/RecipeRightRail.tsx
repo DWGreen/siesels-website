@@ -67,7 +67,7 @@ export default function RecipeRightRail({
                 font-bold
               "
             >
-              <a href={`/recipes/${recipe.slug}`}>{recipe.name}</a>
+              <a href={`/cooking/${recipe.slug}`}>{recipe.name}</a>
             </li>
           ))}
         </ul>

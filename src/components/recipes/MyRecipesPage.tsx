@@ -159,7 +159,7 @@ export default function MyRecipesPage() {
                     </div>
 
                     <Link
-                      href={`/recipes/${recipe.slug}`}
+                      href={`/cooking/${recipe.slug}`}
                       className="
                         text-xl
                         font-black

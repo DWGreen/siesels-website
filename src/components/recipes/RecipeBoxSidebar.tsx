@@ -108,7 +108,7 @@ export default function RecipeBoxSidebar({
         )}
 
         <Link
-          href="/recipes/my-recipes"
+          href="/cooking/my-recipes"
           className="
             mt-3
             block
@@ -175,7 +175,7 @@ export default function RecipeBoxSidebar({
                           "
                         >
                           <Link
-                            href={`/recipes/${recipe.slug}`}
+                            href={`/cooking/${recipe.slug}`}
                             className="
                               text-sm
                               font-black
@@ -217,7 +217,7 @@ export default function RecipeBoxSidebar({
         </div>
 
         <Link
-          href="/recipes/my-menu"
+          href="/cooking/my-menu"
           className="
             mt-3
             block
@@ -286,7 +286,7 @@ export default function RecipeBoxSidebar({
         )}
 
         <Link
-          href="/recipes/shoppinglist"
+          href="/cooking/shoppinglist"
           className="
             mt-3
             block

@@ -66,19 +66,19 @@ export default function RecipeModuleHeader({
             gap-2
           "
         >
-          <HeaderLink href="/recipes">
+          <HeaderLink href="/cooking">
             Recipes
           </HeaderLink>
 
-          <HeaderLink href="/recipes/my-recipes">
+          <HeaderLink href="/cooking/my-recipes">
             My Recipes
           </HeaderLink>
 
-          <HeaderLink href="/recipes/my-menu">
+          <HeaderLink href="/cooking/my-menu">
             My Menu
           </HeaderLink>
 
-          <HeaderLink href="/recipes/shoppinglist">
+          <HeaderLink href="/cooking/shoppinglist">
             Shopping List
           </HeaderLink>
         </nav>

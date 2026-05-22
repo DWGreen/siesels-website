@@ -121,7 +121,7 @@ function RecipeCollectionItem({
         pb-4
       "
     >
-      <Link href={`/recipes/${recipe.slug}`}>
+      <Link href={`/cooking/${recipe.slug}`}>
         {recipe.image ? (
           <img
             src={recipe.image}
@@ -153,7 +153,7 @@ function RecipeCollectionItem({
 
       <div>
         <Link
-          href={`/recipes/${recipe.slug}`}
+          href={`/cooking/${recipe.slug}`}
           className="
             text-sm
             font-black
@@ -201,7 +201,7 @@ function RecipeCollectionItem({
           "
         >
           <Link
-            href={`/recipes/${recipe.slug}`}
+            href={`/cooking/${recipe.slug}`}
             className="
               text-[11px]
               font-black

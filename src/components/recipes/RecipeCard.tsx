@@ -38,7 +38,7 @@ export default function RecipeCard({
         p-3
       "
     >
-      <Link href={`/recipes/${recipe.slug}`}>
+      <Link href={`/cooking/${recipe.slug}`}>
         <div
           className="
   
@@ -91,7 +91,7 @@ export default function RecipeCard({
           {recipe.course} · Serves {recipe.servings}
         </div>
 
-        <Link href={`/recipes/${recipe.slug}`}>
+        <Link href={`/cooking/${recipe.slug}`}>
           <h2
             className="
               text-xl

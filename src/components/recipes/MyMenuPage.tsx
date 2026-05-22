@@ -240,7 +240,7 @@ export default function MyMenuPage() {
                           "
                         >
                           <Link
-                            href={`/recipes/${recipe.slug}`}
+                            href={`/cooking/${recipe.slug}`}
                             className="
                               text-sm
                               font-black

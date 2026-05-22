@@ -38,7 +38,7 @@ export default function RecipeCollectionRail({
       {collections.map(collection => (
         <Link
           key={collection.id}
-          href={`/recipes/collections/${collection.id}`}
+          href={`/cooking/collections/${collection.id}`}
           className="
             block
             border-b
