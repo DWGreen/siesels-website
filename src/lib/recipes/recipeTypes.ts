@@ -10,8 +10,7 @@ export type RecipeRow = {
   recipe_course: string;
   recipe_directions: string;
   recipe_photo: string;
-  recipe_photo_s3: string;
-  recipe_photo_temp: string;
+
   recipe_photo_removed: string;
   recipe_client: string;
   recipe_date_modified: Date | string;
@@ -78,7 +77,7 @@ export type RecipeCard = {
   servings: string;
   course: string;
   photo: string | null;
-  photoS3: string | null;
+
   client: string;
   dateModified: string | Date;
   intro: string | null;
@@ -92,7 +91,7 @@ export type RecipeDetailSection = {
   course: string;
   directions: string[];
   photo: string | null;
-  photoS3: string | null;
+
   client: string;
   status: RecipeStatus;
   dateModified: string | Date;

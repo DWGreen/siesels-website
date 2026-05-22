@@ -6,7 +6,7 @@ import Image from "next/image";
 import DesktopNav from "./DesktopNav";
 import MobileMenu from "./MobileMenu";
 import { MenuIcon } from "@/components/ui/Icons";
-
+import CookieConsent from "react-cookie-consent";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -53,6 +53,7 @@ export default function Header() {
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
       />
+      <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
     </header>
   );
 }

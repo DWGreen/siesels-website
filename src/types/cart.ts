@@ -93,7 +93,7 @@ export interface ModifierOptionDefinition {
   price?: number;
 
   image?: {
-    id: string;
+    id: number;
     src: string;
     alt?: string;
   };
@@ -111,7 +111,7 @@ export interface ModifierDraft {
 }
 export interface ProductWorkflowTrigger {
 
-  productId: string;
+  productId: number;
 
   workflow:
     "build-your-own-sandwich";

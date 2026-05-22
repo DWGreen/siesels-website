@@ -1,7 +1,7 @@
 // src/lib/recipes/recipeQueries.ts
 
 import { queryRows, type QueryParamValue } from "./recipeDb";
-
+import {databaseName} from "@/config/databaseConfig";
 import {
   GetRecipeByIdOptions,
   GetRecipesOptions,
@@ -76,10 +76,10 @@ export async function getRecipeCardsQuery(
 
   const searchJoins = hasSearch
     ? `
-      LEFT JOIN dwgreen_cms.recipes_meta m
+      LEFT JOIN recipes_meta m
         ON m.meta_recipe_id = r.recipe_id
 
-      LEFT JOIN dwgreen_cms.recipes_ingredient_lu i
+      LEFT JOIN recipes_ingredient_lu i
         ON i.lu_recipe_id = r.recipe_id
     `
     : "";
@@ -104,13 +104,13 @@ export async function getRecipeCardsQuery(
       r.recipe_servings AS servings,
       r.recipe_course AS course,
       r.recipe_photo AS photo,
-      r.recipe_photo_s3 AS photoS3,
+
       r.recipe_client AS client,
       r.recipe_date_modified AS dateModified,
       intro.meta_value AS intro
-    FROM dwgreen_cms.recipes r
+    FROM recipes r
 
-    LEFT JOIN dwgreen_cms.recipes_meta intro
+    LEFT JOIN recipes_meta intro
       ON intro.meta_recipe_id = r.recipe_id
      AND LOWER(intro.meta_name) = 'recipeintro'
 
@@ -170,8 +170,8 @@ export async function getRecipeRowsForDetailQuery(
       r.recipe_course,
       r.recipe_directions,
       r.recipe_photo,
-      r.recipe_photo_s3,
-      r.recipe_photo_temp,
+
+
       r.recipe_photo_removed,
       r.recipe_client,
       r.recipe_date_modified,
@@ -179,7 +179,7 @@ export async function getRecipeRowsForDetailQuery(
       r.recipe_status,
       r.recipe_import_id,
       r.recipe_server
-    FROM dwgreen_cms.recipes r
+    FROM recipes r
     WHERE (r.recipe_id = ? OR r.recipe_root_id = ?)
       ${statusFilter}
       ${clientFilter.sql}
@@ -217,7 +217,7 @@ export async function getIngredientsForRecipesQuery(
       lu_size,
       lu_department,
       lu_searchterm
-    FROM dwgreen_cms.recipes_ingredient_lu
+    FROM recipes_ingredient_lu
     WHERE lu_recipe_id IN (${placeholders})
     ORDER BY lu_recipe_id, lu_id
   `;
@@ -245,7 +245,7 @@ export async function getMetaForRecipesQuery(
       meta_recipe_id,
       meta_name,
       TRIM(BOTH ',' FROM meta_value) AS meta_value
-    FROM dwgreen_cms.recipes_meta
+    FROM recipes_meta
     WHERE meta_recipe_id IN (${placeholders})
     ORDER BY meta_recipe_id, meta_name, meta_id
   `;
@@ -273,7 +273,7 @@ export async function getRatingSummaryQuery(
       COUNT(*) AS rating_count,
       SUM(rate_vote) AS rating_total,
       SUM(rate_vote) / COUNT(*) AS rating_average
-    FROM dwgreen_cms.recipes_ratings
+    FROM recipes_ratings
     WHERE rate_recipe_id = ?
       ${clientFilter.sql}
     GROUP BY rate_recipe_id
@@ -304,7 +304,7 @@ export async function getRecipeStatusCountsQuery(): Promise<
       SELECT
         recipe_status,
         COUNT(*) AS total
-      FROM dwgreen_cms.recipes
+      FROM recipes
       GROUP BY recipe_status
       ORDER BY recipe_status
     `
@@ -328,7 +328,7 @@ export async function getRecipeClientCountsQuery(): Promise<
         recipe_client,
         COUNT(*) AS total,
         SUM(recipe_status = 1) AS published
-      FROM dwgreen_cms.recipes
+      FROM recipes
       GROUP BY recipe_client
       ORDER BY total DESC
     `

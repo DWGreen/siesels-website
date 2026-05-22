@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   CartProvider
 } from "@/context/CartContext";
+import CookieConsent from "react-cookie-consent";
 import { Oswald, Open_Sans, Playfair_Display, Barlow_Condensed, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
         <CartProvider>
           {children}
         </CartProvider>
+        
       </body>
     </html>
   );

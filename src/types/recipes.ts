@@ -1,4 +1,4 @@
-export type RecipeCourse =
+export type KnownRecipeCourse =
   | "Dinner"
   | "Breakfast"
   | "Lunch"
@@ -7,19 +7,26 @@ export type RecipeCourse =
   | "Beverage"
   | "Salad"
   | "Side"
-  | "Soup";
+  | "Soup"
+  | "Dessert"
+  | "Beer"
+  | "Wine";
+
+export type RecipeCourse =
+  | KnownRecipeCourse
+  | (string & {});
 
 export type RecipeMatchMode =
   | "every"
   | "any"
   | "exact";
-
 export type RecipeMeta = {
   cuisine?: string[];
   diet?: string[];
   mainIngredient?: string[];
   holiday?: string[];
   cookingMethod?: string[];
+  category?: string[];
 };
 
 export type RecipeIngredient = {
@@ -45,7 +52,6 @@ export type Recipe = {
   prepTimeMinutes?: number;
   cookTimeMinutes?: number;
 };
-
 export type RecipeFilters = {
   searchTerm: string;
   matchMode: RecipeMatchMode;

@@ -9,7 +9,7 @@ export function serializeCustomSandwich(
 
     name: sandwich.name,
 
-    quantity: sandwich.quantity,
+    quantity: 1,
 
     selections:
       sandwich.selections,

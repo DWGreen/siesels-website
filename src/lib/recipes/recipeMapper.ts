@@ -4,6 +4,7 @@ import {
   RecipeDetail,
   RecipeDetailSection,
   RecipeIngredient,
+  RecipeCard,
   RecipeIngredientRow,
   RecipeMeta,
   RecipeMetaMap,
@@ -12,12 +13,74 @@ import {
   RecipeRow,
 } from "./recipeTypes";
 
-function cleanString(value: string | null | undefined): string {
-  return value?.trim() ?? "";
+function decodeCmsEntities(value: string): string {
+  return value
+    .replace(/\\+/g, "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#160;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&rsquo;/gi, "’")
+    .replace(/&lsquo;/gi, "‘")
+    .replace(/&rdquo;/gi, "”")
+    .replace(/&ldquo;/gi, "“")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/&apos;/gi, "'")
+    .replace(/&ocirc;/gi, "ô")
+    .replace(/&eacute;/gi, "é")
+    .replace(/&egrave;/gi, "è")
+    .replace(/&ntilde;/gi, "ñ")
+    .replace(/&uuml;/gi, "ü")
+    .replace(/&reg;/gi, "®")
+    .replace(/&trade;/gi, "™");
+}
+function normalizePhotoUrl(
+  value: string | null | undefined
+): string | null {
+  const photo = nullableString(value);
+
+  if (!photo) return null;
+
+  if (
+    photo.startsWith("http://") ||
+    photo.startsWith("https://")
+  ) {
+    return photo;
+  }
+
+  const wpBaseUrl =
+    process.env.NEXT_PUBLIC_WP_URL ||
+    process.env.WP_URL ||
+    "";
+
+  if (!wpBaseUrl) {
+    return photo;
+  }
+
+  return `${wpBaseUrl.replace(/\/$/, "")}/${photo.replace(
+    /^\//,
+    ""
+  )}`;
+}
+function cleanString(
+  value: string | null | undefined
+): string {
+  const cleaned = decodeCmsEntities(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!cleaned) return "";
+
+  if (cleaned === "-") return "";
+
+  return cleaned;
 }
 
-function nullableString(value: string | null | undefined): string | null {
+function nullableString(
+  value: string | null | undefined
+): string | null {
   const cleaned = cleanString(value);
+
   return cleaned.length ? cleaned : null;
 }
 
@@ -90,7 +153,23 @@ export function mapMeta(row: RecipeMetaRow): RecipeMeta {
     value,
   };
 }
+export function mapRecipeCard(row: RecipeCard): RecipeCard {
+  return {
+    ...row,
+    name: cleanString(row.name),
+    servings: cleanString(row.servings),
+    course: cleanString(row.course),
+    photo: normalizePhotoUrl(row.photo),
+    intro: nullableString(row.intro),
+    client: cleanString(row.client),
+  };
+}
 
+export function mapRecipeCards(
+  rows: RecipeCard[]
+): RecipeCard[] {
+  return rows.map(mapRecipeCard);
+}
 export function groupMetaByRecipeId(
   rows: RecipeMetaRow[]
 ): Record<number, RecipeMetaMap> {
@@ -117,8 +196,7 @@ export function mapRecipeSection(
     servings: cleanString(row.recipe_servings),
     course: cleanString(row.recipe_course),
     directions: splitRecipeDirections(row.recipe_directions),
-    photo: nullableString(row.recipe_photo),
-    photoS3: nullableString(row.recipe_photo_s3),
+    photo: normalizePhotoUrl(row.recipe_photo),
     client: cleanString(row.recipe_client),
     status: row.recipe_status,
     dateModified: row.recipe_date_modified,

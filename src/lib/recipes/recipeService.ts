@@ -14,19 +14,24 @@ import {
   GetRecipesOptions,
   RecipeCard,
   RecipeDetail,
+  
 } from "./recipeTypes";
-import { buildRecipeDetail } from "./recipeMapper";
-
+import { buildRecipeDetail, mapRecipeCards } from "./recipeMapper";
+const DEFAULT_RECIPE_CLIENT =
+  process.env.RECIPES_DEFAULT_CLIENT || "JEN";
 export async function getRecipes(
   options: GetRecipesOptions = {}
 ): Promise<RecipeCard[]> {
-  return getRecipeCardsQuery({
-    status: 1,
-    limit: 24,
-    offset: 0,
-    includeBlankClient: true,
-    ...options,
-  });
+  const rows = await getRecipeCardsQuery({
+  status: 1,
+  limit: 24,
+  offset: 0,
+  client: DEFAULT_RECIPE_CLIENT,
+  includeBlankClient: true,
+  ...options,
+});
+
+return mapRecipeCards(rows);
 }
 
 export async function searchRecipes(
@@ -44,6 +49,7 @@ export async function getRecipeById(
   options: GetRecipeByIdOptions = {}
 ): Promise<RecipeDetail | null> {
   const recipeRows = await getRecipeRowsForDetailQuery(recipeId, {
+    client: DEFAULT_RECIPE_CLIENT,
     includeBlankClient: true,
     includeInactiveForDetail: false,
     ...options,
@@ -59,7 +65,11 @@ export async function getRecipeById(
     await Promise.all([
       getIngredientsForRecipesQuery(recipeIds),
       getMetaForRecipesQuery(recipeIds),
-      getRatingSummaryQuery(recipeId, options),
+      getRatingSummaryQuery(recipeId, {
+        client: DEFAULT_RECIPE_CLIENT,
+        includeBlankClient: true,
+        ...options,
+      }),
     ]);
 
   return buildRecipeDetail(
@@ -69,7 +79,6 @@ export async function getRecipeById(
     ratingRow
   );
 }
-
 export async function getRecipeStatusCounts() {
   return getRecipeStatusCountsQuery();
 }
