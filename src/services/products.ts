@@ -57,8 +57,6 @@ getProductsByCategoryId(
     `products?category=${id}&orderby=menu_order&order=asc`
   );
 
-  console.log(response.data);
-
   return response.data.map(mapWooProduct);
 }
 

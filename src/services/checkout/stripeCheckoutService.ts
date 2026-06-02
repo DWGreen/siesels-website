@@ -1,4 +1,4 @@
-import { stripe } from "@/services/stripe/stripeClient";
+import { getStripeClient } from "@/services/stripe/stripeClient";
 
 import {
   CheckoutValidationResponse,
@@ -33,6 +33,8 @@ function buildItemDescription(
 export async function createStripeCheckoutSession(
   checkout: CheckoutValidationResponse
 ) {
+  const stripe = getStripeClient();
+
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
     "http://localhost:3000";

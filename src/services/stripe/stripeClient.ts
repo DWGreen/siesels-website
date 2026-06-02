@@ -1,9 +1,23 @@
 import Stripe from "stripe";
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error("STRIPE_SECRET_KEY is missing.");
+let stripe: Stripe | null = null;
+
+function getRequiredEnv(name: string): string {
+  const value = process.env[name];
+
+  if (!value) {
+    throw new Error(`${name} is missing.`);
+  }
+
+  return value;
 }
 
-export const stripe = new Stripe(
-  process.env.STRIPE_SECRET_KEY
-);
+export function getStripeClient(): Stripe {
+  if (stripe) {
+    return stripe;
+  }
+
+  stripe = new Stripe(getRequiredEnv("STRIPE_SECRET_KEY"));
+
+  return stripe;
+}
