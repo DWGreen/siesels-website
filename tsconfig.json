@@ -33,8 +33,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-, "src/types/cartDebug.t.ds"  ],
+    ".next/dev/types/**/*.ts",
+    "src/types/cartDebug.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,10 +1,11 @@
-import api from "@/lib/woocommerce";
+import { getWooCommerceApi } from "@/lib/woocommerce";
 import { mapWooProduct }
   from "./mappers/productMapper";
 import { Product } from "@/types/product";
 
 export async function getProducts(): Promise<Product[]> {
   try {
+    const api = getWooCommerceApi();
     const response =
       await api.get(
         "products?per_page=100&orderby=menu_order&order=asc"
@@ -25,6 +26,7 @@ export async function getProducts(): Promise<Product[]> {
 
 export async function getProductById(id: number): Promise<Product | null> {
   try {
+    const api = getWooCommerceApi();
     const response = await api.get(`products/${id}`);
 
     return mapWooProduct(response.data);
@@ -36,6 +38,7 @@ export async function getProductById(id: number): Promise<Product | null> {
 
 export async function getProductsByIds(ids: number[]) : Promise<Product[]> {
   try {
+    const api = getWooCommerceApi();
     const response = await api.get(`products?include=${ids.join(",")}&orderby=menu_order&order=asc`);
 
     return response.data.map(mapWooProduct);
@@ -49,6 +52,7 @@ export async function
 getProductsByCategoryId(
   id: string
 ): Promise<Product[]> {
+   const api = getWooCommerceApi();
    const response = await api.get(
     `products?category=${id}&orderby=menu_order&order=asc`
   );

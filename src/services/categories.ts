@@ -1,4 +1,4 @@
-import api from "@/lib/woocommerce";
+import { getWooCommerceApi } from "@/lib/woocommerce";
 
 import { Category } from "@/types/category";
 
@@ -6,6 +6,7 @@ import { mapWooCategory } from "./mappers/categoryMapper";
 
 
 export async function getCategoryById(id: string): Promise<Category> {
+  const api = getWooCommerceApi();
   const response = await api.get(
     `products/categories/${id}`
   );
@@ -15,6 +16,7 @@ export async function getCategoryById(id: string): Promise<Category> {
 export async function getChildCategories(
   id: string
 ): Promise<Category[]> {
+  const api = getWooCommerceApi();
   const response = await api.get(
     `products/categories?parent=${id}&per_page=100`
   );
@@ -25,6 +27,7 @@ export async function getChildCategories(
 export async function getCategoryBySlug(
   slug: string
 ): Promise<Category | null> {
+  const api = getWooCommerceApi();
   const response = await api.get(
     `products/categories?slug=${encodeURIComponent(slug)}`
   );
