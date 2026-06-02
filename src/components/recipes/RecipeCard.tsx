@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Recipe } from "@/types/recipes";
+import { Recipe } from "@/lib/recipes/recipeTypes";
 import AddToMenuDialog from "./AddToMenuDialog";
 
 import { buildRecipeFilterUrl } from "@/lib/recipes/recipeUrls";
@@ -38,7 +38,7 @@ export default function RecipeCard({
         p-3
       "
     >
-      <Link href={`/cooking/${recipe.slug}`}>
+      <Link href={`/cooking/${recipe.id}`}>
         <div
           className="
   
@@ -91,7 +91,7 @@ export default function RecipeCard({
           {recipe.course} · Serves {recipe.servings}
         </div>
 
-        <Link href={`/cooking/${recipe.slug}`}>
+        <Link href={`/cooking/${recipe.id}`}>
           <h2
             className="
               text-xl

@@ -89,3 +89,17 @@ export async function queryOne<T>(
 
   return rows[0] ?? null;
 }
+
+export async function executeMutation(
+  sql: string,
+  params: QueryParams = []
+): Promise<mysql.ResultSetHeader> {
+  const db = getRecipeDbPool();
+
+  const [result] = await db.execute<mysql.ResultSetHeader>(
+    sql,
+    params
+  );
+
+  return result;
+}

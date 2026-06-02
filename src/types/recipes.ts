@@ -1,35 +1,4 @@
-export type KnownRecipeCourse =
-  | "Dinner"
-  | "Breakfast"
-  | "Lunch"
-  | "Appetizer"
-  | "Snack"
-  | "Beverage"
-  | "Salad"
-  | "Side"
-  | "Soup"
-  | "Dessert"
-  | "Beer"
-  | "Wine";
-
-export type RecipeCourse =
-  | KnownRecipeCourse
-  | (string & {});
-
-export type RecipeMatchMode =
-  | "every"
-  | "any"
-  | "exact";
-export type RecipeMeta = {
-  cuisine?: string[];
-  diet?: string[];
-  mainIngredient?: string[];
-  holiday?: string[];
-  cookingMethod?: string[];
-  category?: string[];
-};
-
-export type RecipeIngredient = {
+export type LegacyRecipeIngredient = {
   id: string;
   name: string;
   quantity?: string;
@@ -41,69 +10,25 @@ export type Recipe = {
   id: number;
   slug: string;
   name: string;
-  course: RecipeCourse;
+  course: string;
   servings: string;
   rating: number;
   image?: string;
   intro: string;
-  ingredients: RecipeIngredient[];
+  ingredients: LegacyRecipeIngredient[];
   directions: string[];
-  meta: RecipeMeta;
+  meta: {
+    cuisine?: string[];
+    diet?: string[];
+    mainIngredient?: string[];
+    holiday?: string[];
+    cookingMethod?: string[];
+    category?: string[];
+  };
   prepTimeMinutes?: number;
   cookTimeMinutes?: number;
 };
+
 export type RecipeFilters = {
-  searchTerm: string;
-  matchMode: RecipeMatchMode;
-  cuisine: string;
-  diet: string;
-  mainIngredient: string;
-  holiday: string;
-  cookingMethod: string;
-  course: string;
-  categoryValue: string;
-};
-
-export type AdvancedRecipeFilters = {
-  searchTerm: string;
-  matchMode: RecipeMatchMode;
-  courses: RecipeCourse[];
-  diets: string[];
-  cuisines: string[];
-};
-
-export type SavedRecipe = {
-  recipeId: number;
-  dateAdded: string;
-};
-
-export type ShoppingListItem = {
-  id: string;
-  name: string;
-  quantity?: string;
-  category?: string;
-  detail?: string;
-  recipeId?: number;
-  recipeName?: string;
-  checked?: boolean;
-};
-
-export type RecipeBoxState = {
-  savedRecipes: SavedRecipe[];
-  shoppingList: ShoppingListItem[];
-  menuByWeek: Record<string, Record<string, number[]>>;
-  expiresAt: string;
-};
-
-export type MyRecipesSortOption =
-  | "course"
-  | "dateAdded"
-  | "name"
-  | "rating";
-
-export type ShoppingListDisplayOptions = {
-  hideCategories: boolean;
-  hideMeasurements: boolean;
-  hideDetails: boolean;
-  hideRecipeTitles: boolean;
+  matchMode: "every" | "any" | "exact";
 };

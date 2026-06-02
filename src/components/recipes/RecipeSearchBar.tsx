@@ -1,6 +1,6 @@
 "use client";
 
-import { RecipeFilters } from "@/types/recipes";
+import { RecipeFilters } from "@/lib/recipes/recipeTypes";
 
 type CategoryGroup = {
   label: string;

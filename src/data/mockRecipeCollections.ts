@@ -74,13 +74,13 @@ export function getRecipeCollectionById(
 
   return {
     ...collection,
-    recipes: collection.recipeSlugs
+    recipes: (collection.recipeSlugs ?? [])
       .map(slug =>
         mockRecipes.find(
           recipe => recipe.slug === slug
         )
       )
-      .filter(Boolean) as HydratedRecipeCollection["recipes"],
+      .filter(Boolean) as unknown as HydratedRecipeCollection["recipes"],
   };
 }
 

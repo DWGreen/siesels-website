@@ -3,7 +3,6 @@ import {
   isRecipeUrlFilterKey,
   RecipeUrlFilterKey,
 } from "@/lib/recipes/recipeUrls";
-import { RecipeFilters } from "@/types/recipes";
 
 type SearchParams = {
   q?: string;
@@ -11,6 +10,7 @@ type SearchParams = {
   filter?: string;
   value?: string;
   category?: string;
+  view?: string;
 };
 
 type Props = {
@@ -35,6 +35,7 @@ return (
       initialFilterKey={initialFilterKey}
       initialFilterValue={params?.value ?? ""}
       initialCategoryValue={params?.category ?? ""}
+      forceShowResults={params?.view === "all"}
     />
   );
 }

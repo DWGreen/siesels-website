@@ -1,7 +1,7 @@
 import {
   RecipeBoxState,
   ShoppingListItem,
-} from "@/types/recipes";
+} from "@/lib/recipes/recipeBoxTypes";
 
 const STORAGE_KEY = "bianchinis-recipe-box";
 const DAYS_TO_KEEP = 30;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { RecipeCollection } from "@/types/recipeCollections";
+import { RecipeCollection } from "@/lib/recipes/recipeTypes";
 
 type Props = {
   collections: RecipeCollection[];

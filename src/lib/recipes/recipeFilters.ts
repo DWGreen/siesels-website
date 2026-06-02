@@ -1,7 +1,7 @@
 import {
   Recipe,
   RecipeFilters,
-} from "@/types/recipes";
+} from "@/lib/recipes/recipeTypes";
 
 function normalize(value: string) {
   return value.trim().toLowerCase();
@@ -13,7 +13,7 @@ function recipeText(recipe: Recipe) {
     recipe.course,
     recipe.intro,
     ...recipe.ingredients.map(
-      ingredient => ingredient.name
+      ingredient => ingredient.displayText
     ),
     ...Object.values(recipe.meta).flat(),
   ]
@@ -178,7 +178,9 @@ export function getUniqueMetaValues(
 ) {
   return Array.from(
     new Set(
-      recipes.flatMap(recipe => recipe.meta[key] ?? [])
+      recipes.flatMap(
+        recipe => recipe.meta[key]?.map(item => item) ?? []
+      )
     )
   ).sort((a, b) => a.localeCompare(b));
 }

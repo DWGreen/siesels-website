@@ -1,15 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
-import { mockRecipes } from "@/data/mockRecipes";
 import { useRecipeBox } from "@/hooks/useRecipeBox";
 import {
-  MyRecipesSortOption,
+ 
   Recipe,
-} from "@/types/recipes";
-import { getRecipesByIds } from "@/lib/recipes/recipeLookup";
+} from "@/lib/recipes/recipeTypes";
+
+import {
+  MyRecipesSortOption,
+
+} from "@/lib/recipes/recipeBoxTypes";
 import RecipeModuleHeader from "./RecipeModuleHeader";
 import AddToMenuDialog from "./AddToMenuDialog";
 
@@ -20,13 +23,66 @@ export default function MyRecipesPage() {
     useState<MyRecipesSortOption>("dateAdded");
 
   const [searchTerm, setSearchTerm] = useState("");
+const [savedRecipes, setSavedRecipes] =
+  useState<Recipe[]>([]);
 
-  const savedRecipes = useMemo(() => {
-    const ids = recipeBox.state.savedRecipes.map(
-      item => item.recipeId
-    );
+useEffect(() => {
+  let isMounted = true;
 
-    const recipes = getRecipesByIds(ids);
+  async function load() {
+    const ids =
+      recipeBox.state.savedRecipes.map(
+        item => item.recipeId
+      );
+
+    if (!ids.length) {
+      if (isMounted) {
+        setSavedRecipes([]);
+      }
+      return;
+    }
+
+    try {
+      const params = new URLSearchParams();
+      params.set("ids", ids.join(","));
+      params.set("limit", String(ids.length));
+
+      const response = await fetch(
+        `/api/recipes?${params.toString()}`
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Failed to load saved recipes (${response.status})`
+        );
+      }
+
+      const data = await response.json();
+
+      if (isMounted) {
+        setSavedRecipes(data.recipes ?? []);
+      }
+    } catch (error) {
+      console.error(
+        "Failed to load my recipes",
+        error
+      );
+
+      if (isMounted) {
+        setSavedRecipes([]);
+      }
+    }
+  }
+
+  load();
+
+  return () => {
+    isMounted = false;
+  };
+}, [recipeBox.state.savedRecipes]);
+  const sortedFilteredRecipes = useMemo(() => {
+   
+    const recipes = savedRecipes;
 
     const dateById = new Map(
       recipeBox.state.savedRecipes.map(item => [
@@ -45,6 +101,7 @@ export default function MyRecipesPage() {
         .includes(searchTerm.toLowerCase())
     );
   }, [
+    savedRecipes,
     recipeBox.state.savedRecipes,
     sortBy,
     searchTerm,
@@ -117,14 +174,14 @@ export default function MyRecipesPage() {
           </select>
         </div>
 
-        {savedRecipes.length === 0 ? (
+        {sortedFilteredRecipes.length === 0 ? (
           <EmptyState
             title="No saved recipes"
             text="Add recipes from the cooking page and they will appear here."
           />
         ) : (
           <div className="grid gap-3">
-            {savedRecipes.map(recipe => (
+            {sortedFilteredRecipes.map(recipe => (
               <article
                 key={recipe.id}
                 className="

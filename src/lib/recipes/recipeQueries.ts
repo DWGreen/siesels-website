@@ -1,17 +1,27 @@
 // src/lib/recipes/recipeQueries.ts
 
-import { queryRows, type QueryParamValue } from "./recipeDb";
-import {databaseName} from "@/config/databaseConfig";
+import {
+  executeMutation,
+  queryRows,
+  type QueryParamValue,
+} from "./recipeDb";
 import {
   GetRecipeByIdOptions,
   GetRecipesOptions,
-  RecipeCard,
-  RecipeIngredientRow,
-  RecipeMetaRow,
-  RecipeRatingSummaryRow,
-  RecipeRow,
+  RecipeMetaOption,
   RecipeStatus,
 } from "./recipeTypes";
+
+import
+{
+RecipeIngredientRow,
+RecipeMetaRow,
+RecipeRatingSummaryRow,
+RecipeRow
+
+
+} from "./databaseTypes";
+import { RECIPE_META_KEYS } from "./recipeMetaConfig";
 
 function normalizeClients(
   options: {
@@ -53,16 +63,26 @@ function buildClientFilter(
     params: clients,
   };
 }
-
-export async function getRecipeCardsQuery(
+export async function getRecipesQuery(
   options: GetRecipesOptions = {}
-): Promise<RecipeCard[]> {
+): Promise<RecipeRow[]> {
   const {
     limit = 24,
     offset = 0,
     search,
     status = 1,
+    sortBy = "dateModified",
   } = options;
+  const ids = options.ids?.filter(id => Number.isInteger(id)) ?? [];
+  const hasIdsFilter = ids.length > 0;
+
+  const excludeIds = options.excludeIds?.filter(id => Number.isInteger(id)) ?? [];
+  const hasExcludeIds = excludeIds.length > 0;
+
+  const hasSimilarToFilter = Number.isInteger(options.similarToId);
+  const similarToId = hasSimilarToFilter
+    ? Number(options.similarToId)
+    : null;
 
   const clients = normalizeClients(options);
 
@@ -72,24 +92,119 @@ export async function getRecipeCardsQuery(
   );
 
   const hasSearch = Boolean(search?.trim());
+
   const searchLike = `%${search?.trim() ?? ""}%`;
 
   const searchJoins = hasSearch
     ? `
-      LEFT JOIN recipes_meta m
-        ON m.meta_recipe_id = r.recipe_id
+      LEFT JOIN recipes_meta searchMeta
+        ON (
+          searchMeta.meta_recipe_id = r.recipe_id
+          OR searchMeta.meta_recipe_id = r.recipe_root_id
+        )
 
       LEFT JOIN recipes_ingredient_lu i
-        ON i.lu_recipe_id = r.recipe_id
+        ON (
+          i.lu_recipe_id = r.recipe_id
+          OR i.lu_recipe_id = r.recipe_root_id
+        )
     `
     : "";
+
+  const metaWhere: string[] = [];
+
+  const metaParams: QueryParamValue[] = [];
+
+  if (options.course) {
+    metaWhere.push(
+      "r.recipe_course = ?"
+    );
+
+    metaParams.push(
+      options.course
+    );
+  }
+
+  function addMetaFilter(
+    metaNames: readonly string[],
+    value?: string
+  ) {
+    if (!value) {
+      return;
+    }
+
+    metaWhere.push(`
+      EXISTS (
+        SELECT 1
+        FROM recipes_meta m
+
+        INNER JOIN recipes mr
+          ON mr.recipe_id =
+             m.meta_recipe_id
+
+        WHERE (
+          mr.recipe_id = r.recipe_id
+          OR mr.recipe_root_id =
+             r.recipe_id
+          OR mr.recipe_id =
+             r.recipe_root_id
+        )
+
+        AND LOWER(m.meta_name)
+          IN (${metaNames
+            .map(() => "?")
+            .join(", ")})
+
+        AND (
+          TRIM(BOTH ',' FROM m.meta_value)
+            = ?
+          OR m.meta_value LIKE ?
+        )
+      )
+    `);
+
+    metaParams.push(
+      ...metaNames.map(name =>
+        name.toLowerCase()
+      ),
+
+      value,
+
+      `%${value}%`
+    );
+  }
+
+  addMetaFilter(
+    RECIPE_META_KEYS.diet,
+    options.diet
+  );
+
+  addMetaFilter(
+    RECIPE_META_KEYS.cuisine,
+    options.cuisine
+  );
+
+  addMetaFilter(
+    RECIPE_META_KEYS.holiday,
+    options.holiday
+  );
+
+  addMetaFilter(
+    RECIPE_META_KEYS.cookingMethod,
+    options.cookingMethod
+  );
+
+  addMetaFilter(
+    RECIPE_META_KEYS.mainIngredient,
+    options.mainIngredient
+  );
 
   const searchSql = hasSearch
     ? `
       AND (
         r.recipe_name LIKE ?
         OR r.recipe_course LIKE ?
-        OR m.meta_value LIKE ?
+        OR searchMeta.meta_value LIKE ?
         OR i.lu_ingredient LIKE ?
         OR i.lu_description LIKE ?
         OR i.lu_searchterm LIKE ?
@@ -97,31 +212,106 @@ export async function getRecipeCardsQuery(
     `
     : "";
 
+  const idsSql = hasIdsFilter
+    ? `AND r.recipe_id IN (${ids.map(() => "?").join(", ")})`
+    : "";
+
+  const excludeIdsSql = hasExcludeIds
+    ? `AND r.recipe_id NOT IN (${excludeIds.map(() => "?").join(", ")})`
+    : "";
+
+  const similarWhereSql = hasSimilarToFilter
+    ? "AND r.recipe_id != ?"
+    : "";
+
+  const baseOrderSql =
+    sortBy === "rating"
+      ? `
+      COALESCE(ratings.rating_average, 0) DESC,
+      COALESCE(ratings.rating_count, 0) DESC,
+      r.recipe_date_modified DESC,
+      r.recipe_id DESC
+    `
+      : `
+      r.recipe_date_modified DESC,
+      r.recipe_id DESC
+    `;
+
   const sql = `
     SELECT DISTINCT
-      r.recipe_id AS id,
-      r.recipe_name AS name,
-      r.recipe_servings AS servings,
-      r.recipe_course AS course,
-      r.recipe_photo AS photo,
+      r.recipe_id,
+      r.recipe_root_id,
+      r.recipe_name,
+      r.recipe_servings,
+      r.recipe_course,
+      r.recipe_directions,
+      r.recipe_photo,
+      r.recipe_photo_removed,
+      r.recipe_client,
+      r.recipe_date_modified,
+      r.recipe_date_added,
+      r.recipe_status,
+      r.recipe_import_id,
+      r.recipe_server,
+      ratings.rating_average,
+      ratings.rating_count
 
-      r.recipe_client AS client,
-      r.recipe_date_modified AS dateModified,
-      intro.meta_value AS intro
     FROM recipes r
 
-    LEFT JOIN recipes_meta intro
-      ON intro.meta_recipe_id = r.recipe_id
-     AND LOWER(intro.meta_name) = 'recipeintro'
+    LEFT JOIN (
+      SELECT
+        rate_recipe_id,
+        AVG(CAST(rate_vote AS UNSIGNED)) AS rating_average,
+        COUNT(*) AS rating_count
+      FROM recipes_ratings
+      GROUP BY rate_recipe_id
+    ) ratings
+      ON ratings.rate_recipe_id = r.recipe_id
 
     ${searchJoins}
 
     WHERE r.recipe_status = ?
-      AND r.recipe_root_id = 0
+
       ${clientFilter.sql}
+
       ${searchSql}
 
-    ORDER BY r.recipe_date_modified DESC, r.recipe_id DESC
+      ${idsSql}
+
+      ${excludeIdsSql}
+
+      ${similarWhereSql}
+
+      ${
+        metaWhere.length
+          ? `AND ${metaWhere.join(
+              " AND "
+            )}`
+          : ""
+      }
+
+    ORDER BY
+      ${hasSimilarToFilter ? `
+      (
+        SELECT COUNT(*)
+        FROM recipes_meta m
+        INNER JOIN recipes_meta t
+          ON LOWER(t.meta_name) = LOWER(m.meta_name)
+         AND TRIM(BOTH ',' FROM t.meta_value) = TRIM(BOTH ',' FROM m.meta_value)
+        WHERE m.meta_recipe_id = r.recipe_id
+          AND t.meta_recipe_id = ?
+          AND LOWER(m.meta_name) IN (
+            'cuisine',
+            'diet',
+            'mainingredient',
+            'main ingredient',
+            'cookingmethod',
+            'cooking method'
+          )
+      ) DESC,
+      ` : ""}
+      ${baseOrderSql}
+
     LIMIT ? OFFSET ?
   `;
 
@@ -141,9 +331,30 @@ export async function getRecipeCardsQuery(
     );
   }
 
+  if (hasIdsFilter) {
+    params.push(...ids);
+  }
+
+  if (hasExcludeIds) {
+    params.push(...excludeIds);
+  }
+
+  if (hasSimilarToFilter && similarToId !== null) {
+    params.push(similarToId); // WHERE r.recipe_id != ?
+  }
+
+  params.push(...metaParams);
+
+  if (hasSimilarToFilter && similarToId !== null) {
+    params.push(similarToId); // ORDER BY subquery
+  }
+
   params.push(limit, offset);
 
-  return queryRows<RecipeCard>(sql, params);
+  return queryRows<RecipeRow>(
+    sql,
+    params
+  );
 }
 
 export async function getRecipeRowsForDetailQuery(
@@ -241,18 +452,30 @@ export async function getMetaForRecipesQuery(
 
   const sql = `
     SELECT
-      meta_id,
-      meta_recipe_id,
-      meta_name,
-      TRIM(BOTH ',' FROM meta_value) AS meta_value
-    FROM recipes_meta
-    WHERE meta_recipe_id IN (${placeholders})
-    ORDER BY meta_recipe_id, meta_name, meta_id
+      m.meta_id,
+      m.meta_recipe_id,
+      m.meta_name,
+      TRIM(BOTH ',' FROM m.meta_value) AS meta_value
+
+    FROM recipes_meta m
+
+    INNER JOIN recipes r
+      ON r.recipe_id = m.meta_recipe_id
+
+    WHERE (
+      r.recipe_id IN (${placeholders})
+      OR r.recipe_root_id IN (${placeholders})
+    )
+
+    ORDER BY
+      m.meta_recipe_id,
+      m.meta_name,
+      m.meta_id
   `;
 
   return queryRows<RecipeMetaRow>(
     sql,
-    recipeIds
+    [...recipeIds, ...recipeIds]
   );
 }
 
@@ -260,13 +483,6 @@ export async function getRatingSummaryQuery(
   recipeId: number,
   options: GetRecipeByIdOptions = {}
 ): Promise<RecipeRatingSummaryRow | null> {
-  const clients = normalizeClients(options);
-
-  const clientFilter = buildClientFilter(
-    "rate_client",
-    clients
-  );
-
   const sql = `
     SELECT
       rate_recipe_id,
@@ -275,19 +491,46 @@ export async function getRatingSummaryQuery(
       SUM(rate_vote) / COUNT(*) AS rating_average
     FROM recipes_ratings
     WHERE rate_recipe_id = ?
-      ${clientFilter.sql}
     GROUP BY rate_recipe_id
   `;
 
   const rows = await queryRows<RecipeRatingSummaryRow>(
     sql,
-    [
-      recipeId,
-      ...clientFilter.params,
-    ]
+    [recipeId]
   );
 
   return rows[0] ?? null;
+}
+
+export async function insertRecipeRatingQuery(input: {
+  recipeId: number;
+  vote: number;
+  client: string;
+  userId?: number;
+  commentId?: number;
+}): Promise<number> {
+  const result = await executeMutation(
+    `
+      INSERT INTO recipes_ratings (
+        rate_recipe_id,
+        rate_comment_id,
+        rate_vote,
+        rate_client,
+        rate_user,
+        rate_date
+      )
+      VALUES (?, ?, ?, ?, ?, CURDATE())
+    `,
+    [
+      input.recipeId,
+      input.commentId ?? 0,
+      String(input.vote),
+      input.client,
+      input.userId ?? 0,
+    ]
+  );
+
+  return result.insertId;
 }
 
 export async function getRecipeStatusCountsQuery(): Promise<
@@ -333,4 +576,64 @@ export async function getRecipeClientCountsQuery(): Promise<
       ORDER BY total DESC
     `
   );
+}
+
+export async function getRecipeMetaOptionsQuery(
+  metaNames: readonly string[],
+  options: {
+    client?: string;
+    includeBlankClient?: boolean;
+  } = {}
+): Promise<RecipeMetaOption[]> {
+  const placeholders = metaNames
+  .map(() => "?")
+  .join(", ");
+  const clients = normalizeClients(options);
+
+  const clientFilter = buildClientFilter(
+    "r.recipe_client",
+    clients
+  );
+
+  const sql = `
+    SELECT
+      TRIM(BOTH ',' FROM m.meta_value) AS value,
+      COUNT(DISTINCT r.recipe_id) AS total
+    FROM recipes_meta m
+
+    INNER JOIN recipes r
+  ON (
+    r.recipe_id = m.meta_recipe_id
+    OR r.recipe_root_id = m.meta_recipe_id
+  )
+
+    WHERE LOWER(m.meta_name) IN (${placeholders})
+      AND r.recipe_status = 1
+      
+      ${clientFilter.sql}
+
+    GROUP BY value
+
+    HAVING value IS NOT NULL
+      AND value != ''
+      AND value != '&nbsp;'
+
+    ORDER BY value ASC
+  `;
+
+  const rows = await queryRows<{
+    value: string;
+    total: number;
+  }>(sql, [
+      ...metaNames.map(name =>
+    name.toLowerCase()
+  ),
+  ...clientFilter.params,
+  ]);
+
+  return rows.map(row => ({
+    label: row.value,
+    value: row.value,
+    total: Number(row.total),
+  }));
 }

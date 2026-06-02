@@ -1,3 +1,5 @@
+import { Recipe } from "./recipeTypes";
+
 type RecipeApiStatus = {
   status: number;
   error?: {
@@ -5,37 +7,12 @@ type RecipeApiStatus = {
   };
 };
 
-export type Recipe = {
-  id: number;
-  name: string;
-  course: string;
-  servings: string;
-  groups: Record<string, string[]>;
-  directions: string[];
-  image: string;
-  ingredients: string[];
-  intro?: string;
-  note?: string;
-  rating: number;
-};
+
 
 type GetRecipeResponse = RecipeApiStatus & {
-  recipe: LegacyRecipe;
+  recipe: Recipe;
 };
 
-type LegacyRecipe = {
-  id: string | number;
-  name: string;
-  course: string;
-  servings: string;
-  groups?: Record<string, string[]>;
-  directions?: string[];
-  image?: string;
-  ingredients?: string[];
-  intro?: string;
-  note?: string;
-  rating?: string | number;
-};
 
 const RECIPE_API_BASE = process.env.RECIPE_API_BASE;
 const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
@@ -57,21 +34,7 @@ function appendGroupParams(
   }
 }
 
-function normalizeRecipe(recipe: LegacyRecipe): Recipe {
-  return {
-    id: Number(recipe.id),
-    name: recipe.name ?? "",
-    course: recipe.course ?? "",
-    servings: recipe.servings ?? "",
-    groups: recipe.groups ?? {},
-    directions: recipe.directions ?? [],
-    image: recipe.image ?? "",
-    ingredients: recipe.ingredients ?? [],
-    intro: recipe.intro,
-    note: recipe.note,
-    rating: Number(recipe.rating ?? 0),
-  };
-}
+
 
 async function fetchRecipeApi<T extends RecipeApiStatus>(
   params: URLSearchParams
@@ -108,7 +71,7 @@ export async function getRecipe(id: number): Promise<Recipe> {
 
   const data = await fetchRecipeApi<GetRecipeResponse>(params);
 
-  return normalizeRecipe(data.recipe);
+  return data.recipe;
 }
 
 export async function searchRecipes(input: {

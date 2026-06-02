@@ -1,4 +1,4 @@
-import { RecipeFilters } from "@/types/recipes";
+import { RecipeFilters } from "@/lib/recipes/recipeTypes";
 
 
 export function buildRecipeSearchUrl(
@@ -10,7 +10,7 @@ export function buildRecipeSearchUrl(
   params.set("q", searchTerm);
   params.set("match", matchMode);
 
-  return `/recipes?${params.toString()}`;
+  return `/cooking?${params.toString()}`;
 }
 
 export type RecipeUrlFilterKey =
@@ -43,5 +43,5 @@ export function buildRecipeFilterUrl(
   params.set("filter", filter);
   params.set("value", value);
 
-  return `/recipes?${params.toString()}`;
+  return `/cooking?${params.toString()}`;
 }

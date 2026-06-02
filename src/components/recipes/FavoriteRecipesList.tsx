@@ -1,18 +1,19 @@
 import Link from "next/link";
 
-import { Recipe } from "@/types/recipes";
-
 type Props = {
-  recipes: Recipe[];
+  recipes: Array<{
+    id: number;
+    slug: string;
+    name: string;
+    image?: string;
+    rating: number;
+  }>;
 };
 
 export default function FavoriteRecipesList({
   recipes,
 }: Props) {
-  const favoriteRecipes = recipes
-    .filter(recipe => recipe.image)
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, 10);
+  const favoriteRecipes = recipes.slice(0, 10);
 
   if (!favoriteRecipes.length) {
     return null;
@@ -43,7 +44,7 @@ export default function FavoriteRecipesList({
         </h2>
 
         <Link
-          href="/cooking?match=every"
+          href="/cooking?view=all"
           className="
             text-xs
             font-black
@@ -81,15 +82,35 @@ export default function FavoriteRecipesList({
             "
           >
             <div className="relative">
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="
-                  h-24
-                  w-full
-                  object-cover
-                "
-              />
+              {recipe.image ? (
+                <img
+                  src={recipe.image}
+                  alt={recipe.name}
+                  className="
+                    h-24
+                    w-full
+                    object-cover
+                  "
+                />
+              ) : (
+                <div
+                  className="
+                    flex
+                    h-24
+                    w-full
+                    items-center
+                    justify-center
+                    bg-neutral-200
+                    text-[10px]
+                    font-black
+                    uppercase
+                    tracking-widest
+                    text-neutral-500
+                  "
+                >
+                  No Image
+                </div>
+              )}
 
               <span
                 className="

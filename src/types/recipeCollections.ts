@@ -1,4 +1,5 @@
-import { Recipe } from "@/types/recipes";
+import { Recipe } from "@/lib/recipes/recipeTypes";
+
 
 export type RecipeCollection = {
   id: string;

@@ -3,7 +3,18 @@ import { Ingredient, IngredientOverrideDefinition} from "@/types/ingredients";
 import { parseCategoryConfig } from "@/utils/categoryConfig";
 import { Category } from "@/types/category";
 import { config } from "process";
+const WP_INTERNAL_URL = process.env.WP_INTERNAL_URL ?? "";
+const WP_PUBLIC_URL = process.env.WP_PUBLIC_URL ?? "";
 
+export function toPublicWpUrl(url?: string | null) {
+  if (!url) return "";
+
+  if (WP_INTERNAL_URL && WP_PUBLIC_URL) {
+    return url.replace(WP_INTERNAL_URL, WP_PUBLIC_URL);
+  }
+
+  return url;
+}
 function mapIngredients(
   attributes: any[]
 ): Ingredient[] {
@@ -106,7 +117,7 @@ export function mapWooProduct(
     image: woo.images?.[0]
       ? {
           id: woo.images[0].id,
-          src: woo.images[0].src,
+          src: `/images/products/${woo.id}.png`,
           alt: woo.images[0].alt,
         }
       : undefined,

@@ -3,13 +3,13 @@
 import { useState } from "react";
 
 import {
+  OptionGroup,
   Recipe,
   RecipeCourse,
   RecipeFilters,
   RecipeMatchMode,
-} from "@/types/recipes";
+} from "@/lib/recipes/recipeTypes";
 
-import { getUniqueMetaValues } from "@/lib/recipes/recipeFilters";
 
 const courses: RecipeCourse[] = [
   "Dinner",
@@ -25,7 +25,9 @@ const courses: RecipeCourse[] = [
 
 type Props = {
   recipes: Recipe[];
+  
   filters: RecipeFilters;
+  groups: OptionGroup[];
   onApply: (filters: RecipeFilters) => void;
   onClose: () => void;
 };
@@ -33,6 +35,7 @@ type Props = {
 export default function AdvancedRecipeSearch({
   recipes,
   filters,
+  groups,
   onApply,
   onClose,
 }: Props) {
@@ -53,16 +56,15 @@ export default function AdvancedRecipeSearch({
   const [cuisine, setCuisine] = useState(
     filters.cuisine
   );
-
-  const diets = getUniqueMetaValues(
-    recipes,
-    "diet"
+  const [mainIngredient, setMainIngredient] =
+    useState(filters.mainIngredient);
+  const [holiday, setHoliday] = useState(
+    filters.holiday
   );
+  const [cookingMethod, setCookingMethod] =
+    useState(filters.cookingMethod);
 
-  const cuisines = getUniqueMetaValues(
-    recipes,
-    "cuisine"
-  );
+
 
   return (
     <div
@@ -202,133 +204,106 @@ export default function AdvancedRecipeSearch({
           </div>
 
           <div
-            className="
-              grid
-              gap-4
-              md:grid-cols-3
-            "
-          >
-            <label>
-              <span
-                className="
-                  mb-2
-                  block
-                  text-xs
-                  font-black
-                  uppercase
-                  tracking-widest
-                "
-              >
-                Course
-              </span>
+      className="
+        flex
+        flex-wrap
+        items-center
+        gap-3
+        border-y
+        border-neutral-300
+        bg-neutral-100
+        px-4
+        py-3
+      "
+    >
+      <div
+        className="
+          text-xs
+          font-black
+          uppercase
+          tracking-[0.25em]
+          text-neutral-700
+        "
+      >
+        Browse:
+      </div>
 
-              <select
-                value={course}
-                onChange={event =>
-                  setCourse(
-                    event.target.value
-                  )
-                }
-                className="
-                  w-full
-                  border
-                  border-neutral-900
-                  px-3
-                  py-2
-                "
-              >
-                <option value="">All Courses</option>
-                {courses.map(item => (
-                  <option
-                    key={item}
-                    value={item}
-                  >
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </label>
+      {groups.map(group => (
+        <label
+          key={group.value}
+          className="sr-only"
+          htmlFor={`browse-${group.value}`}
+        >
+          {group.label}
+        </label>
+      ))}
 
-            <label>
-              <span
-                className="
-                  mb-2
-                  block
-                  text-xs
-                  font-black
-                  uppercase
-                  tracking-widest
-                "
-              >
-                Special Diet
-              </span>
+      {groups.map(group => (
+        <select
+          key={group.value}
+          id={`browse-${group.value}`}
+          value={
+            group.value === "cuisine"
+              ? cuisine
+              : group.value === "diet"
+                ? diet
+                : group.value === "mainIngredient"
+                  ? mainIngredient
+                  : group.value === "holiday"
+                    ? holiday
+                    : cookingMethod
+          }
+          onChange={event => {
+            const value = event.target.value;
 
-              <select
-                value={diet}
-                onChange={event =>
-                  setDiet(event.target.value)
-                }
-                className="
-                  w-full
-                  border
-                  border-neutral-900
-                  px-3
-                  py-2
-                "
-              >
-                <option value="">All Diets</option>
-                {diets.map(item => (
-                  <option
-                    key={item}
-                    value={item}
-                  >
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </label>
+            if (group.value === "cuisine") {
+              setCuisine(value);
+              return;
+            }
 
-            <label>
-              <span
-                className="
-                  mb-2
-                  block
-                  text-xs
-                  font-black
-                  uppercase
-                  tracking-widest
-                "
-              >
-                Cuisine
-              </span>
+            if (group.value === "diet") {
+              setDiet(value);
+              return;
+            }
 
-              <select
-                value={cuisine}
-                onChange={event =>
-                  setCuisine(
-                    event.target.value
-                  )
-                }
-                className="
-                  w-full
-                  border
-                  border-neutral-900
-                  px-3
-                  py-2
-                "
-              >
-                <option value="">All Cuisines</option>
-                {cuisines.map(item => (
-                  <option
-                    key={item}
-                    value={item}
-                  >
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+            if (group.value === "mainIngredient") {
+              setMainIngredient(value);
+              return;
+            }
+
+            if (group.value === "holiday") {
+              setHoliday(value);
+              return;
+            }
+
+            setCookingMethod(value);
+          }}
+          className="
+            min-w-40
+            border
+            border-neutral-900
+            bg-white
+            px-3
+            py-2
+            text-sm
+            font-bold
+            uppercase
+            tracking-wide
+          "
+        >
+          <option value="">{group.label}</option>
+
+          {group.options.map(option => (
+            <option
+              key={option}
+              value={option}
+            >
+              {option}
+            </option>
+          ))}
+        </select>
+      ))}
+    </div>
         </div>
 
         <div
@@ -347,11 +322,15 @@ export default function AdvancedRecipeSearch({
             onClick={() =>
               onApply({
                 ...filters,
-                searchTerm,
-                matchMode,
-                course,
-                diet,
-                cuisine,
+              searchTerm,
+      matchMode,
+      course,
+      diet,
+      cuisine,
+      mainIngredient,
+      holiday,
+      cookingMethod,
+      categoryValue: "",
               })
             }
             className="

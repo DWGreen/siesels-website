@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
-import { mockRecipes } from "@/data/mockRecipes";
+
 
 import { useRecipeBox } from "@/hooks/useRecipeBox";
 
@@ -17,9 +17,7 @@ import {
   menuDays,
 } from "@/lib/recipes/dateWeeks";
 
-import { getRecipeById } from "@/lib/recipes/recipeLookup";
-
-import { Recipe } from "@/types/recipes";
+import { Recipe } from "@/lib/recipes/recipeTypes";
 
 import RecipeModuleHeader from "./RecipeModuleHeader";
 
@@ -60,14 +58,98 @@ export default function MyMenuPage() {
       getEmptyWeekMenu(),
     [recipeBox.state.menuByWeek, weekKey]
   );
+const [recipesById, setRecipesById] =
+  useState<Record<number, Recipe>>({});
+  const [availableRecipes, setAvailableRecipes] =
+    useState<Recipe[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadAvailableRecipes() {
+      try {
+        const response = await fetch(
+          "/api/recipes?limit=200"
+        );
+
+        if (!response.ok || !isMounted) {
+          return;
+        }
+
+        const data = await response.json();
+        setAvailableRecipes(data.recipes ?? []);
+      } catch {
+        if (isMounted) {
+          setAvailableRecipes([]);
+        }
+      }
+    }
+
+    loadAvailableRecipes();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function hydrateWeekRecipes() {
+      const ids = Array.from(
+        new Set(Object.values(weekMenu).flat())
+      );
+
+      if (!ids.length) {
+        setRecipesById({});
+        return;
+      }
+
+      try {
+        const params = new URLSearchParams({
+          ids: ids.join(","),
+          limit: String(ids.length),
+        });
+
+        const response = await fetch(
+          `/api/recipes?${params.toString()}`
+        );
+
+        if (!response.ok || !isMounted) {
+          return;
+        }
+
+        const data = await response.json();
+        const recipeList = (data.recipes ?? []) as Recipe[];
+        const nextById = recipeList.reduce(
+          (acc: Record<number, Recipe>, recipe) => {
+          acc[recipe.id] = recipe;
+          return acc;
+        }, {}
+        );
+
+        setRecipesById(nextById);
+      } catch {
+        if (isMounted) {
+          setRecipesById({});
+        }
+      }
+    }
+
+    hydrateWeekRecipes();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [weekMenu]);
 
   const weekRecipes = useMemo<Recipe[]>(() => {
     const ids = Object.values(weekMenu).flat();
 
     return ids
-      .map(getRecipeById)
+      .map(id => recipesById[id])
       .filter(Boolean) as Recipe[];
-  }, [weekMenu]);
+  }, [weekMenu, recipesById]);
 
   return (
     <div className="bg-neutral-100 py-2 text-neutral-950">
@@ -156,7 +238,7 @@ export default function MyMenuPage() {
               type="button"
               onClick={() =>
                 recipeBox.loadSampleMenuIdeas(
-                  mockRecipes
+                  availableRecipes
                     .slice(0, 5)
                     .map(recipe => recipe.id),
                   weekKey
@@ -226,7 +308,7 @@ export default function MyMenuPage() {
                   <ul className="space-y-3">
                     {recipeIds.map(recipeId => {
                       const recipe =
-                        getRecipeById(recipeId);
+                        recipesById[recipeId];
 
                       if (!recipe) return null;
 
@@ -279,6 +361,7 @@ export default function MyMenuPage() {
 
                 <AddRecipeToDay
                   day={day}
+                  recipes={availableRecipes}
                   onAdd={recipeId =>
                     recipeBox.addRecipeToMenu(
                       recipeId,
@@ -298,9 +381,11 @@ export default function MyMenuPage() {
 
 function AddRecipeToDay({
   day,
+  recipes,
   onAdd,
 }: {
   day: string;
+  recipes: Recipe[];
   onAdd: (recipeId: number) => void;
 }) {
   const [selected, setSelected] = useState("");
@@ -324,7 +409,7 @@ function AddRecipeToDay({
       >
         <option value="">Add recipe...</option>
 
-        {mockRecipes.map(recipe => (
+        {recipes.map(recipe => (
           <option
             key={recipe.id}
             value={recipe.id}

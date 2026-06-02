@@ -1,6 +1,8 @@
 "use client";
 
-import { Recipe } from "@/types/recipes";
+import { useEffect, useRef } from "react";
+
+import { Recipe } from "@/lib/recipes/recipeTypes";
 import RecipeCard from "./RecipeCard";
 
 type Props = {
@@ -15,7 +17,9 @@ onAddToMenu: (
   ) => void;
   onSelectTag: (group: string, value: string) => void;
   weekKey: string;
-
+  hasMore?: boolean;
+  isLoadingMore?: boolean;
+  onLoadMore?: () => void;
 };
 
 export default function RecipeResults({
@@ -26,8 +30,39 @@ export default function RecipeResults({
   onAddToMenu,
   onSelectTag,
   weekKey,
-
+  hasMore = false,
+  isLoadingMore = false,
+  onLoadMore,
 }: Props) {
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const node = loadMoreRef.current;
+
+    if (!node || !hasMore || isLoadingMore || !onLoadMore) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+
+        if (entry?.isIntersecting) {
+          onLoadMore();
+        }
+      },
+      {
+        rootMargin: "200px 0px",
+      }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [hasMore, isLoadingMore, onLoadMore]);
+
   return (
     <div className="p-4">
       <div
@@ -76,28 +111,46 @@ export default function RecipeResults({
           </p>
         </div>
       ) : (
-        <div
-          className="
-            grid
-            gap-4
-            md:grid-cols-2
-          "
-        >
-          {recipes.map(recipe => (
-            <RecipeCard
-            onSelectTag={onSelectTag}
-              key={recipe.id}
-              recipe={recipe}
-              isSaved={savedRecipeIds.includes(
-                recipe.id
-              )}
-              onToggleSaved={onToggleSaved}
-              onAddIngredients={onAddIngredients}
-          onAddToMenu={onAddToMenu}
-              weekKey={weekKey}
-            />
-          ))}
-        </div>
+        <>
+          <div
+            className="
+              grid
+              gap-4
+              md:grid-cols-2
+            "
+          >
+            {recipes.map(recipe => (
+              <RecipeCard
+                onSelectTag={onSelectTag}
+                key={recipe.id}
+                recipe={recipe}
+                isSaved={savedRecipeIds.includes(
+                  recipe.id
+                )}
+                onToggleSaved={onToggleSaved}
+                onAddIngredients={onAddIngredients}
+                onAddToMenu={onAddToMenu}
+                weekKey={weekKey}
+              />
+            ))}
+          </div>
+
+          <div
+            ref={loadMoreRef}
+            className="pt-4 text-center"
+          >
+            {isLoadingMore && (
+              <p className="text-sm font-bold text-neutral-600">
+                Loading more recipes...
+              </p>
+            )}
+            {!hasMore && recipes.length > 0 && (
+              <p className="text-sm text-neutral-500">
+                You have reached the end of the results.
+              </p>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

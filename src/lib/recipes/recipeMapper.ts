@@ -1,17 +1,17 @@
 // src/lib/recipes/recipeMapper.ts
 
+
 import {
+  Recipe,
   RecipeDetail,
   RecipeDetailSection,
   RecipeIngredient,
-  RecipeCard,
-  RecipeIngredientRow,
   RecipeMeta,
   RecipeMetaMap,
-  RecipeMetaRow,
-  RecipeRatingSummaryRow,
-  RecipeRow,
+  RecipeMetaProperty,
 } from "./recipeTypes";
+
+import {RecipeIngredientRow, RecipeMetaRow, RecipeRow, RecipeRatingSummaryRow} from "./databaseTypes";
 
 function decodeCmsEntities(value: string): string {
   return value
@@ -37,6 +37,7 @@ function decodeCmsEntities(value: string): string {
 function normalizePhotoUrl(
   value: string | null | undefined
 ): string | null {
+  console.log("normalizePhotoUrl value:", value);
   const photo = nullableString(value);
 
   if (!photo) return null;
@@ -49,9 +50,7 @@ function normalizePhotoUrl(
   }
 
   const wpBaseUrl =
-    process.env.NEXT_PUBLIC_WP_URL ||
-    process.env.WP_URL ||
-    "";
+    "http://cms.dwgreen.com";
 
   if (!wpBaseUrl) {
     return photo;
@@ -141,34 +140,113 @@ export function groupIngredientsByRecipeId(
   }, {});
 }
 
-export function mapMeta(row: RecipeMetaRow): RecipeMeta {
-  const name = cleanString(row.meta_name);
+
+//this is the mapper for recipe meta data, we get meta rows from the database and then map the information to recipe meta property key value pairs
+function normalizeMetaKey(
+  value: string
+): string {
+  return cleanString(value)
+    .toLowerCase()
+    .replace(/\s+/g, "");
+}
+export function mapMeta(row: RecipeMetaRow): RecipeMetaProperty {
+  const name = row.meta_name;
   const value = cleanString(row.meta_value).replace(/^,+|,+$/g, "");
 
   return {
     id: row.meta_id,
     recipeId: row.meta_recipe_id,
     name,
-    key: name.toLowerCase(),
+    key: normalizeMetaKey(name),
     value,
   };
 }
-export function mapRecipeCard(row: RecipeCard): RecipeCard {
-  return {
-    ...row,
-    name: cleanString(row.name),
-    servings: cleanString(row.servings),
-    course: cleanString(row.course),
-    photo: normalizePhotoUrl(row.photo),
-    intro: nullableString(row.intro),
-    client: cleanString(row.client),
-  };
-}
 
-export function mapRecipeCards(
-  rows: RecipeCard[]
-): RecipeCard[] {
-  return rows.map(mapRecipeCard);
+
+
+//this is our mapper for recipes, its odd because we are giving it actual recipe data models instead of recipe row models so I dont quite understand what the purpose is yet,
+//I understand why we are maping the recipe meta rows, but at this point it just seems like we are feeding it recipes and spitting the exact same thing out just with metadata attached
+
+export function mapRecipes(
+  rows: RecipeRow[],
+  metaRows: RecipeMetaRow[]
+): Recipe[] {
+  const metaByRecipeId =
+    groupMetaByRecipeId(metaRows);
+
+  return rows.map(row => {
+    const meta =
+      metaByRecipeId[row.recipe_id] ?? {};
+
+    return {
+  id: row.recipe_id,
+
+  slug: String(row.recipe_id),
+
+  name: cleanString(row.recipe_name),
+
+  course:
+    cleanString(
+      row.recipe_course
+    ) || "Dinner",
+
+  servings: cleanString(
+    row.recipe_servings
+  ),
+
+  rating: Number(row.rating_average ?? 0),
+
+  image:
+    nullableString(
+      normalizePhotoUrl(row.recipe_photo)
+    ) ?? "",
+
+  intro:
+    meta.recipeintro?.[0]?.value ??
+    "",
+
+  ingredients: [],
+
+  directions: [],
+
+  meta: {
+    cuisine:
+      meta.cuisine?.map(
+        item => item.value
+      ) ?? [],
+
+    diet:
+      meta.diet?.map(
+        item => item.value
+      ) ?? [],
+
+    mainIngredient:
+      meta.mainingredient?.map(
+        item => item.value
+      ) ?? [],
+
+    holiday:
+      meta.holiday?.map(
+        item => item.value
+      ) ?? [],
+
+    cookingMethod:
+      meta.cookingmethod?.map(
+        item => item.value
+      ) ?? [],
+
+    category:
+      meta.category?.map(
+        item => item.value
+      ) ?? [],
+  },
+
+
+  prepTimeMinutes: undefined,
+
+  cookTimeMinutes: undefined,
+};
+  });
 }
 export function groupMetaByRecipeId(
   rows: RecipeMetaRow[]

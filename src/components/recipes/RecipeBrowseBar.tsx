@@ -1,19 +1,9 @@
 "use client";
+//this is the bar that displays drop downs that allow you to filter recipes when browsing, it originally used a RecipeFilters type, which is part of the reason things were a little screwed up, because types diverged
+//
+import { OptionGroup, RecipeFilters } from "@/lib/recipes/recipeTypes";
 
-import { RecipeFilters } from "@/types/recipes";
 
-type OptionGroup = {
-  label: string;
-  value: keyof Pick<
-    RecipeFilters,
-    | "cuisine"
-    | "diet"
-    | "mainIngredient"
-    | "holiday"
-    | "cookingMethod"
-  >;
-  options: string[];
-};
 
 type Props = {
   filters: RecipeFilters;
@@ -29,6 +19,7 @@ export default function RecipeBrowseBar({
   groups,
   onChange,
 }: Props) {
+  console.log("RecipeBrowseBar filters:", filters);
   return (
     <div
       className="

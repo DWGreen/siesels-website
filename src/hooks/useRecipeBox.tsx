@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 
 import {
   Recipe,
+
+} from "@/lib/recipes/recipeTypes";
+import {
   RecipeBoxState,
   ShoppingListItem,
-} from "@/types/recipes";
-
+} from "@/lib/recipes/recipeBoxTypes";
 import {
   createEmptyRecipeBoxState,
   loadRecipeBoxState,
@@ -19,6 +21,34 @@ import {
   getEmptyWeekMenu,
   getNextWeekKey,
 } from "@/lib/recipes/dateWeeks";
+
+function formatIngredientQuantity(ingredient: {
+  whole: number;
+  numerator: number;
+  denominator: number;
+  size: string;
+}) {
+  const parts: string[] = [];
+
+  if (ingredient.whole > 0) {
+    parts.push(String(ingredient.whole));
+  }
+
+  if (
+    ingredient.denominator > 0 &&
+    ingredient.numerator > 0
+  ) {
+    parts.push(
+      `${ingredient.numerator}/${ingredient.denominator}`
+    );
+  }
+
+  if (ingredient.size) {
+    parts.push(ingredient.size);
+  }
+
+  return parts.join(" ");
+}
 
 export function useRecipeBox() {
   const [state, setState] =
@@ -91,10 +121,12 @@ export function useRecipeBox() {
         id: `${recipe.id}-${ingredient.id}-${now}-${index}`,
         recipeId: recipe.id,
         recipeName: recipe.name,
-        name: ingredient.name,
-        quantity: ingredient.quantity,
-        category: ingredient.category,
-        detail: ingredient.detail,
+        name: ingredient.ingredient,
+        quantity: formatIngredientQuantity(
+          ingredient
+        ),
+        category: ingredient.department,
+        detail: ingredient.description,
         checked: false,
       }));
 
@@ -119,10 +151,12 @@ export function useRecipeBox() {
             id: `${recipe.id}-${ingredient.id}-${now}-${index}`,
             recipeId: recipe.id,
             recipeName: recipe.name,
-            name: ingredient.name,
-            quantity: ingredient.quantity,
-            category: ingredient.category,
-            detail: ingredient.detail,
+            name: ingredient.ingredient,
+            quantity: formatIngredientQuantity(
+              ingredient
+            ),
+            category: ingredient.department,
+            detail: ingredient.description,
             checked: false,
           })
         )

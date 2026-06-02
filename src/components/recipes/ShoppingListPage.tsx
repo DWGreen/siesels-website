@@ -7,7 +7,7 @@ import { useRecipeBox } from "@/hooks/useRecipeBox";
 import {
   ShoppingListDisplayOptions,
   ShoppingListItem,
-} from "@/types/recipes";
+} from "@/lib/recipes/recipeBoxTypes";
 import RecipeModuleHeader from "./RecipeModuleHeader";
 export default function ShoppingListPage() {
   const recipeBox = useRecipeBox();

@@ -1,21 +1,23 @@
 "use client";
 
 import {
-  Recipe,
+  
   RecipeBoxState,
-} from "@/types/recipes";
+} from "@/lib/recipes/recipeBoxTypes";
+import {
+  Recipe
+} from "@/lib/recipes/recipeTypes";
+
 import Link from "next/link";
 import {
   capitalizeDay,
-  formatWeekKey,
   getEmptyWeekMenu,
   menuDays,
 } from "@/lib/recipes/dateWeeks";
-import { useMemo, useState } from "react";
-import { getRecipeById } from "@/lib/recipes/recipeLookup";
+import { useEffect, useMemo, useState } from "react";
 
 type Props = {
-  recipes: Recipe[];
+  savedRecipes: Recipe[];
   state: RecipeBoxState;
   onRemoveSavedRecipe: (recipeId: number) => void;
   onAddCustomShoppingItem: (name: string) => void;
@@ -29,7 +31,7 @@ type Props = {
 };
 
 export default function RecipeBoxSidebar({
-  recipes,
+  savedRecipes,
   state,
   onRemoveSavedRecipe,
   onAddCustomShoppingItem,
@@ -37,15 +39,8 @@ export default function RecipeBoxSidebar({
   onRemoveRecipeFromMenu,
   weekKey,
 }: Props) {
-  const savedRecipes = state.savedRecipes
-    .map(saved =>
-      recipes.find(
-        recipe => recipe.id === saved.recipeId
-      )
-    )
-    .filter(Boolean) as Recipe[];
-
-
+  const [menuRecipesById, setMenuRecipesById] =
+    useState<Record<number, Recipe>>({});
 
   const weekMenu = useMemo(
     () =>
@@ -53,6 +48,76 @@ export default function RecipeBoxSidebar({
       getEmptyWeekMenu(),
     [state.menuByWeek, weekKey]
   );
+
+  const weekMenuRecipeIds = useMemo(
+    () =>
+      Array.from(
+        new Set(Object.values(weekMenu).flat())
+      ),
+    [weekMenu]
+  );
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadWeekMenuRecipes() {
+      if (!weekMenuRecipeIds.length) {
+        if (isMounted) {
+          setMenuRecipesById({});
+        }
+
+        return;
+      }
+
+      try {
+        const params = new URLSearchParams();
+        params.set("ids", weekMenuRecipeIds.join(","));
+        params.set("limit", String(weekMenuRecipeIds.length));
+
+        const response = await fetch(
+          `/api/recipes?${params.toString()}`,
+          { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to load menu recipes (${response.status})`
+          );
+        }
+
+        const data = await response.json();
+
+        if (!isMounted) {
+          return;
+        }
+
+        const nextById = (data.recipes ?? []).reduce(
+          (acc: Record<number, Recipe>, recipe: Recipe) => {
+            acc[recipe.id] = recipe;
+            return acc;
+          },
+          {}
+        );
+
+        setMenuRecipesById(nextById);
+      } catch (error) {
+        console.error(
+          "Failed to hydrate week menu recipes",
+          error
+        );
+
+        if (isMounted) {
+          setMenuRecipesById({});
+        }
+      }
+    }
+
+    loadWeekMenuRecipes();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [weekMenuRecipeIds]);
 
   return (
     <aside
@@ -83,9 +148,12 @@ export default function RecipeBoxSidebar({
                   text-sm
                 "
               >
-                <span className="font-bold">
+                <Link
+                  href={`/cooking/${recipe.slug}`}
+                  className="font-bold hover:underline"
+                >
                   {recipe.name}
-                </span>
+                </Link>
 
                 <button
                   type="button"
@@ -160,10 +228,52 @@ export default function RecipeBoxSidebar({
                 ) : (
                   <ul className="space-y-3">
                     {recipeIds.map(recipeId => {
-                      const recipe =
-                        getRecipeById(recipeId);
+                      const recipe = menuRecipesById[recipeId];
 
-                      if (!recipe) return null;
+                      if (!recipe) {
+                        return (
+                          <li
+                            key={`${day}-${recipeId}`}
+                            className="
+                              border-b
+                              border-neutral-200
+                              pb-2
+                            "
+                          >
+                            <span
+                              className="
+                                text-sm
+                                font-bold
+                                uppercase
+                                text-neutral-500
+                              "
+                            >
+                              Recipe #{recipeId}
+                            </span>
+
+                            <button
+                              type="button"
+                              onClick={() =>
+                                onRemoveRecipeFromMenu(
+                                  recipeId,
+                                  weekKey,
+                                  day
+                                )
+                              }
+                              className="
+                                mt-1
+                                block
+                                text-xs
+                                font-black
+                                uppercase
+                                text-neutral-500
+                              "
+                            >
+                              Remove
+                            </button>
+                          </li>
+                        );
+                      }
 
                       return (
                         <li

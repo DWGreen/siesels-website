@@ -2,6 +2,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { getRecipeById } from "@/lib/recipes/recipeService";
+import { recipeDetailToUiRecipe } from "@/lib/recipes/recipeDetailAdapter";
 
 type Params = {
   params: Promise<{
@@ -27,16 +28,18 @@ export async function GET(
   const client =
     request.nextUrl.searchParams.get("client") ?? undefined;
 
-  const recipe = await getRecipeById(recipeId, {
+  const recipeCard= await getRecipeById(recipeId, {
     client,
   });
-
-  if (!recipe) {
+  
+  if (!recipeCard) {
     return NextResponse.json(
       { error: "Recipe not found." },
       { status: 404 }
     );
   }
+
+  const recipe = recipeDetailToUiRecipe(recipeCard);
 
   return NextResponse.json({
     data: recipe,

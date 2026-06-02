@@ -1,26 +1,71 @@
 "use client";
 
-import { Recipe } from "@/types/recipes";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+import { Recipe } from "@/lib/recipes/recipeTypes";
 
 type Props = {
   recipes: Recipe[];
   onSelectTag: (group: string, value: string) => void;
 };
 
+type DietSection = {
+  label: string;
+};
+
+const healthyDietSections: DietSection[] = [
+  { label: "Vegetarian" },
+  { label: "Paleo" },
+  { label: "High Fiber" },
+  { label: "Vegan" },
+];
+
 export default function RecipeRightRail({
   recipes,
   onSelectTag,
 }: Props) {
-  const healthyChoices = recipes.filter(recipe =>
-    recipe.meta.diet?.some(diet =>
-      [
-        "Gluten-Free",
-        "Vegan",
-        "Vegetarian",
-        "Low Sugar",
-        "Paleo",
-      ].includes(diet)
-    )
+  const [healthyChoicesByDiet, setHealthyChoicesByDiet] =
+    useState<Record<string, Recipe | null>>({});
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadHealthyChoices() {
+      try {
+        const response = await fetch(
+          "/api/recipes/healthy-choices"
+        );
+
+        if (!response.ok || !isMounted) {
+          return;
+        }
+
+        const data = await response.json();
+        const grouped = (data.grouped ?? {}) as Record<string, Recipe | null>;
+
+        setHealthyChoicesByDiet(grouped);
+      } catch (error) {
+        console.error(
+          "Failed to load healthy diet sections",
+          error
+        );
+
+        if (isMounted) {
+          setHealthyChoicesByDiet({});
+        }
+      }
+    }
+
+    loadHealthyChoices();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const hasHealthyChoices = healthyDietSections.some(
+    section => healthyChoicesByDiet[section.label] != null
   );
 
   const popularTags = Array.from(
@@ -55,22 +100,65 @@ export default function RecipeRightRail({
           Healthy Choices
         </h2>
 
-        <ul className="space-y-2 text-sm">
-          {healthyChoices.slice(0, 5).map(recipe => (
-            
-            <li
-              key={recipe.id}
-              className="
-                border-b
-                border-neutral-200
-                pb-2
-                font-bold
-              "
-            >
-              <a href={`/cooking/${recipe.slug}`}>{recipe.name}</a>
-            </li>
-          ))}
-        </ul>
+        {!hasHealthyChoices ? (
+          <p className="text-sm text-neutral-600">
+            No healthy choices available right now.
+          </p>
+        ) : (
+          <div className="space-y-4">
+            {healthyDietSections.map(section => {
+              const recipe = healthyChoicesByDiet[section.label];
+
+              if (!recipe) {
+                return null;
+              }
+
+              return (
+                <div
+                  key={section.label}
+                  className="border-b border-neutral-200 pb-3"
+                >
+                  <h3 className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-neutral-600">
+                    {section.label}
+                  </h3>
+
+                  <Link
+                    href={`/cooking/${recipe.slug}`}
+                    className="flex gap-3 group"
+                  >
+                    <div className="h-16 w-16 shrink-0 overflow-hidden border border-neutral-300 bg-neutral-200">
+                      {recipe.image ? (
+                        <img
+                          src={recipe.image}
+                          alt={recipe.name}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-[8px] font-black uppercase tracking-widest text-neutral-400">
+                          No Image
+                        </div>
+                      )}
+                    </div>
+
+                    <span className="flex-1 self-center text-xs font-black uppercase leading-tight group-hover:underline">
+                      {recipe.name}
+                    </span>
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onSelectTag("diet", section.label)
+                    }
+                    className="mt-2 text-xs font-black uppercase tracking-widest text-neutral-700 hover:underline"
+                  >
+                    View more
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       <section>

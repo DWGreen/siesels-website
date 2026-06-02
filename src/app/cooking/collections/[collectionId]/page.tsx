@@ -7,6 +7,10 @@ import {
   getRecipeCollectionById,
   getRelatedRecipeCollections,
 } from "@/data/mockRecipeCollections";
+import {
+  getRecipeCollectionByIdOrSlugLive,
+  getRelatedRecipeCollectionsLive,
+} from "@/lib/recipes/recipeCollectionService";
 
 type Props = {
   params: Promise<{
@@ -19,15 +23,24 @@ export default async function RecipeCollectionPage({
 }: Props) {
   const { collectionId } = await params;
 
+  const liveCollection =
+    await getRecipeCollectionByIdOrSlugLive(
+      collectionId
+    );
+
   const collection =
+    liveCollection ??
     getRecipeCollectionById(collectionId);
 
   if (!collection) {
     notFound();
   }
 
-  const relatedCollections =
-    getRelatedRecipeCollections(collection);
+  const relatedCollections = liveCollection
+    ? await getRelatedRecipeCollectionsLive(
+        liveCollection
+      )
+    : getRelatedRecipeCollections(collection);
 
   return (
     <div className="cookingModule bg-white py-2 text-neutral-950">
