@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { validateCheckoutRequest } from "@/services/checkout/checkoutValidationService";
 import { CheckoutValidationRequest } from "@/types/cart";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as CheckoutValidationRequest;

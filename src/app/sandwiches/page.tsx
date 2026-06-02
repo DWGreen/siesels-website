@@ -15,6 +15,8 @@ import {
   getProductsByCategoryId
 } from "@/services/products";
 
+export const dynamic = "force-dynamic";
+
 export default async function SandwichesPage() {
 
 const menuStructure =

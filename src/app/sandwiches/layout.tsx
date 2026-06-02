@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
 
+export const dynamic = "force-dynamic";
 
 export default function SandwichesLayout({
   children,

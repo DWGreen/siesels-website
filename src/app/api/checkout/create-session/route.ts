@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { validateCheckoutRequest } from "@/services/checkout/checkoutValidationService";
 import { createStripeCheckoutSession } from "@/services/checkout/stripeCheckoutService";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: Request) {
   try {
     const body =

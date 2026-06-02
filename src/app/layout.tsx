@@ -6,6 +6,8 @@ import CookieConsent from "react-cookie-consent";
 import { Oswald, Open_Sans, Playfair_Display, Barlow_Condensed, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-oswald",
