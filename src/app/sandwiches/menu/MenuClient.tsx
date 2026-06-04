@@ -54,6 +54,12 @@ const totalCartItems =
       sum + item.quantity,
     0
   );
+const cartSubtotal =
+  cart.items.reduce(
+    (sum, item) =>
+      sum + item.totalPrice,
+    0
+  );
   const [
     activeCategoryId,
     setActiveCategoryId,
@@ -115,6 +121,8 @@ const [
         min-h-screen
         bg-[#e6e6e6]
         text-neutral-950
+        pb-28
+        sm:pb-24
       "
     >
       <div
@@ -267,6 +275,7 @@ const [
                     </button>
                   );
                 })}
+                <div className="flex-1" />
                 <button
   type="button"
   onClick={() =>
@@ -358,6 +367,73 @@ const [
 )}
           </>
         )}
+      </div>
+
+      <div
+        className="
+          fixed
+          bottom-0
+          left-0
+          right-0
+          z-40
+          px-6
+    
+        "
+      >
+        <div
+          className="
+            mx-auto
+            flex
+            max-w-6xl
+            flex-col
+            gap-4
+            bg-neutral-950
+            px-5
+            py-4
+            text-white
+            shadow-[0_-6px_18px_rgba(0,0,0,0.28)]
+            sm:flex-row
+            sm:items-center
+          "
+        >
+          <div
+            className="
+              text-xl
+              font-black
+              uppercase
+              tracking-[0.22em]
+              sm:text-2xl
+            "
+          >
+            Subtotal:
+            <span className="ml-3">
+              {`$${cartSubtotal.toFixed(2)}`}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={() =>
+              setActiveTab("cart")
+            }
+            className="
+              ml-auto
+              self-end
+              bg-white
+              px-6
+              py-3
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.25em]
+              text-neutral-950
+              transition
+              hover:bg-neutral-200
+            "
+          >
+            View Cart ({totalCartItems})
+          </button>
+        </div>
       </div>
     </main>
   );
