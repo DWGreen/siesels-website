@@ -18,8 +18,18 @@ export function getWooCommerceApi() {
     return api;
   }
 
+  const wpApiUrl =
+    process.env.WP_API_URL ??
+    process.env.NEXT_PUBLIC_WP_URL;
+
+  if (!wpApiUrl) {
+    throw new Error(
+      "Missing required environment variable: WP_API_URL (or legacy NEXT_PUBLIC_WP_URL)"
+    );
+  }
+
   api = new WooCommerceRestApi({
-    url: getRequiredEnv("WP_API_URL"),
+    url: wpApiUrl,
     consumerKey: getRequiredEnv("WC_KEY"),
     consumerSecret: getRequiredEnv("WC_SECRET"),
     version: "wc/v3",
