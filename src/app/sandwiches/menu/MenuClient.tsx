@@ -1,7 +1,10 @@
 "use client";
 
 import {
+  useEffect,
+  useId,
   useMemo,
+  useRef,
   useState,
 } from "react";
 
@@ -72,6 +75,85 @@ const [
 ] = useState<ActiveTab>(
   sections[0]?.category.id ?? null
 );
+const [
+  showFloatingBar,
+  setShowFloatingBar,
+] = useState(true);
+const staticBarId =
+  useId();
+const animationFrameRef =
+  useRef<number | null>(null);
+
+  useEffect(() => {
+    const staticBar =
+      document.getElementById(staticBarId);
+
+    if (!staticBar) {
+      return;
+    }
+
+    const observedStaticBar =
+      staticBar;
+
+    function updateFloatingBarState() {
+      const rect =
+        observedStaticBar.getBoundingClientRect();
+      const floatingTop =
+        window.innerHeight -
+        rect.height;
+      const shouldShowFloatingBar =
+        rect.top >= floatingTop;
+
+      setShowFloatingBar(
+        shouldShowFloatingBar
+      );
+      animationFrameRef.current = null;
+    }
+
+    function requestUpdate() {
+      if (animationFrameRef.current !== null) {
+        return;
+      }
+
+      animationFrameRef.current =
+        window.requestAnimationFrame(
+          updateFloatingBarState
+        );
+    }
+
+    updateFloatingBarState();
+
+    window.addEventListener(
+      "scroll",
+      requestUpdate,
+      { passive: true }
+    );
+    window.addEventListener(
+      "resize",
+      requestUpdate
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        requestUpdate
+      );
+      window.removeEventListener(
+        "resize",
+        requestUpdate
+      );
+
+      if (
+        animationFrameRef.current !==
+        null
+      ) {
+        window.cancelAnimationFrame(
+          animationFrameRef.current
+        );
+      }
+    };
+  }, [staticBarId]);
+
   const activeSection =
   useMemo(
     () => {
@@ -112,6 +194,72 @@ const [
       routes.productCustomizer({
         productId: product.id,
       })
+    );
+  }
+
+  function renderCartBar(
+    isFloating: boolean
+  ) {
+    return (
+      <div
+        className="
+          mx-auto
+          flex
+          max-w-6xl
+          flex-col
+          gap-4
+          bg-neutral-950
+          px-5
+          py-4
+          text-white
+          shadow-[0_-6px_18px_rgba(0,0,0,0.28)]
+          sm:flex-row
+          sm:items-center
+        "
+      >
+        <div
+          className="
+            text-xl
+            font-black
+            uppercase
+            tracking-[0.22em]
+            sm:text-2xl
+          "
+        >
+          Subtotal:
+          <span className="ml-3">
+            {`$${cartSubtotal.toFixed(2)}`}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() =>
+            setActiveTab("cart")
+          }
+          className={`
+            ml-auto
+            self-end
+            bg-white
+            px-6
+            py-3
+            text-xs
+            font-black
+            uppercase
+            tracking-[0.25em]
+            text-neutral-950
+            transition
+            hover:bg-neutral-200
+            ${
+              isFloating
+                ? ""
+                : "shadow-none"
+            }
+          `}
+        >
+          View Cart ({totalCartItems})
+        </button>
+      </div>
     );
   }
 
@@ -370,71 +518,28 @@ const [
       </div>
 
       <div
-        className="
-          fixed
-          bottom-0
-          left-0
-          right-0
-          z-40
-          px-6
-    
-        "
+        id={staticBarId}
+        className="min-h-[110px] px-6 pb-4 sm:min-h-[88px]"
       >
+        {showFloatingBar
+          ? null
+          : renderCartBar(false)}
+      </div>
+
+      {showFloatingBar ? (
         <div
           className="
-            mx-auto
-            flex
-            max-w-6xl
-            flex-col
-            gap-4
-            bg-neutral-950
-            px-5
-            py-4
-            text-white
-            shadow-[0_-6px_18px_rgba(0,0,0,0.28)]
-            sm:flex-row
-            sm:items-center
+            fixed
+            bottom-0
+            left-0
+            right-0
+            z-40
+            px-6
           "
         >
-          <div
-            className="
-              text-xl
-              font-black
-              uppercase
-              tracking-[0.22em]
-              sm:text-2xl
-            "
-          >
-            Subtotal:
-            <span className="ml-3">
-              {`$${cartSubtotal.toFixed(2)}`}
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() =>
-              setActiveTab("cart")
-            }
-            className="
-              ml-auto
-              self-end
-              bg-white
-              px-6
-              py-3
-              text-xs
-              font-black
-              uppercase
-              tracking-[0.25em]
-              text-neutral-950
-              transition
-              hover:bg-neutral-200
-            "
-          >
-            View Cart ({totalCartItems})
-          </button>
+          {renderCartBar(true)}
         </div>
-      </div>
+      ) : null}
     </main>
   );
 }
