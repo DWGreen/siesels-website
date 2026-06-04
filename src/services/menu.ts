@@ -32,40 +32,70 @@ function sortCategories(
   );
 }
 export async function getMenuStructure(): Promise<MenuStructure> {
-  const rootCategory =
-    await getCategoryBySlug(
-      menuConfig.mainMenuCategorySlug
-    );
+  try {
+    const rootCategory =
+      await getCategoryBySlug(
+        menuConfig.mainMenuCategorySlug
+      );
 
-  const childCategories =
-    await getChildCategories(
-      String(rootCategory?.id)
-    );
+    if (!rootCategory) {
+      console.error(
+        `Menu root category not found for slug: ${menuConfig.mainMenuCategorySlug}`
+      );
 
-  const sortedChildCategories =
-    sortCategories(
-      childCategories
-    );
+      return {
+        rootCategory: {
+          id: 0,
+          name: "Menu",
+          slug: menuConfig.mainMenuCategorySlug,
+          config: {},
+        },
+        sections: [],
+      };
+    }
 
-  const sections =
-    await Promise.all(
-      sortedChildCategories.map(
-        async category => {
-          const products =
-            await getProductsByCategoryId(
-              String(category.id)
-            );
+    const childCategories =
+      await getChildCategories(
+        String(rootCategory.id)
+      );
 
-          return {
-            category,
-            products,
-          };
-        }
-      )
-    );
+    const sortedChildCategories =
+      sortCategories(
+        childCategories
+      );
 
-  return {
-    rootCategory : rootCategory!,
-    sections,
-  };
+    const sections =
+      await Promise.all(
+        sortedChildCategories.map(
+          async category => {
+            const products =
+              await getProductsByCategoryId(
+                String(category.id)
+              );
+
+            return {
+              category,
+              products,
+            };
+          }
+        )
+      );
+
+    return {
+      rootCategory,
+      sections,
+    };
+  } catch (error) {
+    console.error("Failed to build menu structure:", error);
+
+    return {
+      rootCategory: {
+        id: 0,
+        name: "Menu",
+        slug: menuConfig.mainMenuCategorySlug,
+        config: {},
+      },
+      sections: [],
+    };
+  }
 }
