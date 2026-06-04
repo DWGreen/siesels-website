@@ -19,7 +19,7 @@ export function getWooCommerceApi() {
   }
 
   api = new WooCommerceRestApi({
-    url: getRequiredEnv("NEXT_PUBLIC_WP_URL"),
+    url: getRequiredEnv("WP_API_URL"),
     consumerKey: getRequiredEnv("WC_KEY"),
     consumerSecret: getRequiredEnv("WC_SECRET"),
     version: "wc/v3",
