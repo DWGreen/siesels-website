@@ -9,6 +9,9 @@ frontend:
         - npm ci
     build:
       commands:
+        - rm -f .env.production
+        - |
+          env | grep -E '^(WP_API_URL|NEXT_PUBLIC_WP_URL|WC_KEY|WC_SECRET|STRIPE_SECRET_KEY|NEXT_PUBLIC_SITE_URL)=' >> .env.production || true
         - npm run build -- --webpack
   artifacts:
     baseDirectory: .next
