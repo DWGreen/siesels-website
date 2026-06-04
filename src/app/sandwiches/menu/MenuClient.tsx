@@ -85,6 +85,11 @@ const animationFrameRef =
   useRef<number | null>(null);
 
   useEffect(() => {
+    if (activeTab === "cart") {
+      setShowFloatingBar(false);
+      return;
+    }
+
     const staticBar =
       document.getElementById(staticBarId);
 
@@ -150,9 +155,11 @@ const animationFrameRef =
         window.cancelAnimationFrame(
           animationFrameRef.current
         );
+        animationFrameRef.current =
+          null;
       }
     };
-  }, [staticBarId]);
+  }, [staticBarId, activeTab]);
 
   const activeSection =
   useMemo(
@@ -517,29 +524,33 @@ const animationFrameRef =
         )}
       </div>
 
-      <div
-        id={staticBarId}
-        className="min-h-[110px] px-6 pb-4 sm:min-h-[88px]"
-      >
-        {showFloatingBar
-          ? null
-          : renderCartBar(false)}
-      </div>
+      {activeTab === "cart" ? null : (
+        <>
+          <div
+            id={staticBarId}
+            className="min-h-[110px] px-6 pb-4 sm:min-h-[88px]"
+          >
+            {showFloatingBar
+              ? null
+              : renderCartBar(false)}
+          </div>
 
-      {showFloatingBar ? (
-        <div
-          className="
-            fixed
-            bottom-0
-            left-0
-            right-0
-            z-40
-            px-6
-          "
-        >
-          {renderCartBar(true)}
-        </div>
-      ) : null}
+          {showFloatingBar ? (
+            <div
+              className="
+                fixed
+                bottom-0
+                left-0
+                right-0
+                z-40
+                px-6
+              "
+            >
+              {renderCartBar(true)}
+            </div>
+          ) : null}
+        </>
+      )}
     </main>
   );
 }
