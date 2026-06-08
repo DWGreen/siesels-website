@@ -11,6 +11,7 @@ type CategoryGroup = {
 type Props = {
   filters: RecipeFilters;
   categoryGroups: CategoryGroup[];
+  isLoadingMeta?: boolean;
   onChange: (
     key: keyof RecipeFilters,
     value: string
@@ -22,6 +23,7 @@ type Props = {
 export default function RecipeSearchBar({
   filters,
   categoryGroups,
+  isLoadingMeta = false,
   onChange,
   onClear,
   onAdvancedSearch,
@@ -45,6 +47,7 @@ export default function RecipeSearchBar({
       >
         <select
           value={filters.categoryValue}
+          disabled={isLoadingMeta}
           onChange={event =>
             onChange(
               "categoryValue",
@@ -61,7 +64,9 @@ export default function RecipeSearchBar({
           "
         >
           <option value="">
-            Browse Recipe Categories
+            {isLoadingMeta
+              ? "Loading categories..."
+              : "Browse Recipe Categories"}
           </option>
 
           {categoryGroups.map(group => (

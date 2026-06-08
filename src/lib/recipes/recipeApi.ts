@@ -1,24 +1,81 @@
-import { Recipe } from "./recipeTypes";
-
-type RecipeApiStatus = {
+export type RecipeApiStatus = {
   status: number;
   error?: {
     message: string;
   };
 };
 
-
-
-type GetRecipeResponse = RecipeApiStatus & {
-  recipe: Recipe;
+export type CmsRecipeSummary = {
+  id: string;
+  name: string;
+  rating: number | string;
+  image?: string;
+  intro?: string;
 };
 
+export type CmsRecipeDetail = {
+  id: string;
+  name: string;
+  course?: string;
+  servings?: string;
+  groups?: Record<string, string[] | string>;
+  directions?: string[];
+  image?: string;
+  ingredients?: string[];
+  intro?: string;
+  rating: number | string;
+};
 
-const RECIPE_API_BASE = process.env.RECIPE_API_BASE;
-const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
+type GetRecipeResponse = RecipeApiStatus & {
+  recipe?: CmsRecipeDetail;
+};
 
-if (!RECIPE_API_BASE) {
-  throw new Error("Missing RECIPE_API_BASE");
+type SearchRecipesResponse = RecipeApiStatus & {
+  results?: {
+    recipes?: CmsRecipeSummary[];
+    count?: number | string;
+    page?: number | string;
+    pages?: number | string;
+    limit?: number | string;
+  };
+};
+
+type FeaturedResponse = RecipeApiStatus & {
+  results?: {
+    collections?: Array<{
+      recipes?: CmsRecipeSummary[];
+    }>;
+    recipes?: Array<{
+      ID: string;
+      name: string;
+      intro?: string;
+      image?: string;
+    }>;
+  };
+};
+
+function requiredEnv(name: string): string {
+  const value = process.env[name]?.trim();
+
+  if (!value) {
+    throw new Error(`Missing required env var: ${name}`);
+  }
+
+  return value;
+}
+
+function getCookingApiBaseUrl(): string {
+  const explicitBase = process.env.RECIPE_API_BASE?.trim();
+
+  if (explicitBase) {
+    return explicitBase;
+  }
+
+  const baseUrl = requiredEnv("CMS_COOKING_API_BASE_URL");
+  const clientId = requiredEnv("CMS_COOKING_API_CLIENT_ID");
+  const apiKey = requiredEnv("CMS_COOKING_API_KEY");
+
+  return `${baseUrl.replace(/\/$/, "")}/${clientId}/${apiKey}/cooking/`;
 }
 
 function appendGroupParams(
@@ -34,21 +91,16 @@ function appendGroupParams(
   }
 }
 
-
-
 async function fetchRecipeApi<T extends RecipeApiStatus>(
   params: URLSearchParams
 ): Promise<T> {
   params.set("format", "json");
 
-  if (RECIPE_API_KEY) {
-    params.set("key", RECIPE_API_KEY);
-  }
-
-  const url = `${RECIPE_API_BASE}?${params.toString()}`;
+  const baseUrl = getCookingApiBaseUrl();
+  const separator = baseUrl.includes("?") ? "&" : "?";
+  const url = `${baseUrl}${separator}${params.toString()}`;
 
   const response = await fetch(url, {
-    // Start with no-store while integrating. Later, use revalidate.
     cache: "no-store",
   });
 
@@ -65,11 +117,15 @@ async function fetchRecipeApi<T extends RecipeApiStatus>(
   return data;
 }
 
-export async function getRecipe(id: number): Promise<Recipe> {
+export async function getRecipe(id: number): Promise<CmsRecipeDetail> {
   const params = new URLSearchParams();
   params.set("recipe", String(id));
 
   const data = await fetchRecipeApi<GetRecipeResponse>(params);
+
+  if (!data.recipe) {
+    throw new Error("Recipe not found in API response");
+  }
 
   return data.recipe;
 }
@@ -79,13 +135,13 @@ export async function searchRecipes(input: {
   group?: Record<string, string[]>;
   page?: number;
   limit?: number;
-}) {
+}): Promise<SearchRecipesResponse> {
   const params = new URLSearchParams();
 
   params.set("searchRecipes", "1");
 
-  if (input.searchterm) {
-    params.set("searchterm", input.searchterm);
+  if (input.searchterm?.trim()) {
+    params.set("searchterm", input.searchterm.trim());
   }
 
   params.set("page", String(input.page ?? 1));
@@ -93,10 +149,10 @@ export async function searchRecipes(input: {
 
   appendGroupParams(params, input.group);
 
-  return fetchRecipeApi(params);
+  return fetchRecipeApi<SearchRecipesResponse>(params);
 }
 
-export async function getFeatured(viewDate?: string) {
+export async function getFeatured(viewDate?: string): Promise<FeaturedResponse> {
   const params = new URLSearchParams();
 
   params.set("getFeatured", "1");
@@ -105,7 +161,7 @@ export async function getFeatured(viewDate?: string) {
     params.set("viewDate", viewDate);
   }
 
-  return fetchRecipeApi(params);
+  return fetchRecipeApi<FeaturedResponse>(params);
 }
 
 export async function getNewRecipes(input: {

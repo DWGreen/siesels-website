@@ -66,8 +66,12 @@ export default function RecipeDetailView({
     useState(recipe.rating);
   const [savedRecipes, setSavedRecipes] =
     useState<Recipe[]>([]);
+  const [isLoadingSavedRecipes, setIsLoadingSavedRecipes] =
+    useState(true);
   const [similarRecipes, setSimilarRecipes] =
     useState<Recipe[]>([]);
+  const [isLoadingSimilarRecipes, setIsLoadingSimilarRecipes] =
+    useState(true);
   const [showRatingDialog, setShowRatingDialog] =
     useState(false);
   const [isSubmittingRating, setIsSubmittingRating] =
@@ -81,12 +85,18 @@ export default function RecipeDetailView({
     let isMounted = true;
 
     async function loadSavedRecipes() {
+      if (isMounted) {
+        setIsLoadingSavedRecipes(true);
+      }
       const ids = recipeBox.state.savedRecipes.map(
         item => item.recipeId
       );
 
       if (!ids.length) {
-        setSavedRecipes([]);
+        if (isMounted) {
+          setSavedRecipes([]);
+          setIsLoadingSavedRecipes(false);
+        }
         return;
       }
 
@@ -110,6 +120,10 @@ export default function RecipeDetailView({
         if (isMounted) {
           setSavedRecipes([]);
         }
+      } finally {
+        if (isMounted) {
+          setIsLoadingSavedRecipes(false);
+        }
       }
     }
 
@@ -125,6 +139,9 @@ export default function RecipeDetailView({
 
     async function loadSimilarRecipes() {
       try {
+        if (isMounted) {
+          setIsLoadingSimilarRecipes(true);
+        }
         const params = new URLSearchParams({
           limit: "4",
           similarToId: String(recipe.id),
@@ -152,6 +169,10 @@ export default function RecipeDetailView({
       } catch {
         if (isMounted) {
           setSimilarRecipes([]);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoadingSimilarRecipes(false);
         }
       }
     }
@@ -238,6 +259,7 @@ export default function RecipeDetailView({
       >
         <RecipeBoxSidebar
           savedRecipes={savedRecipes}
+          isLoadingSavedRecipes={isLoadingSavedRecipes}
           state={recipeBox.state}
           onRemoveSavedRecipe={
             recipeBox.removeSavedRecipe
@@ -617,7 +639,11 @@ export default function RecipeDetailView({
               </h2>
 
               <ul className="space-y-3">
-                {similarRecipes.map(item => (
+                {isLoadingSimilarRecipes ? (
+                  <li className="text-sm text-neutral-600">Loading similar recipes...</li>
+                ) : similarRecipes.length === 0 ? (
+                  <li className="text-sm text-neutral-600">No similar recipes available right now.</li>
+                ) : similarRecipes.map(item => (
                   <li
                     key={item.id}
                     className="

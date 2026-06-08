@@ -14,11 +14,15 @@ type Props = {
     rating: number;
   }>;
   collections: RecipeCollection[];
+  isLoadingFavorites?: boolean;
+  isLoadingCollections?: boolean;
 };
 
 export default function RecipeHomePanel({
   recipes,
   collections,
+  isLoadingFavorites = false,
+  isLoadingCollections = false,
 }: Props) {
   const slides = useMemo<RecipeSlide[]>(() => {
     const collectionSlides = collections
@@ -55,9 +59,31 @@ export default function RecipeHomePanel({
 
   return (
     <div className="p-4">
-      <RecipeFeaturedSlideshow slides={slides} />
+      {isLoadingCollections ? (
+        <div className="border border-neutral-300 bg-white p-4">
+          <div className="h-52 w-full animate-pulse bg-neutral-200" />
+          <div className="mt-4 space-y-2">
+            <div className="h-4 w-1/3 animate-pulse bg-neutral-200" />
+            <div className="h-3 w-2/3 animate-pulse bg-neutral-200" />
+            <div className="h-3 w-1/2 animate-pulse bg-neutral-200" />
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <div
+                key={`collection-link-skeleton-${index}`}
+                className="h-3 animate-pulse bg-neutral-200"
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <RecipeFeaturedSlideshow slides={slides} />
+      )}
 
-      <FavoriteRecipesList recipes={recipes} />
+      <FavoriteRecipesList
+        recipes={recipes}
+        isLoading={isLoadingFavorites}
+      />
     </div>
   );
 }

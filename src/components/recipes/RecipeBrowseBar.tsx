@@ -8,6 +8,7 @@ import { OptionGroup, RecipeFilters } from "@/lib/recipes/recipeTypes";
 type Props = {
   filters: RecipeFilters;
   groups: OptionGroup[];
+  isLoading?: boolean;
   onChange: (
     key: keyof RecipeFilters,
     value: string
@@ -17,6 +18,7 @@ type Props = {
 export default function RecipeBrowseBar({
   filters,
   groups,
+  isLoading = false,
   onChange,
 }: Props) {
   console.log("RecipeBrowseBar filters:", filters);
@@ -46,6 +48,12 @@ export default function RecipeBrowseBar({
         Browse:
       </div>
 
+      {isLoading && (
+        <div className="text-xs font-bold uppercase tracking-widest text-neutral-500">
+          Loading filters...
+        </div>
+      )}
+
       {groups.map(group => (
         <label
           key={group.value}
@@ -61,6 +69,7 @@ export default function RecipeBrowseBar({
           key={group.value}
           id={`browse-${group.value}`}
           value={filters[group.value]}
+          disabled={isLoading}
           onChange={event =>
             onChange(
               group.value,

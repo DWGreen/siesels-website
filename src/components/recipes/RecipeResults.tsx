@@ -17,6 +17,8 @@ onAddToMenu: (
   ) => void;
   onSelectTag: (group: string, value: string) => void;
   weekKey: string;
+  isLoading?: boolean;
+  loadError?: string | null;
   hasMore?: boolean;
   isLoadingMore?: boolean;
   onLoadMore?: () => void;
@@ -30,6 +32,8 @@ export default function RecipeResults({
   onAddToMenu,
   onSelectTag,
   weekKey,
+  isLoading = false,
+  loadError = null,
   hasMore = false,
   isLoadingMore = false,
   onLoadMore,
@@ -88,12 +92,46 @@ export default function RecipeResults({
         </h2>
 
         <div className="text-sm font-bold text-neutral-600">
-          {recipes.length} result
-          {recipes.length === 1 ? "" : "s"}
+          {isLoading
+            ? "Loading..."
+            : `${recipes.length} result${recipes.length === 1 ? "" : "s"}`}
         </div>
       </div>
 
-      {recipes.length === 0 ? (
+      {isLoading ? (
+        <div
+          className="
+            border-2
+            border-dashed
+            border-neutral-300
+            p-8
+            text-center
+          "
+        >
+          <h3 className="font-black uppercase tracking-widest">
+            Loading Recipes
+          </h3>
+          <p className="mt-2 text-sm text-neutral-600">
+            Fetching the latest results...
+          </p>
+        </div>
+      ) : loadError ? (
+        <div
+          className="
+            border-2
+            border-dashed
+            border-red-300
+            bg-red-50
+            p-8
+            text-center
+          "
+        >
+          <h3 className="font-black uppercase tracking-widest text-red-900">
+            Could Not Load Recipes
+          </h3>
+          <p className="mt-2 text-sm text-red-700">{loadError}</p>
+        </div>
+      ) : recipes.length === 0 ? (
         <div
           className="
             border-2

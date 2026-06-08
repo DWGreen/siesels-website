@@ -8,12 +8,68 @@ type Props = {
     image?: string;
     rating: number;
   }>;
+  isLoading?: boolean;
 };
 
 export default function FavoriteRecipesList({
   recipes,
+  isLoading = false,
 }: Props) {
   const favoriteRecipes = recipes.slice(0, 10);
+
+  if (isLoading) {
+    return (
+      <section className="mt-6">
+        <div
+          className="
+            mb-3
+            flex
+            items-center
+            justify-between
+            border-b-2
+            border-neutral-900
+            pb-2
+          "
+        >
+          <h2
+            className="
+              text-sm
+              font-black
+              uppercase
+              tracking-[0.25em]
+            "
+          >
+            Our Top 10 Favorites
+          </h2>
+        </div>
+
+        <div
+          className="
+            grid
+            grid-cols-2
+            gap-3
+            sm:grid-cols-3
+            md:grid-cols-5
+            lg:grid-cols-5
+          "
+        >
+          {Array.from({ length: 10 }).map((_, index) => (
+            <div
+              key={`favorite-skeleton-${index}`}
+              className="block border border-neutral-300 bg-white"
+            >
+              <div className="h-24 w-full animate-pulse bg-neutral-200" />
+              <div className="space-y-2 p-2">
+                <div className="h-3 w-full animate-pulse bg-neutral-200" />
+                <div className="h-3 w-3/4 animate-pulse bg-neutral-200" />
+                <div className="h-2 w-1/2 animate-pulse bg-neutral-200" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   if (!favoriteRecipes.length) {
     return null;

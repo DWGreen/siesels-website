@@ -18,6 +18,7 @@ import { useEffect, useMemo, useState } from "react";
 
 type Props = {
   savedRecipes: Recipe[];
+  isLoadingSavedRecipes?: boolean;
   state: RecipeBoxState;
   onRemoveSavedRecipe: (recipeId: number) => void;
   onAddCustomShoppingItem: (name: string) => void;
@@ -32,6 +33,7 @@ type Props = {
 
 export default function RecipeBoxSidebar({
   savedRecipes,
+  isLoadingSavedRecipes = false,
   state,
   onRemoveSavedRecipe,
   onAddCustomShoppingItem,
@@ -41,6 +43,8 @@ export default function RecipeBoxSidebar({
 }: Props) {
   const [menuRecipesById, setMenuRecipesById] =
     useState<Record<number, Recipe>>({});
+  const [isLoadingMenuRecipes, setIsLoadingMenuRecipes] =
+    useState(false);
 
   const weekMenu = useMemo(
     () =>
@@ -64,12 +68,16 @@ export default function RecipeBoxSidebar({
       if (!weekMenuRecipeIds.length) {
         if (isMounted) {
           setMenuRecipesById({});
+          setIsLoadingMenuRecipes(false);
         }
 
         return;
       }
 
       try {
+        if (isMounted) {
+          setIsLoadingMenuRecipes(true);
+        }
         const params = new URLSearchParams();
         params.set("ids", weekMenuRecipeIds.join(","));
         params.set("limit", String(weekMenuRecipeIds.length));
@@ -109,6 +117,10 @@ export default function RecipeBoxSidebar({
         if (isMounted) {
           setMenuRecipesById({});
         }
+      } finally {
+        if (isMounted) {
+          setIsLoadingMenuRecipes(false);
+        }
       }
     }
 
@@ -128,7 +140,11 @@ export default function RecipeBoxSidebar({
       "
     >
       <SidebarSection title="My Recipes">
-        {savedRecipes.length === 0 ? (
+        {isLoadingSavedRecipes ? (
+          <p className="text-sm text-neutral-600">
+            Loading saved recipes...
+          </p>
+        ) : savedRecipes.length === 0 ? (
           <p className="text-sm text-neutral-600">
             Saved recipes will appear here.
           </p>
@@ -197,6 +213,11 @@ export default function RecipeBoxSidebar({
       </SidebarSection>
 
       <SidebarSection title="My Menu">
+        {isLoadingMenuRecipes && (
+          <p className="mb-3 text-sm text-neutral-600">
+            Loading menu recipes...
+          </p>
+        )}
         <div className="space-y-2">
           {menuDays.map(day => {
             const recipeIds = weekMenu[day] ?? [];

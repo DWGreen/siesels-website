@@ -109,8 +109,14 @@ export default function RecipeModulePage({
     useState<Recipe[]>([]);
   const [savedRecipes, setSavedRecipes] =
     useState<Recipe[]>([]);
+  const [isLoadingSavedRecipes, setIsLoadingSavedRecipes] =
+    useState(true);
   const [homeCollections, setHomeCollections] =
     useState<RecipeCollection[]>([]);
+  const [isLoadingHomeCollections, setIsLoadingHomeCollections] =
+    useState(true);
+  const [isLoadingTopFavorites, setIsLoadingTopFavorites] =
+    useState(true);
   
   const [metaFilters, setMetaFilters] =
   useState<{
@@ -142,6 +148,8 @@ export default function RecipeModulePage({
 
 const [recipeLoadError, setRecipeLoadError] =
   useState<string | null>(null);
+const [isLoadingMetaFilters, setIsLoadingMetaFilters] =
+  useState(true);
   const router = useRouter();
   const recipeBox = useRecipeBox();
   const weekKey = formatWeekKey();
@@ -191,6 +199,9 @@ useEffect(() => {
 
   async function loadTopFavorites() {
     try {
+      if (isMounted) {
+        setIsLoadingTopFavorites(true);
+      }
       const response = await fetch(
         "/api/recipes?limit=10&sort=rating",
         { cache: "no-store" }
@@ -215,6 +226,10 @@ useEffect(() => {
 
       if (isMounted) {
         setTopFavoriteRecipes([]);
+      }
+    } finally {
+      if (isMounted) {
+        setIsLoadingTopFavorites(false);
       }
     }
   }
@@ -407,6 +422,9 @@ useEffect(() => {
 
   async function loadSavedRecipes() {
     try {
+      if (isMounted) {
+        setIsLoadingSavedRecipes(true);
+      }
       const ids = recipeBox.state.savedRecipes.map(
         item => item.recipeId
       );
@@ -414,6 +432,7 @@ useEffect(() => {
       if (!ids.length) {
         if (isMounted) {
           setSavedRecipes([]);
+          setIsLoadingSavedRecipes(false);
         }
 
         return;
@@ -446,6 +465,10 @@ useEffect(() => {
       if (isMounted) {
         setSavedRecipes([]);
       }
+    } finally {
+      if (isMounted) {
+        setIsLoadingSavedRecipes(false);
+      }
     }
   }
 
@@ -461,6 +484,9 @@ useEffect(() => {
 
   async function loadHomeCollections() {
     try {
+      if (isMounted) {
+        setIsLoadingHomeCollections(true);
+      }
       const response = await fetch(
         "/api/recipes/collections?limit=8",
         { cache: "no-store" }
@@ -486,6 +512,10 @@ useEffect(() => {
       if (isMounted) {
         setHomeCollections([]);
       }
+    } finally {
+      if (isMounted) {
+        setIsLoadingHomeCollections(false);
+      }
     }
   }
 
@@ -501,6 +531,9 @@ useEffect(() => {
 
   async function loadMetaFilters() {
     try {
+      if (isMounted) {
+        setIsLoadingMetaFilters(true);
+      }
       const response = await fetch(
         "/api/recipes/meta"
       );
@@ -565,6 +598,10 @@ useEffect(() => {
         "Failed to load metadata",
         error
       );
+    } finally {
+      if (isMounted) {
+        setIsLoadingMetaFilters(false);
+      }
     }
   }
 
@@ -721,12 +758,14 @@ function updateFilter<K extends keyof RecipeFilters>(
       <RecipeBrowseBar
         filters={filters}
         groups={browseGroups}
+        isLoading={isLoadingMetaFilters}
         onChange={updateFilter}
       />
 
       <RecipeSearchBar
         filters={filters}
         categoryGroups={categoryGroups}
+        isLoadingMeta={isLoadingMetaFilters}
         onChange={updateFilter}
         onClear={clearFilters}
         onAdvancedSearch={() =>
@@ -758,6 +797,7 @@ function updateFilter<K extends keyof RecipeFilters>(
       >
         <RecipeBoxSidebar
           savedRecipes={savedRecipes}
+          isLoadingSavedRecipes={isLoadingSavedRecipes}
           state={recipeBox.state}
           onRemoveSavedRecipe={
             recipeBox.removeSavedRecipe
@@ -779,11 +819,15 @@ function updateFilter<K extends keyof RecipeFilters>(
     <RecipeHomePanel
       recipes={topFavoriteRecipes}
       collections={homeCollections}
+      isLoadingFavorites={isLoadingTopFavorites}
+      isLoadingCollections={isLoadingHomeCollections}
     />
   ) : (
           <RecipeResults
           onSelectTag={selectRightRailTag}
             recipes={recipes}
+            isLoading={isLoadingRecipes}
+            loadError={recipeLoadError}
             savedRecipeIds={
               recipeBox.savedRecipeIds
             }
@@ -806,6 +850,7 @@ function updateFilter<K extends keyof RecipeFilters>(
 
         <RecipeRightRail
           recipes={recipes}
+          isLoadingRecipes={isLoadingRecipes}
           onSelectTag={selectRightRailTag}
         />
       </div>

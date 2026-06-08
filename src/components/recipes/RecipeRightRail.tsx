@@ -7,6 +7,7 @@ import { Recipe } from "@/lib/recipes/recipeTypes";
 
 type Props = {
   recipes: Recipe[];
+  isLoadingRecipes?: boolean;
   onSelectTag: (group: string, value: string) => void;
 };
 
@@ -23,16 +24,20 @@ const healthyDietSections: DietSection[] = [
 
 export default function RecipeRightRail({
   recipes,
+  isLoadingRecipes = false,
   onSelectTag,
 }: Props) {
   const [healthyChoicesByDiet, setHealthyChoicesByDiet] =
     useState<Record<string, Recipe | null>>({});
+  const [isLoadingHealthyChoices, setIsLoadingHealthyChoices] =
+    useState(true);
 
   useEffect(() => {
     let isMounted = true;
 
     async function loadHealthyChoices() {
       try {
+        setIsLoadingHealthyChoices(true);
         const response = await fetch(
           "/api/recipes/healthy-choices"
         );
@@ -53,6 +58,10 @@ export default function RecipeRightRail({
 
         if (isMounted) {
           setHealthyChoicesByDiet({});
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoadingHealthyChoices(false);
         }
       }
     }
@@ -100,7 +109,11 @@ export default function RecipeRightRail({
           Healthy Choices
         </h2>
 
-        {!hasHealthyChoices ? (
+        {isLoadingHealthyChoices ? (
+          <p className="text-sm text-neutral-600">
+            Loading healthy choices...
+          </p>
+        ) : !hasHealthyChoices ? (
           <p className="text-sm text-neutral-600">
             No healthy choices available right now.
           </p>
@@ -174,29 +187,39 @@ export default function RecipeRightRail({
           See Other Recipes Like This
         </h2>
 
-        <div className="flex flex-wrap gap-2">
-          {popularTags.map(tag => (
-            <button
-              key={tag}
-              type="button"
-              onClick={() =>
-                onSelectTag("keyword", tag)
-              }
-              className="
-                border
-                border-neutral-300
-                px-2
-                py-1
-                text-xs
-                font-bold
-                uppercase
-                hover:border-neutral-900
-              "
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
+        {isLoadingRecipes ? (
+          <p className="text-sm text-neutral-600">
+            Loading related tags...
+          </p>
+        ) : popularTags.length === 0 ? (
+          <p className="text-sm text-neutral-600">
+            Related tags will appear once recipes load.
+          </p>
+        ) : (
+          <div className="flex flex-wrap gap-2">
+            {popularTags.map(tag => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() =>
+                  onSelectTag("keyword", tag)
+                }
+                className="
+                  border
+                  border-neutral-300
+                  px-2
+                  py-1
+                  text-xs
+                  font-bold
+                  uppercase
+                  hover:border-neutral-900
+                "
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        )}
       </section>
     </aside>
   );

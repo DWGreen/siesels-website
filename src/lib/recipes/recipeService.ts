@@ -1,57 +1,295 @@
 // src/lib/recipes/recipeService.ts
 
 import {
-  getIngredientsForRecipesQuery,
-  getMetaForRecipesQuery,
   insertRecipeRatingQuery,
   getRatingSummaryQuery,
-  getRecipesQuery,
   getRecipeClientCountsQuery,
-  getRecipeMetaOptionsQuery,
-  getRecipeRowsForDetailQuery,
   getRecipeStatusCountsQuery,
 } from "./recipeQueries";
 import {
   GetRecipeByIdOptions,
   GetRecipesOptions,
   RecipeDetail,
+  RecipeIngredient,
   RecipeMetaFilters,
+  RecipeMetaMap,
+  RecipeMetaOption,
   Recipe,
   RecipeRatingVote,
 } from "./recipeTypes";
 
-import { buildRecipeDetail, mapRecipes } from "./recipeMapper";
-import { RECIPE_META_KEYS } from "./recipeMetaConfig";
+import {
+  CmsRecipeDetail,
+  CmsRecipeSummary,
+  getFeatured,
+  getRecipe,
+  searchRecipes as searchRecipesApi,
+} from "./recipeApi";
+import { LEGACY_RECIPE_FILTER_OPTIONS } from "./recipeFilterOptions";
 
 const DEFAULT_RECIPE_CLIENT =
   process.env.RECIPES_DEFAULT_CLIENT || "JEN";
+
+function normalizeImage(value?: string) {
+  if (!value) {
+    return "";
+  }
+
+  if (value.startsWith("//")) {
+    return `https:${value}`;
+  }
+
+  if (value.startsWith("/")) {
+    return `https://cms.dwgreen.com${value}`;
+  }
+
+  return value;
+}
+
+function asNumber(value: number | string | undefined) {
+  const parsed = Number(value ?? 0);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function splitCsvValues(value: string | string[] | undefined) {
+  if (!value) {
+    return [] as string[];
+  }
+
+  if (Array.isArray(value)) {
+    return value
+      .map(item => item.trim())
+      .filter(Boolean);
+  }
+
+  return value
+    .split(",")
+    .map(item => item.trim())
+    .filter(Boolean);
+}
+
+function normalizeCourse(value?: string) {
+  const next = (value ?? "").trim();
+
+  if (!next) {
+    return "Dinner";
+  }
+
+  return next.charAt(0).toUpperCase() + next.slice(1).toLowerCase();
+}
+
+function toIngredientModel(recipeId: number, items: string[] = []): RecipeIngredient[] {
+  return items.map((item, index) => ({
+    id: recipeId * 1000 + index + 1,
+    recipeId,
+    ingredient: item,
+    description: "",
+    whole: 0,
+    numerator: 0,
+    denominator: 0,
+    size: "",
+    department: "",
+    searchTerm: "",
+    displayText: item,
+  }));
+}
+
+function toRecipeMetaMapFromGroups(groups: CmsRecipeDetail["groups"]): RecipeMetaMap {
+  const map: RecipeMetaMap = {};
+
+  const pushValue = (key: string, value: string) => {
+    map[key] ??= [];
+
+    map[key].push({
+      id: map[key].length + 1,
+      recipeId: 0,
+      name: key,
+      key,
+      value,
+    });
+  };
+
+  for (const [name, value] of Object.entries(groups ?? {})) {
+    const normalized = name.toLowerCase().replace(/\s+/g, "");
+    const values = splitCsvValues(value);
+
+    values.forEach(item => pushValue(normalized, item));
+  }
+
+  return map;
+}
+
+function mapSummaryRecipe(summary: CmsRecipeSummary, hint?: {
+  course?: string;
+  cuisine?: string;
+  diet?: string;
+  holiday?: string;
+  cookingMethod?: string;
+  mainIngredient?: string;
+}): Recipe {
+  const id = asNumber(summary.id);
+
+  return {
+    id,
+    slug: String(id),
+    name: summary.name?.trim() || "Untitled Recipe",
+    course: normalizeCourse(hint?.course),
+    servings: "",
+    rating: asNumber(summary.rating),
+    image: normalizeImage(summary.image),
+    intro: summary.intro?.trim() || "",
+    ingredients: [],
+    directions: [],
+    meta: {
+      cuisine: hint?.cuisine ? [hint.cuisine] : [],
+      diet: hint?.diet ? [hint.diet] : [],
+      mainIngredient: hint?.mainIngredient ? [hint.mainIngredient] : [],
+      holiday: hint?.holiday ? [hint.holiday] : [],
+      cookingMethod: hint?.cookingMethod ? [hint.cookingMethod] : [],
+      category: [],
+    },
+    prepTimeMinutes: undefined,
+    cookTimeMinutes: undefined,
+  };
+}
+
+function mapDetailRecipe(detail: CmsRecipeDetail): Recipe {
+  const id = asNumber(detail.id);
+  const groups = detail.groups ?? {};
+
+  return {
+    id,
+    slug: String(id),
+    name: detail.name?.trim() || "Untitled Recipe",
+    course: normalizeCourse(detail.course),
+    servings: (detail.servings ?? "").trim(),
+    rating: asNumber(detail.rating),
+    image: normalizeImage(detail.image),
+    intro: detail.intro?.trim() || "",
+    ingredients: toIngredientModel(id, detail.ingredients),
+    directions: (detail.directions ?? []).map(item => item.trim()).filter(Boolean),
+    meta: {
+      cuisine: splitCsvValues(groups.Cuisine),
+      diet: splitCsvValues(groups.Diet),
+      mainIngredient: splitCsvValues(groups.MainIngredient),
+      holiday: splitCsvValues(groups.Holiday),
+      cookingMethod: splitCsvValues(groups.CookingMethod),
+      category: splitCsvValues(groups.Grouping),
+    },
+    prepTimeMinutes: undefined,
+    cookTimeMinutes: undefined,
+  };
+}
+
+function mapRecipeToDetail(recipe: Recipe, groups?: CmsRecipeDetail["groups"]): RecipeDetail {
+  return {
+    id: recipe.id,
+    rootId: recipe.id,
+    name: recipe.name,
+    servings: recipe.servings,
+    course: recipe.course,
+    directions: recipe.directions,
+    photo: recipe.image ?? null,
+    client: DEFAULT_RECIPE_CLIENT,
+    status: 1,
+    dateModified: new Date().toISOString(),
+    dateAdded: new Date().toISOString(),
+    ingredients: recipe.ingredients,
+    meta: toRecipeMetaMapFromGroups(groups),
+    rating: {
+      average: recipe.rating,
+      count: 0,
+      total: null,
+    },
+    subRecipes: [],
+  };
+}
+
+function toMetaOptions(values: readonly string[]): RecipeMetaOption[] {
+  return values.map(value => ({
+    label: value,
+    value,
+    total: 0,
+  }));
+}
+
+function mapFilterOptionsToGroup(options: GetRecipesOptions): Record<string, string[]> {
+  const group: Record<string, string[]> = {};
+
+  if (options.course) group.Course = [options.course];
+  if (options.cuisine) group.Cuisine = [options.cuisine];
+  if (options.diet) group.Diet = [options.diet];
+  if (options.holiday) group.Holiday = [options.holiday];
+  if (options.cookingMethod) group.CookingMethod = [options.cookingMethod];
+  if (options.mainIngredient) group.MainIngredient = [options.mainIngredient];
+
+  return group;
+}
+
+function isBrowseRequest(options: GetRecipesOptions = {}) {
+  return !options.search &&
+    !options.course &&
+    !options.cuisine &&
+    !options.diet &&
+    !options.holiday &&
+    !options.cookingMethod &&
+    !options.mainIngredient;
+}
+
 export async function getRecipes(
   options: GetRecipesOptions = {}
 ): Promise<Recipe[]> {
-const rows = await getRecipesQuery({
-  status: 1,
-  limit: 24,
-  offset: 0,
-  ...(options.allClients
-    ? { includeBlankClient: false }
-    : {
-        client: DEFAULT_RECIPE_CLIENT,
-        includeBlankClient: true,
-      }),
-  ...options,
-});
+  const limit = Math.max(1, options.limit ?? 24);
+  const page = Math.floor((options.offset ?? 0) / limit) + 1;
 
-const recipeIds = rows.map(
-  row => row.recipe_id
-);
+  if (options.ids?.length) {
+    return getRecipesByIds(options.ids, options);
+  }
 
-const metaRows =
-  await getMetaForRecipesQuery(recipeIds);
+  if (Number.isInteger(options.similarToId)) {
+    return getSimilarRecipes(Number(options.similarToId), options);
+  }
 
-return mapRecipes(
-  rows,
-  metaRows
-);
+  if (isBrowseRequest(options)) {
+    const featured = await getFeatured();
+    const cards: CmsRecipeSummary[] = [];
+
+    for (const collection of featured.results?.collections ?? []) {
+      cards.push(...(collection.recipes ?? []));
+    }
+
+    const mapped = cards
+      .map(item => mapSummaryRecipe(item))
+      .filter(item => Number.isInteger(item.id) && item.id > 0);
+
+    const unique = Array.from(new Map(mapped.map(item => [item.id, item])).values());
+
+    return unique.slice(0, limit);
+  }
+
+  const group = mapFilterOptionsToGroup(options);
+
+  const response = await searchRecipesApi({
+    searchterm: options.search,
+    group: Object.keys(group).length ? group : undefined,
+    page,
+    limit,
+  });
+
+  const mapped = (response.results?.recipes ?? []).map(recipe =>
+    mapSummaryRecipe(recipe, {
+      course: options.course,
+      cuisine: options.cuisine,
+      diet: options.diet,
+      holiday: options.holiday,
+      cookingMethod: options.cookingMethod,
+      mainIngredient: options.mainIngredient,
+    })
+  );
+
+  const excluded = new Set(options.excludeIds ?? []);
+
+  return mapped.filter(recipe => !excluded.has(recipe.id));
 }
 
 export async function searchRecipes(
@@ -68,27 +306,37 @@ export async function getSimilarRecipes(
   recipeId: number,
   options: Omit<GetRecipesOptions, "search"> = {}
 ): Promise<Recipe[]> {
-  const rows = await getRecipesQuery({
-    status: 1,
-    limit: 4,
-    offset: 0,
-    client: DEFAULT_RECIPE_CLIENT,
-    includeBlankClient: true,
-    ...options,
-    similarToId: recipeId,
+  const base = await getRecipe(recipeId);
+  const detail = mapDetailRecipe(base);
+
+  const candidateGroup =
+    detail.meta.mainIngredient?.[0] ||
+    detail.meta.cuisine?.[0] ||
+    detail.meta.diet?.[0] ||
+    detail.course;
+
+  if (!candidateGroup) {
+    return [];
+  }
+
+  const group: Record<string, string[]> = detail.meta.mainIngredient?.[0]
+    ? { MainIngredient: [detail.meta.mainIngredient[0]] }
+    : detail.meta.cuisine?.[0]
+      ? { Cuisine: [detail.meta.cuisine[0]] }
+      : detail.meta.diet?.[0]
+        ? { Diet: [detail.meta.diet[0]] }
+        : { Course: [detail.course] };
+
+  const response = await searchRecipesApi({
+    group,
+    page: 1,
+    limit: options.limit ?? 4,
   });
 
-  const recipeIds = rows.map(
-    row => row.recipe_id
-  );
-
-  const metaRows =
-    await getMetaForRecipesQuery(recipeIds);
-
-  return mapRecipes(
-    rows,
-    metaRows
-  );
+  return (response.results?.recipes ?? [])
+    .map(item => mapSummaryRecipe(item))
+    .filter(item => item.id !== recipeId)
+    .slice(0, options.limit ?? 4);
 }
 
 export async function getRecipesByIds(
@@ -99,63 +347,36 @@ export async function getRecipesByIds(
     return [];
   }
 
-  const rows = await getRecipesQuery({
-    status: 1,
-    limit: recipeIds.length,
-    offset: 0,
-    client: DEFAULT_RECIPE_CLIENT,
-    includeBlankClient: true,
-    ...options,
-    ids: recipeIds,
-  });
-
-  const resolvedRecipeIds = rows.map(
-    row => row.recipe_id
+  const results = await Promise.all(
+    recipeIds.map(async recipeId => {
+      try {
+        const detail = await getRecipe(recipeId);
+        return mapDetailRecipe(detail);
+      } catch {
+        return null;
+      }
+    })
   );
 
-  const metaRows =
-    await getMetaForRecipesQuery(resolvedRecipeIds);
+  const resolved = results.filter((item): item is Recipe => item !== null);
 
-  return mapRecipes(
-    rows,
-    metaRows
-  );
+  const excluded = new Set(options.excludeIds ?? []);
+
+  return resolved.filter(recipe => !excluded.has(recipe.id));
 }
 
 export async function getRecipeById(
   recipeId: number,
   options: GetRecipeByIdOptions = {}
 ): Promise<RecipeDetail | null> {
-  const recipeRows = await getRecipeRowsForDetailQuery(recipeId, {
-    client: DEFAULT_RECIPE_CLIENT,
-    includeBlankClient: true,
-    includeInactiveForDetail: false,
-    ...options,
-  });
+  try {
+    const detail = await getRecipe(recipeId);
+    const recipe = mapDetailRecipe(detail);
 
-  if (!recipeRows.length) {
+    return mapRecipeToDetail(recipe, detail.groups);
+  } catch {
     return null;
   }
-
-  const recipeIds = recipeRows.map(row => row.recipe_id);
-
-  const [ingredientRows, metaRows, ratingRow] =
-    await Promise.all([
-      getIngredientsForRecipesQuery(recipeIds),
-      getMetaForRecipesQuery(recipeIds),
-      getRatingSummaryQuery(recipeId, {
-        client: DEFAULT_RECIPE_CLIENT,
-        includeBlankClient: true,
-        ...options,
-      }),
-    ]);
-
-  return buildRecipeDetail(
-    recipeRows,
-    ingredientRows,
-    metaRows,
-    ratingRow
-  );
 }
 export async function getRecipeStatusCounts() {
   return getRecipeStatusCountsQuery();
@@ -166,64 +387,14 @@ export async function getRecipeClientCounts() {
 }
 
 export async function getRecipeMetaFilters(): Promise<RecipeMetaFilters> {
-  const options = {
-    client: DEFAULT_RECIPE_CLIENT,
-    includeBlankClient: true,
-  };
-
-  const [
-    cuisines,
-    diets,
-    holidays,
-    cookingMethods,
-    categories,
-    courses,
-    mainIngredients,
-  ] = await Promise.all([
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.cuisine,
-      options
-    ),
-
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.diet,
-      options
-    ),
-
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.holiday,
-      options
-    ),
-
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.cookingMethod,
-      options
-    ),
-
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.category,
-      options
-    ),
-
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.courses,
-      options
-    ),
-
-    getRecipeMetaOptionsQuery(
-      RECIPE_META_KEYS.mainIngredient,
-      options
-    ),
-  ]);
-
   return {
-    cuisines,
-    diets,
-    holidays,
-    cookingMethods,
-    categories,
-    courses,
-    mainIngredients,
+    cuisines: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.cuisines),
+    diets: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.diets),
+    holidays: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.holidays),
+    cookingMethods: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.cookingMethods),
+    categories: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.categories),
+    courses: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.courses),
+    mainIngredients: toMetaOptions(LEGACY_RECIPE_FILTER_OPTIONS.mainIngredients),
   };
 }
 
