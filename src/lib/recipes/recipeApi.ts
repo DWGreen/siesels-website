@@ -54,6 +54,16 @@ type FeaturedResponse = RecipeApiStatus & {
   };
 };
 
+type SubmitRatingResponse = RecipeApiStatus & {
+  rating?: {
+    recipe_id: number | string;
+    average: number | string;
+    count: number | string;
+    total: number | string;
+    client?: string;
+  };
+};
+
 function requiredEnv(name: string): string {
   const value = process.env[name]?.trim();
 
@@ -89,6 +99,10 @@ function appendGroupParams(
       params.append(`group[${groupName}][]`, value);
     }
   }
+}
+
+export function getRecipeDefaultClient(): string {
+  return process.env.CMS_COOKING_API_CLIENT_ID?.trim() || "SIM";
 }
 
 async function fetchRecipeApi<T extends RecipeApiStatus>(
@@ -181,4 +195,27 @@ export async function getNewRecipes(input: {
   params.set("limit", String(input.limit ?? 20));
 
   return fetchRecipeApi(params);
+}
+
+export async function submitRatingViaWebservice(input: {
+  recipeId: number;
+  vote: number;
+  client?: string;
+  userId?: number;
+}): Promise<SubmitRatingResponse> {
+  const params = new URLSearchParams();
+
+  params.set("submitRating", "1");
+  params.set("recipe", String(input.recipeId));
+  params.set("vote", String(input.vote));
+
+  if (input.client?.trim()) {
+    params.set("client", input.client.trim());
+  }
+
+  if (Number.isInteger(input.userId) && (input.userId ?? 0) > 0) {
+    params.set("userId", String(input.userId));
+  }
+
+  return fetchRecipeApi<SubmitRatingResponse>(params);
 }

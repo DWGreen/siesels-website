@@ -23,7 +23,9 @@ import {
   CmsRecipeSummary,
   getFeatured,
   getRecipe,
+  getRecipeDefaultClient,
   searchRecipes as searchRecipesApi,
+  submitRatingViaWebservice,
 } from "./recipeApi";
 import { LEGACY_RECIPE_FILTER_OPTIONS } from "./recipeFilterOptions";
 
@@ -415,6 +417,35 @@ export async function submitRecipeRating(input: {
 
   const ratingClient =
     input.client?.trim() || DEFAULT_RECIPE_CLIENT;
+
+  const ratingWriteMode =
+    process.env.RECIPE_RATING_WRITE_MODE?.trim().toLowerCase() || "db";
+
+  if (ratingWriteMode === "webservice") {
+    try {
+      const response = await submitRatingViaWebservice({
+        recipeId: input.recipeId,
+        vote: input.vote,
+        client: ratingClient || getRecipeDefaultClient(),
+        userId: input.userId,
+      });
+
+      if (!response.rating) {
+        throw new Error("Webservice rating response missing summary");
+      }
+
+      return {
+        average: Number(response.rating.average ?? input.vote),
+        count: Number(response.rating.count ?? 1),
+        total: Number(response.rating.total ?? input.vote),
+      };
+    } catch (error) {
+      console.warn(
+        "Recipe rating webservice write failed, falling back to DB",
+        error
+      );
+    }
+  }
 
   await insertRecipeRatingQuery({
     recipeId: input.recipeId,
