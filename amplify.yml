@@ -13,15 +13,17 @@ frontend:
       commands:
         - rm -f .env.production
 
-        - test -n "$WP_API_URL" || { echo "ERROR: WP_API_URL is not set"; exit 1; }
-        - test -n "$NEXT_PUBLIC_WP_URL" || { echo "ERROR: NEXT_PUBLIC_WP_URL is not set"; exit 1; }
-        - test -n "$WC_KEY" || { echo "ERROR: WC_KEY is not set"; exit 1; }
-        - test -n "$WC_SECRET" || { echo "ERROR: WC_SECRET is not set"; exit 1; }
-        - test -n "$STRIPE_SECRET_KEY" || { echo "ERROR: STRIPE_SECRET_KEY is not set"; exit 1; }
-        - test -n "$NEXT_PUBLIC_SITE_URL" || { echo "ERROR: NEXT_PUBLIC_SITE_URL is not set"; exit 1; }
-        - test -n "$CMS_COOKING_API_BASE_URL" || { echo "ERROR: CMS_COOKING_API_BASE_URL is not set"; exit 1; }
-        - test -n "$CMS_COOKING_API_CLIENT_ID" || { echo "ERROR: CMS_COOKING_API_CLIENT_ID is not set"; exit 1; }
-        - test -n "$CMS_COOKING_API_KEY" || { echo "ERROR: CMS_COOKING_API_KEY is not set"; exit 1; }
+        - 'if [ -z "$WP_API_URL" ]; then echo "WP_API_URL missing"; exit 1; fi'
+        - 'if [ -z "$NEXT_PUBLIC_WP_URL" ]; then echo "NEXT_PUBLIC_WP_URL missing"; exit 1; fi'
+        - 'if [ -z "$WC_KEY" ]; then echo "WC_KEY missing"; exit 1; fi'
+        - 'if [ -z "$WC_SECRET" ]; then echo "WC_SECRET missing"; exit 1; fi'
+        - 'if [ -z "$STRIPE_SECRET_KEY" ]; then echo "STRIPE_SECRET_KEY missing"; exit 1; fi'
+        - 'if [ -z "$NEXT_PUBLIC_SITE_URL" ]; then echo "NEXT_PUBLIC_SITE_URL missing"; exit 1; fi'
+        - 'if [ -z "$CMS_COOKING_API_BASE_URL" ]; then echo "CMS_COOKING_API_BASE_URL missing"; exit 1; fi'
+        - 'if [ -z "$CMS_COOKING_API_CLIENT_ID" ]; then echo "CMS_COOKING_API_CLIENT_ID missing"; exit 1; fi'
+        - 'if [ -z "$CMS_COOKING_API_KEY" ]; then echo "CMS_COOKING_API_KEY missing"; exit 1; fi'
+
+        - echo "All required environment variables are present"
 
         - echo "WP_API_URL=$WP_API_URL" >> .env.production
         - echo "NEXT_PUBLIC_WP_URL=$NEXT_PUBLIC_WP_URL" >> .env.production
@@ -33,7 +35,6 @@ frontend:
         - echo "CMS_COOKING_API_CLIENT_ID=$CMS_COOKING_API_CLIENT_ID" >> .env.production
         - echo "CMS_COOKING_API_KEY=$CMS_COOKING_API_KEY" >> .env.production
 
-        - echo "All required environment variables are present."
         - npm run build -- --webpack
 
   artifacts:
