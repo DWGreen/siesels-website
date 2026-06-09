@@ -32,6 +32,28 @@ import { LEGACY_RECIPE_FILTER_OPTIONS } from "./recipeFilterOptions";
 const DEFAULT_RECIPE_CLIENT =
   process.env.RECIPES_DEFAULT_CLIENT || "JEN";
 
+const RECIPE_RATING_ALLOW_FALLBACK =
+  process.env.RECIPE_RATING_ALLOW_FALLBACK?.trim().toLowerCase() !== "false";
+
+const RECIPE_RATING_DEBUG =
+  process.env.RECIPE_RATING_DEBUG?.trim().toLowerCase() === "true";
+
+function cleanText(value?: string) {
+  if (!value) {
+    return "";
+  }
+
+  return value
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function normalizeImage(value?: string) {
   if (!value) {
     return "";
@@ -60,18 +82,18 @@ function splitCsvValues(value: string | string[] | undefined) {
 
   if (Array.isArray(value)) {
     return value
-      .map(item => item.trim())
+      .map(item => cleanText(item))
       .filter(Boolean);
   }
 
   return value
     .split(",")
-    .map(item => item.trim())
+    .map(item => cleanText(item))
     .filter(Boolean);
 }
 
 function normalizeCourse(value?: string) {
-  const next = (value ?? "").trim();
+  const next = cleanText(value);
 
   if (!next) {
     return "Dinner";
@@ -84,7 +106,7 @@ function toIngredientModel(recipeId: number, items: string[] = []): RecipeIngred
   return items.map((item, index) => ({
     id: recipeId * 1000 + index + 1,
     recipeId,
-    ingredient: item,
+    ingredient: cleanText(item),
     description: "",
     whole: 0,
     numerator: 0,
@@ -92,7 +114,7 @@ function toIngredientModel(recipeId: number, items: string[] = []): RecipeIngred
     size: "",
     department: "",
     searchTerm: "",
-    displayText: item,
+    displayText: cleanText(item),
   }));
 }
 
@@ -134,12 +156,12 @@ function mapSummaryRecipe(summary: CmsRecipeSummary, hint?: {
   return {
     id,
     slug: String(id),
-    name: summary.name?.trim() || "Untitled Recipe",
+    name: cleanText(summary.name) || "Untitled Recipe",
     course: normalizeCourse(hint?.course),
     servings: "",
     rating: asNumber(summary.rating),
     image: normalizeImage(summary.image),
-    intro: summary.intro?.trim() || "",
+    intro: cleanText(summary.intro),
     ingredients: [],
     directions: [],
     meta: {
@@ -162,14 +184,14 @@ function mapDetailRecipe(detail: CmsRecipeDetail): Recipe {
   return {
     id,
     slug: String(id),
-    name: detail.name?.trim() || "Untitled Recipe",
+    name: cleanText(detail.name) || "Untitled Recipe",
     course: normalizeCourse(detail.course),
-    servings: (detail.servings ?? "").trim(),
+    servings: cleanText(detail.servings),
     rating: asNumber(detail.rating),
     image: normalizeImage(detail.image),
-    intro: detail.intro?.trim() || "",
+    intro: cleanText(detail.intro),
     ingredients: toIngredientModel(id, detail.ingredients),
-    directions: (detail.directions ?? []).map(item => item.trim()).filter(Boolean),
+    directions: (detail.directions ?? []).map(item => cleanText(item)).filter(Boolean),
     meta: {
       cuisine: splitCsvValues(groups.Cuisine),
       diet: splitCsvValues(groups.Diet),
@@ -423,6 +445,15 @@ export async function submitRecipeRating(input: {
 
   if (ratingWriteMode === "webservice") {
     try {
+      if (RECIPE_RATING_DEBUG) {
+        console.log("[ratings] attempting webservice write", {
+          recipeId: input.recipeId,
+          vote: input.vote,
+          client: ratingClient || getRecipeDefaultClient(),
+          mode: ratingWriteMode,
+        });
+      }
+
       const response = await submitRatingViaWebservice({
         recipeId: input.recipeId,
         vote: input.vote,
@@ -440,11 +471,25 @@ export async function submitRecipeRating(input: {
         total: Number(response.rating.total ?? input.vote),
       };
     } catch (error) {
-      console.warn(
-        "Recipe rating webservice write failed, falling back to DB",
-        error
-      );
+      if (RECIPE_RATING_DEBUG) {
+        console.error("[ratings] webservice write failed", error);
+      }
+
+      if (!RECIPE_RATING_ALLOW_FALLBACK) {
+        throw new Error("Recipe rating webservice failed and fallback is disabled");
+      }
+
+      console.warn("Recipe rating webservice write failed, falling back to DB");
     }
+  }
+
+  if (RECIPE_RATING_DEBUG) {
+    console.log("[ratings] using direct DB write", {
+      recipeId: input.recipeId,
+      vote: input.vote,
+      client: ratingClient,
+      fallbackEnabled: RECIPE_RATING_ALLOW_FALLBACK,
+    });
   }
 
   await insertRecipeRatingQuery({

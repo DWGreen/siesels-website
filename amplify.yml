@@ -23,6 +23,10 @@ frontend:
         - 'if [ -z "$CMS_COOKING_API_CLIENT_ID" ]; then echo "CMS_COOKING_API_CLIENT_ID missing"; exit 1; fi'
         - 'if [ -z "$CMS_COOKING_API_KEY" ]; then echo "CMS_COOKING_API_KEY missing"; exit 1; fi'
 
+        - 'if [ -z "$RECIPE_RATING_WRITE_MODE" ]; then export RECIPE_RATING_WRITE_MODE=webservice; fi'
+        - 'if [ -z "$RECIPE_RATING_ALLOW_FALLBACK" ]; then export RECIPE_RATING_ALLOW_FALLBACK=false; fi'
+        - 'if [ -z "$RECIPE_RATING_DEBUG" ]; then export RECIPE_RATING_DEBUG=false; fi'
+
         - echo "All required environment variables are present"
 
         - echo "WP_API_URL=$WP_API_URL" >> .env.production
@@ -34,6 +38,9 @@ frontend:
         - echo "CMS_COOKING_API_BASE_URL=$CMS_COOKING_API_BASE_URL" >> .env.production
         - echo "CMS_COOKING_API_CLIENT_ID=$CMS_COOKING_API_CLIENT_ID" >> .env.production
         - echo "CMS_COOKING_API_KEY=$CMS_COOKING_API_KEY" >> .env.production
+        - echo "RECIPE_RATING_WRITE_MODE=$RECIPE_RATING_WRITE_MODE" >> .env.production
+        - echo "RECIPE_RATING_ALLOW_FALLBACK=$RECIPE_RATING_ALLOW_FALLBACK" >> .env.production
+        - echo "RECIPE_RATING_DEBUG=$RECIPE_RATING_DEBUG" >> .env.production
 
         - npm run build -- --webpack
 

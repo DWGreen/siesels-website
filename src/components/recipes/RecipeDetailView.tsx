@@ -236,6 +236,74 @@ export default function RecipeDetailView({
     }
   }
 
+  function escapeHtml(value: string) {
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function handlePrintRecipe() {
+    const printWindow = window.open("", "_blank", "noopener,noreferrer");
+
+    if (!printWindow) {
+      return;
+    }
+
+    const ingredientLines = recipe.ingredients
+      .map(ingredient => {
+        const quantity = formatIngredientQuantity(ingredient);
+        const base = `${quantity ? `${quantity} ` : ""}${ingredient.ingredient}`;
+        return ingredient.description
+          ? `${base} - ${ingredient.description}`
+          : base;
+      })
+      .map(line => `<li>${escapeHtml(line)}</li>`)
+      .join("");
+
+    const directionLines = recipe.directions
+      .map(step => `<li>${escapeHtml(step)}</li>`)
+      .join("");
+
+    const html = `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>${escapeHtml(recipe.name)} - Print</title>
+    <style>
+      body { font-family: Georgia, serif; color: #111; margin: 28px; line-height: 1.45; }
+      h1 { margin: 0 0 6px; font-size: 28px; }
+      .meta { margin: 0 0 18px; font-size: 14px; color: #333; }
+      h2 { font-size: 16px; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+      p { margin: 0 0 12px; }
+      ul, ol { margin: 0; padding-left: 20px; }
+      li { margin: 0 0 8px; }
+      .footer { margin-top: 22px; font-size: 12px; color: #444; }
+      @media print { body { margin: 12mm; } }
+    </style>
+  </head>
+  <body>
+    <h1>${escapeHtml(recipe.name)}</h1>
+    <p class="meta">${escapeHtml(recipe.course)} | Serves ${escapeHtml(recipe.servings || "N/A")} | Rating ${escapeHtml(recipe.rating.toFixed(1))}</p>
+    <p>${escapeHtml(recipe.intro)}</p>
+    <h2>Ingredients</h2>
+    <ul>${ingredientLines}</ul>
+    <h2>Directions</h2>
+    <ol>${directionLines}</ol>
+    <p class="footer">Printed from Siesel's Meats Recipes</p>
+  </body>
+</html>`;
+
+    printWindow.document.open();
+    printWindow.document.write(html);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  }
+
   const isSaved =
     recipeBox.savedRecipeIds.includes(recipe.id);
 
@@ -540,7 +608,7 @@ export default function RecipeDetailView({
 
                 <button
                   type="button"
-                  onClick={() => window.print()}
+                  onClick={handlePrintRecipe}
                   className="  border
   border-neutral-900
   bg-neutral-900
