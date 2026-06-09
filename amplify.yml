@@ -14,7 +14,7 @@ frontend:
         - rm -f .env.production
 
         - 'if [ -z "$WP_API_URL" ]; then echo "WP_API_URL missing"; exit 1; fi'
-        - 'if [ -z "$NEXT_PUBLIC_WP_URL" ]; then echo "NEXT_PUBLIC_WP_URL missing"; exit 1; fi'
+      
         - 'if [ -z "$WC_KEY" ]; then echo "WC_KEY missing"; exit 1; fi'
         - 'if [ -z "$WC_SECRET" ]; then echo "WC_SECRET missing"; exit 1; fi'
         - 'if [ -z "$STRIPE_SECRET_KEY" ]; then echo "STRIPE_SECRET_KEY missing"; exit 1; fi'
@@ -26,7 +26,7 @@ frontend:
         - echo "All required environment variables are present"
 
         - echo "WP_API_URL=$WP_API_URL" >> .env.production
-        - echo "NEXT_PUBLIC_WP_URL=$NEXT_PUBLIC_WP_URL" >> .env.production
+      
         - echo "WC_KEY=$WC_KEY" >> .env.production
         - echo "WC_SECRET=$WC_SECRET" >> .env.production
         - echo "STRIPE_SECRET_KEY=$STRIPE_SECRET_KEY" >> .env.production
