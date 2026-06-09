@@ -246,26 +246,34 @@ export default function RecipeDetailView({
   }
 
   function handlePrintRecipe() {
-    const printWindow = window.open("", "_blank", "noopener,noreferrer");
+    const printWindow = window.open("", "_blank");
 
     if (!printWindow) {
+      // Fallback to native page print if popup creation is blocked.
+      window.print();
       return;
     }
 
     const ingredientLines = recipe.ingredients
-      .map(ingredient => {
+      .map((ingredient, index) => {
         const quantity = formatIngredientQuantity(ingredient);
         const base = `${quantity ? `${quantity} ` : ""}${ingredient.ingredient}`;
-        return ingredient.description
+        const line = ingredient.description
           ? `${base} - ${ingredient.description}`
           : base;
+        return `<li><span class="num">${index + 1}</span><span class="txt">${escapeHtml(line)}</span></li>`;
       })
-      .map(line => `<li>${escapeHtml(line)}</li>`)
       .join("");
 
     const directionLines = recipe.directions
-      .map(step => `<li>${escapeHtml(step)}</li>`)
+      .map((step, index) =>
+        `<li><span class="num">${index + 1}</span><span class="txt">${escapeHtml(step)}</span></li>`
+      )
       .join("");
+
+    const imageBlock = recipe.image
+      ? `<div class="hero-wrap"><img class="hero-image" src="${escapeHtml(recipe.image)}" alt="${escapeHtml(recipe.name)}" /></div>`
+      : "";
 
     const html = `<!doctype html>
 <html>
@@ -274,34 +282,50 @@ export default function RecipeDetailView({
     <title>${escapeHtml(recipe.name)} - Print</title>
     <style>
       body { font-family: Georgia, serif; color: #111; margin: 28px; line-height: 1.45; }
-      h1 { margin: 0 0 6px; font-size: 28px; }
-      .meta { margin: 0 0 18px; font-size: 14px; color: #333; }
-      h2 { font-size: 16px; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+      .sheet { max-width: 860px; margin: 0 auto; }
+      .hero-wrap { border: 2px solid #111; padding: 8px; margin-bottom: 14px; background: #f3f3f3; }
+      .hero-image { width: 100%; max-height: 360px; object-fit: cover; display: block; }
+      h1 { margin: 0 0 6px; font-size: 30px; letter-spacing: 0.01em; }
+      .meta { margin: 0 0 14px; font-size: 13px; color: #333; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+      h2 { font-size: 16px; margin: 20px 0 10px; text-transform: uppercase; letter-spacing: 0.14em; }
       p { margin: 0 0 12px; }
-      ul, ol { margin: 0; padding-left: 20px; }
-      li { margin: 0 0 8px; }
-      .footer { margin-top: 22px; font-size: 12px; color: #444; }
+      .numbered-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+      .numbered-list li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; }
+      .numbered-list .num { border: 2px solid #111; font-size: 12px; font-weight: 700; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; background: #fff; }
+      .ingredients-list .txt { font-size: 14px; }
+      .directions-list .txt { font-size: 14px; }
+      .footer { margin-top: 24px; font-size: 12px; color: #444; border-top: 1px solid #ddd; padding-top: 8px; }
       @media print { body { margin: 12mm; } }
     </style>
   </head>
   <body>
-    <h1>${escapeHtml(recipe.name)}</h1>
-    <p class="meta">${escapeHtml(recipe.course)} | Serves ${escapeHtml(recipe.servings || "N/A")} | Rating ${escapeHtml(recipe.rating.toFixed(1))}</p>
-    <p>${escapeHtml(recipe.intro)}</p>
-    <h2>Ingredients</h2>
-    <ul>${ingredientLines}</ul>
-    <h2>Directions</h2>
-    <ol>${directionLines}</ol>
-    <p class="footer">Printed from Siesel's Meats Recipes</p>
+    <div class="sheet">
+      ${imageBlock}
+      <h1>${escapeHtml(recipe.name)}</h1>
+      <p class="meta">${escapeHtml(recipe.course)} | Serves ${escapeHtml(recipe.servings || "N/A")} | Rating ${escapeHtml(recipe.rating.toFixed(1))}</p>
+      <p>${escapeHtml(recipe.intro)}</p>
+      <h2>Ingredients</h2>
+      <ul class="numbered-list ingredients-list">${ingredientLines}</ul>
+      <h2>Directions</h2>
+      <ol class="numbered-list directions-list">${directionLines}</ol>
+      <p class="footer">Printed from Siesel's Meats Recipes</p>
+    </div>
   </body>
 </html>`;
 
     printWindow.document.open();
     printWindow.document.write(html);
     printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
+
+    const triggerPrint = () => {
+      printWindow.focus();
+      printWindow.print();
+    };
+
+    printWindow.onload = triggerPrint;
+    // Some browsers do not reliably fire onload for document.write content.
+    setTimeout(triggerPrint, 150);
+    printWindow.onafterprint = () => printWindow.close();
   }
 
   const isSaved =
