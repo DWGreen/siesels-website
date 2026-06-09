@@ -18,7 +18,7 @@ frontend:
         - 'if [ -z "$WC_KEY" ]; then echo "WC_KEY missing"; exit 1; fi'
         - 'if [ -z "$WC_SECRET" ]; then echo "WC_SECRET missing"; exit 1; fi'
         - 'if [ -z "$STRIPE_SECRET_KEY" ]; then echo "STRIPE_SECRET_KEY missing"; exit 1; fi'
-        - 'if [ -z "$NEXT_PUBLIC_SITE_URL" ]; then echo "NEXT_PUBLIC_SITE_URL missing"; exit 1; fi'
+     
         - 'if [ -z "$CMS_COOKING_API_BASE_URL" ]; then echo "CMS_COOKING_API_BASE_URL missing"; exit 1; fi'
         - 'if [ -z "$CMS_COOKING_API_CLIENT_ID" ]; then echo "CMS_COOKING_API_CLIENT_ID missing"; exit 1; fi'
         - 'if [ -z "$CMS_COOKING_API_KEY" ]; then echo "CMS_COOKING_API_KEY missing"; exit 1; fi'
@@ -30,7 +30,7 @@ frontend:
         - echo "WC_KEY=$WC_KEY" >> .env.production
         - echo "WC_SECRET=$WC_SECRET" >> .env.production
         - echo "STRIPE_SECRET_KEY=$STRIPE_SECRET_KEY" >> .env.production
-        - echo "NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL" >> .env.production
+      
         - echo "CMS_COOKING_API_BASE_URL=$CMS_COOKING_API_BASE_URL" >> .env.production
         - echo "CMS_COOKING_API_CLIENT_ID=$CMS_COOKING_API_CLIENT_ID" >> .env.production
         - echo "CMS_COOKING_API_KEY=$CMS_COOKING_API_KEY" >> .env.production
