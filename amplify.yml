@@ -1,4 +1,5 @@
 version: 1
+
 frontend:
   phases:
     preBuild:
@@ -7,16 +8,39 @@ frontend:
         - nvm use 22
         - node -v
         - npm ci
+
     build:
       commands:
         - rm -f .env.production
-        - |
-          env | grep -E '^(WP_API_URL|NEXT_PUBLIC_WP_URL|WC_KEY|WC_SECRET|STRIPE_SECRET_KEY|NEXT_PUBLIC_SITE_URL)=' >> .env.production || true
+
+        - test -n "$WP_API_URL" || { echo "ERROR: WP_API_URL is not set"; exit 1; }
+        - test -n "$NEXT_PUBLIC_WP_URL" || { echo "ERROR: NEXT_PUBLIC_WP_URL is not set"; exit 1; }
+        - test -n "$WC_KEY" || { echo "ERROR: WC_KEY is not set"; exit 1; }
+        - test -n "$WC_SECRET" || { echo "ERROR: WC_SECRET is not set"; exit 1; }
+        - test -n "$STRIPE_SECRET_KEY" || { echo "ERROR: STRIPE_SECRET_KEY is not set"; exit 1; }
+        - test -n "$NEXT_PUBLIC_SITE_URL" || { echo "ERROR: NEXT_PUBLIC_SITE_URL is not set"; exit 1; }
+        - test -n "$CMS_COOKING_API_BASE_URL" || { echo "ERROR: CMS_COOKING_API_BASE_URL is not set"; exit 1; }
+        - test -n "$CMS_COOKING_API_CLIENT_ID" || { echo "ERROR: CMS_COOKING_API_CLIENT_ID is not set"; exit 1; }
+        - test -n "$CMS_COOKING_API_KEY" || { echo "ERROR: CMS_COOKING_API_KEY is not set"; exit 1; }
+
+        - echo "WP_API_URL=$WP_API_URL" >> .env.production
+        - echo "NEXT_PUBLIC_WP_URL=$NEXT_PUBLIC_WP_URL" >> .env.production
+        - echo "WC_KEY=$WC_KEY" >> .env.production
+        - echo "WC_SECRET=$WC_SECRET" >> .env.production
+        - echo "STRIPE_SECRET_KEY=$STRIPE_SECRET_KEY" >> .env.production
+        - echo "NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL" >> .env.production
+        - echo "CMS_COOKING_API_BASE_URL=$CMS_COOKING_API_BASE_URL" >> .env.production
+        - echo "CMS_COOKING_API_CLIENT_ID=$CMS_COOKING_API_CLIENT_ID" >> .env.production
+        - echo "CMS_COOKING_API_KEY=$CMS_COOKING_API_KEY" >> .env.production
+
+        - echo "All required environment variables are present."
         - npm run build -- --webpack
+
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
+
   cache:
     paths:
       - node_modules/**/*
