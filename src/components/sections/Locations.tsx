@@ -17,7 +17,7 @@ const locations = [
 
 export default function Locations() {
   return (
-    <section className="bg-brand-gray py-20">
+    <section className="bg-white py-20">
       <div className="mx-auto max-w-[1100px] px-4">
         {/* Pin icon */}
         <div className="mb-4 flex justify-center">

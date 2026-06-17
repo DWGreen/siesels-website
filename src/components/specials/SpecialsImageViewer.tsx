@@ -6,6 +6,7 @@ import { SpecialImage } from "@/data/specials";
 
 type Props = {
   image: SpecialImage | null;
+  heading?: string;
   onClose: () => void;
   onPrevious?: () => void;
   onNext?: () => void;
@@ -13,6 +14,7 @@ type Props = {
 
 export default function SpecialsImageViewer({
   image,
+  heading,
   onClose,
   onPrevious,
   onNext,
@@ -97,7 +99,7 @@ export default function SpecialsImageViewer({
                 sm:text-xl
               "
             >
-              Weekly Special
+              {heading ?? "Weekly Special"}
             </h2>
           </div>
 

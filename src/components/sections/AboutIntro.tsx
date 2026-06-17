@@ -6,19 +6,14 @@ interface AboutIntroProps {
 
 export default function AboutIntro({ hideButton = false }: AboutIntroProps) {
   return (
-    <section className="bg-brand-gray px-4 py-12 md:py-20">
+    <section className="bg-white px-4 py-12 md:py-20">
       <div className="mx-auto max-w-[840px] text-center">
         {/* Decorative stars */}
-        <div
-          className="flex items-center justify-center gap-1.5 text-brand-black"
-          aria-hidden="true"
-        >
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span key={i} className="text-2xl">
-              &#9733;
-            </span>
-          ))}
-        </div>
+    <h2 className="mx-auto mt-6 flex items-center justify-center gap-3 max-w-[700px] font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.15em] text-brand-black md:text-[45px]">
+  <span className="text-2xl leading-none">★</span>
+  <span>Since 1968</span>
+  <span className="text-2xl leading-none">★</span>
+</h2>
 
         {/* Heading */}
         <h2 className="mx-auto mt-6 max-w-[700px] font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.15em] text-brand-black md:text-[60px]">

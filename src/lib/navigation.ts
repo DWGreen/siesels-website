@@ -15,6 +15,7 @@ export const leftNavItems: NavItem[] = [
     ],
   },
   { label: "Cooking", href: "/cooking" },
+  { label: "Steak 101", href: "/steak-101" },
 ];
 
 export const rightNavItems: NavItem[] = [
@@ -27,6 +28,7 @@ export const footerNavItems: NavItem[] = [
   { label: "Order Sandwiches Online", href: "/sandwiches" },
   { label: "Gift Cards", href: "/gift-cards" },
   { label: "Cooking", href: "/cooking" },
+  { label: "Steak 101", href: "/steak-101" },
   { label: "Locations", href: "/locations" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

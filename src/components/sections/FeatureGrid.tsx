@@ -8,7 +8,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/features/sandwich.png"
+            src="/images/features/specials.png"
             alt="Roast beef deli sandwich with greens on artisan bread, served on a wooden cutting board"
             fill
             className="object-cover object-top"
@@ -23,15 +23,14 @@ export default function FeatureGrid() {
         >
           <div className="text-center">
             <h2 className="font-barlow text-3xl font-bold uppercase leading-tight tracking-[0.1em] text-white md:text-[34px] md:leading-snug">
-              Craving a Fresh-Prepared Deli Sandwich? Order Online for In-Store
-              Pickup
+              See This Week's Featured Meats, Produce, and Grocery Deals
             </h2>
             <div className="mt-8">
               <Link
                 href="/order-online"
                 className="btn-outline-white"
               >
-                Order Online &gt;
+                Weekly Specials &gt;
               </Link>
             </div>
           </div>
@@ -44,14 +43,14 @@ export default function FeatureGrid() {
         >
           <div className="text-center">
             <h2 className="font-barlow text-3xl font-bold uppercase leading-tight tracking-[0.1em] text-white md:text-[34px] md:leading-snug">
-              We&apos;ve Got Lots of Deals on Your Favorite Items!
+              Master the Art of Steak Cooking with Our Expert Tips
             </h2>
             <div className="mt-8">
               <Link
-                href="/specials"
+                href="/steak-101"
                 className="btn-outline-white"
               >
-                View Specials &gt;
+                Steak 101 &gt;
               </Link>
             </div>
           </div>
