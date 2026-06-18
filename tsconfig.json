@@ -37,6 +37,10 @@
     "src/types/cartDebug.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vitest.config.ts",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/test/**"
   ]
 }
