@@ -56,11 +56,11 @@ export default function FeatureGrid() {
           </div>
         </div>
 
-        {/* Row 2 - Right: Blueberries photo (on mobile this comes BEFORE specials) */}
+        {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
         <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
           <Image
-            src="/images/features/blueberries.png"
-            alt="Child's hands holding fresh blueberries over green grass"
+            src="/images/features/steak-grilled.jpg"
+            alt="Juicy steak being grilled over a flame"
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"

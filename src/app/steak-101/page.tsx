@@ -10,7 +10,7 @@ export default function Steak101Page() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Steak 101"
-          backgroundImage="/images/hero/butcher.jpg"
+          backgroundImage="/images/hero/steak-101.jpg"
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
         <section className="flex flex-1 bg-white px-4 py-20 lg:py-32">
