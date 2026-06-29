@@ -7,7 +7,7 @@ export default function AboutFeatureGrid() {
         {/* Top-left: Dining image */}
         <div className="relative aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/features/dinning.png"
+            src="/images/features/family.png"
             alt="Fine dining table setting"
             fill
             className="object-cover"
@@ -22,19 +22,11 @@ export default function AboutFeatureGrid() {
         >
           <div className="text-center">
             <h2 className="font-barlow text-xl font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-2xl">
-              Personal service&mdash; we know our customers by name
+              Locally Owned & Family Operated Since 1968
             </h2>
             <p className="mt-4 font-zilla text-sm font-medium leading-relaxed text-white/90 md:text-base">
-              Here, our butchers know our many regulars by name and are always
-              ready to put their encyclopedic knowledge of cuts and cooking
-              techniques to work&mdash;but it&apos;s not all about the meat.
-              Both venues feature thousands of square feet of retail space
-              stocked to the rafters with top-notch produce, artisanal cheeses,
-              gourmet condiments, old fashioned sodas, and the finest
-              hard-to-find specialty items plucked from the local scene and
-              beyond. Our stores regularly offer the ultimate culinary experience
-              to every type of epicurean&mdash;from San Diego&apos;s premier
-              professional chefs to the backyard BBQ masters.
+              The Cohn Family began their success in San Diego, opening up Iowa Meat Farms in 1982 and later purchasing Siesel&apos;s Meats. Following in their father's footsteps, Phil Cohn, who ran grocery stores in the Midwest. Ron, David, Aaron, and Helen Cohn opened Iowa Meat Farms and worked side by side and, through hard work, dedication, and a commitment to quality, built a loyal customer base and a reputation for excellence. That success became the foundation for creating and growing several outstanding businesses throughout San Diego. While they have expanded over the years, they have never forgotten their roots, where they worked together as a family, and the pride they take in these great markets.
+
             </p>
           </div>
         </div>
@@ -49,14 +41,10 @@ export default function AboutFeatureGrid() {
               Master Meat Cutters Since 1968
             </h2>
             <p className="mt-4 font-zilla text-sm font-medium leading-relaxed text-white/90 md:text-base">
-              Both shops offer 300 various cuts of beef, Berkshire pork,
-              free-range poultry, veal and lamb as well as fresh seafood and
-              wild game. From hand-selected USDA Prime and Choice Midwestern
-              beef to whole pigs, lambs and even rarer gems including alligator,
-              rabbit, pheasant, wild boar, antelope, ostrich, venison, elk and
-              American Style Kobe Beef&mdash; patrons will find one of the
-              widest and most diverse selections of exotic meats available in
-              San Diego.
+              Real butchers, Real Service, Real Quality<br /><br />
+Offering 100% Midwestern beef, USDA Prime and USDA upper two thirds Choice beef marbled to perfection.<br /><br />
+At our markets, you&apos;ll find real butchers who take pride in their craft. We hand-cut steaks, prepare roasts, make specialty items, and provide the personalized service that only a true butcher shop can offer. Our experienced butchers are here to answer questions, offer cooking advice and custom cut your meat exactly the way you want it. It&apos;s the old fashioned quality, knowledge, and service that's becoming harder to find. Because we&apos;re not just selling the best meat you can buy, we&apos;re practicing the craft of butchery everyday.
+
             </p>
           </div>
         </div>

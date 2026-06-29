@@ -1,21 +1,8 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
-import { biWeeklySpecials, weekendSpecials } from "@/data/specials";
+import { specialsCategories } from "@/data/specials";
 import SpecialsGallery from "@/components/specials/SpecialsGallery";
-
-const specialsCategories = [
-  {
-    id: "biweekly-specials",
-    title: "Biweekly Specials",
-    images: biWeeklySpecials,
-  },
-  {
-    id: "weekend-specials",
-    title: "Two Day Weekend Specials",
-    images: weekendSpecials,
-  },
-];
 
 export default function SpecialsPage() {
   return (
@@ -28,7 +15,7 @@ export default function SpecialsPage() {
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
         <section className="flex flex-1 items-center justify-center bg-white px-4 py-20 lg:py-32">
-          <div className="text-center">
+          <div className="w-full max-w-6xl text-center">
             <div className="mb-4 flex justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M446.33-80q-13 0-25.66-4.67-12.67-4.66-22-14.66l-299.34-300q-10-9.34-14.83-21.84T79.67-446q0-12.33 4.83-25t14.83-22.67l366-366.33q9-9 21.67-14.5 12.67-5.5 26-5.5h300.33q27.67 0 47.17 19.5t19.5 47.17v299.66q0 13.34-5.33 25.5Q869.33-476 860.33-467l-367 367.67q-9.33 10-22 14.66-12.66 4.67-25 4.67ZM710-656q22.33 0 38.5-16.17 16.17-16.16 16.17-38.5 0-22.33-16.17-38.5-16.17-16.16-38.5-16.16t-38.5 16.16q-16.17 16.17-16.17 38.5 0 22.34 16.17 38.5Q687.67-656 710-656Z"/></svg>
             </div>

@@ -13,7 +13,7 @@ export default function Hero() {
       />
 
       {/* Overlay for extra contrast */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-4 text-center">

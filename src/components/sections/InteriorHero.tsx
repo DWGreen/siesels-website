@@ -25,7 +25,7 @@ export default function InteriorHero({
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* Title with decorative lines — always centered */}
       <div className="relative z-10 flex flex-col items-center px-4">

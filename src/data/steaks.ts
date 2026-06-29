@@ -1,13 +1,64 @@
 export type SteakEntry = {
   id: string;
   name: string;
-  category: "cut" | "info";
+  category: "cut" | "info" | "temps";
   tagline: string;
   paragraphs: string[];
   image?: string;
 };
 
 export const steaks: SteakEntry[] = [
+  {
+    id: "rare",
+    name: "Rare",
+    category: "temps",
+    tagline: "Cool red center with a lightly seared exterior.",
+    image: "/images/steaks/temp/rare.png",
+    paragraphs: [
+     "Rare steaks are seared on the outside while remaining cool and bright red throughout most of the center. This temperature offers the softest texture and highlights the natural flavor of the beef. Best suited for premium, well-marbled cuts like ribeye and filet mignon."
+    ],
+  },
+  {
+    id: "medium-rare",
+    name: "Medium Rare",
+    category: "temps",
+    tagline: "Warm red center — the classic steakhouse favorite.",
+    image: "/images/steaks/temp/medium-rare.png",
+    paragraphs: [
+      "Often considered the ideal steak temperature, medium rare features a warm red center surrounded by a thin band of pink. It delivers the perfect balance of tenderness, juiciness, and rich beef flavor, making it the preferred doneness for most premium steaks."
+    ],
+  },
+  {
+    id: "medium",
+    name: "Medium",
+    category: "temps",
+    tagline: "Warm pink center with excellent balance.",
+    image: "/images/steaks/temp/medium.png",
+    paragraphs: [
+     "Medium steaks have a warm pink center with more of the interior fully cooked. They remain juicy while offering a firmer texture than medium rare. This is a great choice for those who enjoy a little less redness without sacrificing moisture."
+    ],
+  },
+
+  {
+    id: "medium-well",
+    name: "Medium Well",
+    category: "temps",
+    tagline: "Slight hint of pink with a firmer texture.",
+    image: "/images/steaks/temp/medium-well.png",
+    paragraphs: [
+     "Medium well steaks are cooked almost entirely through, leaving only a small amount of pink in the very center. The texture becomes noticeably firmer while still retaining some juiciness. A popular option for diners who prefer a more thoroughly cooked steak."
+    ],
+  },
+    {
+    id: "well-done",
+    name: "Well Done",
+    category: "temps",
+    tagline: "Fully cooked throughout with no pink remaining.",
+    image: "/images/steaks/temp/well-done.png",
+    paragraphs: [
+     "Well done steaks are cooked until the interior is completely brown from edge to edge. They have the firmest texture and the least moisture, though proper cooking techniques can still produce a flavorful steak with a nicely caramelized crust. For the best results, choose cuts with higher marbling to help retain tenderness."
+    ],
+  },
   {
     id: "ribeye",
     name: "Ribeyes",
@@ -109,7 +160,7 @@ export const steaks: SteakEntry[] = [
     name: "The Grading System",
     category: "info",
     tagline: "What separates Prime from the rest",
-    image: "/images/steaks/grading-system.jpg",
+    image: "/images/steaks/prime.png",
     paragraphs: [
       "We recognize three grades of beef: USDA Prime, USDA Choice, and \"USDA ROADKILL!\" (That's our name for \"USDA Select\"). Choice and Prime beef are the only ones that we carry, and the only ones that our customers deserve!",
       "Grading is the second step — all beef is first inspected for wholesomeness. From that point, it can optionally be sent to the grader, who evaluates the following criteria:",
@@ -122,7 +173,7 @@ export const steaks: SteakEntry[] = [
     name: "The Dry-Aging Process",
     category: "info",
     tagline: "30+ days of transformation",
-    image: "/images/steaks/dry-aging.jpg",
+    image: "/images/steaks/dry-age.png",
     paragraphs: [
       "During the aging process, natural enzymes act to both tenderize the meat and develop complex flavors. In our dry aging program we age in a vacuum-sealed bag for a minimum of 30 days. It is then opened and exposed to the air for a minimum of 14 days.",
       "Exposing it in this manner introduces a certain amount of dehydration. This greatly intensifies the flavor, deepens the color, and increases tenderness.",
@@ -134,7 +185,7 @@ export const steaks: SteakEntry[] = [
     name: "Seafood",
     category: "info",
     tagline: "Fresh shipments daily — except Sundays",
-    image: "/images/steaks/seafood.jpg",
+    image: "/images/steaks/bass.jpg",
     paragraphs: [
       "We also offer a selection of fresh seafood at Siesel's Market. We receive shipments of fresh fish daily (except Sundays). We will offer whatever is best in the marketplace at the time.",
       "Special orders are available with a 24-hour advance notice. We also carry a large variety of frozen shellfish, such as Australian lobster tails, Mexican white shrimp, and jumbo king crab legs.",

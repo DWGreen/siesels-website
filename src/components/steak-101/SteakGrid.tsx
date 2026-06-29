@@ -9,6 +9,7 @@ export default function SteakGrid() {
   const [active, setActive] = useState<SteakEntry | null>(null);
 
   const cuts = steaks.filter((s) => s.category === "cut");
+  const temps = steaks.filter((s) => s.category === "temps");
   const info = steaks.filter((s) => s.category === "info");
 
   return (
@@ -27,7 +28,17 @@ export default function SteakGrid() {
           </svg>
         </div>
 
-        <h2 className="mb-10 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]">
+         <h2 className="mb-10 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]">
+          Temperature Guide
+        </h2>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {temps.map((steak) => (
+            <SteakCard key={steak.id} steak={steak} onClick={setActive} />
+          ))}
+        </div>
+
+        <h2 className="mb-10 mt-24 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]">
           The Cuts
         </h2>
 

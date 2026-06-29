@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SpecialImage } from "@/data/specials";
@@ -19,9 +20,15 @@ export default function SpecialsImageViewer({
   onPrevious,
   onNext,
 }: Props) {
+  const [imageAspectRatios, setImageAspectRatios] = useState<
+    Record<string, number>
+  >({});
+
   if (!image) {
     return null;
   }
+
+  const imageAspectRatio = imageAspectRatios[image.src] ?? 4 / 5;
 
   return (
     <div
@@ -140,11 +147,13 @@ export default function SpecialsImageViewer({
             className="
               relative
               mx-auto
-              aspect-[4/5]
-              max-h-[72vh]
               w-full
               bg-white
             "
+            style={{
+              aspectRatio: `${imageAspectRatio}`,
+              maxHeight: "72vh",
+            }}
           >
             <Image
               src={image.src}
@@ -153,6 +162,24 @@ export default function SpecialsImageViewer({
               className="object-contain"
               sizes="100vw"
               priority
+              onLoad={(event) => {
+                const { naturalWidth, naturalHeight } = event.currentTarget;
+
+                if (naturalWidth > 0 && naturalHeight > 0) {
+                  const aspectRatio = naturalWidth / naturalHeight;
+
+                  setImageAspectRatios((currentRatios) => {
+                    if (currentRatios[image.src] === aspectRatio) {
+                      return currentRatios;
+                    }
+
+                    return {
+                      ...currentRatios,
+                      [image.src]: aspectRatio,
+                    };
+                  });
+                }
+              }}
             />
           </div>
 
