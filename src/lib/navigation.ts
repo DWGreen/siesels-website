@@ -9,7 +9,7 @@ export const leftNavItems: NavItem[] = [
   {
     label: "Order Online",
     //href: "/sandwiches",
-    href: "/order/instacart",
+    href: process.env.NEXT_PUBLIC_INSTACART_STORE_URL ?? "https://www.instacart.com/store/siesels-meats-and-deli/storefront",
     //children: [
     //  { label: "Sandwich Ordering", href: "/sandwiches" },
     //  { label: "Instacart", href: "/order/instacart" },
