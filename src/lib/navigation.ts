@@ -8,13 +8,14 @@ export const leftNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
   {
     label: "Order Online",
-    href: "/sandwiches",
-    children: [
-      { label: "Sandwich Ordering", href: "/sandwiches" },
-      { label: "Instacart", href: "/order/instacart" },
-    ],
+    //href: "/sandwiches",
+    href: "/order/instacart",
+    //children: [
+    //  { label: "Sandwich Ordering", href: "/sandwiches" },
+    //  { label: "Instacart", href: "/order/instacart" },
+    //],
   },
-  { label: "Cooking", href: "/cooking" },
+  //{ label: "Cooking", href: "/cooking" },
   { label: "Steak 101", href: "/steak-101" },
 ];
 
@@ -25,9 +26,9 @@ export const rightNavItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
-  { label: "Order Sandwiches Online", href: "/sandwiches" },
-  { label: "Gift Cards", href: "/gift-cards" },
-  { label: "Cooking", href: "/cooking" },
+  //{ label: "Order Sandwiches Online", href: "/sandwiches" },
+  //{ label: "Gift Cards", href: "/gift-cards" },
+  //{ label: "Cooking", href: "/cooking" },
   { label: "Steak 101", href: "/steak-101" },
   { label: "Locations", href: "/locations" },
   { label: "About", href: "/about" },
