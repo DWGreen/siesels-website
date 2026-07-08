@@ -9,6 +9,39 @@ interface ContactSubmissionResult {
   mode: string;
 }
 
+const payloadFieldNames: ReadonlyArray<keyof ContactFormPayload> = [
+  "firstName",
+  "lastName",
+  "email",
+  "phone",
+  "subject",
+  "message",
+  "preferredLocation",
+  "newsletterOptIn",
+];
+
+function isPayloadFieldName(value: string): value is keyof ContactFormPayload {
+  return payloadFieldNames.includes(value as keyof ContactFormPayload);
+}
+
+function getMappedFieldValue(payload: ContactFormPayload, fieldName: string): string {
+  if (!isPayloadFieldName(fieldName)) {
+    return "";
+  }
+
+  const rawValue = payload[fieldName];
+
+  if (typeof rawValue === "boolean") {
+    return rawValue ? "yes" : "no";
+  }
+
+  if (typeof rawValue === "string") {
+    return rawValue;
+  }
+
+  return "";
+}
+
 export async function submitContactRequest(
   payload: ContactFormPayload
 ): Promise<ContactSubmissionResult> {
@@ -33,21 +66,12 @@ export async function submitContactRequest(
       );
     }
 
-    const fields = Object.entries(config.ninjaForms.fieldMap).map(([key, mapKey]) => {
-      const rawValue = (payload as Record<string, unknown>)[key];
-
-      return {
+    const fields = Object.entries(config.ninjaForms.fieldMap).map(
+      ([key, mapKey]) => ({
         key: mapKey,
-        value:
-          typeof rawValue === "boolean"
-            ? rawValue
-              ? "yes"
-              : "no"
-            : typeof rawValue === "string"
-              ? rawValue
-              : "",
-      };
-    });
+        value: getMappedFieldValue(payload, key),
+      })
+    );
 
     await postJson(config, endpoint, {
       form_id: formId,
