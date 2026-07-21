@@ -5,6 +5,24 @@ import { createStripeCheckoutSession } from "@/services/checkout/stripeCheckoutS
 
 export const dynamic = "force-dynamic";
 
+function resolveRequestOrigin(request: Request): string | undefined {
+  const forwardedHost =
+    request.headers.get("x-forwarded-host");
+  const forwardedProto =
+    request.headers.get("x-forwarded-proto") ??
+    "https";
+
+  if (forwardedHost) {
+    return `${forwardedProto}://${forwardedHost}`;
+  }
+
+  try {
+    return new URL(request.url).origin;
+  } catch {
+    return undefined;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body =
@@ -24,7 +42,11 @@ export async function POST(request: Request) {
 
     const session =
       await createStripeCheckoutSession(
-        validatedCheckout
+        validatedCheckout,
+        {
+          requestOrigin:
+            resolveRequestOrigin(request),
+        }
       );
 
     if (!session.url) {

@@ -5,6 +5,43 @@ import {
   ValidatedCheckoutItem,
 } from "@/types/cart";
 
+interface StripeCheckoutOptions {
+  requestOrigin?: string;
+}
+
+function normalizeUrl(url: string): string {
+  return url.trim().replace(/\/$/, "");
+}
+
+function isLocalOrigin(url: string): boolean {
+  return /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(url);
+}
+
+function resolveSiteUrl(options?: StripeCheckoutOptions): string {
+  const configuredSiteUrl =
+    process.env.STRIPE_CHECKOUT_SITE_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (configuredSiteUrl) {
+    const normalizedConfiguredSiteUrl =
+      normalizeUrl(configuredSiteUrl);
+
+    if (!isLocalOrigin(normalizedConfiguredSiteUrl)) {
+      return normalizedConfiguredSiteUrl;
+    }
+  }
+
+  if (options?.requestOrigin) {
+    return normalizeUrl(options.requestOrigin);
+  }
+
+  if (configuredSiteUrl) {
+    return normalizeUrl(configuredSiteUrl);
+  }
+
+  return "http://localhost:3000";
+}
+
 function buildItemDescription(
   item: ValidatedCheckoutItem
 ): string {
@@ -31,13 +68,11 @@ function buildItemDescription(
 }
 
 export async function createStripeCheckoutSession(
-  checkout: CheckoutValidationResponse
+  checkout: CheckoutValidationResponse,
+  options?: StripeCheckoutOptions
 ) {
   const stripe = getStripeClient();
-
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    "http://localhost:3000";
+  const siteUrl = resolveSiteUrl(options);
 
   const itemLineItems =
     checkout.items.map(item => ({
