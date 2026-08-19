@@ -228,8 +228,11 @@ function SteakCard({
         </p>
 
         {steak.tempRange ? (
-          <div className="mt-4 flex items-center gap-2 border-t border-neutral-200 pt-3 text-[11px] font-black uppercase tracking-[0.2em] text-neutral-700">
-            <Thermometer size={14} strokeWidth={2.5} aria-hidden="true" />
+          <div
+            className="mt-4 flex items-center gap-2 border-t border-neutral-200 pt-3 font-black uppercase tracking-[0.2em] text-red-700"
+            style={{ fontSize: "0.71875rem" }}
+          >
+            <Thermometer size={16} strokeWidth={2.5} aria-hidden="true" />
             <span>{steak.tempRange}</span>
           </div>
         ) : null}

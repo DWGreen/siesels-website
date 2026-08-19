@@ -215,7 +215,7 @@ export default function SpecialsGallery({
                   }}
                   className="shrink-0 border border-neutral-950 px-5 py-3 text-xs font-black uppercase tracking-[0.22em] text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
                 >
-                  Open Lightbox
+                  View Full Ad
                 </button>
               </div>
             </div>

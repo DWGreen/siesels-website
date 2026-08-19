@@ -7,7 +7,7 @@ export interface NavItem {
 export const leftNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
   {
-    label: "Order Online",
+    label: "Instacart",
     //href: "/sandwiches",
     href: process.env.NEXT_PUBLIC_INSTACART_STORE_URL ?? "https://www.instacart.com/store/siesels-meats-and-deli/storefront",
     //children: [

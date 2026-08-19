@@ -14,7 +14,7 @@ export const steaks: SteakEntry[] = [
     name: "Rare",
     category: "temps",
     tagline: "Cool red center with a lightly seared exterior.",
-    image: "/images/steaks/temp/rare.png",
+    image: "/images/steaks/temp/rare.jpg",
     tempRange: "120-125F",
     paragraphs: [
      "Rare steaks are seared on the outside while remaining cool and bright red throughout most of the center. This temperature offers the softest texture and highlights the natural flavor of the beef. Best suited for premium, well-marbled cuts like ribeye and filet mignon."
@@ -25,7 +25,7 @@ export const steaks: SteakEntry[] = [
     name: "Medium Rare",
     category: "temps",
     tagline: "Warm red center — the classic steakhouse favorite.",
-    image: "/images/steaks/temp/medium-rare.png",
+    image: "/images/steaks/temp/medium-rare.jpg",
     tempRange: "130-135F",
     paragraphs: [
       "Often considered the ideal steak temperature, medium rare features a warm red center surrounded by a thin band of pink. It delivers the perfect balance of tenderness, juiciness, and rich beef flavor, making it the preferred doneness for most premium steaks."
@@ -36,7 +36,7 @@ export const steaks: SteakEntry[] = [
     name: "Medium",
     category: "temps",
     tagline: "Warm pink center with excellent balance.",
-    image: "/images/steaks/temp/medium.png",
+    image: "/images/steaks/temp/medium.jpg",
     tempRange: "140-145F",
     paragraphs: [
      "Medium steaks have a warm pink center with more of the interior fully cooked. They remain juicy while offering a firmer texture than medium rare. This is a great choice for those who enjoy a little less redness without sacrificing moisture."
@@ -48,8 +48,8 @@ export const steaks: SteakEntry[] = [
     id: "ribeye",
     name: "Ribeyes",
     category: "cut",
-    tagline: "Richest flavor of all the steaks",
-    image: "/images/steaks/ribeye.png",
+    tagline: "The king of steaks — richest flavor of all the steaks",
+    image: "/images/steaks/new-cuts/ribeye-parchment.png",
     paragraphs: [
       "The first of the \"middle meat\" steaks, the rib section starts between the fifth and sixth ribs. The entire rib section runs from the sixth to the twelfth rib. This section is actually three muscles that overlap each other.",
       "Since most fat is stored between muscles, the ribeye usually has more fat than the other cuts. Because of that, it has the richest flavor of all the steaks. They tend to be \"soft\" as well as tender. They also have a great balance between tenderness and flavor.",
@@ -61,7 +61,7 @@ export const steaks: SteakEntry[] = [
     name: "New York",
     category: "cut",
     tagline: "Firm, tender, and full of flavor",
-    image: "/images/steaks/newyork.png",
+    image: "/images/steaks/new-cuts/new-york-parchment.png",
     paragraphs: [
       "This is sometimes referred to as a \"top loin,\" \"strip steak,\" or, in New York, as a \"sirloin.\" It is actually a continuation of one of the muscles that makes up the ribeye.",
       "Unlike the ribeye, the New York is primarily a single muscle. Because of that and its location directly in the middle of the back, the difference between the ribeye and the New York is a textural one. While very tender, this steak has a firmer texture than its next door neighbor.",
@@ -172,8 +172,8 @@ export const steaks: SteakEntry[] = [
     tagline: "Fresh shipments daily — except Sundays",
     image: "/images/steaks/bass.jpg",
     paragraphs: [
-      "We also offer a selection of fresh seafood at Siesel's Market. We receive shipments of fresh fish daily (except Sundays). We will offer whatever is best in the marketplace at the time.",
-      "Special orders are available with a 24-hour advance notice. We also carry a large variety of frozen shellfish, such as Australian lobster tails, Mexican white shrimp, and jumbo king crab legs.",
+      "We also offer a selection of fresh seafood. We receive shipments of fresh fish daily (except Sundays). We will offer whatever is best in the marketplace at the time.",
+      "We also carry a large variety of frozen shellfish, such as lobster tails, as well Mexican white shrimp.",
     ],
   },
 ];

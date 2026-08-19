@@ -11,7 +11,7 @@ export default function AboutPage() {
       <main id="main-content" className="flex flex-1 flex-col gap-2">
         <InteriorHero
           title="About"
-          backgroundImage="/images/hero/butcher.jpg"
+          backgroundImage="/images/hero/steak-101-new.png"
           backgroundAlt="Butcher at work at Siesel's Meats"
           showMasterLogo
         />

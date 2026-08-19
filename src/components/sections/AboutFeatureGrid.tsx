@@ -21,11 +21,11 @@ export default function AboutFeatureGrid() {
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="text-center">
-            <h2 className="font-barlow text-xl font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-2xl">
+            <h2 className="font-barlow text-[1.4625rem] font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-[1.755rem]">
               Locally Owned & Family Operated
             </h2>
-            <p className="mt-4 font-zilla text-base font-medium leading-relaxed text-white/90 md:text-base">
-              The Cohn Family began their success in San Diego, opening up Iowa Meat Farms in 1982 and later purchasing Siesel&apos;s Meats. Following in their father's footsteps, Phil Cohn, who ran grocery stores in the Midwest. Ron, David, Aaron, and Helen Cohn opened Iowa Meat Farms and worked side by side and, through hard work, dedication, and a commitment to quality, built a loyal customer base and a reputation for excellence. That success became the foundation for creating and growing several outstanding businesses throughout San Diego. While they have expanded over the years, they have never forgotten their roots, where they worked together as a family, and the pride they take in these great markets.
+            <p className="mt-4 font-zilla text-[1.17rem] font-medium leading-relaxed text-white/90">
+              The Cohn Family began their success in San Diego, opening up Iowa Meat Farms in 1982 and later purchasing Siesel&apos;s Meats. Following in their father&apos;s footsteps, Phil Cohn, who ran grocery stores in the Midwest. Ron, David, Aaron, and Helen Cohn opened Iowa Meat Farms and worked side by side and, through hard work, dedication, and a commitment to quality, built a loyal customer base and a reputation for excellence. That success became the foundation for creating and growing several outstanding businesses throughout San Diego. While they have expanded over the years, they have never forgotten their roots, where they worked together as a family, and the pride they take in these great markets.
 
             </p>
           </div>
@@ -37,16 +37,16 @@ export default function AboutFeatureGrid() {
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="text-center">
-            <h2 className="font-barlow text-xl font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-2xl">
+            <h2 className="font-barlow text-[1.4625rem] font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-[1.755rem]">
               Master Meat Cutters Since 1968
             </h2><br />
-            <h3 className="font-barlow text-lg font-bold  leading-tight tracking-[0.08em] text-white md:text-lg">
+            <h3 className="font-barlow text-[1.31625rem] font-bold  leading-tight tracking-[0.08em] text-white">
                  Real butchers, Real Service, Real Quality
             </h3>
-            <p className="mt-4 font-zilla text-base font-medium leading-relaxed text-white/90 md:text-base">
+            <p className="mt-4 font-zilla text-[1.17rem] font-medium leading-relaxed text-white/90">
            
 Offering 100% Midwestern beef, USDA Prime and USDA upper two thirds Choice beef marbled to perfection.<br /><br />
-At our markets, you&apos;ll find real butchers who take pride in their craft. We hand-cut steaks, prepare roasts, make specialty items, and provide the personalized service that only a true butcher shop can offer. Our experienced butchers are here to answer questions, offer cooking advice and custom cut your meat exactly the way you want it. It&apos;s the old fashioned quality, knowledge, and service that's becoming harder to find. Because we&apos;re not just selling the best meat you can buy, we&apos;re practicing the craft of butchery everyday.
+At our markets, you&apos;ll find real butchers who take pride in their craft. We hand-cut steaks, prepare roasts, make specialty items, and provide the personalized service that only a true butcher shop can offer. Our experienced butchers are here to answer questions, offer cooking advice and custom cut your meat exactly the way you want it. It&apos;s the old fashioned quality, knowledge, and service that&apos;s becoming harder to find. Because we&apos;re not just selling the best meat you can buy, we&apos;re practicing the craft of butchery everyday.
 
             </p>
           </div>
@@ -55,7 +55,7 @@ At our markets, you&apos;ll find real butchers who take pride in their craft. We
         {/* Bottom-right: Meat image */}
         <div className="relative aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/features/meat.png"
+            src="/images/features/butcher.jpg"
             alt="Premium cuts of meat"
             fill
             className="object-cover"
