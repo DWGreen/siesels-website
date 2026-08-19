@@ -22,13 +22,10 @@ export default function AboutIntro({ hideButton = false }: AboutIntroProps) {
 
         {/* Body text */}
         <p className="mt-6 font-zilla text-[18px] font-medium leading-[1.5] text-[#333]">
-          Since debuting in San Diego&apos;s Bay Park community in 1968,
-          Siesel&apos;s Old Fashioned Meats, alongside sister space Iowa Meat
-          Farms, have catered to generations of home-cooking foodies and local
-          gourmands for over 70 years combined. As two of San Diego&apos;s
-          best-kept foodie secrets, our shops have earned a stout cult following
-          by offering a familiar and friendly environment catering to all the
-          senses.
+          Since debuting in San Diego&apos;s Bay Park community in 1968, Siesel&apos;s Old Fashioned Meats, alongside our sister store Iowa Meat Farms, are well known throughout San Diego for carrying the “Best Meats in San Diego”. True to the core Butcher shops, with real butchers who take pride in their craft. We hand-cut steaks, prepare roasts, make specialty items, and provide the personalized service that only a true butcher shop can offer.
+<br></br><br></br>
+We also boast an award-winning deli providing gourmet sandwiches, our “Signature Famous”, handmade from scratch potato salad and baked beans,  gourmet sliced meats and a large variety of artisanal specialty cheese. Add farm-fresh produce, specialty grocery and an impressive wine selection, and you're sure to have everything you need for an overall gourmet experience.
+    
         </p>
 
         {/* CTA Button */}

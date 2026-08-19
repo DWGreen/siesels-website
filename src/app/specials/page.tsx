@@ -4,7 +4,26 @@ import InteriorHero from "@/components/sections/InteriorHero";
 import { specialsCategories } from "@/data/specials";
 import SpecialsGallery from "@/components/specials/SpecialsGallery";
 
-export default function SpecialsPage() {
+type SearchParams = {
+  tab?: string;
+};
+
+type Props = {
+  searchParams?: Promise<SearchParams>;
+};
+
+const tabToCategoryId: Record<string, string> = {
+  weekly: "weekly-specials",
+  weekend: "weekend-two-day-only-specials",
+};
+
+export default async function SpecialsPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const requestedTab = params?.tab?.toLowerCase();
+  const initialCategoryId = requestedTab
+    ? tabToCategoryId[requestedTab] ?? requestedTab
+    : undefined;
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -23,7 +42,10 @@ export default function SpecialsPage() {
             <h2 className="mb-10 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]">
               CHECK OUT OUR SPECIALS
             </h2>
-            <SpecialsGallery categories={specialsCategories} />
+            <SpecialsGallery
+              categories={specialsCategories}
+              initialCategoryId={initialCategoryId}
+            />
           </div>
         </section>
       </main>

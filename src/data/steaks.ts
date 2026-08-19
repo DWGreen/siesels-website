@@ -5,6 +5,7 @@ export type SteakEntry = {
   tagline: string;
   paragraphs: string[];
   image?: string;
+  tempRange?: string | null;
 };
 
 export const steaks: SteakEntry[] = [
@@ -14,6 +15,7 @@ export const steaks: SteakEntry[] = [
     category: "temps",
     tagline: "Cool red center with a lightly seared exterior.",
     image: "/images/steaks/temp/rare.png",
+    tempRange: "120-125F",
     paragraphs: [
      "Rare steaks are seared on the outside while remaining cool and bright red throughout most of the center. This temperature offers the softest texture and highlights the natural flavor of the beef. Best suited for premium, well-marbled cuts like ribeye and filet mignon."
     ],
@@ -24,6 +26,7 @@ export const steaks: SteakEntry[] = [
     category: "temps",
     tagline: "Warm red center — the classic steakhouse favorite.",
     image: "/images/steaks/temp/medium-rare.png",
+    tempRange: "130-135F",
     paragraphs: [
       "Often considered the ideal steak temperature, medium rare features a warm red center surrounded by a thin band of pink. It delivers the perfect balance of tenderness, juiciness, and rich beef flavor, making it the preferred doneness for most premium steaks."
     ],
@@ -34,31 +37,13 @@ export const steaks: SteakEntry[] = [
     category: "temps",
     tagline: "Warm pink center with excellent balance.",
     image: "/images/steaks/temp/medium.png",
+    tempRange: "140-145F",
     paragraphs: [
      "Medium steaks have a warm pink center with more of the interior fully cooked. They remain juicy while offering a firmer texture than medium rare. This is a great choice for those who enjoy a little less redness without sacrificing moisture."
     ],
   },
 
-  {
-    id: "medium-well",
-    name: "Medium Well",
-    category: "temps",
-    tagline: "Slight hint of pink with a firmer texture.",
-    image: "/images/steaks/temp/medium-well.png",
-    paragraphs: [
-     "Medium well steaks are cooked almost entirely through, leaving only a small amount of pink in the very center. The texture becomes noticeably firmer while still retaining some juiciness. A popular option for diners who prefer a more thoroughly cooked steak."
-    ],
-  },
-    {
-    id: "well-done",
-    name: "Well Done",
-    category: "temps",
-    tagline: "Fully cooked throughout with no pink remaining.",
-    image: "/images/steaks/temp/well-done.png",
-    paragraphs: [
-     "Well done steaks are cooked until the interior is completely brown from edge to edge. They have the firmest texture and the least moisture, though proper cooking techniques can still produce a flavorful steak with a nicely caramelized crust. For the best results, choose cuts with higher marbling to help retain tenderness."
-    ],
-  },
+
   {
     id: "ribeye",
     name: "Ribeyes",

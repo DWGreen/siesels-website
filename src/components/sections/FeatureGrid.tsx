@@ -25,12 +25,18 @@ export default function FeatureGrid() {
             <h2 className="font-barlow text-3xl font-bold uppercase leading-tight tracking-[0.1em] text-white md:text-[34px] md:leading-snug">
               See This Week's Featured Meats, Produce, and Grocery Deals
             </h2>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col items-center gap-3">
               <Link
-                href="/order-online"
+                href="/specials?tab=weekly"
                 className="btn-outline-white"
               >
-                Weekly Specials &gt;
+                View Weekly Specials &gt;
+              </Link>
+              <Link
+                href="/specials?tab=weekend"
+                className="btn-outline-white"
+              >
+                View Weekend Specials &gt;
               </Link>
             </div>
           </div>

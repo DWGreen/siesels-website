@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { Thermometer, X } from "lucide-react";
 import { steaks, SteakEntry } from "@/data/steaks";
 
 export default function SteakGrid() {
@@ -212,7 +212,11 @@ function SteakCard({
       {/* card text */}
       <div className="p-2 pt-3">
         <span className="mb-1 block text-[10px] font-black uppercase tracking-[0.35em] text-neutral-400">
-          {steak.category === "cut" ? "Steak Cut" : "Reference"}
+          {steak.category === "cut"
+            ? "Steak Cut"
+            : steak.category === "temps"
+              ? "Temperature"
+              : "Reference"}
         </span>
 
         <h3 className="font-barlow text-xl font-bold uppercase tracking-[0.1em] text-brand-black">
@@ -222,6 +226,13 @@ function SteakCard({
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-neutral-600">
           {steak.tagline}
         </p>
+
+        {steak.tempRange ? (
+          <div className="mt-4 flex items-center gap-2 border-t border-neutral-200 pt-3 text-[11px] font-black uppercase tracking-[0.2em] text-neutral-700">
+            <Thermometer size={14} strokeWidth={2.5} aria-hidden="true" />
+            <span>{steak.tempRange}</span>
+          </div>
+        ) : null}
 
         <span className="mt-4 block text-[10px] font-black uppercase tracking-[0.28em] text-neutral-400 transition group-hover:text-brand-black">
           Learn more &rsaquo;

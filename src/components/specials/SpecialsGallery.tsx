@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SpecialsImageViewer from "./SpecialsImageViewer";
@@ -8,15 +8,38 @@ import { SpecialsCategory } from "@/data/specials";
 
 type Props = {
   categories: SpecialsCategory[];
+  initialCategoryId?: string;
 };
 
-export default function SpecialsGallery({ categories }: Props) {
-  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+export default function SpecialsGallery({
+  categories,
+  initialCategoryId,
+}: Props) {
+  const resolveCategoryIndex = (categoryId?: string) => {
+    if (!categoryId) {
+      return 0;
+    }
+
+    const matchingIndex = categories.findIndex(
+      (category) => category.id === categoryId
+    );
+
+    return matchingIndex >= 0 ? matchingIndex : 0;
+  };
+
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(() =>
+    resolveCategoryIndex(initialCategoryId)
+  );
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [imageAspectRatios, setImageAspectRatios] = useState<
     Record<string, number>
   >({});
+
+  useEffect(() => {
+    setActiveCategoryIndex(resolveCategoryIndex(initialCategoryId));
+    setActiveImageIndex(0);
+  }, [categories, initialCategoryId]);
 
   const activeCategory = categories[activeCategoryIndex] ?? null;
   const activeImages = activeCategory?.images ?? [];
