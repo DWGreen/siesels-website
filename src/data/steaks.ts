@@ -49,7 +49,7 @@ export const steaks: SteakEntry[] = [
     name: "Ribeyes",
     category: "cut",
     tagline: "The king of steaks — richest flavor of all the steaks",
-    image: "/images/steaks/new-cuts/ribeye-parchment.png",
+    image: "/images/steaks/new-cuts/ribeye.jpg",
     paragraphs: [
       "The first of the \"middle meat\" steaks, the rib section starts between the fifth and sixth ribs. The entire rib section runs from the sixth to the twelfth rib. This section is actually three muscles that overlap each other.",
       "Since most fat is stored between muscles, the ribeye usually has more fat than the other cuts. Because of that, it has the richest flavor of all the steaks. They tend to be \"soft\" as well as tender. They also have a great balance between tenderness and flavor.",
@@ -61,7 +61,7 @@ export const steaks: SteakEntry[] = [
     name: "New York",
     category: "cut",
     tagline: "Firm, tender, and full of flavor",
-    image: "/images/steaks/new-cuts/new-york-parchment.png",
+    image: "/images/steaks/new-cuts/new-york.png",
     paragraphs: [
       "This is sometimes referred to as a \"top loin,\" \"strip steak,\" or, in New York, as a \"sirloin.\" It is actually a continuation of one of the muscles that makes up the ribeye.",
       "Unlike the ribeye, the New York is primarily a single muscle. Because of that and its location directly in the middle of the back, the difference between the ribeye and the New York is a textural one. While very tender, this steak has a firmer texture than its next door neighbor.",
@@ -73,7 +73,7 @@ export const steaks: SteakEntry[] = [
     name: "Filet Mignon",
     category: "cut",
     tagline: "The most tender of all the steaks",
-    image: "/images/steaks/filet-mignon.png",
+    image: "/images/steaks/new-cuts/filet-mignon.png",
     paragraphs: [
       "All of the steaks that we are describing run along the spine on top of the ribs. The filet actually comes from underneath the spine where it does virtually no work at all. Because of this, it is the most tender of all the steaks.",
       "If you remember the rule, though, you will realize that it will also be the least flavorful of all. If tenderness alone is your criteria, this is the one for you. Flavor is usually enhanced by such methods as wrapping with bacon, stuffing with bleu cheese or mushrooms, or topping with various sauces.",
@@ -85,7 +85,7 @@ export const steaks: SteakEntry[] = [
     name: "Top Sirloin",
     category: "cut",
     tagline: "The king of steaks — maximum flavor",
-    image: "/images/steaks/top-sirloin.png",
+    image: "/images/steaks/new-cuts/top-sirloin.jpg",
     paragraphs: [
       "This is the last of the \"middle meat.\" It runs from the end of the New York to the hip joint. It is the one that works the most, is the least tender, and has the most flavor. It is said to have gotten its name from Henry VIII, who pulled out his sword, tapped it, and dubbed it \"Sir Loin.\"",
       "This can really be the \"king\" of steaks. With its inherent flavor, when you get one that is tender, it is unsurpassed. Even with proper beef, this can be tricky, but, if flavor is your criteria, this is the steak for you.",
@@ -96,7 +96,7 @@ export const steaks: SteakEntry[] = [
     name: "Cattleman's Top",
     category: "cut",
     tagline: "The ultimate combination of flavor and tenderness",
-    image: "/images/steaks/cattlemans-top.png",
+    image: "/images/steaks/new-cuts/cattlemans.png",
     paragraphs: [
       "For some reason, the thicker you cut a top sirloin, the more tender it becomes. The Cattleman's is a top sirloin that has been cut between 1¾ and two inches thick.",
       "Do not be afraid of them. They are the simplest thing in the world to cook. Simply place on a covered grill for ten minutes on the first side, and fifteen to twenty minutes on the second. Check it with a good testing thermometer and cook to an internal temperature of 135 degrees.",
@@ -108,7 +108,7 @@ export const steaks: SteakEntry[] = [
     name: "Baseball Top",
     category: "cut",
     tagline: "Extremely lean, tender, and uniquely shaped",
-    image: "/images/steaks/baseball-top.png",
+    image: "/images/steaks/new-cuts/baseball.jpg",
     paragraphs: [
       "There is one steak that is the transition point from the New York to the top sirloin. It has a \"seam\" of tendon in the center. If you hold it in one hand and press upward with one finger, it will stretch into a \"ball.\" With that little \"seam,\" it resembles a baseball — thus the name.",
       "A few restaurants got ahold of these and put them on their menus. They are extremely tender and flavorful, but there are only two \"true\" baseballs on the whole animal. The solution was to create a \"baseball style\" steak.",
@@ -121,7 +121,7 @@ export const steaks: SteakEntry[] = [
     name: "T-Bone & Porterhouse",
     category: "cut",
     tagline: "A bone-in combination of New York and filet",
-    image: "/images/steaks/t-bone-porterhouse.png",
+    image: "/images/steaks/new-cuts/t-bone.png",
     paragraphs: [
       "These are cut, bone-in, from the loin section. The larger of the two muscles you see is actually a \"New York.\" The smaller muscle on the other side of the bone is the filet.",
       "The whole filet, as it sits below the spine, is large at one end and tapers down to a flat point at the other. The first few steaks that come off of this section have the larger sized filets — these are called \"porterhouse\" steaks. By definition, the filet on the porterhouse must be at least 2¼ inches across.",
@@ -133,7 +133,7 @@ export const steaks: SteakEntry[] = [
     name: "Flatiron",
     category: "cut",
     tagline: "Second most tender muscle in the animal",
-    image: "/images/steaks/flatiron.png",
+    image: "/images/steaks/new-cuts/flat-iron.jpg",
     paragraphs: [
       "This is the only premium steak that does not come from the \"middle meat.\" The flatiron is actually one of the muscles that make up the \"chuck,\" or shoulder. Coming from there, you would not think that it could be tender.",
       "The fact is that it was found to be the second most tender muscle in the animal — second only to filet mignon. Its name comes from its size and shape: long and flat, varying in thickness from ¾ to 1 inch.",
@@ -170,7 +170,7 @@ export const steaks: SteakEntry[] = [
     name: "Seafood",
     category: "info",
     tagline: "Fresh shipments daily — except Sundays",
-    image: "/images/steaks/bass.jpg",
+    image: "/images/steaks/new-cuts/salmon.jpg",
     paragraphs: [
       "We also offer a selection of fresh seafood. We receive shipments of fresh fish daily (except Sundays). We will offer whatever is best in the marketplace at the time.",
       "We also carry a large variety of frozen shellfish, such as lobster tails, as well Mexican white shrimp.",
