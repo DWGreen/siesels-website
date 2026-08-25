@@ -158,7 +158,7 @@ export const steaks: SteakEntry[] = [
     name: "The Dry-Aging Process",
     category: "info",
     tagline: "30+ days of transformation",
-    image: "/images/steaks/dry-age.png",
+    image: "/images/steaks/new-cuts/dry-aged.png",
     paragraphs: [
       "During the aging process, natural enzymes act to both tenderize the meat and develop complex flavors. In our dry aging program we age in a vacuum-sealed bag for a minimum of 30 days. It is then opened and exposed to the air for a minimum of 14 days.",
       "Exposing it in this manner introduces a certain amount of dehydration. This greatly intensifies the flavor, deepens the color, and increases tenderness.",
