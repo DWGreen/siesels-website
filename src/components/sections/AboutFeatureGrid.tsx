@@ -25,8 +25,9 @@ export default function AboutFeatureGrid() {
               Locally Owned & Family Operated
             </h2>
             <p className="mt-4 font-zilla text-[1.17rem] font-medium leading-relaxed text-white/90">
-              The Cohn Family began their success in San Diego, opening up Iowa Meat Farms in 1982 and later purchasing Siesel&apos;s Meats. Following in their father&apos;s footsteps, Phil Cohn, who ran grocery stores in the Midwest. Ron, David, Aaron, and Helen Cohn opened Iowa Meat Farms and worked side by side and, through hard work, dedication, and a commitment to quality, built a loyal customer base and a reputation for excellence. That success became the foundation for creating and growing several outstanding businesses throughout San Diego. While they have expanded over the years, they have never forgotten their roots, where they worked together as a family, and the pride they take in these great markets.
+            The Cohn Family began their success in San Diego, opening Iowa Meat Farms in 1982 and later purchasing Siesel's Meats. Their father, Phil Cohn, owned and ran grocery stores in the Midwest, and following in his footsteps, Ron, David, Aaron, and Helene Cohn opened Iowa Meat Farms and worked side by side. Through hard work, dedication, and a commitment to quality, they built a loyal customer base and a reputation for excellence.
 
+That success became the foundation for creating and growing several outstanding businesses throughout San Diego. While they have expanded over the years, they have never forgotten their roots, working together as a family and taking pride in these great markets.
             </p>
           </div>
         </div>

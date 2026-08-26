@@ -3,7 +3,7 @@ const locations = [
     name: "Iowa Meat Farms",
     address: "6041 Mission Gorge Rd, San Diego, CA 92120",
     phone: "(619) 281-5766",
-    hours: "Mon-Sat 9am-6pm, Sun 9am-5pm",
+    hours: "Mon-Sat 9am-6pm, Sun 10am-5pm",
     mapQuery: "6041+Mission+Gorge+Rd,San+Diego,CA+92120",
   },
   {

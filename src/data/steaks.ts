@@ -46,7 +46,7 @@ export const steaks: SteakEntry[] = [
 
   {
     id: "ribeye",
-    name: "Ribeyes",
+    name: "Boneless Ribeyes / Delmonicos",
     category: "cut",
     tagline: "The king of steaks — richest flavor of all the steaks",
     image: "/images/steaks/new-cuts/ribeye.jpg",
@@ -63,7 +63,7 @@ export const steaks: SteakEntry[] = [
     tagline: "Firm, tender, and full of flavor",
     image: "/images/steaks/new-cuts/new-york.png",
     paragraphs: [
-      "This is sometimes referred to as a \"top loin,\" \"strip steak,\" or, in New York, as a \"sirloin.\" It is actually a continuation of one of the muscles that makes up the ribeye.",
+      "Sometimes referred to as a \"strip steak,\", it is actually a continuation of one of the muscles that makes up the ribeye.",
       "Unlike the ribeye, the New York is primarily a single muscle. Because of that and its location directly in the middle of the back, the difference between the ribeye and the New York is a textural one. While very tender, this steak has a firmer texture than its next door neighbor.",
       "Choosing between these two is really a toss-up. They are both good, tender, flavorful steaks.",
     ],
@@ -76,7 +76,7 @@ export const steaks: SteakEntry[] = [
     image: "/images/steaks/new-cuts/filet-mignon.png",
     paragraphs: [
       "All of the steaks that we are describing run along the spine on top of the ribs. The filet actually comes from underneath the spine where it does virtually no work at all. Because of this, it is the most tender of all the steaks.",
-      "If you remember the rule, though, you will realize that it will also be the least flavorful of all. If tenderness alone is your criteria, this is the one for you. Flavor is usually enhanced by such methods as wrapping with bacon, stuffing with bleu cheese or mushrooms, or topping with various sauces.",
+      "If tenderness alone is your criteria, this is the one for you. Flavor is usually enhanced by such methods as wrapping with bacon, stuffing with bleu cheese or mushrooms, or topping with various sauces.",
       "Because it is a small muscle, the filet is normally cut thick, around 1¾ inches. That provides a serving portion of around 8 oz. When cooking, it is treated as a \"four-sided\" steak. The cooking time can be 16 to 24 minutes — that translates to 4 to 6 minutes per side.",
     ],
   },
@@ -84,11 +84,11 @@ export const steaks: SteakEntry[] = [
     id: "top-sirloin",
     name: "Top Sirloin",
     category: "cut",
-    tagline: "The king of steaks — maximum flavor",
+    tagline: "Maximum flavor, a great everyday steak",
     image: "/images/steaks/new-cuts/top-sirloin.jpg",
     paragraphs: [
       "This is the last of the \"middle meat.\" It runs from the end of the New York to the hip joint. It is the one that works the most, is the least tender, and has the most flavor. It is said to have gotten its name from Henry VIII, who pulled out his sword, tapped it, and dubbed it \"Sir Loin.\"",
-      "This can really be the \"king\" of steaks. With its inherent flavor, when you get one that is tender, it is unsurpassed. Even with proper beef, this can be tricky, but, if flavor is your criteria, this is the steak for you.",
+      "With its inherent flavor, when you get one that is tender, it is unsurpassed. Even with proper beef, this can be tricky, but, if flavor is your criteria, this is the steak for you.",
     ],
   },
   {
@@ -99,8 +99,7 @@ export const steaks: SteakEntry[] = [
     image: "/images/steaks/new-cuts/cattlemans.png",
     paragraphs: [
       "For some reason, the thicker you cut a top sirloin, the more tender it becomes. The Cattleman's is a top sirloin that has been cut between 1¾ and two inches thick.",
-      "Do not be afraid of them. They are the simplest thing in the world to cook. Simply place on a covered grill for ten minutes on the first side, and fifteen to twenty minutes on the second. Check it with a good testing thermometer and cook to an internal temperature of 135 degrees.",
-      "This is probably the ultimate combination of both flavor and tenderness. We normally offer these in \"USDA Prime\" grade. We have never seen a bad Cattleman's Cut!",
+      "Do not be afraid of them. They are the simplest thing in the world to cook. Simply place on a covered grill for ten minutes on the first side, and fifteen to twenty minutes on the second. Check it with a good testing thermometer and cook to an internal temperature of 135 degrees. This is probably the ultimate combination of both flavor and tenderness.",
     ],
   },
   {
@@ -111,9 +110,9 @@ export const steaks: SteakEntry[] = [
     image: "/images/steaks/new-cuts/baseball.jpg",
     paragraphs: [
       "There is one steak that is the transition point from the New York to the top sirloin. It has a \"seam\" of tendon in the center. If you hold it in one hand and press upward with one finger, it will stretch into a \"ball.\" With that little \"seam,\" it resembles a baseball — thus the name.",
-      "A few restaurants got ahold of these and put them on their menus. They are extremely tender and flavorful, but there are only two \"true\" baseballs on the whole animal. The solution was to create a \"baseball style\" steak.",
+      "They are extremely tender and flavorful, but there are only two \"true\" baseballs on the whole animal. The solution was to create a \"baseball style\" steak.",
       "The top sirloin actually consists of two muscles. If you remove the top one, you are left with a single muscle that is the more tender of the two. From that, the steaks are cut into thick, individual servings. They mimic a filet in size and appearance but are much more flavorful.",
-      "Because they are extremely lean, we recommend coating in olive oil before grilling. We offer an \"Italian\" baseball marinated in extra virgin olive oil, chopped garlic, fresh parsley, and cracked black pepper.",
+      "Because they are extremely lean, we recommend coating in olive oil before grilling.",
     ],
   },
   {
@@ -145,7 +144,7 @@ export const steaks: SteakEntry[] = [
     name: "The Grading System",
     category: "info",
     tagline: "What separates Prime from the rest",
-    image: "/images/steaks/prime.png",
+    image: "/images/steaks/usda_choice.png",
    paragraphs: [
     "USDA Choice\nHigh-quality Midwestern beef with good marbling, tenderness, and flavor. Because our beef comes from the Midwest, it offers a very consistent, deep, rich flavor. A great choice for everyday steaks, roasts, and grilling.",
 
@@ -163,7 +162,7 @@ export const steaks: SteakEntry[] = [
     paragraphs: [
       "During the aging process, natural enzymes act to both tenderize the meat and develop complex flavors. In our dry aging program we age in a vacuum-sealed bag for a minimum of 30 days. It is then opened and exposed to the air for a minimum of 14 days.",
       "Exposing it in this manner introduces a certain amount of dehydration. This greatly intensifies the flavor, deepens the color, and increases tenderness.",
-      "Only cuts that are naturally protected by fat and bones can be processed in this manner. The extra time, handling, loss of weight by dehydration, and trimming and discarding the exposed meat make this an expensive process. The extremely tender and intensely flavored meat is well worth the effort.",
+      "Only cuts that are naturally protected by fat and bones can be processed in this manner. The extra time, handling, loss of weight by dehydration, and trimming and discarding the exposed meat is a lengthy process. The extremely tender and intensely flavored meat is well worth the effort.",
     ],
   },
   {
