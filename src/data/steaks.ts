@@ -146,12 +146,13 @@ export const steaks: SteakEntry[] = [
     category: "info",
     tagline: "What separates Prime from the rest",
     image: "/images/steaks/prime.png",
-    paragraphs: [
-      "We recognize three grades of beef: USDA Prime, USDA Choice, and \"USDA ROADKILL!\" (That's our name for \"USDA Select\"). Choice and Prime beef are the only ones that we carry, and the only ones that our customers deserve!",
-      "Grading is the second step — all beef is first inspected for wholesomeness. From that point, it can optionally be sent to the grader, who evaluates the following criteria:",
-      "1. Conformation – Generally the thickness of the muscle. Beef cattle are bred to have short, thick bodies; the grader looks for thick, full muscle.\n2. Maturity – There are areas which tell the grader the age of the animal. It has to do with cartilage that, on an older animal, would have turned to bone. Youth is essential.\n3. Color and Texture – Proper color and texture can also help determine the age of the animal. Older animals are not acceptable.\n4. Intramuscular Fat (Marbling) – The presence of marbling is both an indication that the animal has been inactive and that it has had proper finishing on a high-sugar feed.",
-      "THE BEEF BASICS: YOUTH, INACTIVITY, PROPER FEED, AND PROPER AGING!",
-    ],
+   paragraphs: [
+    "USDA Choice\nHigh-quality Midwestern beef with good marbling, tenderness, and flavor. Because our beef comes from the Midwest, it offers a very consistent, deep, rich flavor. A great choice for everyday steaks, roasts, and grilling.",
+
+    "Upper Two-Thirds USDA Choice\nA higher level of Choice beef selected for increased marbling, tenderness, and juiciness. It delivers a richer, more flavorful eating experience than standard Choice.",
+
+    "USDA Prime\nThe highest USDA beef grade, featuring abundant marbling, exceptional tenderness, juiciness, and rich beef flavor. Premium steakhouse-quality beef.",
+  ],
   },
   {
     id: "dry-aging",
