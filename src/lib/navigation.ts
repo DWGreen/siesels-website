@@ -20,6 +20,7 @@ export const leftNavItems: NavItem[] = [
 ];
 
 export const rightNavItems: NavItem[] = [
+  { label: "Events", href: "/events" },
   { label: "Locations", href: "/locations" },
   { label: "About", href: "/about" },
 ];
@@ -30,6 +31,7 @@ export const footerNavItems: NavItem[] = [
   //{ label: "Gift Cards", href: "/gift-cards" },
   //{ label: "Cooking", href: "/cooking" },
   { label: "Steak 101", href: "/steak-101" },
+  { label: "Events", href: "/events" },
   { label: "Locations", href: "/locations" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
