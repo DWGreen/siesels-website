@@ -5,6 +5,7 @@ interface InteriorHeroProps {
   backgroundImage: string;
   backgroundAlt: string;
   showMasterLogo?: boolean;
+  overlayOpacity?: number;
 }
 
 export default function InteriorHero({
@@ -12,7 +13,10 @@ export default function InteriorHero({
   backgroundImage,
   backgroundAlt,
   showMasterLogo = false,
+  overlayOpacity = 20,
 }: InteriorHeroProps) {
+  const normalizedOverlayOpacity = Math.min(Math.max(overlayOpacity, 0), 100);
+
   return (
     <section className="relative flex h-[400px] w-full items-center justify-center overflow-hidden lg:h-[650px]">
       {/* Background image */}
@@ -25,7 +29,10 @@ export default function InteriorHero({
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div
+        className="absolute inset-0 bg-black"
+        style={{ opacity: normalizedOverlayOpacity / 100 }}
+      />
 
       {/* Title with decorative lines — always centered */}
       <div className="relative z-10 flex flex-col items-center px-4">

@@ -48,18 +48,20 @@ export default function EventsPage() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Events"
-          backgroundImage="/images/hero/butcher.jpg"
+          backgroundImage="/images/hero/events.jpg"
           backgroundAlt="Butcher at work at Siesel's Meats"
+          showMasterLogo={true}
+          overlayOpacity={40}
         />
 
         <section aria-labelledby="events-heading" className="bg-white">
           <div className="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-brand-wood">
-              Gather at Siesel&apos;s
-            </p>
+            <div className="mb-4 flex justify-center">
+              <CalendarDays aria-hidden="true" className="size-10 text-brand-black" />
+            </div>
             <h2
               id="events-heading"
-              className="mt-3 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]"
+              className="text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]"
             >
               Upcoming Events
             </h2>
