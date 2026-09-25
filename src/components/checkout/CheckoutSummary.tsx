@@ -18,8 +18,6 @@ export default function CheckoutSummary({
   return (
     <section
       className="
-        sticky
-        top-6
         border-2
         border-neutral-950
         bg-[#e6e6e6]

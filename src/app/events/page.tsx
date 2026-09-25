@@ -13,30 +13,30 @@ export const metadata: Metadata = {
 
 const events = [
   {
-    title: "Steak 101: Meet the Butcher",
+    title: "Charcuterie Tasting",
     date: "October 10, 2026",
     time: "11:00 AM - 1:00 PM",
     description:
       "Spend the morning at the butcher counter learning how to choose the right cut, what marbling really means, and how to get steakhouse results at home. Our butchers will share preparation tips and answer your questions along the way.",
-    image: "/images/events/event1.jpg",
+    image: "/images/events/charcuterie_1.jpg",
     imageAlt: "Siesel's butcher preparing a cut of meat",
   },
   {
-    title: "Game Day Grill Tasting",
+    title: "Turducken Tasting",
     date: "October 24, 2026",
     time: "11:00 AM - 2:00 PM",
     description:
       "Stop by for a taste of our game day favorites fresh off the grill. Sample house-made sausages, marinated meats, and crowd-ready sides while our team shares easy ideas for your next watch party.",
-    image: "/images/events/event2.jpg",
+    image: "/images/events/turducken_1.jpg",
     imageAlt: "Steak cooking on a hot grill",
   },
   {
-    title: "Holiday Prime Rib Preview",
+    title: "Smoked Ham Tasting",
     date: "November 14, 2026",
     time: "12:00 PM - 2:00 PM",
     description:
       "Get a head start on holiday hosting with a guided prime rib tasting. Learn how much to order, how to season your roast, and the simple timing that delivers a memorable centerpiece every time.",
-    image: "/images/events/event3.jpg",
+    image: "/images/events/smoked_ham.jpg",
     imageAlt: "Premium meat prepared for a special gathering",
   },
 ];

@@ -5,6 +5,8 @@ import {
   useMemo,
   useState,
 } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 import { useCart } from "@/context/CartContext";
 
@@ -13,6 +15,10 @@ import CartItemCard from "@/components/cart/CartProductCard";
 import CheckoutCustomerForm from "./CheckoutCustomerForm";
 import CheckoutSummary from "./CheckoutSummary";
 import CheckoutActions from "./CheckoutActions";
+import CheckoutPaymentForm, {
+  useCheckoutPaymentMethod,
+} from "./CheckoutPaymentForm";
+import { CheckoutCustomerValues } from "./CheckoutCustomerForm";
 
 import { useRouter } from "next/navigation";
 
@@ -30,6 +36,12 @@ import {
   CartItem,
   CheckoutValidationResponse,
 } from "@/types/cart";
+
+const stripePublishableKey =
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = stripePublishableKey
+  ? loadStripe(stripePublishableKey)
+  : null;
 
 async function validateCart(
   cartItems: CartItem[]
@@ -74,13 +86,15 @@ async function validateCart(
   return result;
 }
 
-export default function CheckoutClient() {
+function CheckoutClientInner() {
   const router = useRouter();
+  const createPaymentMethod = useCheckoutPaymentMethod();
 
   const {
     cart,
     removeItem,
-    updateQuantity
+    updateQuantity,
+    clearCart,
   } = useCart();
 
   const [
@@ -101,14 +115,32 @@ export default function CheckoutClient() {
   ] = useState<string | null>(null);
 
   const [
+    checkoutError,
+    setCheckoutError,
+  ] = useState<string | null>(null);
+
+  const [
     isStartingCheckout,
     setIsStartingCheckout,
   ] = useState(false);
+
+  const [customer, setCustomer] =
+    useState<CheckoutCustomerValues>({
+      fullName: "",
+      email: "",
+      phone: "",
+      address1: "",
+      city: "",
+      state: "",
+      postcode: "",
+      notes: "",
+    });
 
   function onEditCustomItem(
     itemId: string,
     baseProductId: number
   ) {
+    clearCart();
     router.push(
       routes.sandwichBuilder({
         editCartItemId: itemId,
@@ -213,62 +245,82 @@ const validatedItemByCartItemId = new Map(
   }
 
   setIsStartingCheckout(true);
-  setValidationError(null);
+  setCheckoutError(null);
 
   try {
-    const request =
-      createCheckoutValidationRequest(
-        cart.items
-      );
+    const nameParts = customer.fullName.trim().split(/\s+/);
+    const firstName = nameParts.shift() ?? "";
+    const lastName = nameParts.join(" ");
+    const paymentMethodId = await createPaymentMethod({
+      name: customer.fullName,
+      email: customer.email,
+      phone: customer.phone,
+    });
 
     const response =
-      await fetch(
-        "/api/checkout/create-session",
-        {
+      await fetch("/api/checkout/woocommerce", {
           method: "POST",
           headers: {
             "Content-Type":
               "application/json",
           },
-          body: JSON.stringify(
-            request
-          ),
-        }
-      );
+          body: JSON.stringify({
+            billing_address: {
+              first_name: firstName,
+              last_name: lastName,
+              address_1: customer.address1,
+              address_2: "",
+              city: customer.city,
+              state: customer.state,
+              postcode: customer.postcode,
+              country: "US",
+              email: customer.email,
+              phone: customer.phone,
+            },
+            shipping_address: {
+              first_name: firstName,
+              last_name: lastName,
+              address_1: customer.address1,
+              address_2: "",
+              city: customer.city,
+              state: customer.state,
+              postcode: customer.postcode,
+              country: "US",
+              phone: customer.phone,
+            },
+            customer_note: customer.notes,
+            payment_method: "stripe",
+            payment_data: [
+              { key: "payment_method", value: "stripe" },
+              { key: "wc-stripe-payment-method", value: paymentMethodId },
+            ],
+          }),
+        });
 
     const result =
       await response.json();
 
     if (!response.ok) {
-      console.error(
-        "Checkout session failed:",
-        result
+      console.error("WooCommerce checkout failed:", result);
+      setCheckoutError(
+        result.message ??
+          "WooCommerce could not process the payment."
       );
-
-      setValidationError(
-        "Unable to start checkout. Please review your cart."
-      );
-
       return;
     }
 
-    if (!result.url) {
-      setValidationError(
-        "Checkout session did not return a payment URL."
-      );
-
-      return;
-    }
-
-    window.location.href =
-      result.url;
+    router.push(
+      `${routes.checkout}/success?order_id=${encodeURIComponent(
+        String(result.order_id ?? "")
+      )}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`
+    );
   } catch (error) {
     console.error(
       "Checkout failed:",
       error
     );
 
-    setValidationError(
+    setCheckoutError(
       "Unable to start checkout. Please try again."
     );
   } finally {
@@ -281,6 +333,8 @@ const validatedItemByCartItemId = new Map(
     !!validatedCheckout &&
     !isValidating &&
     !validationError;
+
+  const checkoutMessage = validationError ?? checkoutError;
 
   return (
     <div
@@ -418,7 +472,7 @@ const validatedItemByCartItemId = new Map(
                 </span>
               </div>
 
-              {validationError && (
+              {checkoutMessage && (
                 <div
                   className="
                     mb-5
@@ -431,7 +485,7 @@ const validatedItemByCartItemId = new Map(
                     text-neutral-950
                   "
                 >
-                  {validationError}
+                  {checkoutMessage}
                 </div>
               )}
 
@@ -501,10 +555,15 @@ const validatedItemByCartItemId = new Map(
               </div>
             </section>
 
-            <CheckoutCustomerForm />
+            <CheckoutCustomerForm
+              values={customer}
+              onChange={setCustomer}
+            />
+
+            <CheckoutPaymentForm />
           </div>
 
-          <div>
+          <div className="lg:sticky lg:top-28 lg:self-start">
             <CheckoutSummary
               subtotalCents={
                 displaySubtotalCents
@@ -538,5 +597,13 @@ const validatedItemByCartItemId = new Map(
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutClient() {
+  return (
+    <Elements stripe={stripePromise}>
+      <CheckoutClientInner />
+    </Elements>
   );
 }

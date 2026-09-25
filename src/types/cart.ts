@@ -50,7 +50,9 @@ export interface ModifierDefinition {
   optionCategoryId:number;
   optionGroups: ModifierOptionGroupDefinition[];
   requiresIngredientOverrideSelectionIfPresent?: boolean;
-
+  // WooCommerce product id for a free "display only" line item added alongside a price-override modifier
+  // (e.g. "Half Sandwich & Soup"), so order/receipt views show the modifier name without it carrying price.
+  companionProductId?: number;
 
 }
 

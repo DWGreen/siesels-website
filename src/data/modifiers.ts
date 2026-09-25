@@ -26,6 +26,7 @@ id: "half-soup-1",
   optionGroups: [],
   optionCategoryId: 36,
   requiresIngredientOverrideSelectionIfPresent: true,
+  companionProductId: 165,
   }
 
 ];

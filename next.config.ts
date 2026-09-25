@@ -46,33 +46,39 @@ const nextConfig: NextConfig = {
         },
       ],
     },
-    {
-      source: "/_next/static/(.*)",
-      headers: [
-        {
-          key: "Cache-Control",
-          value: "public, max-age=31536000, immutable",
-        },
-      ],
-    },
-    {
-      source: "/_next/image(.*)",
-      headers: [
-        {
-          key: "Cache-Control",
-          value: "public, max-age=86400, stale-while-revalidate=604800",
-        },
-      ],
-    },
-    {
-      source: "/images/(.*)",
-      headers: [
-        {
-          key: "Cache-Control",
-          value: "public, max-age=2592000, stale-while-revalidate=86400",
-        },
-      ],
-    },
+    // Aggressive static-asset caching only applies in production; in dev it causes
+    // browsers to permanently cache stale Turbopack chunks across edits/restarts.
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          {
+            source: "/_next/static/(.*)",
+            headers: [
+              {
+                key: "Cache-Control",
+                value: "public, max-age=31536000, immutable",
+              },
+            ],
+          },
+          {
+            source: "/_next/image(.*)",
+            headers: [
+              {
+                key: "Cache-Control",
+                value: "public, max-age=86400, stale-while-revalidate=604800",
+              },
+            ],
+          },
+          {
+            source: "/images/(.*)",
+            headers: [
+              {
+                key: "Cache-Control",
+                value: "public, max-age=2592000, stale-while-revalidate=86400",
+              },
+            ],
+          },
+        ]
+      : []),
   ],
 };
 

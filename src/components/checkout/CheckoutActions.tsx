@@ -49,7 +49,7 @@ export default function CheckoutActions({
       >
         {isLoading
           ? "Preparing Checkout..."
-          : "Continue To Payment"}
+          : "Submit Order"}
       </button>
 
       <button

@@ -6,12 +6,16 @@ import {
   useState,
   ReactNode,
   useEffect,
+  useRef,
 } from "react";
 
 import {
   Cart,
   CartItem,
 } from "@/types/cart";
+import { useWooCommerceCartSync } from "./useWooCommerceCartSync";
+
+const CART_STORAGE_KEY = "siesels-sandwich-cart";
 
 type CartContextType = {
 
@@ -56,6 +60,43 @@ export function CartProvider({
         tax: 0,
         total: 0,
     });
+  const hasLoadedStoredCart = useRef(false);
+
+  useEffect(() => {
+    try {
+      const storedCart = window.localStorage.getItem(CART_STORAGE_KEY);
+
+      if (storedCart) {
+        const parsedCart = JSON.parse(storedCart) as Cart;
+        setCart({
+          items: parsedCart.items ?? [],
+          subtotal: 0,
+          tax: 0,
+          total: 0,
+        });
+      }
+    } catch (error) {
+      console.error("Failed to restore saved cart:", error);
+    } finally {
+      hasLoadedStoredCart.current = true;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedStoredCart.current) {
+      return;
+    }
+
+    window.localStorage.setItem(
+      CART_STORAGE_KEY,
+      JSON.stringify(cart)
+    );
+  }, [cart]);
+
+  // Mirrors every cart change into the real WooCommerce cart in the background;
+  // WooCommerce owns pricing/tax/order state, this context still owns the UI model.
+  useWooCommerceCartSync(cart.items);
+
 function clearCart() {
 
   setCart({
