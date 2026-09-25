@@ -140,7 +140,6 @@ function CheckoutClientInner() {
     itemId: string,
     baseProductId: number
   ) {
-    clearCart();
     router.push(
       routes.sandwichBuilder({
         editCartItemId: itemId,
@@ -309,6 +308,7 @@ const validatedItemByCartItemId = new Map(
       return;
     }
 
+    await clearCart();
     router.push(
       `${routes.checkout}/success?order_id=${encodeURIComponent(
         String(result.order_id ?? "")

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CalendarDays, Clock } from "lucide-react";
+import { CalendarDays, Clock, MapPin } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
@@ -11,32 +11,70 @@ export const metadata: Metadata = {
     "Join Siesel's Meats for tastings, butcher demonstrations, and seasonal events in San Diego.",
 };
 
-const events = [
+type EventItem = {
+  eyebrow?: string;
+  title: string;
+  date?: string;
+  time?: string;
+  schedules?: {
+    date: string;
+    time: string;
+    location: string;
+  }[];
+  description: string;
+  image: string;
+  imageAlt: string;
+};
+
+const events: EventItem[] = [
   {
-    title: "Charcuterie Tasting",
-    date: "October 10, 2026",
-    time: "11:00 AM - 1:00 PM",
+    eyebrow: "Tasting 1",
+    title: "TURDUCKEN TASTING",
+    date: "Saturday, November 7th, 2026",
+    time: "11:00 AM - 3:00 PM",
     description:
-      "Spend the morning at the butcher counter learning how to choose the right cut, what marbling really means, and how to get steakhouse results at home. Our butchers will share preparation tips and answer your questions along the way.",
-    image: "/images/events/charcuterie_1.jpg",
+      "Our turducken roll layers boneless chicken, duck, and turkey into one delicious holiday centerpiece. Handmade in-house by our skilled butchers, it brings together three savory favorites in every deli gravy and mashed potatoes!",
+    image: "/images/events/turducken_1.jpg",
     imageAlt: "Siesel's butcher preparing a cut of meat",
   },
   {
-    title: "Turducken Tasting",
-    date: "October 24, 2026",
-    time: "11:00 AM - 2:00 PM",
+    eyebrow: "Tasting 2",
+    title: "SIESEL’S DOUBLE SMOKED HAM TASTING",
+    date: "Sunday, November 8th, 2026",
+    time: "11:00 AM - 3:00 PM",
     description:
-      "Stop by for a taste of our game day favorites fresh off the grill. Sample house-made sausages, marinated meats, and crowd-ready sides while our team shares easy ideas for your next watch party.",
-    image: "/images/events/turducken_1.jpg",
+      "Our Siesel’s Signature Double Smoked Ham starts with a premium bone-in Kruse ham, hand-scored and slow-smoked in our in-house smoker. The result is a juicy interior and a smoky, naturally glazed exterior. We’ll sample it with our famous homemade potato salad. Bring home this delicious centerpiece for your holiday table!",
+    image: "/images/events/smoked_ham.jpg",
     imageAlt: "Steak cooking on a hot grill",
   },
   {
-    title: "Smoked Ham Tasting",
-    date: "November 14, 2026",
-    time: "12:00 PM - 2:00 PM",
+    eyebrow: "Tasting 3",
+    title: "DIESTEL TURKEY SAMPLING",
+    date: "Saturday ,November 14, 2026",
+    time: "11:00 AM - 3:00 PM",
     description:
-      "Get a head start on holiday hosting with a guided prime rib tasting. Learn how much to order, how to season your roast, and the simple timing that delivers a memorable centerpiece every time.",
+      "Join us for a taste of tender, juicy Diestel turkey, roasted to a beautiful golden brown and served with creamy garlic mashed potatoes and rich, savory gravy. It’s a delicious preview of your holiday feast!",
     image: "/images/events/smoked_ham.jpg",
+    imageAlt: "Premium meat prepared for a special gathering",
+  },
+   {
+    eyebrow: "Tasting 4",
+    title: "CHARCUTERIE FOR THE HOLIDAYS!",
+    schedules: [
+      {
+        date: "Saturday, November 21, 2026",
+        time: "11:00 AM - 3:00 PM",
+        location: "Iowa Meat Farms",
+      },
+      {
+        date: "Sunday, November 22, 2026",
+        time: "11:00 AM - 3:00 PM",
+        location: "Siesel's Meats",
+      },
+    ],
+    description:
+      "Join us for a festive sampling of everything you need to create an amazing holiday board: artisan cheeses, premium cured meats, an olive medley, dried fruit, gourmet jams, and more. Discover your favorites and make holiday entertaining delicious!",
+    image: "/images/events/charcuterie_1.jpg",
     imageAlt: "Premium meat prepared for a special gathering",
   },
 ];
@@ -48,10 +86,10 @@ export default function EventsPage() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Events"
-          backgroundImage="/images/hero/events.jpg"
+          backgroundImage="/images/hero/events_new.jpg"
           backgroundAlt="Butcher at work at Siesel's Meats"
           showMasterLogo={true}
-          overlayOpacity={40}
+          overlayOpacity={0}
         />
 
         <section aria-labelledby="events-heading" className="bg-white">
@@ -91,16 +129,48 @@ export default function EventsPage() {
                     }`}
                   >
                     <div className="max-w-xl">
-                      <div className="mb-6 flex flex-wrap gap-x-6 gap-y-3 font-heading text-sm font-bold uppercase tracking-[0.12em] text-brand-wood">
-                        <span className="flex items-center gap-2">
-                          <CalendarDays aria-hidden="true" className="size-5" />
-                          {event.date}
-                        </span>
-                        <span className="flex items-center gap-2">
-                          <Clock aria-hidden="true" className="size-5" />
-                          {event.time}
-                        </span>
-                      </div>
+                      {event.schedules && event.schedules.length > 0 ? (
+                        <div className="mb-6 space-y-4 font-heading text-sm font-bold uppercase tracking-[0.12em] text-brand-wood">
+                          {event.schedules.map((schedule) => (
+                            <div key={`${schedule.date}-${schedule.location}`}>
+                              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                                <span className="flex items-center gap-2">
+                                  <CalendarDays aria-hidden="true" className="size-5" />
+                                  {schedule.date}
+                                </span>
+                                <span className="flex items-center gap-2">
+                                  <Clock aria-hidden="true" className="size-5" />
+                                  {schedule.time}
+                                </span>
+                              </div>
+                              <div className="mt-2 flex items-center gap-2">
+                                <MapPin aria-hidden="true" className="size-5" />
+                                {schedule.location}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="mb-6 flex flex-wrap gap-x-6 gap-y-3 font-heading text-sm font-bold uppercase tracking-[0.12em] text-brand-wood">
+                          {event.date ? (
+                            <span className="flex items-center gap-2">
+                              <CalendarDays aria-hidden="true" className="size-5" />
+                              {event.date}
+                            </span>
+                          ) : null}
+                          {event.time ? (
+                            <span className="flex items-center gap-2">
+                              <Clock aria-hidden="true" className="size-5" />
+                              {event.time}
+                            </span>
+                          ) : null}
+                        </div>
+                      )}
+                      {event.eyebrow ? (
+                        <p className="mb-3 font-heading text-xs font-bold uppercase tracking-[0.2em] text-brand-wood sm:text-sm">
+                          {event.eyebrow}
+                        </p>
+                      ) : null}
                       <h3 className="font-barlow text-4xl font-bold uppercase leading-tight text-brand-black sm:text-5xl">
                         {event.title}
                       </h3>

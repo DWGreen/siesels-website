@@ -14,13 +14,14 @@ import {
   CartItem,
 } from "@/types/cart";
 import { useWooCommerceCartSync } from "./useWooCommerceCartSync";
+import { clearWooCommerceCart } from "@/services/cart/browserCartClient";
 
 const CART_STORAGE_KEY = "siesels-sandwich-cart";
 
 type CartContextType = {
 
   cart: Cart;
-  clearCart: () => void;
+  clearCart: () => void | Promise<void>;
   addItem: (
     item: CartItem
   ) => CartItem;
@@ -97,7 +98,9 @@ export function CartProvider({
   // WooCommerce owns pricing/tax/order state, this context still owns the UI model.
   useWooCommerceCartSync(cart.items);
 
-function clearCart() {
+async function clearCart() {
+
+  window.localStorage.removeItem(CART_STORAGE_KEY);
 
   setCart({
     items: [],
@@ -105,6 +108,12 @@ function clearCart() {
     tax: 0,
     total: 0,
   });
+
+  try {
+    await clearWooCommerceCart();
+  } catch (error) {
+    console.error("Failed to clear WooCommerce cart:", error);
+  }
 }
 
 function addItem(
