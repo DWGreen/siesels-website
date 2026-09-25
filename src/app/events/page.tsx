@@ -54,7 +54,7 @@ const events: EventItem[] = [
     time: "11:00 AM - 3:00 PM",
     description:
       "Join us for a taste of tender, juicy Diestel turkey, roasted to a beautiful golden brown and served with creamy garlic mashed potatoes and rich, savory gravy. It’s a delicious preview of your holiday feast!",
-    image: "/images/events/smoked_ham.jpg",
+    image: "/images/events/diestelTurkey.jpg",
     imageAlt: "Premium meat prepared for a special gathering",
   },
    {
