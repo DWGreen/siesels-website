@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+import type { Stripe } from "@stripe/stripe-js";
 
 import { useCart } from "@/context/CartContext";
 
@@ -31,17 +31,12 @@ import {
 } from "@/utils/money";
 
 import { routes } from "@/utils/routes";
+import { getRuntimeStripePromise } from "@/lib/stripeRuntime";
 
 import {
   CartItem,
   CheckoutValidationResponse,
 } from "@/types/cart";
-
-const stripePublishableKey =
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-const stripePromise = stripePublishableKey
-  ? loadStripe(stripePublishableKey)
-  : null;
 
 async function validateCart(
   cartItems: CartItem[]
@@ -601,6 +596,36 @@ const validatedItemByCartItemId = new Map(
 }
 
 export default function CheckoutClient() {
+  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null> | null>(null);
+  const [stripeConfigError, setStripeConfigError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+
+    getRuntimeStripePromise()
+      .then(stripe => {
+        if (!stripe) throw new Error("Stripe could not initialize.");
+        if (active) setStripePromise(Promise.resolve(stripe));
+      })
+      .catch(error => {
+        if (active) {
+          setStripeConfigError(error instanceof Error ? error.message : "Stripe could not initialize.");
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  if (stripeConfigError) {
+    return <p role="alert" className="mx-auto my-12 max-w-2xl border border-red-700 bg-red-50 p-5 text-sm text-red-900">{stripeConfigError}</p>;
+  }
+
+  if (!stripePromise) {
+    return <p role="status" className="mx-auto my-12 max-w-2xl p-5 text-sm text-neutral-700">Loading secure payment form...</p>;
+  }
+
   return (
     <Elements stripe={stripePromise}>
       <CheckoutClientInner />

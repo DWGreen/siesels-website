@@ -2,10 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CardElement, Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-
-const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? "";
-const stripePromise = publishableKey ? loadStripe(publishableKey) : null;
+import { loadStripe, type Stripe } from "@stripe/stripe-js";
 
 type CheckState = "checking" | "pass" | "fail" | "missing";
 
@@ -50,34 +47,56 @@ function StripeCardProbe({ onReady, onError }: { onReady: () => void; onError: (
 }
 
 export default function StripeDebugPage() {
-  const [stripeState, setStripeState] = useState<CheckState>(publishableKey ? "checking" : "missing");
-  const [elementState, setElementState] = useState<CheckState>(publishableKey ? "checking" : "missing");
+  const [keyState, setKeyState] = useState<CheckState>("checking");
+  const [keyMode, setKeyMode] = useState("Checking runtime configuration");
+  const [stripeState, setStripeState] = useState<CheckState>("checking");
+  const [elementState, setElementState] = useState<CheckState>("checking");
+  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null> | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!stripePromise) return;
-
     let active = true;
-    stripePromise.then(stripe => {
-      if (active) setStripeState(stripe ? "pass" : "fail");
-    }).catch(loadError => {
-      if (!active) return;
-      setStripeState("fail");
-      setError(loadError instanceof Error ? loadError.message : "Stripe.js could not initialize.");
-    });
+
+    fetch("/api/stripe/config", { cache: "no-store" })
+      .then(async response => {
+        if (!response.ok) throw new Error("Could not load runtime Stripe configuration.");
+        return response.json() as Promise<{ publishableKey?: string }>;
+      })
+      .then(async ({ publishableKey }) => {
+        if (!active) return;
+        if (!publishableKey) {
+          setKeyState("missing");
+          setKeyMode("Not set in the running service");
+          setStripeState("missing");
+          setElementState("missing");
+          return;
+        }
+
+        const mode = publishableKey.startsWith("pk_test_")
+          ? "Test mode"
+          : publishableKey.startsWith("pk_live_")
+            ? "Live mode"
+            : "Unrecognized key format";
+        setKeyState(mode === "Unrecognized key format" ? "fail" : "pass");
+        setKeyMode(mode);
+
+        const stripe = await loadStripe(publishableKey);
+        if (!active) return;
+        if (!stripe) throw new Error("Stripe.js could not initialize from the runtime key.");
+        setStripePromise(Promise.resolve(stripe));
+        setStripeState("pass");
+      })
+      .catch(loadError => {
+        if (!active) return;
+        setStripeState("fail");
+        setElementState("fail");
+        setError(loadError instanceof Error ? loadError.message : "Stripe.js could not initialize.");
+      });
 
     return () => {
       active = false;
     };
   }, []);
-
-  const keyMode = publishableKey.startsWith("pk_test_")
-    ? "Test mode"
-    : publishableKey.startsWith("pk_live_")
-      ? "Live mode"
-      : publishableKey
-        ? "Unrecognized key format"
-        : "No key in this frontend build";
 
   return (
     <main className="min-h-screen bg-white px-5 py-12 text-neutral-950 sm:px-8">
@@ -85,13 +104,13 @@ export default function StripeDebugPage() {
         <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Troubleshooting</p>
         <h1 className="mt-2 font-heading text-3xl font-bold uppercase">Stripe Form Check</h1>
         <p className="mt-3 font-serif text-sm leading-6 text-neutral-700">
-          This checks the publishable key compiled into this frontend and whether Stripe can render its card field. It does not submit a payment or expose the key value.
+          This checks the publishable key supplied by the running service and whether Stripe can render its card field. It does not submit a payment or display the key value.
         </p>
 
         <section className="mt-7 border border-[#b8aa97] bg-[#faf8f3] p-5 sm:p-6">
           <ul aria-live="polite">
-            <CheckRow label="Publishable key" state={publishableKey.startsWith("pk_") ? "pass" : publishableKey ? "fail" : "missing"} detail={keyMode} />
-            <CheckRow label="Stripe.js connection" state={stripeState} detail={stripeState === "pass" ? "Initialized" : stripeState === "checking" ? "Loading Stripe" : stripeState === "missing" ? "Key unavailable at build time" : "Could not initialize"} />
+            <CheckRow label="Runtime publishable key" state={keyState} detail={keyMode} />
+            <CheckRow label="Stripe.js connection" state={stripeState} detail={stripeState === "pass" ? "Initialized" : stripeState === "checking" ? "Loading Stripe" : stripeState === "missing" ? "Key unavailable at runtime" : "Could not initialize"} />
             <CheckRow label="Card field iframe" state={elementState} detail={elementState === "pass" ? "Mounted and ready" : elementState === "checking" ? "Waiting for Stripe" : elementState === "missing" ? "Not attempted" : "Could not mount"} />
           </ul>
 
