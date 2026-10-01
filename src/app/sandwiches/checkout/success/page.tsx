@@ -6,6 +6,7 @@ type Props = {
     session_id?: string;
     order_id?: string;
     order_key?: string;
+    reservation?: string;
   }>;
 };
 
@@ -17,6 +18,7 @@ type WooOrder = {
   subtotal: string;
   total_tax: string;
   total: string;
+  customer_note?: string;
   line_items: Array<{
     name: string;
     quantity: number;
@@ -54,6 +56,9 @@ export default async function CheckoutSuccessPage({
 }: Props) {
   const params = await searchParams;
   const order = await getOrder(params.order_id, params.order_key);
+  const isReservation = params.reservation === "turkey" || params.reservation === "roast";
+  const reservationLabel = params.reservation === "roast" ? "roast reservation" : "turkey reservation";
+  const pickupDate = order?.customer_note?.match(/Pickup date: (\d{4}-\d{2}-\d{2})/)?.[1];
   const groups = order
     ? Array.from(
         order.line_items.reduce((map, item, index) => {
@@ -97,12 +102,20 @@ function getMeta(
             tracking-[0.22em]
           "
         >
-          Order Received
+          {isReservation ? "Reservation Received" : "Order Received"}
         </h1>
 
         <p className="mt-6 text-center text-sm font-semibold leading-relaxed">
-          Thank you. Your payment was completed successfully.
+          {isReservation
+            ? `Thank you. Your ${reservationLabel} has been sent to the shop. No payment was collected online.`
+            : "Thank you. Your payment was completed successfully."}
         </p>
+
+        {isReservation && pickupDate && (
+          <p className="mt-4 text-center text-sm font-bold">
+            Pickup date: {pickupDate}
+          </p>
+        )}
 
         {(order || params.order_id || params.session_id) && (
           <p className="mt-6 text-center text-xs text-neutral-600">

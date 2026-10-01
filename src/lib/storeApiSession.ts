@@ -15,25 +15,37 @@ const COOKIE_OPTIONS = {
   path: "/",
 };
 
-export async function readStoreApiSession(): Promise<StoreApiSession> {
+export async function readStoreApiSession(
+  cookiePrefix = "wc_cart"
+): Promise<StoreApiSession> {
   const cookieStore = await cookies();
 
   return {
-    cartToken: cookieStore.get(CART_TOKEN_COOKIE)?.value,
-    nonce: cookieStore.get(CART_NONCE_COOKIE)?.value,
+    cartToken: cookieStore.get(
+      cookiePrefix === "wc_cart" ? CART_TOKEN_COOKIE : `${cookiePrefix}_token`
+    )?.value,
+    nonce: cookieStore.get(
+      cookiePrefix === "wc_cart" ? CART_NONCE_COOKIE : `${cookiePrefix}_nonce`
+    )?.value,
   };
 }
 
 export function writeStoreApiSession<T extends NextResponse>(
   response: T,
-  session: StoreApiSession
+  session: StoreApiSession,
+  cookiePrefix = "wc_cart"
 ): T {
+  const tokenCookie =
+    cookiePrefix === "wc_cart" ? CART_TOKEN_COOKIE : `${cookiePrefix}_token`;
+  const nonceCookie =
+    cookiePrefix === "wc_cart" ? CART_NONCE_COOKIE : `${cookiePrefix}_nonce`;
+
   if (session.cartToken) {
-    response.cookies.set(CART_TOKEN_COOKIE, session.cartToken, COOKIE_OPTIONS);
+    response.cookies.set(tokenCookie, session.cartToken, COOKIE_OPTIONS);
   }
 
   if (session.nonce) {
-    response.cookies.set(CART_NONCE_COOKIE, session.nonce, COOKIE_OPTIONS);
+    response.cookies.set(nonceCookie, session.nonce, COOKIE_OPTIONS);
   }
 
   return response;
