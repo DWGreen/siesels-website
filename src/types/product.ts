@@ -4,6 +4,7 @@ import { Ingredient, IngredientOverrideDefinition, IngredientOverrideSelectionDr
 export interface ProductImage {
   id: number;
   src: string;
+  thumbnailSrc?: string;
   alt?: string;
 }
 

@@ -53,11 +53,13 @@ export default function ProductCard({
       >
         {product.image ? (
           <img
-            src={product.image.src}
+            src={product.image.thumbnailSrc ?? product.image.src}
             alt={
               product.image.alt ||
               product.name
             }
+            loading="lazy"
+            decoding="async"
             className="
               h-52
               w-full

@@ -118,6 +118,7 @@ export function mapWooProduct(
       ? {
           id: woo.images[0].id,
           src: `/images/products/${woo.id}.png`,
+          thumbnailSrc: `/images/products/thumbnails/${woo.id}.webp`,
           alt: woo.images[0].alt,
         }
       : undefined,
