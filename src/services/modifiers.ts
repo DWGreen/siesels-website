@@ -23,17 +23,10 @@ export async function getHydratedModifierDefinition(
   const baseProductId =
     definition.productId;
 
-  const baseProduct =
-    baseProductId
-      ? await getProductById(
-          baseProductId
-        )
-      : null;
-
-  const childCategories =
-    await getChildCategories(
-      String(definition.optionCategoryId)
-    );
+  const [baseProduct, childCategories] = await Promise.all([
+    baseProductId ? getProductById(baseProductId) : Promise.resolve(null),
+    getChildCategories(String(definition.optionCategoryId)),
+  ]);
 
   const optionGroups =
     await Promise.all(
