@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import ProductCustomizationClient from "@/components/customization/ProductCustomizationClient";
 import { getModifierDefinitionsForCategories } from "@/data/modifiers";
 import { getHydratedModifierDefinitions } from "@/services/modifiers";
+import { getCategoryById } from "@/services/categories";
 type Props = {
   searchParams: Promise<{
     productId?: number;
@@ -33,9 +34,12 @@ if (!product) {
 }
 
 const returnTo = params.returnTo || "/sandwiches/";
+const fullProductCategories = await Promise.all(
+  product.categories.map(category => getCategoryById(String(category.id)))
+);
 const matchingModifierDefinitions =
   getModifierDefinitionsForCategories(
-    product.categories
+    fullProductCategories
   );
   console.log("matching modifier definitions:", matchingModifierDefinitions);
 
