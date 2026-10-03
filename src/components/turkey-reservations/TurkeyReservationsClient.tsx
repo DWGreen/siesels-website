@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { TurkeyReservationProduct } from "@/services/turkeyReservations";
+import { reservationStoreLocations } from "@/data/storeLocations";
 
 type Props = {
   products: TurkeyReservationProduct[];
@@ -19,6 +20,7 @@ function getTodayDate(): string {
 export default function TurkeyReservationsClient({ products }: Props) {
   const router = useRouter();
   const [pickupDate, setPickupDate] = useState("");
+  const [storeLocationId, setStoreLocationId] = useState(reservationStoreLocations[0]?.id ?? "");
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -85,6 +87,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           pickupDate,
+          storeLocationId,
           customer: { name: customerName, email, phone },
           items,
         }),
@@ -291,6 +294,13 @@ export default function TurkeyReservationsClient({ products }: Props) {
               <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup & Contact</h2>
               <p className="mt-1 font-serif text-xs text-neutral-600">Where and when should we prepare your order?</p>
               <div className="mt-5 space-y-4">
+                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Pickup location
+                  <select required value={storeLocationId} onChange={event => setStoreLocationId(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
+                    <option value="" disabled>Select a store</option>
+                    {reservationStoreLocations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
+                  </select>
+                </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Pickup date
                   <input

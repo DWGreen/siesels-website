@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
+import { getReservationStoreLocation } from "@/data/storeLocations";
 
 const SESSION_COOKIE_PREFIX = "wc_roast_reservation";
 const ROAST_CATEGORY_ID = 41;
@@ -9,6 +10,7 @@ const ROAST_CATEGORY_ID = 41;
 type RoastLineRequest = { productId: number; variationId: number; grade: string; quantity: number };
 type RequestBody = {
   pickupDate?: string;
+  storeLocationId?: string;
   customer?: { name?: string; email?: string; phone?: string };
   items?: RoastLineRequest[];
 };
@@ -65,6 +67,7 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as RequestBody;
     const pickupDate = body.pickupDate ?? "";
+    const storeLocation = getReservationStoreLocation(body.storeLocationId);
     const name = body.customer?.name?.trim() ?? "";
     const email = body.customer?.email?.trim() ?? "";
     const phone = body.customer?.phone?.trim() ?? "";
@@ -82,6 +85,9 @@ export async function POST(request: Request) {
     }
     if (!name || !/^\S+@\S+\.\S+$/.test(email)) {
       return respond({ message: "Enter your name and a valid email address." }, 400, session);
+    }
+    if (!storeLocation) {
+      return respond({ message: "Choose a valid pickup location." }, 400, session);
     }
     if (!items.length) {
       return respond({ message: "Add at least one roast to your reservation." }, 400, session);
@@ -102,6 +108,7 @@ export async function POST(request: Request) {
           id: item.productId,
           quantity: item.quantity,
           variation: [{ attribute: "Grade", value: item.grade }],
+          siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})`,
         }),
       });
       session = addResult.session;
@@ -127,7 +134,7 @@ export async function POST(request: Request) {
           phone,
           country: "US",
         },
-        customer_note: `Standing rib roast reservation. Pickup date: ${pickupDate}. No payment collected online.`,
+        customer_note: `Standing rib roast reservation. Pickup location: ${storeLocation.name} (${storeLocation.id}). Pickup date: ${pickupDate}. No payment collected online.`,
       }),
     });
     session = checkout.session;

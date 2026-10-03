@@ -3,11 +3,13 @@ import { NextResponse } from "next/server";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { validateTurkeyReservationLines } from "@/services/turkeyReservations";
+import { getReservationStoreLocation } from "@/data/storeLocations";
 
 const SESSION_COOKIE_PREFIX = "wc_turkey_reservation";
 
 type ReservationRequest = {
   pickupDate?: string;
+  storeLocationId?: string;
   customer?: {
     name?: string;
     email?: string;
@@ -39,6 +41,7 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ReservationRequest;
     const pickupDate = body.pickupDate ?? "";
+    const storeLocation = getReservationStoreLocation(body.storeLocationId);
     const customerName = body.customer?.name?.trim() ?? "";
     const email = body.customer?.email?.trim() ?? "";
     const phone = body.customer?.phone?.trim() ?? "";
@@ -76,6 +79,10 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!storeLocation) {
+      return reservationResponse({ message: "Choose a valid pickup location." }, 400, session);
+    }
+
     if (items.length === 0) {
       return reservationResponse(
         { message: "Select at least one turkey size and quantity." },
@@ -102,7 +109,11 @@ export async function POST(request: Request) {
       const added = await callStoreApi("/cart/add-item", {
         session,
         method: "POST",
-        body: JSON.stringify({ id: item.productId, quantity: item.quantity }),
+        body: JSON.stringify({
+          id: item.productId,
+          quantity: item.quantity,
+          siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})`,
+        }),
       });
       session = added.session;
     }
@@ -126,7 +137,7 @@ export async function POST(request: Request) {
           phone,
           country: "US",
         },
-        customer_note: `Turkey reservation. Pickup date: ${pickupDate}. No payment collected online.`,
+        customer_note: `Turkey reservation. Pickup location: ${storeLocation.name} (${storeLocation.id}). Pickup date: ${pickupDate}. No payment collected online.`,
       }),
     });
     session = checkout.session;
