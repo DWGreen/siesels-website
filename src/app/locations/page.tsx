@@ -5,12 +5,12 @@ import Locations from "@/components/sections/Locations";
 
 export default function LocationsPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Locations"
-          backgroundImage="/images/hero/locs.png"
+          backgroundImage="/images/hero/locs.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
         <section className="flex flex-1 items-center justify-center bg-white px-4 py-20 lg:py-32">

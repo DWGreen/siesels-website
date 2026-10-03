@@ -29,10 +29,10 @@ export default function InstagramGallery() {
               href="https://www.instagram.com/bestmeatssandiego/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden"
+              className="group relative aspect-square overflow-hidden max-md:last:odd:hidden"
             >
               {/* Placeholder gradient — replace with real images later */}
-              <img src={photo.src} alt={photo.alt} className="object-cover w-full h-full" />
+              <img src={photo.src} alt={photo.alt} loading="lazy" className="object-cover w-full h-full" />
 
               {/* Placeholder label */}
               <div className="absolute inset-0 flex items-center justify-center">

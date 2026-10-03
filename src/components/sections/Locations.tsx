@@ -47,7 +47,7 @@ export default function Locations() {
               <iframe
                 title={`Map of ${loc.name}`}
                 src={`https://www.google.com/maps?q=${loc.mapQuery}&output=embed`}
-                className="h-[350px] w-full md:h-[400px]"
+                className="h-[240px] w-full sm:h-[350px] md:h-[400px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -61,12 +61,20 @@ export default function Locations() {
                   Tel:{" "}
                   <a
                     href={`tel:${loc.phone.replace(/[^+\d]/g, "")}`}
-                    className="underline hover:text-brand-black"
+                    className="inline-block py-2 underline hover:text-brand-black"
                   >
                     {loc.phone}
                   </a>
                 </p>
                 <p>Hours: {loc.hours}</p>
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${loc.mapQuery}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex min-h-11 items-center border-2 border-brand-black px-5 font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand-black transition-colors hover:bg-brand-black hover:text-white"
+                >
+                  Get Directions
+                </a>
               </div>
             </div>
           ))}

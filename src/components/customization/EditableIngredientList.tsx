@@ -119,9 +119,12 @@ export default function EditableIngredientList({
               key={ingredient.name}
               className="
                 flex
-                items-start
-                justify-between
-                gap-4
+                flex-col
+                gap-2
+                sm:flex-row
+                sm:items-start
+                sm:justify-between
+                sm:gap-4
               "
             >
               <button
@@ -222,6 +225,8 @@ export default function EditableIngredientList({
                   border-neutral-300
                   bg-white
                   p-1
+                  ml-9
+                  sm:ml-0
                 "
               >
                 {(
@@ -238,6 +243,7 @@ export default function EditableIngredientList({
                     <button
                       key={optionMode}
                       type="button"
+                      aria-pressed={active}
                       onClick={() =>
                         onChangeIngredient?.(
                           updateIngredientMode(
@@ -247,13 +253,18 @@ export default function EditableIngredientList({
                         )
                       }
                       className={`
-                        px-2
-                        py-1
-                        text-[10px]
+                        min-h-10
+                        flex-1
+                        px-3
+                        text-xs
                         font-black
                         uppercase
                         tracking-[0.12em]
                         transition
+                        sm:min-h-8
+                        sm:flex-none
+                        sm:px-2
+                        sm:text-[10px]
 
                         ${
                           active

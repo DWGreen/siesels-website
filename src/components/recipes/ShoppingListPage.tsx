@@ -41,7 +41,7 @@ export default function ShoppingListPage() {
   subtitle="Build your grocery list from recipes, weekly menus, and custom items."
 />
 
-      <main className="mx-auto max-w-4xl px-4 py-6">
+      <div className="mx-auto max-w-4xl px-4 py-6">
         <div
           className="
             mb-5
@@ -81,7 +81,7 @@ export default function ShoppingListPage() {
             ].map(([key, label]) => (
               <label
                 key={key}
-                className="flex items-center gap-2"
+                className="flex min-h-11 items-center gap-2 sm:min-h-0"
               >
                 <input
                   type="checkbox"
@@ -213,7 +213,7 @@ export default function ShoppingListPage() {
             )}
           </div>
         )}
-      </main>
+      </div>
     </div>
   );
 }
@@ -304,7 +304,7 @@ function ShoppingItems({
             text-sm
           "
         >
-          <label className="flex gap-3">
+          <label className="flex min-h-11 gap-3 py-1 sm:min-h-0 sm:py-0">
             <input
               type="checkbox"
               checked={Boolean(item.checked)}

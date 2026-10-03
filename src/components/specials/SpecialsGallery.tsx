@@ -69,7 +69,7 @@ export default function SpecialsGallery({
         className="mx-auto mb-10 w-full max-w-5xl border-y border-neutral-950 py-4"
         aria-label="Specials categories"
       >
-        <div className="flex gap-3 overflow-x-auto pb-1">
+        <div className="flex flex-col gap-2 sm:flex-row sm:gap-3 sm:overflow-x-auto sm:pb-1">
           {categories.map((category, index) => {
             const isActive = index === activeCategoryIndex;
 
@@ -90,8 +90,9 @@ export default function SpecialsGallery({
                   text-xs
                   font-black
                   uppercase
-                  tracking-[0.22em]
+                  tracking-[0.18em]
                   transition
+                  sm:tracking-[0.22em]
                   ${
                     isActive
                       ? "bg-neutral-950 text-white"

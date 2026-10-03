@@ -38,7 +38,7 @@ export default function RecipeModuleHeader({
         <div>
          
 
-          <h1
+          <h2
             className="
             font-heading
               mt-2
@@ -50,7 +50,7 @@ export default function RecipeModuleHeader({
             "
           >
             {title}
-          </h1>
+          </h2>
 
           {subtitle && (
             <p className="mt-2 max-w-2xl text-sm text-white">

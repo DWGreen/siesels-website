@@ -134,9 +134,13 @@ export default function RecipeBoxSidebar({
   return (
     <aside
       className="
-        border-r
+        order-last
+        border-t
         border-neutral-300
         bg-neutral-100
+        lg:order-none
+        lg:border-r
+        lg:border-t-0
       "
     >
       <SidebarSection title="My Recipes">
@@ -219,13 +223,18 @@ export default function RecipeBoxSidebar({
           </p>
         )}
         <div className="space-y-2">
+          {menuDays.every(day => (weekMenu[day] ?? []).length === 0) && (
+            <p className="text-sm text-neutral-500 lg:hidden">
+              No recipes planned this week.
+            </p>
+          )}
           {menuDays.map(day => {
             const recipeIds = weekMenu[day] ?? [];
 
             return (
               <section
                 key={day}
-                className="bg-white p-3"
+                className={`bg-white p-3 ${recipeIds.length === 0 ? "hidden lg:block" : ""}`}
               >
                 <h2
                   className="

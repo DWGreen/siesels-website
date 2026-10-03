@@ -677,17 +677,19 @@ const ingredientOverrideOptions =
           />
         </div>
 
-        <h1
+        <h2
           className="
-            text-5xl
+            text-3xl
             font-black
             uppercase
-            tracking-[0.28em]
+            tracking-[0.12em]
+            sm:text-5xl
+            sm:tracking-[0.28em]
             md:text-7xl
           "
         >
           Sandwiches
-        </h1>
+        </h2>
 
         <p
           className="
@@ -1006,13 +1008,23 @@ return (
 
       <div
         className="
+          sticky
+          bottom-0
+          z-30
+          -mx-6
           mt-12
           flex
           flex-col
-          gap-4
+          gap-3
           bg-neutral-950
-          p-5
+          px-6
+          pt-4
+          pb-[calc(1rem+env(safe-area-inset-bottom))]
           text-white
+          shadow-[0_-6px_18px_rgba(0,0,0,0.28)]
+          sm:mx-0
+          sm:gap-4
+          sm:p-5
           md:flex-row
           md:items-center
           md:justify-between
@@ -1020,10 +1032,12 @@ return (
       >
        <div
           className="
-            text-2xl
+            text-lg
             font-black
             uppercase
-            tracking-[0.28em]
+            tracking-[0.15em]
+            sm:text-2xl
+            sm:tracking-[0.28em]
           "
         >
           Subtotal:
@@ -1035,15 +1049,14 @@ return (
         <div
           className="
             flex
-            flex-col
             gap-3
-            sm:flex-row
           "
         >
           <button
             type="button"
             onClick={onCancel}
             className="
+              flex-1
               border
               border-white/60
               px-6
@@ -1056,6 +1069,7 @@ return (
               transition
               hover:bg-white
               hover:text-neutral-950
+              sm:flex-none
             "
           >
             Cancel
@@ -1065,18 +1079,22 @@ return (
             type="button"
             onClick={handleSave}
             className={`
+              flex-[2]
               border
               border-white
-              px-8
+              px-4
               py-3
               text-xs
               font-black
               uppercase
-              tracking-[0.25em]
+              tracking-[0.2em]
               text-white
               transition
               hover:bg-white
               hover:text-neutral-950
+              sm:flex-none
+              sm:px-8
+              sm:tracking-[0.25em]
                ${
       canSave
         ? "hover:bg-white hover:text-neutral-950"

@@ -32,7 +32,7 @@ export default function SteakGrid() {
           Temperature Guide
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-8">
           {temps.map((steak) => (
             <SteakCard key={steak.id} steak={steak} onClick={setActive} />
           ))}
@@ -42,7 +42,7 @@ export default function SteakGrid() {
           The Cuts
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-8">
           {cuts.map((steak) => (
             <SteakCard key={steak.id} steak={steak} onClick={setActive} />
           ))}
@@ -53,7 +53,7 @@ export default function SteakGrid() {
           Good To Know
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-8">
           {info.map((entry) => (
             <SteakCard key={entry.id} steak={entry} onClick={setActive} />
           ))}
@@ -180,14 +180,17 @@ function SteakCard({
       onClick={() => onClick(steak)}
       className="
         group
+        flex
+        flex-col
         border-2
         border-neutral-900
         bg-white
-        p-3
+        p-2
         text-left
         transition
         hover:-translate-y-1
         hover:shadow-[6px_6px_0px_rgba(0,0,0,1)]
+        sm:p-3
       "
     >
       {/* card image */}
@@ -198,7 +201,7 @@ function SteakCard({
             alt={steak.name}
             fill
             className="object-cover transition duration-300 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 1024px) 50vw, 33vw"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-neutral-200">
@@ -210,8 +213,8 @@ function SteakCard({
       </div>
 
       {/* card text */}
-      <div className="p-2 pt-3">
-        <span className="mb-1 block text-[10px] font-black uppercase tracking-[0.35em] text-neutral-400">
+      <div className="p-1 pt-2 sm:p-2 sm:pt-3">
+        <span className="mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]">
           {steak.category === "cut"
             ? "Steak Cut"
             : steak.category === "temps"
@@ -219,17 +222,17 @@ function SteakCard({
               : "Reference"}
         </span>
 
-        <h3 className="font-barlow text-xl font-bold uppercase tracking-[0.1em] text-brand-black">
+        <h3 className="font-barlow text-base font-bold uppercase leading-tight tracking-[0.06em] text-brand-black sm:text-xl sm:tracking-[0.1em]">
           {steak.name}
         </h3>
 
-        <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-neutral-600">
+        <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.1em] text-neutral-600 sm:mt-2 sm:text-xs sm:tracking-[0.18em]">
           {steak.tagline}
         </p>
 
         {steak.tempRange ? (
           <div
-            className="mt-4 flex items-center gap-2 border-t border-neutral-200 pt-3 font-black uppercase tracking-[0.2em] text-red-700"
+            className="mt-3 flex items-center gap-1.5 border-t border-neutral-200 pt-2 font-black uppercase tracking-[0.1em] text-red-700 sm:mt-4 sm:gap-2 sm:pt-3 sm:tracking-[0.2em]"
             style={{ fontSize: "0.71875rem" }}
           >
             <Thermometer size={16} strokeWidth={2.5} aria-hidden="true" />
@@ -237,7 +240,7 @@ function SteakCard({
           </div>
         ) : null}
 
-        <span className="mt-4 block text-[10px] font-black uppercase tracking-[0.28em] text-neutral-400 transition group-hover:text-brand-black">
+        <span className="mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]">
           Learn more &rsaquo;
         </span>
       </div>

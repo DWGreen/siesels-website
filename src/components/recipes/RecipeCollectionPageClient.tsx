@@ -144,7 +144,7 @@ export default function RecipeCollectionPageClient({
   weekKey={weekKey}
       />
 
-      <main>
+      <div>
         <RecipeCollectionFeature collection={collection} />
 
         <RecipeResults
@@ -158,7 +158,7 @@ export default function RecipeCollectionPageClient({
           onSelectTag={handleSelectTag}
           weekKey={weekKey}
         />
-      </main>
+      </div>
 
       <RecipeCollectionRail
         collections={relatedCollections}

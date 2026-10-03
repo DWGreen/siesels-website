@@ -26,7 +26,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.label}
-                    className="text-brand-white transition-opacity hover:opacity-60"
+                    className="-m-2.5 p-2.5 text-brand-white transition-opacity hover:opacity-60"
                   >
                     <Icon className="h-6 w-6" />
                   </a>
@@ -36,12 +36,12 @@ export default function Footer() {
 
             {/* Navigation links */}
             <nav aria-label="Footer navigation">
-              <ul className="flex flex-col items-center gap-3 md:items-start">
+              <ul className="flex flex-col items-center gap-1 md:items-start md:gap-3">
                 {footerNavItems.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60"
+                      className="block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0"
                     >
                       {item.label}
                     </Link>
@@ -61,8 +61,10 @@ export default function Footer() {
               <input
                 type="email"
                 required
+                autoComplete="email"
+                aria-label="Email address"
                 placeholder="Enter Your Email Address"
-                className="h-12 flex-1 border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:rounded-none"
+                className="h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none"
               />
               <button
                 type="submit"
@@ -78,7 +80,7 @@ export default function Footer() {
       {/* Copyright bar */}
       <div className="border-t border-white/10 px-6 py-4">
         <p className="text-center font-body text-[11px] text-[#999]">
-          &copy;{new Date().getFullYear()} Iowa Meat Farms, Siesel&apos;s
+          &copy;{new Date().getFullYear()}{" "}Iowa Meat Farms, Siesel&apos;s
           Meats, all rights reserved. Website by DW Green Company.
         </p>
       </div>

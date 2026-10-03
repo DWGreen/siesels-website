@@ -8,7 +8,7 @@ import InstagramGallery from "@/components/sections/InstagramGallery";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col gap-2">
         <Hero />

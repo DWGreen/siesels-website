@@ -6,12 +6,12 @@ import AboutFeatureGrid from "@/components/sections/AboutFeatureGrid";
 
 export default function AboutPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col gap-2">
         <InteriorHero
           title="About"
-          backgroundImage="/images/hero/steak-101-new.png"
+          backgroundImage="/images/hero/steak-101-new.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
           showMasterLogo
         />

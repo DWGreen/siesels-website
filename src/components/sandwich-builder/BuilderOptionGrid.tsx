@@ -19,7 +19,8 @@ export default function BuilderOptionGrid({
         grid-cols-1
         sm:grid-cols-2
         gap-x-8
-        gap-y-3
+        gap-y-1
+        sm:gap-y-3
       "
     >
       {products.map((product) => (

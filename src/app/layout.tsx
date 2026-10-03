@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   CartProvider
 } from "@/context/CartContext";
@@ -39,6 +39,12 @@ const zillaSlab = Zilla_Slab({
   variable: "--font-zilla-slab",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bestmeatssandiego.com"),

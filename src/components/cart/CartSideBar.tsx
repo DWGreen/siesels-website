@@ -95,7 +95,7 @@ export default function CartSidebar() {
           gap-4
         "
       >
-        <h1
+        <h2
           className="
             text-xl
             font-black
@@ -104,7 +104,7 @@ export default function CartSidebar() {
           "
         >
           Your Order
-        </h1>
+        </h2>
 
         <span
           className="

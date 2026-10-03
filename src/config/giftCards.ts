@@ -1,0 +1,1 @@
+export const MAX_GIFT_CARD_QUANTITY = 10;

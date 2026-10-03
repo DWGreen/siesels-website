@@ -37,16 +37,21 @@ export default function BuilderOptionCard({
   return (
     <button
       type="button"
+      aria-pressed={selected}
       onClick={onToggle}
       className="
         group
         flex
+        min-h-11
         w-full
         items-start
         gap-3
+        py-2
         text-left
         text-sm
         text-neutral-950
+        sm:min-h-0
+        sm:py-0
       "
     >
       <span

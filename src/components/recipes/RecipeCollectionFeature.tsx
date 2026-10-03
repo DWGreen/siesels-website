@@ -41,7 +41,7 @@ export default function RecipeCollectionFeature({
           text-white
         "
       >
-        <h1
+        <h2
           className="
             text-2xl
             font-black
@@ -50,7 +50,7 @@ export default function RecipeCollectionFeature({
           "
         >
           {collection.title}
-        </h1>
+        </h2>
 
         {collection.description && (
           <p

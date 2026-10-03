@@ -84,9 +84,9 @@ function getMeta(
 }
 
   return (
-    <main
+    <div
       className="
-        min-h-screen
+        min-h-svh
         bg-[#e6e6e6]
         px-6
         py-20
@@ -94,7 +94,7 @@ function getMeta(
       "
     >
       <div className="mx-auto max-w-3xl border-2 border-neutral-950 bg-white p-8">
-        <h1
+        <h2
           className="
             text-4xl
             font-black
@@ -103,7 +103,7 @@ function getMeta(
           "
         >
           {isReservation ? "Reservation Received" : "Order Received"}
-        </h1>
+        </h2>
 
         <p className="mt-6 text-center text-sm font-semibold leading-relaxed">
           {isReservation
@@ -194,6 +194,6 @@ function getMeta(
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

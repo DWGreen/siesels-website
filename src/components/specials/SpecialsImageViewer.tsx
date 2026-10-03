@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
 import { SpecialImage } from "@/data/specials";
 
 type Props = {
@@ -23,26 +24,52 @@ export default function SpecialsImageViewer({
   const [imageAspectRatios, setImageAspectRatios] = useState<
     Record<string, number>
   >({});
+  const [zoomedSrc, setZoomedSrc] = useState<string | null>(null);
+  const isOpen = Boolean(image);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!image) {
     return null;
   }
 
   const imageAspectRatio = imageAspectRatios[image.src] ?? 4 / 5;
+  const isZoomed = zoomedSrc === image.src;
+  const toggleZoom = () => setZoomedSrc(isZoomed ? null : image.src);
 
-  return (
+  return createPortal(
     <div
       className="
         fixed
         inset-0
-        z-50
+        z-[100]
         flex
         items-center
         justify-center
         bg-black/85
-        px-4
-        py-6
+        px-2
+        py-2
+        sm:px-4
+        sm:py-6
       "
+      role="dialog"
+      aria-modal="true"
+      aria-label={heading ?? "Weekly Special"}
       onClick={onClose}
     >
       {/* subtle site-style texture layer */}
@@ -65,8 +92,9 @@ export default function SpecialsImageViewer({
           border
           border-white/40
           bg-[#1f1f1f]
-          p-4
+          p-3
           shadow-[0_0_0_6px_rgba(255,255,255,0.06)]
+          sm:p-4
         "
         onClick={(event) => event.stopPropagation()}
       >
@@ -140,19 +168,29 @@ export default function SpecialsImageViewer({
             border
             border-white/30
             bg-[#e6e6e6]
-            p-3
+            p-1
+            sm:p-3
           "
         >
           <div
-            className="
+            className="max-h-[72svh] overflow-auto overscroll-contain"
+          >
+          <button
+            type="button"
+            onClick={toggleZoom}
+            aria-label={isZoomed ? "Fit image to screen" : "Zoom in on image"}
+            className={`
               relative
               mx-auto
-              w-full
+              block
               bg-white
-            "
+              ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}
+            `}
             style={{
               aspectRatio: `${imageAspectRatio}`,
-              maxHeight: "72vh",
+              width: isZoomed ? "250%" : "100%",
+              maxWidth: isZoomed ? "none" : undefined,
+              maxHeight: isZoomed ? "none" : "72svh",
             }}
           >
             <Image
@@ -160,7 +198,7 @@ export default function SpecialsImageViewer({
               alt={image.alt}
               fill
               className="object-contain"
-              sizes="100vw"
+              sizes={isZoomed ? "250vw" : "100vw"}
               priority
               onLoad={(event) => {
                 const { naturalWidth, naturalHeight } = event.currentTarget;
@@ -181,6 +219,7 @@ export default function SpecialsImageViewer({
                 }
               }}
             />
+          </button>
           </div>
 
           {onPrevious ? (
@@ -190,7 +229,7 @@ export default function SpecialsImageViewer({
               aria-label="Previous special"
               className="
                 absolute
-                left-3
+                left-1
                 top-1/2
                 flex
                 h-11
@@ -205,6 +244,7 @@ export default function SpecialsImageViewer({
                 transition
                 hover:bg-white
                 hover:text-black
+                sm:left-3
               "
             >
               <ChevronLeft size={25} strokeWidth={2.5} />
@@ -218,7 +258,7 @@ export default function SpecialsImageViewer({
               aria-label="Next special"
               className="
                 absolute
-                right-3
+                right-1
                 top-1/2
                 flex
                 h-11
@@ -233,6 +273,7 @@ export default function SpecialsImageViewer({
                 transition
                 hover:bg-white
                 hover:text-black
+                sm:right-3
               "
             >
               <ChevronRight size={25} strokeWidth={2.5} />
@@ -253,17 +294,25 @@ export default function SpecialsImageViewer({
             pt-3
           "
         >
-          <p
+          <button
+            type="button"
+            onClick={toggleZoom}
             className="
+              flex
+              min-h-11
+              items-center
+              gap-2
               text-[10px]
               font-black
               uppercase
               tracking-[0.3em]
-              text-white/60
+              text-white/80
+              hover:text-white
             "
           >
-            Click outside image to close
-          </p>
+            {isZoomed ? <ZoomOut size={16} /> : <ZoomIn size={16} />}
+            {isZoomed ? "Fit to screen" : "Tap image to zoom"}
+          </button>
 
           {image.title ? (
             <p
@@ -281,6 +330,7 @@ export default function SpecialsImageViewer({
           ) : null}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

@@ -791,7 +791,7 @@ function updateFilter<K extends keyof RecipeFilters>(
       <div
         className="
           grid
-          min-h-screen
+          min-h-svh
           lg:grid-cols-[280px_1fr_260px]
         "
       >
@@ -814,7 +814,7 @@ function updateFilter<K extends keyof RecipeFilters>(
   weekKey={weekKey}
         />
 
-        <main id="slideshow_holder">
+        <div id="slideshow_holder">
             {isRecipeHome ? (
     <RecipeHomePanel
       recipes={topFavoriteRecipes}
@@ -846,7 +846,7 @@ function updateFilter<K extends keyof RecipeFilters>(
             onLoadMore={loadMoreRecipes}
           />
   )}
-        </main>
+        </div>
 
         <RecipeRightRail
           recipes={recipes}

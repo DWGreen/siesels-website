@@ -368,7 +368,7 @@ export default function RecipeDetailView({
           weekKey={weekKey}
         />
 
-        <main
+        <div
           className="
             grid
             gap-6
@@ -760,7 +760,7 @@ export default function RecipeDetailView({
               </ul>
             </div>
           </aside>
-        </main>
+        </div>
       </div>
 
       {showRatingDialog && (

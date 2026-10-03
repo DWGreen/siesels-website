@@ -6,12 +6,12 @@ import Image from "next/image";
 
 export default function Steak101Page() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Steak 101"
-          backgroundImage="/images/hero/tri-tip-black.png"
+          backgroundImage="/images/hero/tri-tip-black.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
         

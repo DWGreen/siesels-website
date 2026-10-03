@@ -110,17 +110,17 @@ export default function TurkeyReservationsClient({ products }: Props) {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
+    <div className="relative min-h-svh overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[url('/images/textures/footer-bg.png')] bg-cover bg-bottom opacity-[0.12]" />
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-7 border-b-2 border-[#2d2d2d] pb-6">
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
             <div>
               <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Holiday Orders</p>
-              <h1 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Turkey Reservations</h1>
+              <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Turkey Reservations</h2>
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Build your reservation by adding the turkey weight ranges you need, then choose a pickup date. Payment is handled at pickup.</p>
             </div>
-            <Image src="/images/hand-drawn/turkey.png" alt="Hand-drawn butcher illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
+            <Image src="/images/hand-drawn/turkey-color.png" alt="Hand-drawn butcher illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
           </div>
           <ol className="mt-6 grid gap-4 border-t border-[#b8aa97] pt-5 sm:grid-cols-3">
             {[
@@ -163,7 +163,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
 
               {selectedProducts.length === 0 ? (
                 <div className="flex min-h-[270px] flex-col items-center justify-center px-5 py-8 text-center">
-                  <Image src="/images/hand-drawn/vintage-turkey.png" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-cover mix-blend-multiply sm:h-40" />
+                  <Image src="/images/hand-drawn/turkey_color.png" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-cover mix-blend-multiply sm:h-40" />
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Reserve Your Turkey?</h3>
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose a weight range and quantity to get started.</p>
                   <button
@@ -238,7 +238,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
 
               {isPickerOpen && (
                 <div
-                  className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 sm:items-center sm:p-6"
+                  className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 pb-[env(safe-area-inset-bottom)] sm:items-center sm:p-6"
                   role="presentation"
                   onMouseDown={event => {
                     if (event.target === event.currentTarget) setIsPickerOpen(false);
@@ -304,15 +304,15 @@ export default function TurkeyReservationsClient({ products }: Props) {
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Name
-                  <input required value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Email
-                  <input required type="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Phone
-                  <input type="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
               </div>
 
@@ -332,6 +332,6 @@ export default function TurkeyReservationsClient({ products }: Props) {
           </form>
         )}
       </div>
-    </main>
+    </div>
   );
 }

@@ -25,7 +25,7 @@ export default async function SpecialsPage({ searchParams }: Props) {
     : undefined;
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero

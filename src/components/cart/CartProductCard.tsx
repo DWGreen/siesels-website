@@ -104,6 +104,7 @@ export default function CartProductCard({
       border
       border-neutral-950
       bg-[#e6e6e6]
+      min-h-10
       px-2
       py-1
       text-xs
@@ -114,6 +115,7 @@ export default function CartProductCard({
       outline-none
       transition
       focus:bg-white
+      sm:min-h-0
     "
   >
     {Array.from(
@@ -137,6 +139,7 @@ export default function CartProductCard({
                 type="button"
                 onClick={onEdit}
                 className="
+                  py-2
                   text-xs
                   font-black
                   uppercase
@@ -145,6 +148,7 @@ export default function CartProductCard({
                   underline-offset-4
                   transition
                   hover:opacity-60
+                  sm:py-0
                 "
               >
                 Edit
@@ -217,8 +221,8 @@ export default function CartProductCard({
             }}
             className="
               flex
-              h-7
-              w-7
+              h-10
+              w-10
               items-center
               justify-center
               border
@@ -228,6 +232,8 @@ export default function CartProductCard({
               transition
               hover:bg-neutral-950
               hover:text-white
+              sm:h-7
+              sm:w-7
             "
             aria-label="Remove item"
           >

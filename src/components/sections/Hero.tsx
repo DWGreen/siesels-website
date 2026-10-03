@@ -5,9 +5,10 @@ export default function Hero() {
     <section className="relative flex h-[400px] w-full items-center justify-center overflow-hidden lg:h-[650px]">
       {/* Hero background image */}
       <Image
-        src="/images/hero/hero_image.png"
+        src="/images/hero/hero_image.webp"
         alt="Siesel's Meats butcher shop"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
       />

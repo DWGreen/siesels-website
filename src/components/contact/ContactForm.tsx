@@ -62,6 +62,7 @@ export default function ContactForm() {
           <input
             required
             type="text"
+            autoComplete="given-name"
             value={formData.firstName}
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, firstName: event.target.value }))
@@ -77,6 +78,7 @@ export default function ContactForm() {
           <input
             required
             type="text"
+            autoComplete="family-name"
             value={formData.lastName}
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, lastName: event.target.value }))
@@ -94,6 +96,7 @@ export default function ContactForm() {
           <input
             required
             type="email"
+            autoComplete="email"
             value={formData.email}
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, email: event.target.value }))
@@ -108,6 +111,7 @@ export default function ContactForm() {
           </span>
           <input
             type="tel"
+            autoComplete="tel"
             value={formData.phone}
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, phone: event.target.value }))
@@ -169,7 +173,7 @@ export default function ContactForm() {
         />
       </label>
 
-      <label className="flex items-start gap-3">
+      <label className="flex min-h-11 items-start gap-3 py-1">
         <input
           type="checkbox"
           checked={formData.newsletterOptIn}
@@ -179,7 +183,7 @@ export default function ContactForm() {
               newsletterOptIn: event.target.checked,
             }))
           }
-          className="mt-1 h-4 w-4 border border-black/30"
+          className="mt-0.5 h-5 w-5 shrink-0 border border-black/30"
         />
         <span className="font-body text-sm text-black/80">
           I also want to receive specials and promotions.

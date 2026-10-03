@@ -334,7 +334,7 @@ const validatedItemByCartItemId = new Map(
   return (
     <div
       className="
-        min-h-screen
+        min-h-svh
         bg-[#e6e6e6]
         text-neutral-950
       "
@@ -393,17 +393,19 @@ const validatedItemByCartItemId = new Map(
             />
           </div>
 
-          <h1
+          <h2
             className="
-              text-5xl
+              text-3xl
               font-black
               uppercase
-              tracking-[0.28em]
+              tracking-[0.12em]
+              sm:text-5xl
+              sm:tracking-[0.28em]
               md:text-7xl
             "
           >
             Checkout
-          </h1>
+          </h2>
 
           <p
             className="

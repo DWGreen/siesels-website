@@ -5,7 +5,7 @@ import ContactForm from "@/components/contact/ContactForm";
 
 export default function ContactPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
@@ -29,9 +29,9 @@ export default function ContactPage() {
                 right away.
               </p>
               <div className="space-y-2 font-body text-sm text-black/75">
-                <p>Iowa Meat Farms: (619) 281-5766</p>
-                <p>Siesel&apos;s Meats: (619) 275-1234</p>
-                <p>Email: info@bestmeatssandiego.com</p>
+                <p>Iowa Meat Farms: <a href="tel:+16192815766" className="inline-block py-1 font-semibold underline underline-offset-2">(619) 281-5766</a></p>
+                <p>Siesel&apos;s Meats: <a href="tel:+16192751234" className="inline-block py-1 font-semibold underline underline-offset-2">(619) 275-1234</a></p>
+                <p>Email: <a href="mailto:info@bestmeatssandiego.com" className="inline-block py-1 font-semibold underline underline-offset-2">info@bestmeatssandiego.com</a></p>
               </div>
             </div>
 

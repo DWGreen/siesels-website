@@ -81,14 +81,16 @@ export default function RecipeFeaturedSlideshow({
                   }
                   className={`
                     flex
-                    h-7
-                    w-7
+                    h-10
+                    w-10
                     items-center
                     justify-center
                     border
                     border-neutral-900
                     text-xs
                     font-black
+                    sm:h-7
+                    sm:w-7
                     ${
                       isActive
                         ? "bg-neutral-900 text-white"

@@ -1,6 +1,6 @@
 import { getMenuStructure } from "@/services/menu";
 import MenuClient
-  from "./MenuClient";
+  from "../MenuClient";
 
 export const dynamic = "force-dynamic";
 

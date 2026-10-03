@@ -56,6 +56,9 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
       >
         <input
           type="text"
+          name="name"
+          autoComplete="name"
+          aria-label="Full name"
           placeholder="Full Name"
           className={inputClass}
           value={values.fullName}
@@ -66,6 +69,9 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
 
         <input
           type="email"
+          name="email"
+          autoComplete="email"
+          aria-label="Email address"
           placeholder="Email Address"
           className={inputClass}
           value={values.email}
@@ -76,6 +82,9 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
 
         <input
           type="tel"
+          name="tel"
+          autoComplete="tel"
+          aria-label="Phone number"
           placeholder="Phone Number"
           className={inputClass}
           value={values.phone}
@@ -86,6 +95,9 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
 
         <input
           type="text"
+          name="address1"
+          autoComplete="address-line1"
+          aria-label="Street address"
           placeholder="Street Address"
           className={inputClass}
           value={values.address1}
@@ -94,11 +106,14 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
           }
         />
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <input
             type="text"
+            name="city"
+            autoComplete="address-level2"
+            aria-label="City"
             placeholder="City"
-            className={inputClass}
+            className={`${inputClass} col-span-2 sm:col-span-1`}
             value={values.city}
             onChange={event =>
               onChange({ ...values, city: event.target.value })
@@ -106,6 +121,9 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
           />
           <input
             type="text"
+            name="state"
+            autoComplete="address-level1"
+            aria-label="State"
             placeholder="State"
             className={inputClass}
             value={values.state}
@@ -115,6 +133,10 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
           />
           <input
             type="text"
+            name="postcode"
+            autoComplete="postal-code"
+            inputMode="numeric"
+            aria-label="ZIP code"
             placeholder="ZIP Code"
             className={inputClass}
             value={values.postcode}
@@ -125,6 +147,8 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
         </div>
 
         <textarea
+          name="notes"
+          aria-label="Order notes"
           placeholder="Order Notes"
           className={`
             ${inputClass}

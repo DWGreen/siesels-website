@@ -114,7 +114,7 @@ useEffect(() => {
         subtitle="Saved recipes are stored locally on this computer."
       />
 
-      <main className="mx-auto max-w-5xl px-4 py-6">
+      <div className="mx-auto max-w-5xl px-4 py-6">
         <div
           className="
             mb-5
@@ -283,7 +283,7 @@ useEffect(() => {
             ))}
           </div>
         )}
-      </main>
+      </div>
 
       
     </div>
@@ -346,7 +346,7 @@ function PageHeader({
         ← Back to Cooking
       </Link>
 
-      <h1
+      <h2
         className="
           mt-3
           text-4xl
@@ -356,7 +356,7 @@ function PageHeader({
         "
       >
         {title}
-      </h1>
+      </h2>
 
       <p className="mt-2 text-sm text-white/70">
         {subtitle}

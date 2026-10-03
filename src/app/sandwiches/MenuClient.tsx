@@ -226,11 +226,12 @@ const animationFrameRef =
       >
         <div
           className="
-            text-xl
+            text-lg
             font-black
             uppercase
-            tracking-[0.22em]
+            tracking-[0.15em]
             sm:text-2xl
+            sm:tracking-[0.22em]
           "
         >
           Subtotal:
@@ -271,9 +272,9 @@ const animationFrameRef =
   }
 
   return (
-    <main
+    <div
       className="
-        min-h-screen
+        min-h-svh
         bg-[#e6e6e6]
         text-neutral-950
         pb-28
@@ -334,17 +335,19 @@ const animationFrameRef =
             />
           </div>
 
-          <h1
+          <h2
             className="
-              text-5xl
+              text-3xl
               font-black
               uppercase
-              tracking-[0.28em]
+              tracking-[0.12em]
+              sm:text-5xl
+              sm:tracking-[0.28em]
               md:text-7xl
             "
           >
             {menuStructure.rootCategory.name}
-          </h1>
+          </h2>
 
           <p
             className="
@@ -544,6 +547,7 @@ const animationFrameRef =
                 right-0
                 z-40
                 px-6
+                pb-[env(safe-area-inset-bottom)]
               "
             >
               {renderCartBar(true)}
@@ -551,6 +555,6 @@ const animationFrameRef =
           ) : null}
         </>
       )}
-    </main>
+    </div>
   );
 }

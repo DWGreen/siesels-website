@@ -24,6 +24,7 @@ export default function InteriorHero({
         src={backgroundImage}
         alt={backgroundAlt}
         fill
+        sizes="100vw"
         className="object-cover"
         priority
       />
@@ -36,16 +37,27 @@ export default function InteriorHero({
 
       {/* Title with decorative lines — always centered */}
       <div className="relative z-10 flex flex-col items-center px-4">
-        <span className="mb-3 ml-4 h-[2px] w-[11rem] bg-white/80 sm:ml-6 sm:w-60 lg:mb-4 lg:ml-8 lg:w-[22rem]" />
-        <div className="relative">
-          {/* Master butcher logo — positioned to the left of title without affecting centering */}
+        <div className="relative mb-3 ml-4 sm:ml-6 lg:mb-4 lg:ml-8">
+          {/* Mobile: logo sits beside the top line, mirroring the home hero's "EXPERT" row */}
           {showMasterLogo && (
             <Image
               src="/images/logos/logo_master-cutter.png"
               alt="Master Meat Cutters — I.M.S. — San Diego — Est 1968"
               width={160}
               height={160}
-              className="absolute bottom-0 right-full mr-3 size-[96px] lg:mr-5 lg:size-[192px]"
+              className="absolute bottom-0 right-full mr-3 size-16 min-[360px]:mr-2 min-[360px]:size-20 lg:hidden"
+            />
+          )}
+          <span className="block h-[2px] w-[11rem] bg-white/80 sm:w-60 lg:w-[22rem]" />
+        </div>
+        <div className="relative">
+          {showMasterLogo && (
+            <Image
+              src="/images/logos/logo_master-cutter.png"
+              alt="Master Meat Cutters — I.M.S. — San Diego — Est 1968"
+              width={160}
+              height={160}
+              className="absolute bottom-0 right-full hidden lg:mr-5 lg:block lg:size-[192px]"
             />
           )}
           <h1 className="font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl">

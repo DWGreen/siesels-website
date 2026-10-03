@@ -489,6 +489,19 @@ const builderComplete =
     isStepComplete(step, sandwich.selections)
   ) && canSave;
 
+const firstIncompleteStep =
+  steps.find(
+    step =>
+      !isStepComplete(step, sandwich.selections)
+  );
+
+const incompleteHint =
+  builderComplete
+    ? null
+    : firstIncompleteStep
+      ? `Required: ${firstIncompleteStep.category.name.replace(/^\d+\.\s*/, "")}`
+      : modifierValidation.errors[0] ?? null;
+
   
   function toggleProduct(
     step: BuilderStep,
@@ -563,33 +576,37 @@ const maxSelections =
             gap-5
           "
         >
-          <span className="h-px w-28 bg-neutral-700" />
+          <span className="h-px w-10 bg-neutral-700 sm:w-28" />
 
           <span
             className="
-              text-lg
+              text-sm
               font-black
               uppercase
-              tracking-[0.45em]
+              tracking-[0.3em]
+              sm:text-lg
+              sm:tracking-[0.45em]
             "
           >
             Order Online
           </span>
 
-          <span className="h-px w-28 bg-neutral-700" />
+          <span className="h-px w-10 bg-neutral-700 sm:w-28" />
         </div>
 
-        <h1
+        <h2
           className="
-            text-5xl
+            text-3xl
             font-black
             uppercase
-            tracking-[0.35em]
+            tracking-[0.12em]
+            sm:text-5xl
+            sm:tracking-[0.35em]
             md:text-7xl
           "
         >
           Sandwiches
-        </h1>
+        </h2>
 
         <p
           className="
@@ -831,30 +848,53 @@ const maxSelections =
 
       <div
         className="
+          sticky
+          bottom-0
+          z-30
+          -mx-6
           mt-12
           flex
           flex-col
-          gap-4
+          gap-3
           bg-neutral-950
-          p-5
+          px-6
+          pt-4
+          pb-[calc(1rem+env(safe-area-inset-bottom))]
           text-white
+          shadow-[0_-6px_18px_rgba(0,0,0,0.28)]
+          sm:mx-0
+          sm:gap-4
+          sm:p-5
           md:flex-row
           md:items-center
           md:justify-between
         "
       >
+        <div>
         <div
           className="
-            text-2xl
+            text-lg
             font-black
             uppercase
-            tracking-[0.28em]
+            tracking-[0.15em]
+            sm:text-2xl
+            sm:tracking-[0.28em]
           "
         >
           Subtotal:
           <span className="ml-4">
             {`$${livePrice.totalPrice.toFixed(2)}`}
           </span>
+        </div>
+
+        {incompleteHint && (
+          <p
+            role="status"
+            className="mt-1 text-xs font-semibold text-white/70"
+          >
+            {incompleteHint}
+          </p>
+        )}
         </div>
 
         <div
@@ -872,6 +912,7 @@ const maxSelections =
               )
             }
             className="
+              flex-1
               border
               border-white/60
               px-6
@@ -884,6 +925,7 @@ const maxSelections =
               transition
               hover:bg-white
               hover:text-neutral-950
+              sm:flex-none
             "
           >
             Cancel
@@ -894,20 +936,24 @@ const maxSelections =
             onClick={handleSave}
             disabled={!builderComplete}
             className={`
+              flex-[2]
               border
               border-white
-              px-8
+              px-4
               py-3
               text-xs
               font-black
               uppercase
-              tracking-[0.25em]
+              tracking-[0.2em]
               text-white
               transition
               hover:bg-white
               hover:text-neutral-950
               disabled:cursor-not-allowed
               disabled:opacity-40
+              sm:flex-none
+              sm:px-8
+              sm:tracking-[0.25em]
               ${
       canSave
         ? "hover:bg-white hover:text-neutral-950"

@@ -118,18 +118,18 @@ export default function RoastReservationsClient({ products }: Props) {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
+    <div className="relative min-h-svh overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[url('/images/textures/footer-bg.png')] bg-cover bg-bottom opacity-[0.12]" />
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-7 border-b-2 border-[#2d2d2d] pb-6">
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
             <div>
               <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Holiday Orders</p>
-              <h1 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Standing Rib Roast Reservations</h1>
+              <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Standing Rib Roast Reservations</h2>
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Choose your cut, select Prime or Choice, and set your quantity. Pick your pickup date and we’ll have it prepared for you.</p>
             </div>
             <Image
-              src="/images/hand-drawn/vintage-bull2.png"
+              src="/images/hand-drawn/bull-color.png"
               alt="Hand-drawn illustration of a standing rib roast and butcher knife"
               width={520}
               height={300}
@@ -171,7 +171,7 @@ export default function RoastReservationsClient({ products }: Props) {
 
               {items.length === 0 ? (
                 <div className="flex min-h-[270px] flex-col items-center justify-center px-5 py-8 text-center">
-                  <Image src="/images/hand-drawn/standing-rib-roast-etching.png" alt="Standing rib roast on butcher paper" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
+                  <Image src="/images/hand-drawn/rib-roast_full.png" alt="Standing rib roast on butcher paper" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Build Your Roast?</h3>
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose your size, grade, and quantity to get started.</p>
                   <button type="button" onClick={openPicker} disabled={availablePairs.length === 0} className="mt-5 inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
@@ -201,7 +201,7 @@ export default function RoastReservationsClient({ products }: Props) {
               )}
 
               {pickerOpen && (
-                <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 sm:items-center sm:p-6" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget) setPickerOpen(false); }}>
+                <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 pb-[env(safe-area-inset-bottom)] sm:items-center sm:p-6" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget) setPickerOpen(false); }}>
                   <section role="dialog" aria-modal="true" aria-labelledby="roast-picker-title" className="w-full border-2 border-neutral-950 bg-[#faf8f3] p-6 sm:max-w-lg">
                     <div className="flex items-center justify-between gap-4">
                       <h2 id="roast-picker-title" className="text-lg font-black uppercase tracking-[0.12em]">Add a Standing Rib Roast</h2>
@@ -240,13 +240,13 @@ export default function RoastReservationsClient({ products }: Props) {
                   <input required type="date" min={todayDate()} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Name
-                  <input required value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Email
-                  <input required type="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Phone
-                  <input type="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
               </div>
               {error && <p role="alert" className="mt-5 border border-red-700 bg-red-50 p-3 text-sm text-red-900">{error}</p>}
@@ -256,6 +256,6 @@ export default function RoastReservationsClient({ products }: Props) {
           </form>
         )}
       </div>
-    </main>
+    </div>
   );
 }

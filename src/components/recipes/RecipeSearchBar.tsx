@@ -188,7 +188,7 @@ export default function RecipeSearchBar({
         ].map(([value, label]) => (
           <label
             key={value}
-            className="flex items-center gap-2"
+            className="flex min-h-11 items-center gap-2 sm:min-h-0"
           >
             <input
               type="radio"

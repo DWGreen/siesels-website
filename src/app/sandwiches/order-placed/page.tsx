@@ -1,13 +1,13 @@
 export default function OrderPlacedPage() {
   return (
-    <main
+    <div
       className="
         p-8
         text-center
       "
     >
 
-      <h1
+      <h2
         className="
           text-5xl
           font-bold
@@ -15,12 +15,12 @@ export default function OrderPlacedPage() {
         "
       >
         Order Placed!
-      </h1>
+      </h2>
 
       <p className="text-gray-600">
         Your sandwich is being prepared.
       </p>
 
-    </main>
+    </div>
   );
 }

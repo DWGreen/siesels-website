@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   leftNavItems,
@@ -25,9 +25,12 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      closeButtonRef.current?.focus();
     } else {
       document.body.style.overflow = "";
     }
@@ -67,18 +70,21 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Slide-in panel */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-brand-black transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-brand-black pb-[env(safe-area-inset-bottom)] transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
       >
         {/* Close button */}
-        <div className="flex justify-end p-6">
+        <div className="flex justify-end p-4">
           <button
+            ref={closeButtonRef}
             onClick={onClose}
-            className="text-brand-white transition-colors hover:text-brand-wood"
+            className="flex size-11 items-center justify-center text-brand-white transition-colors hover:text-brand-wood"
             aria-label="Close menu"
           >
             <CloseIcon className="h-7 w-7" />
@@ -127,7 +133,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="text-brand-white transition-colors hover:text-brand-wood"
+                  className="-m-2.5 p-2.5 text-brand-white transition-colors hover:text-brand-wood"
                 >
                   <Icon className="h-6 w-6" />
                 </a>

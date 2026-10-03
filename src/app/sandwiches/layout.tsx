@@ -10,7 +10,7 @@ export default function SandwichesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-svh flex-col">
       <Header />
 
       <main
@@ -19,7 +19,7 @@ export default function SandwichesLayout({
       >
          <InteriorHero
                 title="Sandwiches"
-                backgroundImage="/images/hero/sandwiches.jpeg"
+                backgroundImage="/images/hero/sandwiches.webp"
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
               />

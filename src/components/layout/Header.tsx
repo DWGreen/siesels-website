@@ -40,7 +40,7 @@ export default function Header() {
 
         <button
           onClick={() => setMobileMenuOpen(true)}
-          className="text-brand-white transition-colors hover:text-brand-wood"
+          className="-mr-2 flex size-11 items-center justify-center text-brand-white transition-colors hover:text-brand-wood"
           aria-label="Open menu"
           aria-expanded={mobileMenuOpen}
         >

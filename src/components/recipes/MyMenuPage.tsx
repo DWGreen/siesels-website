@@ -158,7 +158,7 @@ const [recipesById, setRecipesById] =
         subtitle="Plan weekly meals and build a shopping list from your recipes."
       />
 
-      <main className="mx-auto max-w-7xl px-4 py-6">
+      <div className="mx-auto max-w-7xl px-4 py-6">
         <div
           className="
             mb-5
@@ -278,11 +278,11 @@ const [recipesById, setRecipesById] =
               <section
                 key={day}
                 className="
-                  min-h-[340px]
                   border-2
                   border-neutral-900
                   bg-white
                   p-3
+                  lg:min-h-[340px]
                 "
               >
                 <h2
@@ -374,7 +374,7 @@ const [recipesById, setRecipesById] =
             );
           })}
         </div>
-      </main>
+      </div>
     </div>
   );
 }
