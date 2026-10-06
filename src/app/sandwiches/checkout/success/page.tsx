@@ -56,8 +56,8 @@ export default async function CheckoutSuccessPage({
 }: Props) {
   const params = await searchParams;
   const order = await getOrder(params.order_id, params.order_key);
-  const isReservation = params.reservation === "turkey" || params.reservation === "roast";
-  const reservationLabel = params.reservation === "roast" ? "roast reservation" : "turkey reservation";
+  const isReservation = params.reservation === "turkey" || params.reservation === "roast" || params.reservation === "ham";
+  const reservationLabel = params.reservation === "ham" ? "ham reservation" : params.reservation === "roast" ? "roast reservation" : "turkey reservation";
   const pickupDate = order?.customer_note?.match(/Pickup date: (\d{4}-\d{2}-\d{2})/)?.[1];
   const groups = order
     ? Array.from(

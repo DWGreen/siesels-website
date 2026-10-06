@@ -13,7 +13,7 @@ export function getReservationOrderingStatus(
   }).formatToParts(now);
   const part = (name: string) => parts.find(entry => entry.type === name)?.value;
   const today = `${part("year")}-${part("month")}-${part("day")}`;
-  const label = type === "turkey" ? "Turkey" : "Rib Roast";
+  const label = { turkey: "Turkey", roast: "Rib Roast", ham: "Holiday Ham" }[type];
   const validDate = (date: string | null) => {
     if (date === null) return true;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return false;
