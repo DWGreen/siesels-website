@@ -6,6 +6,8 @@ import { Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { TurkeyReservationProduct } from "@/services/turkeyReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
+import { useReservationOrdering } from "@/hooks/useReservationOrdering";
+import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
 
 type Props = {
   products: TurkeyReservationProduct[];
@@ -19,6 +21,7 @@ function getTodayDate(): string {
 
 export default function TurkeyReservationsClient({ products }: Props) {
   const router = useRouter();
+  const ordering = useReservationOrdering("turkey");
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState(reservationStoreLocations[0]?.id ?? "");
   const [customerName, setCustomerName] = useState("");
@@ -67,6 +70,11 @@ export default function TurkeyReservationsClient({ products }: Props) {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+    const currentOrdering = getReservationOrderingStatus("turkey");
+    if (!currentOrdering.isOpen) {
+      setError(currentOrdering.message);
+      return;
+    }
 
     const items = products
       .map(product => ({
@@ -122,6 +130,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
               <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Holiday Orders</p>
               <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Turkey Reservations</h2>
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Build your reservation by adding the turkey weight ranges you need, then choose a pickup date. Payment is handled at pickup.</p>
+              {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
             <Image src="/images/hand-drawn/turkey-color.png" alt="Hand-drawn butcher illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
           </div>
@@ -153,6 +162,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                 </div>
                 <button
                   type="button"
+                  disabled={!ordering.isOpen || availableProducts.length === 0}
                   onClick={() => {
                     setPickerProductId(availableProducts[0]?.id ?? "");
                     setIsPickerOpen(true);
@@ -171,7 +181,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose a weight range and quantity to get started.</p>
                   <button
                     type="button"
-                    disabled={availableProducts.length === 0}
+                    disabled={!ordering.isOpen || availableProducts.length === 0}
                     onClick={() => {
                       setPickerProductId(availableProducts[0]?.id ?? "");
                       setIsPickerOpen(true);
@@ -263,6 +273,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                       Weight range
                       <select
                         autoFocus
+                        aria-describedby="turkey-size-help"
                         value={pickerProductId}
                         onChange={event => setPickerProductId(Number(event.target.value))}
                         className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal"
@@ -277,11 +288,12 @@ export default function TurkeyReservationsClient({ products }: Props) {
                         })}
                       </select>
                     </label>
+                    <p id="turkey-size-help" className="mt-2 text-xs text-neutral-600">Click above to select other sizes.</p>
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       <button type="button" onClick={() => setIsPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em]">
                         Cancel
                       </button>
-                      <button type="button" onClick={addSelectedSize} disabled={pickerProductId === "" || !availableProducts.some(product => product.id === pickerProductId)} className="cursor-pointer bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40">
+                      <button type="button" onClick={addSelectedSize} disabled={!ordering.isOpen || pickerProductId === "" || !availableProducts.some(product => product.id === pickerProductId)} className="cursor-pointer bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40">
                         Add Turkey
                       </button>
                     </div>
@@ -306,11 +318,13 @@ export default function TurkeyReservationsClient({ products }: Props) {
                   <input
                     required
                     type="date"
+                    aria-describedby="turkey-date-help"
                     min={getTodayDate()}
                     value={pickupDate}
                     onChange={event => setPickupDate(event.target.value)}
                     className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal"
                   />
+                  <span id="turkey-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Name
@@ -330,7 +344,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
 
               <button
                 type="submit"
-                disabled={isSubmitting || products.length === 0}
+                disabled={!ordering.isOpen || isSubmitting || products.length === 0}
                 className="mt-6 w-full bg-[#9d321e] px-5 py-4 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#762415] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isSubmitting ? "Submitting Reservation..." : "Reserve Turkeys"}

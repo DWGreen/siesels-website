@@ -4,6 +4,7 @@ import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { validateTurkeyReservationLines } from "@/services/turkeyReservations";
 import { getReservationStoreLocation } from "@/data/storeLocations";
+import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
 
 const SESSION_COOKIE_PREFIX = "wc_turkey_reservation";
 
@@ -39,6 +40,10 @@ export async function POST(request: Request) {
   let session = await readStoreApiSession(SESSION_COOKIE_PREFIX);
 
   try {
+    const ordering = getReservationOrderingStatus("turkey");
+    if (!ordering.isOpen) {
+      return reservationResponse({ message: ordering.message }, 403, session);
+    }
     const body = (await request.json()) as ReservationRequest;
     const pickupDate = body.pickupDate ?? "";
     const storeLocation = getReservationStoreLocation(body.storeLocationId);

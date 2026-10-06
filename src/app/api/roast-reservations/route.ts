@@ -3,6 +3,7 @@ import { getWooCommerceApi } from "@/lib/woocommerce";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { getReservationStoreLocation } from "@/data/storeLocations";
+import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
 
 const SESSION_COOKIE_PREFIX = "wc_roast_reservation";
 const ROAST_CATEGORY_ID = 41;
@@ -65,6 +66,10 @@ export async function POST(request: Request) {
   let session = await readStoreApiSession(SESSION_COOKIE_PREFIX);
 
   try {
+    const ordering = getReservationOrderingStatus("roast");
+    if (!ordering.isOpen) {
+      return respond({ message: ordering.message }, 403, session);
+    }
     const body = (await request.json()) as RequestBody;
     const pickupDate = body.pickupDate ?? "";
     const storeLocation = getReservationStoreLocation(body.storeLocationId);

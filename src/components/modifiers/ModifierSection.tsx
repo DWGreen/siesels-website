@@ -64,6 +64,8 @@ export default function ModifierSection({
     >
       <button
         type="button"
+        role="checkbox"
+        aria-checked={draft.enabled}
         onClick={toggleEnabled}
         className="
           group
@@ -154,11 +156,11 @@ export default function ModifierSection({
         </span>
       </button>
 
-      {draft.enabled && (
-        <div
-          className="
-            space-y-7
-          "
+      {(draft.enabled || definition.configTrigger === "canMakeCombo") && (
+        <fieldset
+          disabled={!draft.enabled}
+          aria-label={`${modifierName} options`}
+          className={`min-w-0 space-y-7 border-0 p-0 transition-opacity ${draft.enabled ? "opacity-100" : "opacity-40"}`}
         >
           {definition.optionGroups.map(
             group => (
@@ -180,7 +182,7 @@ export default function ModifierSection({
               />
             )
           )}
-        </div>
+        </fieldset>
       )}
     </section>
   );

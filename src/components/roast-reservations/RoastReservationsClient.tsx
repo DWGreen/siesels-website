@@ -6,6 +6,8 @@ import { Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { RoastReservationProduct, RoastReservationVariation } from "@/services/roastReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
+import { useReservationOrdering } from "@/hooks/useReservationOrdering";
+import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
 
 type Props = { products: RoastReservationProduct[] };
 type SelectedRoast = {
@@ -22,6 +24,7 @@ function todayDate() {
 
 export default function RoastReservationsClient({ products }: Props) {
   const router = useRouter();
+  const ordering = useReservationOrdering("roast");
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState(reservationStoreLocations[0]?.id ?? "");
   const [customerName, setCustomerName] = useState("");
@@ -93,6 +96,11 @@ export default function RoastReservationsClient({ products }: Props) {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+    const currentOrdering = getReservationOrderingStatus("roast");
+    if (!currentOrdering.isOpen) {
+      setError(currentOrdering.message);
+      return;
+    }
     if (items.length === 0) {
       setError("Add at least one roast to your reservation.");
       return;
@@ -129,6 +137,7 @@ export default function RoastReservationsClient({ products }: Props) {
               <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Holiday Orders</p>
               <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Standing Rib Roast Reservations</h2>
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Choose your cut, select Prime or Choice, and set your quantity. Pick your pickup date and we’ll have it prepared for you.</p>
+              {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
             <Image
               src="/images/hand-drawn/bull-color.png"
@@ -166,7 +175,7 @@ export default function RoastReservationsClient({ products }: Props) {
                   <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Roasts</h2>
                   <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">{selectedCount} roast{selectedCount === 1 ? "" : "s"}</p>
                 </div>
-                <button type="button" onClick={openPicker} disabled={availablePairs.length === 0} className="inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
+                <button type="button" onClick={openPicker} disabled={!ordering.isOpen || availablePairs.length === 0} className="inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
                   <Plus aria-hidden="true" className="h-4 w-4" /> Add A Standing Rib Roast
                 </button>
               </div>
@@ -176,7 +185,7 @@ export default function RoastReservationsClient({ products }: Props) {
                   <Image src="/images/hand-drawn/rib-roast_full.png" alt="Standing rib roast on butcher paper" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Build Your Roast?</h3>
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose your size, grade, and quantity to get started.</p>
-                  <button type="button" onClick={openPicker} disabled={availablePairs.length === 0} className="mt-5 inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
+                  <button type="button" onClick={openPicker} disabled={!ordering.isOpen || availablePairs.length === 0} className="mt-5 inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
                     <Plus aria-hidden="true" className="h-4 w-4" /> Add A Standing Rib Roast
                   </button>
                   {availablePairs.length === 0 && <p className="mt-4 max-w-sm font-serif text-xs text-amber-900">Reservation availability is being updated. Please check back soon.</p>}
@@ -211,23 +220,25 @@ export default function RoastReservationsClient({ products }: Props) {
                     </div>
                     <div className="mt-5 space-y-4">
                       <label className="block text-xs font-bold uppercase tracking-[0.1em]">Cut
-                        <select value={pickerProductId} onChange={event => changePickerProduct(Number(event.target.value))} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
+                        <select aria-describedby="roast-size-help" value={pickerProductId} onChange={event => changePickerProduct(Number(event.target.value))} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
                           {products.map(product => <option key={product.id} value={product.id}>{product.name}</option>)}
                         </select>
+                        <span id="roast-size-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click above to select other sizes.</span>
                       </label>
                       <label className="block text-xs font-bold uppercase tracking-[0.1em]">Grade
-                        <select value={pickerVariationId} onChange={event => setPickerVariationId(Number(event.target.value))} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
+                        <select aria-describedby="roast-grade-help" value={pickerVariationId} onChange={event => setPickerVariationId(Number(event.target.value))} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
                           {pickerVariations.map(variation => {
                             const available = variation.stockManaged && variation.inStock && (variation.stockQuantity ?? 0) > 0;
                             const alreadySelected = items.some(item => item.variationId === variation.id && item.quantity >= (variation.stockQuantity ?? 0));
                             return <option key={variation.id} value={variation.id} disabled={!available || alreadySelected}>{variation.grade}{!variation.stockManaged ? " (Unavailable)" : !available || alreadySelected ? " (Out Of Stock)" : ""}</option>;
                           })}
                         </select>
+                        <span id="roast-grade-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click above to select another grade.</span>
                       </label>
                     </div>
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       <button type="button" onClick={() => setPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 text-xs font-black uppercase tracking-[0.12em]">Cancel</button>
-                      <button type="button" onClick={addRoast} disabled={!pickerPairAvailable} className="cursor-pointer bg-neutral-950 px-4 py-3 text-xs font-black uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40">Add Roast</button>
+                      <button type="button" onClick={addRoast} disabled={!ordering.isOpen || !pickerPairAvailable} className="cursor-pointer bg-neutral-950 px-4 py-3 text-xs font-black uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40">Add Roast</button>
                     </div>
                   </section>
                 </div>
@@ -245,7 +256,8 @@ export default function RoastReservationsClient({ products }: Props) {
                   </select>
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
-                  <input required type="date" min={todayDate()} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required type="date" aria-describedby="roast-date-help" min={todayDate()} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <span id="roast-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Name
                   <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
@@ -258,7 +270,7 @@ export default function RoastReservationsClient({ products }: Props) {
                 </label>
               </div>
               {error && <p role="alert" className="mt-5 border border-red-700 bg-red-50 p-3 text-sm text-red-900">{error}</p>}
-              <button type="submit" disabled={isSubmitting || items.length === 0} className="mt-6 w-full bg-[#9d321e] px-5 py-4 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#762415] disabled:cursor-not-allowed disabled:opacity-50">{isSubmitting ? "Submitting Reservation..." : "Reserve My Roasts"}</button>
+              <button type="submit" disabled={!ordering.isOpen || isSubmitting || items.length === 0} className="mt-6 w-full bg-[#9d321e] px-5 py-4 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#762415] disabled:cursor-not-allowed disabled:opacity-50">{isSubmitting ? "Submitting Reservation..." : "Reserve My Roasts"}</button>
               <p className="mt-4 font-serif text-xs leading-5 text-neutral-600">No payment is collected online. Your reservation will be sent directly to our meat department for preparation.</p>
             </aside>
           </form>
