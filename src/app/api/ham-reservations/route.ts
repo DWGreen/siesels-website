@@ -23,6 +23,7 @@ export async function POST(request: Request) {
     const name = typeof body.customer?.name === "string" ? body.customer.name.trim() : "";
     const email = typeof body.customer?.email === "string" ? body.customer.email.trim() : "";
     const phone = typeof body.customer?.phone === "string" ? body.customer.phone.trim() : "";
+    const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items: Array<{ productId: number; variationId: number; quantity: number }> = Array.isArray(body.items) ? body.items : [];
     const parsed = new Date(`${pickupDate}T00:00:00Z`);
     const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
@@ -31,6 +32,9 @@ export async function POST(request: Request) {
     }
     if (!store || !name || !/^\S+@\S+\.\S+$/.test(email)) {
       return respond({ message: "Choose a pickup location and enter your name and a valid email address." }, 400, session);
+    }
+    if (Buffer.byteLength(notes, "utf8") > 2000) {
+      return respond({ message: "Reservation notes must be 500 characters or fewer." }, 400, session);
     }
     if (!items.length || items.length > 100 || items.some(item => !item || !Number.isInteger(item.productId) || !Number.isInteger(item.variationId) || !Number.isInteger(item.quantity) || item.quantity < 1)) {
       return respond({ message: "Choose valid ham options and quantities." }, 400, session);
@@ -65,7 +69,7 @@ export async function POST(request: Request) {
           address_1: "", address_2: "", city: "", state: "", postcode: "",
           email, phone, country: "US",
         },
-        customer_note: `Holiday ham reservation. Pickup location: ${store.name} (${store.id}). Pickup date: ${pickupDate}. No payment collected online.`,
+        customer_note: `Holiday ham reservation. Pickup location: ${store.name} (${store.id}). Pickup date: ${pickupDate}. No payment collected online.${notes ? `\nReservation notes:\n${notes}` : ""}`,
       }),
     });
     session = checkout.session;

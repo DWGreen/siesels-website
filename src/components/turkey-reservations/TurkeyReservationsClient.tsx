@@ -23,10 +23,11 @@ export default function TurkeyReservationsClient({ products }: Props) {
   const router = useRouter();
   const ordering = useReservationOrdering("turkey");
   const [pickupDate, setPickupDate] = useState("");
-  const [storeLocationId, setStoreLocationId] = useState(reservationStoreLocations[0]?.id ?? "");
+  const [storeLocationId, setStoreLocationId] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [notes, setNotes] = useState("");
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [pickerProductId, setPickerProductId] = useState<number | "">("");
@@ -84,7 +85,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
       .filter(item => item.quantity > 0);
 
     if (items.length === 0) {
-      setError("Choose a quantity for at least one turkey size.");
+      setError("Choose a quantity for at least one Distel Turkey size.");
       return;
     }
 
@@ -97,6 +98,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
           pickupDate,
           storeLocationId,
           customer: { name: customerName, email, phone },
+          notes,
           items,
         }),
       });
@@ -128,15 +130,15 @@ export default function TurkeyReservationsClient({ products }: Props) {
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
             <div>
               <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Holiday Orders</p>
-              <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Turkey Reservations</h2>
-              <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Build your reservation by adding the turkey weight ranges you need, then choose a pickup date. Payment is handled at pickup.</p>
+              <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">Diestel Turkey Reservations</h2>
+              <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Build your reservation by adding the Diestel Turkey weight ranges you need, then choose a pickup date. Payment is handled at pickup.</p>
               {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
             <Image src="/images/hand-drawn/turkey-color.png" alt="Hand-drawn butcher illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
           </div>
           <ol className="mt-6 grid gap-4 border-t border-[#b8aa97] pt-5 sm:grid-cols-3">
             {[
-              ["01", "Choose your turkey", "Select weight range and quantity"],
+              ["01", "Choose your Diestel Turkey", "Select weight range and quantity"],
               ["02", "Select your pickup date", "Let us know when to prepare it"],
               ["03", "Reserve online", "We’ll confirm your reservation"],
             ].map(([number, title, caption]) => (
@@ -150,15 +152,15 @@ export default function TurkeyReservationsClient({ products }: Props) {
 
         {products.length === 0 ? (
           <div className="border border-[#b8aa97] bg-[#faf8f3] p-6 font-serif text-sm">
-            Turkey reservation sizes are not currently available. Please check back soon.
+           Diestel Turkey reservation sizes are not currently available. Please check back soon.
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
             <section className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
                 <div>
-                  <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Turkeys</h2>
-                  <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">{selectedCount} turkey{selectedCount === 1 ? "" : "s"}</p>
+                  <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Diestel Turkeys</h2>
+                  <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">{selectedCount} Distel Turkey{selectedCount === 1 ? "" : "s"}</p>
                 </div>
                 <button
                   type="button"
@@ -170,14 +172,14 @@ export default function TurkeyReservationsClient({ products }: Props) {
                   className="inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <Plus aria-hidden="true" className="h-4 w-4" />
-                  Add Turkey To Reservation
+                  Add Diestel Turkey To Reservation
                 </button>
               </div>
 
               {selectedProducts.length === 0 ? (
                 <div className="flex min-h-[270px] flex-col items-center justify-center px-5 py-8 text-center">
-                  <Image src="/images/hand-drawn/turkey_color.png" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-cover mix-blend-multiply sm:h-40" />
-                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Reserve Your Turkey?</h3>
+                  <Image src="/images/products/turkey.webp" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
+                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Reserve Your Diestel Turkey?</h3>
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose a weight range and quantity to get started.</p>
                   <button
                     type="button"
@@ -188,7 +190,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                     }}
                     className="mt-5 cursor-pointer bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    <Plus aria-hidden="true" className="mr-2 inline h-4 w-4" /> Add A Turkey
+                    <Plus aria-hidden="true" className="mr-2 inline h-4 w-4" /> Add A Diestel Turkey
                   </button>
                   {products.some(product => !product.stockManaged) && (
                     <p className="mt-4 max-w-sm font-serif text-xs text-amber-900">Some sizes are not available until the shop configures their reservation limits.</p>
@@ -264,7 +266,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                     className="w-full border-2 border-neutral-950 bg-[#faf8f3] p-6 sm:max-w-lg"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <h2 id="turkey-picker-title" className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Add a Turkey</h2>
+                      <h2 id="turkey-picker-title" className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Add a DiestelTurkey</h2>
                       <button type="button" onClick={() => setIsPickerOpen(false)} aria-label="Close turkey picker" className="grid h-10 w-10 cursor-pointer place-items-center">
                         <X aria-hidden="true" className="h-5 w-5" />
                       </button>
@@ -309,7 +311,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Pickup location
                   <select required value={storeLocationId} onChange={event => setStoreLocationId(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
-                    <option value="" disabled>Select a store</option>
+                    <option value="" disabled>Choose Pickup Store</option>
                     {reservationStoreLocations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
                   </select>
                 </label>
@@ -338,6 +340,10 @@ export default function TurkeyReservationsClient({ products }: Props) {
                   Phone
                   <input type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
+                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Notes for the butcher (optional)
+                  <textarea maxLength={500} rows={4} value={notes} onChange={event => setNotes(event.target.value)} className="mt-2 block w-full resize-y border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                </label>
               </div>
 
               {error && <p role="alert" className="mt-5 border border-red-700 bg-red-50 p-3 text-sm text-red-900">{error}</p>}
@@ -347,7 +353,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
                 disabled={!ordering.isOpen || isSubmitting || products.length === 0}
                 className="mt-6 w-full bg-[#9d321e] px-5 py-4 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#762415] disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {isSubmitting ? "Submitting Reservation..." : "Reserve Turkeys"}
+                {isSubmitting ? "Submitting Reservation..." : "Reserve Diestel Turkeys"}
               </button>
               <p className="mt-4 font-serif text-xs leading-5 text-neutral-600">
                 No payment is collected online. Your reservation will be sent to the shop for preparation.

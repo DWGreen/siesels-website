@@ -13,7 +13,7 @@ type Props = { products: RoastReservationProduct[] };
 type SelectedRoast = {
   productId: number;
   variationId: number;
-  grade: "Prime" | "Choice";
+  grade: "USDA Prime" | "USDA Choice";
   quantity: number;
 };
 
@@ -26,10 +26,11 @@ export default function RoastReservationsClient({ products }: Props) {
   const router = useRouter();
   const ordering = useReservationOrdering("roast");
   const [pickupDate, setPickupDate] = useState("");
-  const [storeLocationId, setStoreLocationId] = useState(reservationStoreLocations[0]?.id ?? "");
+  const [storeLocationId, setStoreLocationId] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [notes, setNotes] = useState("");
   const [items, setItems] = useState<SelectedRoast[]>([]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [pickerProductId, setPickerProductId] = useState<number | "">("");
@@ -111,7 +112,7 @@ export default function RoastReservationsClient({ products }: Props) {
       const response = await fetch("/api/roast-reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pickupDate, storeLocationId, customer: { name: customerName, email, phone }, items }),
+        body: JSON.stringify({ pickupDate, storeLocationId, customer: { name: customerName, email, phone }, notes, items }),
       });
       const result = await response.json();
       if (!response.ok) {
@@ -198,7 +199,7 @@ export default function RoastReservationsClient({ products }: Props) {
                     const max = variation.stockQuantity ?? item.quantity;
                     return (
                       <div key={item.variationId} className="flex flex-wrap items-center justify-between gap-4 border border-[#d8cec0] bg-white p-4 sm:px-5">
-                        <div><h3 className="font-heading text-base font-bold uppercase">{product.name}</h3><p className="mt-1 font-serif text-sm text-neutral-600">{variation.grade} grade</p></div>
+                        <div><h3 className="font-heading text-base font-bold uppercase">{product.name}</h3><p className="mt-1 font-serif text-sm text-neutral-600">{variation.grade}</p></div>
                         <div className="flex items-center gap-2">
                           <button type="button" aria-label={`Decrease ${product.name} ${variation.grade} quantity`} disabled={item.quantity <= 1} onClick={() => updateQuantity(variation, item.quantity - 1)} className="grid h-10 w-10 cursor-pointer place-items-center border border-[#2d2d2d] disabled:cursor-not-allowed disabled:opacity-35"><Minus aria-hidden="true" className="h-4 w-4" /></button>
                           <input aria-label={`Quantity for ${product.name} ${variation.grade}`} type="number" min={1} max={max} value={item.quantity} onChange={event => updateQuantity(variation, Number(event.target.value))} className="h-10 w-16 border border-[#2d2d2d] bg-white text-center font-heading text-base font-bold" />
@@ -251,7 +252,7 @@ export default function RoastReservationsClient({ products }: Props) {
               <div className="mt-5 space-y-4">
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup location
                   <select required value={storeLocationId} onChange={event => setStoreLocationId(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
-                    <option value="" disabled>Select a store</option>
+                    <option value="" disabled>Choose Pickup Store</option>
                     {reservationStoreLocations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
                   </select>
                 </label>
@@ -267,6 +268,9 @@ export default function RoastReservationsClient({ products }: Props) {
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Phone
                   <input type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                </label>
+                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Notes for the butcher (optional)
+                  <textarea maxLength={500} rows={4} value={notes} onChange={event => setNotes(event.target.value)} className="mt-2 block w-full resize-y border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
               </div>
               {error && <p role="alert" className="mt-5 border border-red-700 bg-red-50 p-3 text-sm text-red-900">{error}</p>}

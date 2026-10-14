@@ -1,8 +1,10 @@
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
+export type RoastGrade = "USDA Prime" | "USDA Choice";
+
 export interface RoastReservationVariation {
   id: number;
-  grade: "Prime" | "Choice";
+  grade: RoastGrade;
   attributeName: string;
   stockManaged: boolean;
   stockQuantity: number | null;
@@ -35,13 +37,13 @@ type WooProduct = {
   categories?: Array<{ id: number; slug: string }>;
 };
 
-function getGrade(variation: WooVariation): "Prime" | "Choice" | null {
+function getGrade(variation: WooVariation): RoastGrade | null {
   const value = variation.attributes?.find(attribute =>
     attribute.name.trim().toLowerCase() === "grade"
   )?.option.trim().toLowerCase();
 
-  if (value === "prime") return "Prime";
-  if (value === "choice") return "Choice";
+  if (value === "prime" || value === "usda prime") return "USDA Prime";
+  if (value === "choice" || value === "usda choice") return "USDA Choice";
   return null;
 }
 

@@ -12,7 +12,7 @@ import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
 type SelectedHam = { productId: number; variationId: number; quantity: number };
 type Props = { products: HamReservationProduct[] };
 
-const hamImage = "/images/hand-drawn/ham.webp";
+const hamImage = "/images/products/kruse-ham.webp";
 const fieldClass = "mt-2 block w-full min-w-0 border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal";
 const addClass = "inline-flex cursor-pointer items-center justify-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50";
 
@@ -41,10 +41,11 @@ export default function HamReservationsClient({ products }: Props) {
   const [productId, setProductId] = useState<number | null>(null);
   const [selections, setSelections] = useState<Record<string, string>>({});
   const [pickupDate, setPickupDate] = useState("");
-  const [storeLocationId, setStoreLocationId] = useState(reservationStoreLocations[0]?.id ?? "");
+  const [storeLocationId, setStoreLocationId] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [notes, setNotes] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submittingRef = useRef(false);
@@ -195,6 +196,7 @@ export default function HamReservationsClient({ products }: Props) {
           pickupDate,
           storeLocationId,
           customer: { name: customerName.trim(), email: email.trim(), phone: phone.trim() },
+          notes,
           items: items.map(({ productId, variationId, quantity }) => ({ productId, variationId, quantity })),
         }),
       });
@@ -252,7 +254,7 @@ export default function HamReservationsClient({ products }: Props) {
 
             {items.length === 0 ? (
               <div className="flex min-h-[270px] flex-col items-center justify-center px-3 py-8 text-center">
-                <Image src={hamImage} alt="Holiday ham from Siesel's Meats" width={360} height={240} className="mb-5 h-40 w-full max-w-64 object-cover" />
+                <Image src={hamImage} alt="Holiday ham from Siesel's Meats" width={360} height={240} className="mb-5 h-40 w-full max-w-64 object-contain" />
                 <h3 className="font-serif text-xl font-bold uppercase">Holiday Hams</h3>
                 <button type="button" onClick={openPicker} disabled={!ordering.isOpen || isSubmitting || !availableProducts.length} className={`${addClass} mt-5`}><Plus aria-hidden="true" className="h-4 w-4 shrink-0" /> Add A Ham</button>
                 {!availableProducts.length && <p role="status" className="mt-4 max-w-sm font-serif text-sm text-neutral-600">Holiday ham options are currently unavailable. Please check back soon.</p>}
@@ -288,7 +290,7 @@ export default function HamReservationsClient({ products }: Props) {
               <legend className="sr-only">Pickup and contact details</legend>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup location
                 <select required value={storeLocationId} onChange={event => setStoreLocationId(event.target.value)} className={fieldClass}>
-                  <option value="" disabled>Select a store</option>
+                  <option value="" disabled>Choose Pickup Store</option>
                   {reservationStoreLocations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
                 </select>
               </label>
@@ -303,6 +305,9 @@ export default function HamReservationsClient({ products }: Props) {
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Phone
                 <input type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className={fieldClass} />
+              </label>
+              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Notes for the butcher (optional)
+                <textarea maxLength={500} rows={4} value={notes} onChange={event => setNotes(event.target.value)} className={`${fieldClass} resize-y`} />
               </label>
             </fieldset>
             {error && <p role="alert" className="mt-5 border border-red-700 bg-red-50 p-3 text-sm text-red-900">{error}</p>}

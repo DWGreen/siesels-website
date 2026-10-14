@@ -52,6 +52,51 @@ export default function FeatureGrid() {
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
+              Holiday Meats
+            </p>
+            <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
+              Diestel Turkey's
+            </h2>
+            <p className="mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg">
+              Reserve your Diestel Turkey in advance to ensure you have the perfect centerpiece for your festive meals.
+            </p>
+            <div className="mt-6 md:mt-8">
+              <Link href="/turkey-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
+              Reserve Turkey &gt;
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
+        <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
+          <Image
+            src="/images/features/holiday-meats-gold.jpg"
+            alt="Holiday turkey on a wooden cutting board with festive decorations"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+     
+      {/* Row 3 - Left: Sandwich photo */}
+        <div className="relative aspect-[3/2] md:aspect-[4/3]">
+          <Image
+            src="/images/events/charcuterie_1.jpg"
+            alt="Roast beef deli sandwich with greens on artisan bread, served on a wooden cutting board"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+
+        {/* Row 3 - Right: Order Online CTA */}
+        <div
+          className="relative flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
+          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+        >
+         <div className="mx-auto max-w-[600px] text-center text-white">
+            <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
               Charcuterie Tasting
             </p>
             <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
@@ -67,18 +112,8 @@ export default function FeatureGrid() {
             </div>
           </div>
         </div>
+ </div>
 
-        {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
-        <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
-          <Image
-            src="/images/events/charcuterie_1.jpg"
-            alt="Assorted charcuterie board with meats, cheeses, and accompaniments"
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
-      </div>
     </section>
   );
 }

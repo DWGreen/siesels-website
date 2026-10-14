@@ -12,6 +12,7 @@ type RoastLineRequest = { productId: number; variationId: number; grade: string;
 type RequestBody = {
   pickupDate?: string;
   storeLocationId?: string;
+  notes?: string;
   customer?: { name?: string; email?: string; phone?: string };
   items?: RoastLineRequest[];
 };
@@ -24,7 +25,7 @@ async function validateLines(lines: RoastLineRequest[]): Promise<string | null> 
   const api = getWooCommerceApi();
 
   for (const line of lines) {
-    if (!Number.isInteger(line.productId) || !Number.isInteger(line.variationId) || !Number.isInteger(line.quantity) || line.quantity < 1 || !["Prime", "Choice"].includes(line.grade)) {
+    if (!Number.isInteger(line.productId) || !Number.isInteger(line.variationId) || !Number.isInteger(line.quantity) || line.quantity < 1 || !["USDA Prime", "USDA Choice"].includes(line.grade)) {
       return "Choose a valid roast cut, grade, and quantity.";
     }
 
@@ -76,6 +77,7 @@ export async function POST(request: Request) {
     const name = body.customer?.name?.trim() ?? "";
     const email = body.customer?.email?.trim() ?? "";
     const phone = body.customer?.phone?.trim() ?? "";
+    const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items = body.items ?? [];
 
     if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) {
@@ -93,6 +95,9 @@ export async function POST(request: Request) {
     }
     if (!storeLocation) {
       return respond({ message: "Choose a valid pickup location." }, 400, session);
+    }
+    if (Buffer.byteLength(notes, "utf8") > 2000) {
+      return respond({ message: "Reservation notes must be 500 characters or fewer." }, 400, session);
     }
     if (!items.length) {
       return respond({ message: "Add at least one roast to your reservation." }, 400, session);
@@ -139,7 +144,7 @@ export async function POST(request: Request) {
           phone,
           country: "US",
         },
-        customer_note: `Standing rib roast reservation. Pickup location: ${storeLocation.name} (${storeLocation.id}). Pickup date: ${pickupDate}. No payment collected online.`,
+        customer_note: `Standing rib roast reservation. Pickup location: ${storeLocation.name} (${storeLocation.id}). Pickup date: ${pickupDate}. No payment collected online.${notes ? `\nReservation notes:\n${notes}` : ""}`,
       }),
     });
     session = checkout.session;

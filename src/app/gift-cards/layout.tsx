@@ -9,7 +9,7 @@ export default function GiftCardsLayout({ children }: { children: React.ReactNod
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Gift Cards"
-          backgroundImage="/images/instagram/591049543_18165879238385133_6597505046112348860_n.jpg"
+          backgroundImage="/images/hero/gift-cards.jpg"
           backgroundAlt="Siesel's gift cards"
         />
         {children}

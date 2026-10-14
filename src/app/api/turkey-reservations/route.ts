@@ -11,6 +11,7 @@ const SESSION_COOKIE_PREFIX = "wc_turkey_reservation";
 type ReservationRequest = {
   pickupDate?: string;
   storeLocationId?: string;
+  notes?: string;
   customer?: {
     name?: string;
     email?: string;
@@ -50,6 +51,7 @@ export async function POST(request: Request) {
     const customerName = body.customer?.name?.trim() ?? "";
     const email = body.customer?.email?.trim() ?? "";
     const phone = body.customer?.phone?.trim() ?? "";
+    const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items = (body.items ?? [])
       .map(item => ({
         productId: Number(item.productId),
@@ -86,6 +88,9 @@ export async function POST(request: Request) {
 
     if (!storeLocation) {
       return reservationResponse({ message: "Choose a valid pickup location." }, 400, session);
+    }
+    if (Buffer.byteLength(notes, "utf8") > 2000) {
+      return reservationResponse({ message: "Reservation notes must be 500 characters or fewer." }, 400, session);
     }
 
     if (items.length === 0) {
@@ -142,7 +147,7 @@ export async function POST(request: Request) {
           phone,
           country: "US",
         },
-        customer_note: `Turkey reservation. Pickup location: ${storeLocation.name} (${storeLocation.id}). Pickup date: ${pickupDate}. No payment collected online.`,
+        customer_note: `Turkey reservation. Pickup location: ${storeLocation.name} (${storeLocation.id}). Pickup date: ${pickupDate}. No payment collected online.${notes ? `\nReservation notes:\n${notes}` : ""}`,
       }),
     });
     session = checkout.session;

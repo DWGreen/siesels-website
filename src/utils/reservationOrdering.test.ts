@@ -16,7 +16,7 @@ describe("reservation ordering windows", () => {
 
   it("opens on the start date in Pacific time", () => {
     expect(getReservationOrderingStatus("turkey", new Date("2026-11-01T07:00:00Z"), window))
-      .toEqual({ isOpen: true, message: "Turkey Ordering Closes Nov 20" });
+      .toEqual({ isOpen: true, message: "Diestel Turkey Ordering Closes Nov 20" });
   });
 
   it("keeps ordering open through the final Pacific calendar day", () => {
