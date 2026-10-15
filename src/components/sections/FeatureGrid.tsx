@@ -52,17 +52,23 @@ export default function FeatureGrid() {
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
-              Holiday Meats
+              Reserve
             </p>
             <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
-              Diestel Turkey's
+              Holiday Meats
             </h2>
             <p className="mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg">
-              Reserve your Diestel Turkey in advance to ensure you have the perfect centerpiece for your festive meals.
+              Reserve your holiday meats in advance to ensure you have the perfect centerpiece for your festive meals.
             </p>
-            <div className="mt-6 md:mt-8">
+            <div className="mt-6 flex items-center gap-3 md:mt-8">
               <Link href="/turkey-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
-              Reserve Turkey &gt;
+              Turkey &gt;
+              </Link>
+              <Link href="/roast-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
+              Roast &gt;
+              </Link>
+              <Link href="/ham-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
+              Ham &gt;
               </Link>
             </div>
           </div>
