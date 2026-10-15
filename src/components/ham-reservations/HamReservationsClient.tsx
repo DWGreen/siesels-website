@@ -7,7 +7,7 @@ import { Minus, Plus, X } from "lucide-react";
 import type { HamReservationProduct, HamReservationVariation } from "@/services/hamReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
-import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
+import { getReservationOrderingStatus, getReservationPickupDateBounds, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
 
 type SelectedHam = { productId: number; variationId: number; quantity: number };
 type Props = { products: HamReservationProduct[] };
@@ -28,14 +28,10 @@ function matchesSelections(variation: HamReservationVariation, selections: Recor
   return names.every(name => variation.attributes.some(({ attribute, value }) => attribute === name && value === selections[name]));
 }
 
-function todayDate() {
-  const now = new Date();
-  return new Date(now.getTime() - now.getTimezoneOffset() * 60_000).toISOString().slice(0, 10);
-}
-
 export default function HamReservationsClient({ products }: Props) {
   const router = useRouter();
   const ordering = useReservationOrdering("ham");
+  const pickupDateBounds = getReservationPickupDateBounds("ham");
   const [items, setItems] = useState<SelectedHam[]>([]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [productId, setProductId] = useState<number | null>(null);
@@ -181,7 +177,7 @@ export default function HamReservationsClient({ products }: Props) {
       setError("One of your ham selections is no longer available in that quantity.");
       return;
     }
-    if (!customerName.trim() || !email.trim() || pickupDate < todayDate() ||
+    if (!customerName.trim() || !email.trim() || !isReservationPickupDateAllowed("ham", pickupDate) ||
       !reservationStoreLocations.some(location => location.id === storeLocationId)) {
       setError("Enter your contact details and choose a valid pickup date and location.");
       return;
@@ -295,7 +291,7 @@ export default function HamReservationsClient({ products }: Props) {
                 </select>
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
-                <input required type="date" min={todayDate()} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className={fieldClass} />
+                <input required type="date" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className={fieldClass} />
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Name
                 <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className={fieldClass} />

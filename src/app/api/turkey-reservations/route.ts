@@ -5,6 +5,7 @@ import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceS
 import { validateTurkeyReservationLines } from "@/services/turkeyReservations";
 import { getReservationStoreLocation } from "@/data/storeLocations";
 import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
+import { isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
 
 const SESSION_COOKIE_PREFIX = "wc_turkey_reservation";
 
@@ -59,23 +60,8 @@ export async function POST(request: Request) {
       }))
       .filter(item => item.quantity > 0);
 
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) {
-      return reservationResponse({ message: "Choose a valid pickup date." }, 400, session);
-    }
-
-    const [year, month, day] = pickupDate.split("-").map(Number);
-    const parsedDate = new Date(Date.UTC(year, month - 1, day));
-    if (
-      parsedDate.getUTCFullYear() !== year ||
-      parsedDate.getUTCMonth() !== month - 1 ||
-      parsedDate.getUTCDate() !== day ||
-      parsedDate.getTime() < Date.UTC(
-        new Date().getUTCFullYear(),
-        new Date().getUTCMonth(),
-        new Date().getUTCDate()
-      )
-    ) {
-      return reservationResponse({ message: "Pickup date must be today or later." }, 400, session);
+    if (!isReservationPickupDateAllowed("turkey", pickupDate)) {
+      return reservationResponse({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
 
     if (!customerName || !email || !/^\S+@\S+\.\S+$/.test(email)) {

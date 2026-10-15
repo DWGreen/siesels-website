@@ -3,7 +3,7 @@ import { getReservationStoreLocation } from "@/data/storeLocations";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
 import { callStoreApi, StoreApiError, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { getHamReservationProducts, validateHamReservationLines } from "@/services/hamReservations";
-import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
+import { getReservationOrderingStatus, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
 
 export const dynamic = "force-dynamic";
 const SESSION_COOKIE_PREFIX = "wc_ham_reservation";
@@ -25,10 +25,8 @@ export async function POST(request: Request) {
     const phone = typeof body.customer?.phone === "string" ? body.customer.phone.trim() : "";
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items: Array<{ productId: number; variationId: number; quantity: number }> = Array.isArray(body.items) ? body.items : [];
-    const parsed = new Date(`${pickupDate}T00:00:00Z`);
-    const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate) || !Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== pickupDate || pickupDate < today) {
-      return respond({ message: "Choose a valid pickup date today or later." }, 400, session);
+    if (!isReservationPickupDateAllowed("ham", pickupDate)) {
+      return respond({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
     if (!store || !name || !/^\S+@\S+\.\S+$/.test(email)) {
       return respond({ message: "Choose a pickup location and enter your name and a valid email address." }, 400, session);

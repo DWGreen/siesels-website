@@ -1,9 +1,25 @@
 import { describe, expect, it } from "vitest";
-import { getReservationOrderingStatus } from "./reservationOrdering";
+import { getReservationOrderingStatus, getReservationPickupDateBounds, isReservationPickupDateAllowed } from "./reservationOrdering";
 
 const window = { startDate: "2026-11-01", endDate: "2026-11-20" };
 
 describe("reservation ordering windows", () => {
+  it("bounds pickup dates by the active sale window and Pacific today", () => {
+    expect(getReservationPickupDateBounds("turkey", new Date("2026-10-14T18:00:00Z")))
+      .toEqual({ minDate: "2026-10-14", maxDate: "2026-11-20" });
+    expect(getReservationPickupDateBounds("turkey", new Date("2026-10-01T18:00:00Z")))
+      .toEqual({ minDate: "2026-10-05", maxDate: "2026-11-20" });
+  });
+
+  it("rejects pickup dates outside the configured window or invalid calendar dates", () => {
+    const now = new Date("2026-10-14T18:00:00Z");
+    expect(isReservationPickupDateAllowed("turkey", "2026-10-13", now)).toBe(false);
+    expect(isReservationPickupDateAllowed("turkey", "2026-10-14", now)).toBe(true);
+    expect(isReservationPickupDateAllowed("turkey", "2026-11-20", now)).toBe(true);
+    expect(isReservationPickupDateAllowed("turkey", "2026-11-21", now)).toBe(false);
+    expect(isReservationPickupDateAllowed("turkey", "2026-02-30", now)).toBe(false);
+  });
+
   it("preserves open ordering when no dates are configured", () => {
     expect(getReservationOrderingStatus("turkey", new Date(), { startDate: null, endDate: null }))
       .toEqual({ isOpen: true, message: null });

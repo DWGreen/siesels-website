@@ -7,7 +7,7 @@ import Image from "next/image";
 import { RoastReservationProduct, RoastReservationVariation } from "@/services/roastReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
-import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
+import { getReservationOrderingStatus, getReservationPickupDateBounds } from "@/utils/reservationOrdering";
 
 type Props = { products: RoastReservationProduct[] };
 type SelectedRoast = {
@@ -17,14 +17,10 @@ type SelectedRoast = {
   quantity: number;
 };
 
-function todayDate() {
-  const now = new Date();
-  return new Date(now.getTime() - now.getTimezoneOffset() * 60_000).toISOString().slice(0, 10);
-}
-
 export default function RoastReservationsClient({ products }: Props) {
   const router = useRouter();
   const ordering = useReservationOrdering("roast");
+  const pickupDateBounds = getReservationPickupDateBounds("roast");
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState("");
   const [customerName, setCustomerName] = useState("");
@@ -257,7 +253,7 @@ export default function RoastReservationsClient({ products }: Props) {
                   </select>
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
-                  <input required type="date" aria-describedby="roast-date-help" min={todayDate()} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required type="date" aria-describedby="roast-date-help" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                   <span id="roast-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Name

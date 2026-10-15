@@ -3,7 +3,7 @@ import { getWooCommerceApi } from "@/lib/woocommerce";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { getReservationStoreLocation } from "@/data/storeLocations";
-import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
+import { getReservationOrderingStatus, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
 
 const SESSION_COOKIE_PREFIX = "wc_roast_reservation";
 const ROAST_CATEGORY_ID = 41;
@@ -80,15 +80,8 @@ export async function POST(request: Request) {
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items = body.items ?? [];
 
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(pickupDate)) {
-      return respond({ message: "Choose a valid pickup date." }, 400, session);
-    }
-    const [year, month, day] = pickupDate.split("-").map(Number);
-    const parsed = new Date(Date.UTC(year, month - 1, day));
-    const today = new Date();
-    const todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
-    if (parsed.getUTCFullYear() !== year || parsed.getUTCMonth() !== month - 1 || parsed.getUTCDate() !== day || parsed.getTime() < todayUtc) {
-      return respond({ message: "Pickup date must be today or later." }, 400, session);
+    if (!isReservationPickupDateAllowed("roast", pickupDate)) {
+      return respond({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
     if (!name || !/^\S+@\S+\.\S+$/.test(email)) {
       return respond({ message: "Enter your name and a valid email address." }, 400, session);

@@ -7,21 +7,16 @@ import Image from "next/image";
 import { TurkeyReservationProduct } from "@/services/turkeyReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
-import { getReservationOrderingStatus } from "@/utils/reservationOrdering";
+import { getReservationOrderingStatus, getReservationPickupDateBounds } from "@/utils/reservationOrdering";
 
 type Props = {
   products: TurkeyReservationProduct[];
 };
 
-function getTodayDate(): string {
-  const now = new Date();
-  const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60_000);
-  return localDate.toISOString().slice(0, 10);
-}
-
 export default function TurkeyReservationsClient({ products }: Props) {
   const router = useRouter();
   const ordering = useReservationOrdering("turkey");
+  const pickupDateBounds = getReservationPickupDateBounds("turkey");
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState("");
   const [customerName, setCustomerName] = useState("");
@@ -321,7 +316,8 @@ export default function TurkeyReservationsClient({ products }: Props) {
                     required
                     type="date"
                     aria-describedby="turkey-date-help"
-                    min={getTodayDate()}
+                    min={pickupDateBounds.minDate}
+                    max={pickupDateBounds.maxDate}
                     value={pickupDate}
                     onChange={event => setPickupDate(event.target.value)}
                     className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal"

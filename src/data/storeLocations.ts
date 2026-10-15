@@ -20,7 +20,7 @@ export type ReservationOrderingWindow = {
 };
 
 export const reservationOrderingWindows: Record<ReservationType, ReservationOrderingWindow> = {
-  ham: { startDate: "2026-10-05", endDate: "2026-11-20" },
-  turkey: { startDate: "2026-10-05", endDate: "2026-11-20" },
-  roast: { startDate: "2026-10-05", endDate: "2026-11-20" },
+  ham: { startDate: "2026-10-05", endDate: "2026-11-25" },
+  turkey: { startDate: "2026-10-05", endDate: "2026-11-25" },
+  roast: { startDate: "2026-10-05", endDate: "2026-11-25" },
 };
