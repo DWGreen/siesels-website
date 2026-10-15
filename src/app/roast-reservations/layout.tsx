@@ -18,7 +18,7 @@ export default function RoastReservationsLayout({
         className="flex flex-1 flex-col"
       >
          <InteriorHero
-                title="Roasts"
+                title="Rib Roast"
                 backgroundImage="/images/hero/rib-roasts-hero.webp"
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
