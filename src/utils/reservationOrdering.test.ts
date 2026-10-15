@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { reservationOrderingWindows } from "@/data/storeLocations";
 import { getReservationOrderingStatus, getReservationPickupDateBounds, isReservationPickupDateAllowed } from "./reservationOrdering";
 
 const window = { startDate: "2026-11-01", endDate: "2026-11-20" };
@@ -6,17 +7,20 @@ const window = { startDate: "2026-11-01", endDate: "2026-11-20" };
 describe("reservation ordering windows", () => {
   it("bounds pickup dates by the active sale window and Pacific today", () => {
     expect(getReservationPickupDateBounds("turkey", new Date("2026-10-14T18:00:00Z")))
-      .toEqual({ minDate: "2026-10-14", maxDate: "2026-11-20" });
+      .toEqual({ minDate: "2026-10-14", maxDate: reservationOrderingWindows.turkey.endDate ?? undefined });
     expect(getReservationPickupDateBounds("turkey", new Date("2026-10-01T18:00:00Z")))
-      .toEqual({ minDate: "2026-10-05", maxDate: "2026-11-20" });
+      .toEqual({ minDate: reservationOrderingWindows.turkey.startDate, maxDate: reservationOrderingWindows.turkey.endDate ?? undefined });
   });
 
   it("rejects pickup dates outside the configured window or invalid calendar dates", () => {
     const now = new Date("2026-10-14T18:00:00Z");
+    const { minDate, maxDate } = getReservationPickupDateBounds("turkey", now);
+    const dayAfterMax = new Date(`${maxDate}T00:00:00Z`);
+    dayAfterMax.setUTCDate(dayAfterMax.getUTCDate() + 1);
     expect(isReservationPickupDateAllowed("turkey", "2026-10-13", now)).toBe(false);
-    expect(isReservationPickupDateAllowed("turkey", "2026-10-14", now)).toBe(true);
-    expect(isReservationPickupDateAllowed("turkey", "2026-11-20", now)).toBe(true);
-    expect(isReservationPickupDateAllowed("turkey", "2026-11-21", now)).toBe(false);
+    expect(isReservationPickupDateAllowed("turkey", minDate, now)).toBe(true);
+    expect(isReservationPickupDateAllowed("turkey", maxDate!, now)).toBe(true);
+    expect(isReservationPickupDateAllowed("turkey", dayAfterMax.toISOString().slice(0, 10), now)).toBe(false);
     expect(isReservationPickupDateAllowed("turkey", "2026-02-30", now)).toBe(false);
   });
 

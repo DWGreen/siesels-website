@@ -1,10 +1,11 @@
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
 export const HAM_CATEGORY_ID = 42;
+export const UNTRACKED_HAM_QUANTITY_LIMIT = 100;
 
 export type HamReservationVariation = {
   id: number;
-  attributes: Array<{ attribute: string; value: string }>;
+  attributes: Array<{ attribute: string; name: string; value: string }>;
   stockManaged: boolean;
   usesParentStock: boolean;
   stockQuantity: number | null;
@@ -37,16 +38,28 @@ type WooVariation = {
 
 export function mapHamVariation(parent: WooProduct, variation: WooVariation): HamReservationVariation | null {
   if (variation.status !== "publish" || variation.attributes?.some(attribute => !attribute.option.trim())) return null;
+  const variationStockManaged = variation.manage_stock === true;
+  const parentStockManaged = parent.manage_stock === true;
+  const stockManaged = variationStockManaged || parentStockManaged;
   return {
     id: variation.id,
-    attributes: (variation.attributes ?? []).map(attribute => ({
-      attribute: attribute.slug || attribute.name,
-      value: attribute.option,
-    })),
-    stockManaged: variation.manage_stock === true || parent.manage_stock === true,
-    usesParentStock: variation.manage_stock !== true && parent.manage_stock === true,
-    stockQuantity: variation.manage_stock === true ? variation.stock_quantity ?? null : parent.stock_quantity ?? null,
-    inStock: variation.stock_status !== "outofstock" && parent.stock_status !== "outofstock",
+    attributes: (variation.attributes ?? []).map(attribute => {
+      const parentAttribute = parent.attributes?.find(candidate =>
+        (attribute.slug && candidate.slug === attribute.slug) ||
+        candidate.name.trim().toLowerCase() === attribute.name.trim().toLowerCase()
+      );
+      return {
+        attribute: attribute.slug || parentAttribute?.slug || attribute.name,
+        name: parentAttribute?.name ?? attribute.name,
+        value: attribute.option,
+      };
+    }),
+    stockManaged,
+    usesParentStock: !variationStockManaged && parentStockManaged,
+    stockQuantity: variationStockManaged ? variation.stock_quantity ?? null : parent.stock_quantity ?? null,
+    inStock: !stockManaged || (variationStockManaged
+      ? variation.stock_status !== "outofstock"
+      : parent.stock_status !== "outofstock"),
   };
 }
 
@@ -89,10 +102,17 @@ export function validateHamReservationLines(
     if (!Number.isInteger(item.productId) || !Number.isInteger(item.variationId) || !Number.isInteger(item.quantity) || item.quantity < 1 || !product || !variation) {
       return "Choose valid ham options and quantities.";
     }
-    if (!variation.stockManaged || !variation.inStock || variation.stockQuantity === null || !Number.isFinite(variation.stockQuantity) || item.quantity > variation.stockQuantity) {
+    if (!variation.inStock) {
+      return `${product.name} is not available in that quantity.`;
+    }
+    if (!variation.stockManaged && item.quantity > UNTRACKED_HAM_QUANTITY_LIMIT) {
+      return `Choose no more than ${UNTRACKED_HAM_QUANTITY_LIMIT} ${product.name} reservation(s).`;
+    }
+    if (variation.stockManaged && (variation.stockQuantity === null || !Number.isFinite(variation.stockQuantity) || item.quantity > variation.stockQuantity)) {
       return `${product.name} is not available in that quantity.`;
     }
     if (variation.usesParentStock) {
+      if (variation.stockQuantity === null) return `${product.name} is not available in that quantity.`;
       const total = (parentQuantities.get(product.id) ?? 0) + item.quantity;
       parentQuantities.set(product.id, total);
       if (total > variation.stockQuantity) return `The combined quantity for ${product.name} exceeds the amount available.`;

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
-import type { HamReservationProduct, HamReservationVariation } from "@/services/hamReservations";
+import { UNTRACKED_HAM_QUANTITY_LIMIT, type HamReservationProduct, type HamReservationVariation } from "@/services/hamReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
 import { getReservationOrderingStatus, getReservationPickupDateBounds, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
@@ -24,6 +24,16 @@ function attributeNames(product: HamReservationProduct) {
   return [...new Set(product.variations.flatMap(variation => variation.attributes.map(({ attribute }) => attribute)))];
 }
 
+function isHamTypeAttribute(attribute: string) {
+  const normalized = attribute.toLowerCase().replace(/^pa[_-]/, "").replace(/[^a-z0-9]/g, "");
+  return normalized === "typeofham" || normalized === "smoked";
+}
+
+function isHamTypeOption(value: string) {
+  const normalized = value.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return normalized.includes("kruseham") || normalized.includes("signaturesmokedham");
+}
+
 function matchesSelections(variation: HamReservationVariation, selections: Record<string, string>, names: string[]) {
   return names.every(name => variation.attributes.some(({ attribute, value }) => attribute === name && value === selections[name]));
 }
@@ -35,6 +45,7 @@ export default function HamReservationsClient({ products }: Props) {
   const [items, setItems] = useState<SelectedHam[]>([]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [productId, setProductId] = useState<number | null>(null);
+  const [hamType, setHamType] = useState("");
   const [selections, setSelections] = useState<Record<string, string>>({});
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState("");
@@ -46,6 +57,7 @@ export default function HamReservationsClient({ products }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submittingRef = useRef(false);
   const dialogRef = useRef<HTMLElement>(null);
+  const hamTypeRef = useRef<HTMLSelectElement>(null);
   const sizeRef = useRef<HTMLSelectElement>(null);
 
   useEffect(() => {
@@ -53,7 +65,7 @@ export default function HamReservationsClient({ products }: Props) {
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    sizeRef.current?.focus();
+    hamTypeRef.current?.focus();
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         event.preventDefault();
@@ -83,7 +95,9 @@ export default function HamReservationsClient({ products }: Props) {
   }, [pickerOpen]);
 
   function maximumQuantity(product: HamReservationProduct, variation: HamReservationVariation, lines = items) {
-    if (!variation.stockManaged || !variation.inStock || variation.stockQuantity === null ||
+    if (!variation.inStock) return 0;
+    if (!variation.stockManaged) return UNTRACKED_HAM_QUANTITY_LIMIT;
+    if (variation.stockQuantity === null ||
       !Number.isFinite(variation.stockQuantity)) return 0;
     const parentStock = product.variations.find(entry => entry.usesParentStock)?.stockQuantity;
     const stock = variation.usesParentStock
@@ -103,22 +117,55 @@ export default function HamReservationsClient({ products }: Props) {
   }
 
   const availableProducts = products.filter(product => product.variations.some(variation => remainingQuantity(product, variation) > 0));
+  const hamTypeAttribute = products.flatMap(product => product.variations.flatMap(variation => variation.attributes))
+    .find(attribute => isHamTypeAttribute(attribute.name) || isHamTypeAttribute(attribute.attribute) || isHamTypeOption(attribute.value))?.attribute;
+  const hamTypes = hamTypeAttribute
+    ? [...new Set(products.flatMap(product => product.variations
+      .flatMap(variation => variation.attributes
+        .filter(attribute => attribute.attribute === hamTypeAttribute)
+        .map(attribute => attribute.value))))]
+    : [];
+  const availableHamTypes = new Set(hamTypeAttribute
+    ? products.flatMap(product => product.variations
+      .filter(variation => remainingQuantity(product, variation) > 0)
+      .flatMap(variation => variation.attributes
+        .filter(attribute => attribute.attribute === hamTypeAttribute)
+        .map(attribute => attribute.value)))
+    : []);
+  const availableSizes = hamTypeAttribute && hamType
+    ? products.filter(product => product.variations.some(variation =>
+      variation.attributes.some(attribute => attribute.attribute === hamTypeAttribute && attribute.value === hamType) &&
+      remainingQuantity(product, variation) > 0))
+    : [];
   const pickerProduct = products.find(product => product.id === productId);
-  const pickerAttributes = pickerProduct ? attributeNames(pickerProduct) : [];
-  const pickerVariation = pickerProduct?.variations.find(variation => matchesSelections(variation, selections, pickerAttributes));
+  const pickerAttributes = pickerProduct
+    ? attributeNames(pickerProduct).filter(attribute => !isHamTypeAttribute(attribute))
+    : [];
+  const pickerSelectionNames = pickerProduct && hamTypeAttribute
+    ? [hamTypeAttribute, ...pickerAttributes]
+    : pickerAttributes;
+  const pickerVariation = pickerProduct?.variations.find(variation => matchesSelections(variation, selections, pickerSelectionNames));
   const pickerAvailable = Boolean(pickerProduct && pickerVariation && remainingQuantity(pickerProduct, pickerVariation) > 0);
   const selectedCount = items.reduce((total, item) => total + item.quantity, 0);
 
   function openPicker() {
-    const first = availableProducts[0];
-    if (!first) return;
-    changeProduct(first.id);
+    setHamType("");
+    setProductId(null);
+    setSelections({});
     setPickerOpen(true);
+  }
+
+  function changeHamType(nextHamType: string) {
+    setHamType(nextHamType);
+    setProductId(null);
+    setSelections(hamTypeAttribute && nextHamType ? { [hamTypeAttribute]: nextHamType } : {});
   }
 
   function changeProduct(nextProductId: number) {
     const product = products.find(entry => entry.id === nextProductId);
-    const first = product?.variations.find(variation => remainingQuantity(product, variation) > 0);
+    const first = product?.variations.find(variation =>
+      remainingQuantity(product, variation) > 0 &&
+      (!hamTypeAttribute || variation.attributes.some(attribute => attribute.attribute === hamTypeAttribute && attribute.value === hamType)));
     if (!product || !first) return;
     setProductId(product.id);
     setSelections(variationSelections(first));
@@ -127,7 +174,7 @@ export default function HamReservationsClient({ products }: Props) {
   function changeAttribute(attribute: string, value: string, index: number) {
     if (!pickerProduct) return;
     const nextSelections = { ...selections, [attribute]: value };
-    const prefix = pickerAttributes.slice(0, index + 1);
+    const prefix = pickerSelectionNames.slice(0, index + 2);
     const matching = pickerProduct.variations.find(variation =>
       matchesSelections(variation, nextSelections, prefix) && remainingQuantity(pickerProduct, variation) > 0);
     if (matching) setSelections(variationSelections(matching));
@@ -320,23 +367,27 @@ export default function HamReservationsClient({ products }: Props) {
                 <button type="button" onClick={() => setPickerOpen(false)} aria-label="Close ham picker" className="grid h-10 w-10 shrink-0 cursor-pointer place-items-center"><X aria-hidden="true" className="h-5 w-5" /></button>
               </div>
               <div className="mt-5 space-y-4">
+                {hamTypeAttribute && <label className="block font-heading text-xs font-bold uppercase tracking-[0.1em]">Type of ham
+                  <select ref={hamTypeRef} required value={hamType} onChange={event => changeHamType(event.target.value)} className={fieldClass}>
+                    <option value="" disabled>Select Type Of Ham</option>
+                    {hamTypes.map(type => <option key={type} value={type} disabled={!availableHamTypes.has(type)}>{type}{!availableHamTypes.has(type) ? " (Unavailable)" : ""}</option>)}
+                  </select>
+                </label>}
                 <label className="block font-heading text-xs font-bold uppercase tracking-[0.1em]">Size
-                  <select ref={sizeRef} aria-describedby="ham-size-help" value={productId ?? ""} onChange={event => changeProduct(Number(event.target.value))} className={fieldClass}>
-                    {products.map(product => {
-                      const available = availableProducts.some(entry => entry.id === product.id);
-                      return <option key={product.id} value={product.id} disabled={!available}>{product.name}{!available ? " (Unavailable)" : ""}</option>;
-                    })}
+                  <select ref={sizeRef} required disabled={!hamType || !availableSizes.length} aria-describedby="ham-size-help" value={productId ?? ""} onChange={event => changeProduct(Number(event.target.value))} className={fieldClass}>
+                    <option value="" disabled>Select Size</option>
+                    {availableSizes.map(product => <option key={product.id} value={product.id}>{product.name}</option>)}
                   </select>
                   <span id="ham-size-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Choose your ham size.</span>
                 </label>
                 {pickerAttributes.map((attribute, index) => {
                   const compatible = pickerProduct?.variations.filter(variation =>
-                    matchesSelections(variation, selections, pickerAttributes.slice(0, index))) ?? [];
+                    matchesSelections(variation, selections, pickerSelectionNames.slice(0, index + 1))) ?? [];
                   const options = [...new Set(compatible.flatMap(variation =>
                     variation.attributes.filter(entry => entry.attribute === attribute).map(({ value }) => value)))];
                   const helpId = `ham-attribute-${index}-help`;
                   return (
-                    <label key={attribute} className="block font-heading text-xs font-bold uppercase tracking-[0.1em]">{attribute}
+                    <label key={attribute} className="block font-heading text-xs font-bold uppercase tracking-[0.1em]">{pickerProduct?.variations.flatMap(variation => variation.attributes).find(entry => entry.attribute === attribute)?.name ?? attribute}
                       <select aria-describedby={helpId} value={selections[attribute] ?? ""} onChange={event => changeAttribute(attribute, event.target.value, index)} className={fieldClass}>
                         {options.map(option => {
                           const available = Boolean(pickerProduct && compatible.some(variation =>
@@ -350,7 +401,7 @@ export default function HamReservationsClient({ products }: Props) {
                   );
                 })}
               </div>
-              {!pickerAvailable && <p role="status" className="mt-4 font-serif text-sm text-[#9d321e]">This selection is unavailable in an additional quantity.</p>}
+              {pickerProduct && !pickerAvailable && <p role="status" className="mt-4 font-serif text-sm text-[#9d321e]">This selection is unavailable in an additional quantity.</p>}
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <button type="button" onClick={() => setPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em]">Cancel</button>
                 <button type="button" onClick={addHam} disabled={!ordering.isOpen || isSubmitting || !pickerAvailable} className={addClass}><Plus aria-hidden="true" className="h-4 w-4 shrink-0" /> Add Ham</button>

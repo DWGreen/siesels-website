@@ -11,10 +11,17 @@ const line = { productId: 210, variationId: 211, quantity: 1 };
 describe("dynamic ham reservations", () => {
   it("maps arbitrary attribute names and values without a size enum", () => {
     expect(mapHamVariation(parent, { ...plain, attributes: [{ name: "Glaze", option: "Honey" }] })?.attributes)
-      .toEqual([{ attribute: "Glaze", value: "Honey" }]);
+      .toEqual([{ attribute: "Glaze", name: "Glaze", value: "Honey" }]);
   });
   it("preserves global attribute identifiers", () => {
-    expect(mapHamVariation(parent, { ...plain, attributes: [{ name: "Preparation", slug: "pa_preparation", option: "Plain" }] })?.attributes[0].attribute).toBe("pa_preparation");
+    const parentWithRenamedAttribute = {
+      ...parent,
+      attributes: [{ name: "Type Of Ham", slug: "pa_smoked", variation: true, options: ["Kruse Ham", "Siesels Signature Smoked Ham"] }],
+    };
+    expect(mapHamVariation(parentWithRenamedAttribute, {
+      ...plain,
+      attributes: [{ name: "Smoked", slug: "pa_smoked", option: "Kruse Ham" }],
+    })?.attributes[0]).toEqual({ attribute: "pa_smoked", name: "Type Of Ham", value: "Kruse Ham" });
   });
   it("rejects unpublished and ambiguous wildcard variations", () => {
     expect(mapHamVariation(parent, { ...plain, status: "draft" })).toBeNull();
@@ -31,6 +38,21 @@ describe("dynamic ham reservations", () => {
     expect(validateHamReservationLines([limited], [{ ...line, quantity: 3 }])).not.toBeNull();
     expect(validateHamReservationLines([product], [{ ...line, productId: 999 }])).not.toBeNull();
     expect(validateHamReservationLines([product], [line, line])).not.toBeNull();
+  });
+  it("allows in-stock variations without stock tracking", () => {
+    const untrackedParent = { ...parent, manage_stock: false, stock_quantity: null, stock_status: "instock" };
+    const untrackedVariation = mapHamVariation(untrackedParent, {
+      ...plain,
+      manage_stock: false,
+      stock_quantity: null,
+      stock_status: "outofstock",
+    })!;
+    const untrackedProduct = { ...product, variations: [untrackedVariation] };
+    expect(untrackedVariation.stockManaged).toBe(false);
+    expect(untrackedVariation.inStock).toBe(true);
+    expect(validateHamReservationLines([untrackedProduct], [{ ...line, quantity: 25 }])).toBeNull();
+    expect(validateHamReservationLines([untrackedProduct], [{ ...line, quantity: 101 }])).not.toBeNull();
+    expect(validateHamReservationLines([{ ...untrackedProduct, variations: [{ ...untrackedVariation, inStock: false }] }], [line])).not.toBeNull();
   });
   it("loads category products with only their actual variation options", async () => {
     api.get.mockImplementation(async (path: string) => ({ data: path.startsWith("products?") ? [parent, { ...parent, id: 220, name: "Half Ham" }] : path.includes("/220/") ? [{ ...plain, id: 221 }] : [plain] }));
