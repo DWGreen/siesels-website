@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
 import { UNTRACKED_HAM_QUANTITY_LIMIT, type HamReservationProduct, type HamReservationVariation } from "@/services/hamReservations";
 import { reservationStoreLocations } from "@/data/storeLocations";
+import PickupStoreSelector from "@/components/reservations/PickupStoreSelector";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
 import { getReservationOrderingStatus, getReservationPickupDateBounds, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
 
@@ -331,12 +332,7 @@ export default function HamReservationsClient({ products }: Props) {
             <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup &amp; Contact</h2>
             <fieldset disabled={isSubmitting} className="mt-5 min-w-0 space-y-4">
               <legend className="sr-only">Pickup and contact details</legend>
-              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup location
-                <select required value={storeLocationId} onChange={event => setStoreLocationId(event.target.value)} className={fieldClass}>
-                  <option value="" disabled>Choose Pickup Store</option>
-                  {reservationStoreLocations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
-                </select>
-              </label>
+              <PickupStoreSelector value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
                 <input required type="date" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className={fieldClass} />
               </label>

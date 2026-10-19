@@ -1,5 +1,11 @@
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
+export type TurkeyReservationType = "turkey" | "turkey-breast";
+const categories = {
+  turkey: { id: 40, slug: "turkey-reservations" },
+  "turkey-breast": { id: 43, slug: "turkey-breast-reservations" },
+};
+
 export interface TurkeyReservationProduct {
   id: number;
   name: string;
@@ -20,17 +26,18 @@ type WooCommerceReservationProduct = {
   status?: string;
 };
 
-export async function getTurkeyReservationProducts(): Promise<TurkeyReservationProduct[]> {
+export async function getTurkeyReservationProducts(type: TurkeyReservationType = "turkey"): Promise<TurkeyReservationProduct[]> {
+  const categoryConfig = categories[type];
   try {
     const api = getWooCommerceApi();
     const response = await api.get(
-      "products?category=40&per_page=100&orderby=menu_order&order=asc&status=publish"
+      `products?category=${categoryConfig.id}&per_page=100&orderby=menu_order&order=asc&status=publish`
     );
 
     return (response.data as WooCommerceReservationProduct[])
       .filter(product =>
         product.categories?.some(
-          category => category.id === 40 || category.slug === "turkey-reservations"
+          category => category.id === categoryConfig.id || category.slug === categoryConfig.slug
         )
       )
       .map(product => ({
@@ -48,8 +55,10 @@ export async function getTurkeyReservationProducts(): Promise<TurkeyReservationP
 }
 
 export async function validateTurkeyReservationLines(
-  lines: Array<{ productId: number; quantity: number }>
+  lines: Array<{ productId: number; quantity: number }>,
+  type: TurkeyReservationType = "turkey"
 ): Promise<string | null> {
+  const categoryConfig = categories[type];
   const api = getWooCommerceApi();
 
   for (const line of lines) {
@@ -61,7 +70,7 @@ export async function validateTurkeyReservationLines(
       const response = await api.get(`products/${line.productId}`);
       const product = response.data as WooCommerceReservationProduct;
       const isTurkeyReservation = product.categories?.some(
-        category => category.id === 40 || category.slug === "turkey-reservations"
+        category => category.id === categoryConfig.id || category.slug === categoryConfig.slug
       );
 
       if (product.status !== "publish" || !isTurkeyReservation) {

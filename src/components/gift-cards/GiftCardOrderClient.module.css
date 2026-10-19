@@ -1,0 +1,24 @@
+.artwork {
+  transition: scale 180ms ease-out;
+  transform-origin: center;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1.5deg); }
+  75% { transform: rotate(1.5deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card:focus-within .artwork {
+    scale: 1.04;
+    animation: wiggle 700ms ease-in-out infinite;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover .artwork {
+      scale: 1.04;
+      animation: wiggle 700ms ease-in-out infinite;
+    }
+  }
+}

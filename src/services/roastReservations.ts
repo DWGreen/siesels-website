@@ -5,6 +5,7 @@ export type RoastGrade = "USDA Prime" | "USDA Choice";
 export interface RoastReservationVariation {
   id: number;
   grade: RoastGrade;
+  seasoning: "Plain" | "Seasoned" | null;
   attributeName: string;
   stockManaged: boolean;
   stockQuantity: number | null;
@@ -37,13 +38,22 @@ type WooProduct = {
   categories?: Array<{ id: number; slug: string }>;
 };
 
-function getGrade(variation: WooVariation): RoastGrade | null {
+export function getGrade(variation: WooVariation): RoastGrade | null {
   const value = variation.attributes?.find(attribute =>
     attribute.name.trim().toLowerCase() === "grade"
   )?.option.trim().toLowerCase();
 
   if (value === "prime" || value === "usda prime") return "USDA Prime";
   if (value === "choice" || value === "usda choice") return "USDA Choice";
+  return null;
+}
+
+export function getRoastSeasoning(variation: WooVariation): "Plain" | "Seasoned" | null {
+  const value = variation.attributes?.find(attribute =>
+    attribute.name.trim().toLowerCase() === "seasoning"
+  )?.option.trim().toLowerCase();
+  if (value === "plain") return "Plain";
+  if (value === "seasoned") return "Seasoned";
   return null;
 }
 
@@ -76,6 +86,7 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
             return {
               id: variation.id,
               grade,
+              seasoning: getRoastSeasoning(variation),
               attributeName: variation.attributes?.find(attribute =>
                 attribute.name.trim().toLowerCase() === "grade"
               )?.name ?? "Grade",
@@ -84,7 +95,9 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
               inStock: variation.stock_status !== "outofstock" && parent.stock_status !== "outofstock",
             } satisfies RoastReservationVariation;
           })
-          .filter((variation): variation is RoastReservationVariation => variation !== null);
+          .filter((variation): variation is RoastReservationVariation => variation !== null)
+          .sort((first, second) => second.grade.localeCompare(first.grade) ||
+            (first.seasoning ?? "").localeCompare(second.seasoning ?? ""));
 
         return { id: parent.id, name: parent.name, variations };
       })

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { RoastReservationProduct, RoastReservationVariation } from "@/services/roastReservations";
-import { reservationStoreLocations } from "@/data/storeLocations";
+import PickupStoreSelector from "@/components/reservations/PickupStoreSelector";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
 import { getReservationOrderingStatus, getReservationPickupDateBounds } from "@/utils/reservationOrdering";
 
@@ -14,6 +14,7 @@ type SelectedRoast = {
   productId: number;
   variationId: number;
   grade: "USDA Prime" | "USDA Choice";
+  seasoning: "Plain" | "Seasoned" | null;
   quantity: number;
 };
 
@@ -36,20 +37,29 @@ export default function RoastReservationsClient({ products }: Props) {
 
   const selectedCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
   const availablePairs = products.flatMap(product =>
-    product.variations
+    [...product.variations].sort((first, second) => second.grade.localeCompare(first.grade) ||
+      (first.seasoning ?? "").localeCompare(second.seasoning ?? ""))
       .filter(variation => variation.stockManaged && variation.inStock && (variation.stockQuantity ?? 0) > 0)
       .map(variation => ({ product, variation }))
   );
   const pickerProduct = products.find(product => product.id === pickerProductId);
-  const pickerVariations = pickerProduct?.variations ?? [];
+  const pickerVariations = [...(pickerProduct?.variations ?? [])].sort((first, second) =>
+    second.grade.localeCompare(first.grade) || (first.seasoning ?? "").localeCompare(second.seasoning ?? ""));
   const pickerVariation = pickerVariations.find(variation => variation.id === pickerVariationId);
+  const pickerGrades = [...new Set(pickerVariations.map(variation => variation.grade))];
+  const seasoningVariations = pickerVariations.filter(variation => variation.grade === pickerVariation?.grade);
+  const pickerSeasonings = [...new Set(seasoningVariations.flatMap(variation => variation.seasoning ? [variation.seasoning] : []))];
+  function variationAvailable(variation: RoastReservationVariation) {
+    return variation.stockManaged && variation.inStock && (variation.stockQuantity ?? 0) >
+      (items.find(item => item.variationId === variation.id)?.quantity ?? 0);
+  }
   const pickerPairAvailable = Boolean(
-    pickerProduct && pickerVariation &&
+    pickerProduct && pickerVariation && variationAvailable(pickerVariation) &&
     availablePairs.some(pair => pair.product.id === pickerProduct.id && pair.variation.id === pickerVariation.id)
   );
 
   function openPicker() {
-    const firstPair = availablePairs[0];
+    const firstPair = availablePairs.find(pair => variationAvailable(pair.variation));
     setPickerProductId(firstPair?.product.id ?? "");
     setPickerVariationId(firstPair?.variation.id ?? "");
     setPickerOpen(true);
@@ -58,7 +68,16 @@ export default function RoastReservationsClient({ products }: Props) {
   function changePickerProduct(productId: number) {
     setPickerProductId(productId);
     const product = products.find(item => item.id === productId);
-    setPickerVariationId(product?.variations[0]?.id ?? "");
+    const sorted = [...(product?.variations ?? [])].sort((first, second) =>
+      second.grade.localeCompare(first.grade) || (first.seasoning ?? "").localeCompare(second.seasoning ?? ""));
+    setPickerVariationId(sorted.find(variationAvailable)?.id ?? sorted[0]?.id ?? "");
+  }
+
+  function changePickerGrade(grade: string) {
+    const variations = pickerVariations.filter(variation => variation.grade === grade);
+    const next = variations.find(variation => variation.seasoning === pickerVariation?.seasoning && variationAvailable(variation)) ??
+      variations.find(variationAvailable) ?? variations[0];
+    setPickerVariationId(next?.id ?? "");
   }
 
   function addRoast() {
@@ -77,6 +96,7 @@ export default function RoastReservationsClient({ products }: Props) {
         productId: pickerProduct.id,
         variationId: pickerVariation.id,
         grade: pickerVariation.grade,
+        seasoning: pickerVariation.seasoning,
         quantity: Math.min(stock, currentQuantity + 1),
       }];
     });
@@ -195,7 +215,7 @@ export default function RoastReservationsClient({ products }: Props) {
                     const max = variation.stockQuantity ?? item.quantity;
                     return (
                       <div key={item.variationId} className="flex flex-wrap items-center justify-between gap-4 border border-[#d8cec0] bg-white p-4 sm:px-5">
-                        <div><h3 className="font-heading text-base font-bold uppercase">{product.name}</h3><p className="mt-1 font-serif text-sm text-neutral-600">{variation.grade}</p></div>
+                        <div><h3 className="font-heading text-base font-bold uppercase">{product.name}</h3><p className="mt-1 font-serif text-sm text-neutral-600">{[variation.grade, variation.seasoning].filter(Boolean).join(" / ")}</p></div>
                         <div className="flex items-center gap-2">
                           <button type="button" aria-label={`Decrease ${product.name} ${variation.grade} quantity`} disabled={item.quantity <= 1} onClick={() => updateQuantity(variation, item.quantity - 1)} className="grid h-10 w-10 cursor-pointer place-items-center border border-[#2d2d2d] disabled:cursor-not-allowed disabled:opacity-35"><Minus aria-hidden="true" className="h-4 w-4" /></button>
                           <input aria-label={`Quantity for ${product.name} ${variation.grade}`} type="number" min={1} max={max} value={item.quantity} onChange={event => updateQuantity(variation, Number(event.target.value))} className="h-10 w-16 border border-[#2d2d2d] bg-white text-center font-heading text-base font-bold" />
@@ -223,15 +243,22 @@ export default function RoastReservationsClient({ products }: Props) {
                         <span id="roast-size-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click above to select other sizes.</span>
                       </label>
                       <label className="block text-xs font-bold uppercase tracking-[0.1em]">Grade
-                        <select aria-describedby="roast-grade-help" value={pickerVariationId} onChange={event => setPickerVariationId(Number(event.target.value))} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
-                          {pickerVariations.map(variation => {
-                            const available = variation.stockManaged && variation.inStock && (variation.stockQuantity ?? 0) > 0;
-                            const alreadySelected = items.some(item => item.variationId === variation.id && item.quantity >= (variation.stockQuantity ?? 0));
-                            return <option key={variation.id} value={variation.id} disabled={!available || alreadySelected}>{variation.grade}{!variation.stockManaged ? " (Unavailable)" : !available || alreadySelected ? " (Out Of Stock)" : ""}</option>;
+                        <select aria-describedby="roast-grade-help" value={pickerVariation?.grade ?? ""} onChange={event => changePickerGrade(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
+                          {pickerGrades.map(grade => {
+                            const available = pickerVariations.some(variation => variation.grade === grade && variationAvailable(variation));
+                            return <option key={grade} value={grade} disabled={!available}>{grade}{!available ? " (Unavailable)" : ""}</option>;
                           })}
                         </select>
                         <span id="roast-grade-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click above to select another grade.</span>
                       </label>
+                      {pickerSeasonings.length > 0 && <label className="block text-xs font-bold uppercase tracking-[0.1em]">Seasoning
+                        <select value={pickerVariation?.seasoning ?? ""} onChange={event => {
+                          const next = seasoningVariations.find(variation => variation.seasoning === event.target.value);
+                          setPickerVariationId(next?.id ?? "");
+                        }} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
+                          {pickerSeasonings.map(seasoning => <option key={seasoning} value={seasoning} disabled={!seasoningVariations.some(variation => variation.seasoning === seasoning && variationAvailable(variation))}>{seasoning}</option>)}
+                        </select>
+                      </label>}
                     </div>
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       <button type="button" onClick={() => setPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 text-xs font-black uppercase tracking-[0.12em]">Cancel</button>
@@ -246,12 +273,7 @@ export default function RoastReservationsClient({ products }: Props) {
               <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup & Contact</h2>
               <p className="mt-1 font-serif text-xs text-neutral-600">Where and when should we prepare your order?</p>
               <div className="mt-5 space-y-4">
-                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup location
-                  <select required value={storeLocationId} onChange={event => setStoreLocationId(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
-                    <option value="" disabled>Choose Pickup Store</option>
-                    {reservationStoreLocations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
-                  </select>
-                </label>
+                <PickupStoreSelector value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
                   <input required type="date" aria-describedby="roast-date-help" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                   <span id="roast-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>

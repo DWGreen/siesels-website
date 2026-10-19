@@ -34,6 +34,7 @@ export const footerNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
   { label: "Gift Cards", href: "/gift-cards" },
   { label: "Turkey Reservations", href: "/turkey-reservations" },
+  { label: "Turkey Breast Reservations", href: "/turkey-breast-reservations" },
   { label: "Roast Reservations", href: "/roast-reservations" },
   //{ label: "Order Sandwiches Online", href: "/sandwiches" },
   //{ label: "Gift Cards", href: "/gift-cards" },

@@ -4,11 +4,12 @@ import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { getReservationStoreLocation } from "@/data/storeLocations";
 import { getReservationOrderingStatus, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
+import { getGrade, getRoastSeasoning } from "@/services/roastReservations";
 
 const SESSION_COOKIE_PREFIX = "wc_roast_reservation";
 const ROAST_CATEGORY_ID = 41;
 
-type RoastLineRequest = { productId: number; variationId: number; grade: string; quantity: number };
+type RoastLineRequest = { productId: number; variationId: number; grade: string; seasoning?: string | null; quantity: number };
 type RequestBody = {
   pickupDate?: string;
   storeLocationId?: string;
@@ -37,9 +38,10 @@ async function validateLines(lines: RoastLineRequest[]): Promise<string | null> 
       const parent = parentResponse.data;
       const variation = variationResponse.data;
       const categoryMatch = parent.categories?.some((category: { id: number }) => category.id === ROAST_CATEGORY_ID);
-      const variationGrade = variation.attributes?.find((attribute: { name: string }) => attribute.name.trim().toLowerCase() === "grade")?.option;
+      const variationGrade = getGrade(variation);
+      const variationSeasoning = getRoastSeasoning(variation);
 
-      if (parent.status !== "publish" || parent.type !== "variable" || !categoryMatch || variation.status !== "publish" || variationGrade !== line.grade) {
+      if (parent.status !== "publish" || parent.type !== "variable" || !categoryMatch || variation.status !== "publish" || variationGrade !== line.grade || variationSeasoning !== (line.seasoning ?? null)) {
         return "One of the selected roast options is no longer available.";
       }
       const stockManaged = variation.manage_stock === true || parent.manage_stock === true;
@@ -108,10 +110,9 @@ export async function POST(request: Request) {
         session,
         method: "POST",
         body: JSON.stringify({
-          id: item.productId,
+          id: item.variationId,
           quantity: item.quantity,
-          variation: [{ attribute: "Grade", value: item.grade }],
-          siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})`,
+          siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})\nGrade: ${item.grade}${item.seasoning ? `\nSeasoning: ${item.seasoning}` : ""}`,
         }),
       });
       session = addResult.session;

@@ -11,6 +11,7 @@ import { CheckoutCustomerValues } from "@/components/checkout/CheckoutCustomerFo
 import CheckoutPaymentForm, { useCheckoutPaymentMethod } from "@/components/checkout/CheckoutPaymentForm";
 import { getRuntimeStripePromise } from "@/lib/stripeRuntime";
 import { MAX_GIFT_CARD_QUANTITY } from "@/config/giftCards";
+import styles from "./GiftCardOrderClient.module.css";
 
 type GiftCardLine = { productId: number; quantity: number };
 type Props = { products: Product[] };
@@ -92,9 +93,9 @@ function GiftCardOrderForm({ products }: Props) {
     <>
       <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {products.map(product => (
-          <article key={product.id} className="flex h-full flex-col">
+          <article key={product.id} className={`${styles.card} flex h-full flex-col`}>
             {product.image ? (
-              <Image src={product.image.thumbnailSrc ?? product.image.src} alt={product.image.alt || product.name} width={600} height={450} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="block h-auto w-full object-contain" />
+              <Image src={product.image.thumbnailSrc ?? product.image.src} alt={product.image.alt || product.name} width={600} height={450} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className={`${styles.artwork} block h-auto w-full object-contain`} />
             ) : (
               <div className="grid aspect-[4/3] place-items-center font-heading text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Gift Card image unavailable</div>
             )}

@@ -4,7 +4,8 @@ import { getProductsByCategoryId } from "@/services/products";
 export const dynamic = "force-dynamic";
 
 export default async function GiftCardsPage() {
-  const products = await getProductsByCategoryId("37");
+  const products = [...await getProductsByCategoryId("37")]
+    .sort((first, second) => Number(first.price) - Number(second.price));
 
   return (
     <main className="min-h-screen bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">

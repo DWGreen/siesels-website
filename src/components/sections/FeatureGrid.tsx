@@ -50,17 +50,17 @@ export default function FeatureGrid() {
           className="relative order-4 flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:order-none md:px-[60px] md:py-14"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
-          <div className="mx-auto max-w-[600px] text-center text-white">
-            <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
-              Reserve
+          <div className="mx-auto w-full max-w-[600px] text-center text-white">
+             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
+              Now Available
             </p>
-            <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
-              Holiday Meats
+            <h2 className="font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[58px]">
+              Reserve Your<br/> Holiday Meats Online!
             </h2>
-            <p className="mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg">
+              <p className="mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg">
               Reserve your holiday meats in advance to ensure you have the perfect centerpiece for your festive meals.
             </p>
-            <div className="mt-6 flex items-center gap-3 md:mt-8">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-8">
               <Link href="/turkey-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
               Turkey &gt;
               </Link>
@@ -77,7 +77,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
         <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
           <Image
-            src="/images/features/holiday-meats-gold.jpg"
+            src="/images/features/holiday_meats_bonein.jpg"
             alt="Holiday turkey on a wooden cutting board with festive decorations"
             fill
             className="object-cover object-top"
@@ -103,13 +103,13 @@ export default function FeatureGrid() {
         >
          <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
-              Charcuterie Tasting
+              Siesels & Iowa
             </p>
             <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
-              September 29th, 7PM
+              November Events
             </h2>
             <p className="mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg">
-              Sip, sample, and savor handcrafted pairings from our butcher and deli teams. Expect house-cured favorites, artisan cheeses, and fresh seasonal bites.
+              Join us for a sampling of our curated charcuterie boards and delicious holiday meats!
             </p>
             <div className="mt-6 md:mt-8">
               <Link href="/events" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
