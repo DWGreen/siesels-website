@@ -27,3 +27,10 @@ export const reservationOrderingWindows: Record<ReservationType, ReservationOrde
   "turkey-breast": { startDate: "2026-10-05", endDate: "2026-11-25" },
   roast: { startDate: "2026-10-05", endDate: "2026-11-25" },
 };
+
+export const reservationPickupWindows: Record<ReservationType, ReservationOrderingWindow> = {
+  ham: { startDate: "2026-10-05", endDate: "2026-11-25" },
+  turkey: { startDate: "2026-10-05", endDate: "2026-11-25" },
+  "turkey-breast": { startDate: "2026-10-05", endDate: "2026-11-25" },
+  roast: { startDate: "2026-10-05", endDate: "2026-11-25" },
+};
