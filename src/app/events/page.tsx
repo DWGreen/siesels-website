@@ -60,18 +60,8 @@ const events: EventItem[] = [
    {
     eyebrow: "Tasting 4",
     title: "CHARCUTERIE FOR THE HOLIDAYS!",
-    schedules: [
-      {
-        date: "Saturday, November 21, 2026",
+   date: "Sunday, November 15, 2026",
         time: "11:00 AM - 3:00 PM",
-        location: "Iowa Meat Farms",
-      },
-      {
-        date: "Sunday, November 22, 2026",
-        time: "11:00 AM - 3:00 PM",
-        location: "Siesel's Meats",
-      },
-    ],
     description:
       "Join us for a festive sampling of everything you need to create an amazing holiday board: artisan cheeses, premium cured meats, an olive medley, dried fruit, gourmet jams, and more. Discover your favorites and make holiday entertaining delicious!",
     image: "/images/events/charcuterie_1.jpg",
