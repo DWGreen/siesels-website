@@ -6,10 +6,8 @@ export interface NavItem {
 
 export const leftNavItems: NavItem[] = [
   { label: "Specials", href: "/specials" },
-
-  { label: "Turkey", href: "/turkey-reservations" },
-  { label: "Roasts", href: "/roast-reservations" },
-    { label: "Ham", href: "/ham-reservations" },
+  { label: "Holiday Meats", href: "/holiday-meats" },
+   { label: "Steak 101", href: "/steak-101" },
   {
     label: "Instacart",
     //href: "/sandwiches",
