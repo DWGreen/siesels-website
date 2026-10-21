@@ -80,9 +80,9 @@ export default function HolidayMeatsPage() {
                     <div className="flex flex-1 flex-col p-5 text-sm font-medium text-gray-700">
                       <h3 className="mb-2 font-heading text-xl font-bold uppercase tracking-[0.1em] text-brand-black">{meat.title}</h3>
                       <span aria-hidden="true" className="mb-3 block h-0.5 w-10 bg-[#9d321e]" />
-                      <p className="mb-5 font-serif text-base leading-6 text-brand-black">{meat.description}</p>
+                      <p className="mb-5 font-serif text-base font-normal leading-6 text-brand-black">{meat.description}</p>
                       <span className="mt-auto inline-flex min-h-11 items-center self-start bg-brand-black px-5 font-heading text-sm font-bold uppercase tracking-[0.15em] text-white transition-colors group-hover:bg-[#9d321e]">
-                        Order Now &gt;
+                        Reserve Now &gt;
                       </span>
                     </div>
                   </Link>
