@@ -29,8 +29,8 @@ export const reservationOrderingWindows: Record<ReservationType, ReservationOrde
 };
 
 export const reservationPickupWindows: Record<ReservationType, ReservationOrderingWindow> = {
-  ham: { startDate: "2026-10-18", endDate: "2026-11-20" },
-  turkey: { startDate: "2026-10-18", endDate: "2026-11-20" },
-  "turkey-breast": { startDate: "2026-10-18", endDate: "2026-11-20" },
-  roast: { startDate: "2026-10-18", endDate: "2026-11-20" },
+  ham: { startDate: "2026-11-18", endDate: "2026-11-25" },
+  turkey: { startDate: "2026-11-18", endDate: "2026-11-25" },
+  "turkey-breast": { startDate: "2026-11-18", endDate: "2026-11-25" },
+  roast: { startDate: "2026-11-18", endDate: "2026-11-25" },
 };
