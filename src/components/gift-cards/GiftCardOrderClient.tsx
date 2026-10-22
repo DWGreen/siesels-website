@@ -78,7 +78,7 @@ function GiftCardOrderForm({ products }: Props) {
         setError(result.message ?? "Unable to place gift card order.");
         return;
       }
-      router.push(`/sandwiches/checkout/success?order_id=${encodeURIComponent(String(result.order_id ?? ""))}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`);
+      router.push(`/order-confirmation?orderType=gift-card&order_id=${encodeURIComponent(String(result.order_id ?? ""))}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`);
     } catch (submitError) {
       console.error("Gift card checkout failed:", submitError);
       setError(submitError instanceof Error ? submitError.message : "Unable to place gift card order.");

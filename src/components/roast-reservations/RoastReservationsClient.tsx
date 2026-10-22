@@ -135,7 +135,7 @@ export default function RoastReservationsClient({ products }: Props) {
         setError(result.message ?? "Unable to submit roast reservation.");
         return;
       }
-      router.push(`/sandwiches/checkout/success?reservation=roast&order_id=${encodeURIComponent(String(result.order_id ?? ""))}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`);
+      router.push(`/order-confirmation?orderType=roast&order_id=${encodeURIComponent(String(result.order_id ?? ""))}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`);
     } catch (submitError) {
       console.error("Roast reservation failed:", submitError);
       setError("Unable to submit reservation. Please try again.");

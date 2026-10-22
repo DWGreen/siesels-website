@@ -114,7 +114,7 @@ export async function createStripeCheckoutSession(
     ],
 
     success_url:
-      `${siteUrl}/sandwiches/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      `${siteUrl}/order-confirmation?orderType=sandwich&session_id={CHECKOUT_SESSION_ID}`,
 
     cancel_url:
       `${siteUrl}/sandwiches/checkout`,

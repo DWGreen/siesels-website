@@ -108,7 +108,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
       }
 
       router.push(
-        `/sandwiches/checkout/success?reservation=${reservationType}&order_id=${encodeURIComponent(
+        `/order-confirmation?orderType=${reservationType}&order_id=${encodeURIComponent(
           String(result.order_id ?? "")
         )}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`
       );

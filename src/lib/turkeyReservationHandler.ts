@@ -22,6 +22,7 @@ type ReservationRequest = {
   };
   items?: Array<{
     productId?: number;
+    variationId?: number;
     quantity?: number;
   }>;
 };
@@ -56,6 +57,7 @@ return async function POST(request: Request) {
     const items = (body.items ?? [])
       .map(item => ({
         productId: Number(item.productId),
+        ...(item.variationId !== undefined ? { variationId: Number(item.variationId) } : {}),
         quantity: Number(item.quantity),
       }))
       .filter(item => item.quantity > 0);
@@ -106,7 +108,7 @@ return async function POST(request: Request) {
         session,
         method: "POST",
         body: JSON.stringify({
-          id: item.productId,
+          id: item.variationId ?? item.productId,
           quantity: item.quantity,
           siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})`,
         }),

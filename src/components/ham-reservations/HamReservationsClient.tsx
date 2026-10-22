@@ -249,7 +249,7 @@ export default function HamReservationsClient({ products }: Props) {
         setError(typeof result.message === "string" ? result.message : "Unable to submit ham reservation.");
         return;
       }
-      router.push(`/sandwiches/checkout/success?reservation=ham&order_id=${encodeURIComponent(String(result.order_id ?? ""))}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`);
+      router.push(`/order-confirmation?orderType=ham&order_id=${encodeURIComponent(String(result.order_id ?? ""))}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`);
     } catch {
       setError("Unable to submit reservation. Please try again.");
     } finally {

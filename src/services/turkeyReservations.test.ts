@@ -35,3 +35,25 @@ describe("turkey reservation categories", () => {
     expect(api.get).toHaveBeenCalledWith(expect.stringContaining("category=40&"));
   });
 });
+const variableBreast = { ...breast, type: "variable", attributes: [{ name: "Weight", variation: true, options: ["3-4 lb", "4-6 lb"] }] };
+const weight = { id: 431, status: "publish", manage_stock: true, stock_quantity: 3, stock_status: "instock", attributes: [{ name: "Weight", option: "3-4 lb" }] };
+
+describe("turkey breast weight variations", () => {
+  it("loads published weight variations with their own inventory", async () => {
+    api.get.mockImplementation(async (path: string) => ({ data: path.includes("/variations") ? [weight, { ...weight, id: 432, status: "private" }] : [variableBreast] }));
+    const products = await getTurkeyReservationProducts("turkey-breast");
+    expect(products[0].variations).toEqual([expect.objectContaining({ id: 431, stockQuantity: 3 })]);
+  });
+
+  it("requires a valid published weight and enforces its stock limit", async () => {
+    api.get.mockImplementation(async (path: string) => ({ data: path.includes("/variations/") ? weight : variableBreast }));
+    expect(await validateTurkeyReservationLines([{ productId: 430, quantity: 1 }], "turkey-breast")).not.toBeNull();
+    expect(await validateTurkeyReservationLines([{ productId: 430, variationId: 431, quantity: 3 }], "turkey-breast")).toBeNull();
+    expect(await validateTurkeyReservationLines([{ productId: 430, variationId: 431, quantity: 4 }], "turkey-breast")).not.toBeNull();
+  });
+
+  it("enforces combined parent stock across weights", async () => {
+    api.get.mockImplementation(async (path: string) => ({ data: path.includes("/variations/") ? { ...weight, manage_stock: false } : variableBreast }));
+    expect(await validateTurkeyReservationLines([{ productId: 430, variationId: 431, quantity: 6 }, { productId: 430, variationId: 432, quantity: 5 }], "turkey-breast")).toContain("combined quantity");
+  });
+});

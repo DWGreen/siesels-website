@@ -25,12 +25,14 @@ describe("turkey breast checkout", () => {
       body: JSON.stringify({
         pickupDate: "2026-11-20", storeLocationId: "iowa-meat-farms", notes: "Please call at pickup.",
         customer: { name: "Test Customer", email: "customer@example.test", phone: "5551234567" },
-        items: [{ productId: 430, quantity: 2 }],
+        items: [{ productId: 430, variationId: 431, quantity: 2 }],
       }),
     }));
     expect(response.status).toBe(200);
     expect(mocks.read).toHaveBeenCalledWith("wc_turkey_breast_reservation");
-    expect(mocks.validate).toHaveBeenCalledWith([{ productId: 430, quantity: 2 }], "turkey-breast");
+    expect(mocks.validate).toHaveBeenCalledWith([{ productId: 430, variationId: 431, quantity: 2 }], "turkey-breast");
+    const added = mocks.call.mock.calls.find(([path]) => path === "/cart/add-item");
+    expect(JSON.parse(added![1].body)).toMatchObject({ id: 431, quantity: 2 });
     const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");
     const payload = JSON.parse(checkout![1].body);
     expect(payload.customer_note).toContain("Turkey breast reservation.");

@@ -13,7 +13,14 @@ type Props = {
   products: TurkeyReservationProduct[];
 };
 
-export default function TurkeyBreastReservationsClient({ products }: Props) {
+export default function TurkeyBreastReservationsClient({ products: parentProducts }: Props) {
+  const products = useMemo(() => parentProducts.flatMap(parent => parent.variations
+    ? parent.variations.map(variation => ({
+      ...parent, ...variation, parentId: parent.id, weight: variation.attributes[0].value,
+      name: `${parent.name} — ${variation.attributes[0].value}`,
+    }))
+    : [{ ...parent, parentId: parent.id, weight: "", usesParentStock: false }]), [parentProducts]);
+  const [pickerParentId, setPickerParentId] = useState<number | "">("");
   const reservationType = "turkey-breast";
   const label = "Turkey Breast";
   const plural = "Turkey Breasts";
@@ -37,11 +44,18 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
     [quantities]
   );
   const selectedProducts = products.filter(product => (quantities[product.id] ?? 0) > 0);
+  function quantityLimit(product: typeof products[number]) {
+    const reservedElsewhere = product.usesParentStock
+      ? products.filter(other => other.parentId === product.parentId && other.id !== product.id)
+        .reduce((total, other) => total + (quantities[other.id] ?? 0), 0)
+      : 0;
+    return Math.max(0, (product.stockQuantity ?? 0) - reservedElsewhere);
+  }
   const availableProducts = products.filter(
     product =>
       product.stockManaged &&
       product.inStock &&
-      (product.stockQuantity ?? 0) > (quantities[product.id] ?? 0)
+      quantityLimit(product) > (quantities[product.id] ?? 0)
   );
 
   function addSelectedSize() {
@@ -52,7 +66,7 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
     setQuantities(current => ({
       ...current,
       [product.id]: Math.min(
-        product.stockQuantity ?? 0,
+        quantityLimit(product),
         (current[product.id] ?? 0) + 1
       ),
     }));
@@ -60,8 +74,8 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
     setPickerProductId("");
   }
 
-  function updateQuantity(product: TurkeyReservationProduct, next: number) {
-    const max = product.stockManaged ? Math.max(0, product.stockQuantity ?? 0) : 0;
+  function updateQuantity(product: typeof products[number], next: number) {
+    const max = product.stockManaged ? quantityLimit(product) : 0;
     const quantity = Math.min(max, Math.max(0, Math.floor(next)));
     setQuantities(current => ({ ...current, [product.id]: quantity }));
   }
@@ -77,7 +91,8 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
 
     const items = products
       .map(product => ({
-        productId: product.id,
+        productId: product.parentId,
+        ...(product.weight ? { variationId: product.id } : {}),
         quantity: quantities[product.id] ?? 0,
       }))
       .filter(item => item.quantity > 0);
@@ -108,7 +123,7 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
       }
 
       router.push(
-        `/sandwiches/checkout/success?reservation=${reservationType}&order_id=${encodeURIComponent(
+        `/order-confirmation?orderType=${reservationType}&order_id=${encodeURIComponent(
           String(result.order_id ?? "")
         )}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`
       );
@@ -136,7 +151,7 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
           </div>
           <ol className="mt-6 grid gap-4 border-t border-[#b8aa97] pt-5 sm:grid-cols-3">
             {[
-              ["01", `Choose your ${label}`, "Select type and quantity"],
+              ["01", `Choose your ${label}`, "Select type, weight and quantity"],
               ["02", "Select your pickup date", "Let us know when to prepare it"],
               ["03", "Reserve online", "We’ll confirm your reservation"],
             ].map(([number, title, caption]) => (
@@ -164,6 +179,7 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
                   type="button"
                   disabled={!ordering.isOpen || availableProducts.length === 0}
                   onClick={() => {
+                    setPickerParentId(availableProducts[0]?.parentId ?? "");
                     setPickerProductId(availableProducts[0]?.id ?? "");
                     setIsPickerOpen(true);
                   }}
@@ -178,12 +194,13 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
                 <div className="flex min-h-[270px] flex-col items-center justify-center px-5 py-8 text-center">
                   <Image src="/images/hand-drawn/turkey-breast.webp" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Reserve Your {label}?</h3>
-                  <p className="mt-1 font-serif text-sm text-neutral-600">Choose type and quantity to get started.</p>
+                  <p className="mt-1 font-serif text-sm text-neutral-600">Choose type, weight and quantity to get started.</p>
                   <button
                     type="button"
                     disabled={!ordering.isOpen || availableProducts.length === 0}
                     onClick={() => {
-                      setPickerProductId(availableProducts[0]?.id ?? "");
+                      setPickerParentId(availableProducts[0]?.parentId ?? "");
+                    setPickerProductId(availableProducts[0]?.id ?? "");
                       setIsPickerOpen(true);
                     }}
                     className="mt-5 cursor-pointer bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50"
@@ -198,7 +215,7 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
                 <div className="space-y-3">
                   {selectedProducts.map(product => {
                     const quantity = quantities[product.id] ?? 0;
-                    const max = product.stockQuantity ?? quantity;
+                    const max = quantityLimit(product);
 
                     return (
                       <div key={product.id} className="flex flex-wrap items-center justify-between gap-4 border border-[#d8cec0] bg-white p-4 sm:px-5">
@@ -274,21 +291,38 @@ export default function TurkeyBreastReservationsClient({ products }: Props) {
                       <select
                         autoFocus
                         aria-describedby="turkey-size-help"
-                        value={pickerProductId}
-                        onChange={event => setPickerProductId(Number(event.target.value))}
+                        value={pickerParentId}
+                        onChange={event => {
+                          const parentId = Number(event.target.value);
+                          setPickerParentId(parentId);
+                          setPickerProductId(availableProducts.find(product => product.parentId === parentId)?.id ?? "");
+                        }}
                         className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal"
                       >
-                        {products.map(product => {
-                          const available = product.stockManaged && product.inStock && (product.stockQuantity ?? 0) > (quantities[product.id] ?? 0);
-                          return (
-                            <option key={product.id} value={product.id} disabled={!available}>
-                              {product.name}{!product.stockManaged ? " (Unavailable)" : !available ? " (Out Of Stock)" : ""}
-                            </option>
-                          );
-                        })}
+                        {parentProducts.map(parent => (
+                          <option key={parent.id} value={parent.id} disabled={!availableProducts.some(product => product.parentId === parent.id)}>
+                            {parent.name}{!availableProducts.some(product => product.parentId === parent.id) ? " (Unavailable)" : ""}
+                          </option>
+                        ))}
                       </select>
                     </label>
-                    <p id="turkey-size-help" className="mt-2 text-xs text-neutral-600">Click above to select other sizes.</p>
+                    <label className="mt-5 block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                      Weight
+                      <select
+                        value={pickerProductId}
+                        onChange={event => setPickerProductId(event.target.value ? Number(event.target.value) : "")}
+                        aria-describedby="turkey-size-help"
+                        className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal"
+                      >
+                        <option value="" disabled>Select weight</option>
+                        {products.filter(product => product.parentId === pickerParentId).map(product => (
+                          <option key={product.id} value={product.id} disabled={!availableProducts.some(available => available.id === product.id)}>
+                            {product.weight || product.name}{!availableProducts.some(available => available.id === product.id) ? " (Unavailable)" : ""}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <p id="turkey-size-help" className="mt-2 text-xs text-neutral-600">Choose a weight for your selected turkey breast type.</p>
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       <button type="button" onClick={() => setIsPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em]">
                         Cancel

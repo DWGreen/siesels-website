@@ -305,7 +305,7 @@ const validatedItemByCartItemId = new Map(
 
     await clearCart();
     router.push(
-      `${routes.checkout}/success?order_id=${encodeURIComponent(
+      `/order-confirmation?orderType=sandwich&order_id=${encodeURIComponent(
         String(result.order_id ?? "")
       )}&order_key=${encodeURIComponent(String(result.order_key ?? ""))}`
     );
