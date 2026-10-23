@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import type { TurkeyReservationProduct } from "@/services/turkeyReservations";
+import ReservationArticle from "@/components/reservations/ReservationArticle";
 import PickupStoreSelector from "@/components/reservations/PickupStoreSelector";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
 import { getReservationOrderingStatus, getReservationPickupDateBounds } from "@/utils/reservationOrdering";
@@ -136,14 +137,13 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
   }
 
   return (
-    <div className="relative min-h-svh overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[url('/images/textures/footer-bg.png')] bg-cover bg-bottom opacity-[0.12]" />
+    <div className="relative min-h-svh flex-1 overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-7 border-b-2 border-[#2d2d2d] pb-6">
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
             <div>
               <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-[#9d321e]">Holiday Orders</p>
-              <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">{label} Reservations</h2>
+              <h2 className="mt-2 font-heading text-[35px] font-bold uppercase leading-tight sm:text-[41px]">{label} Reservations</h2>
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Build your reservation by adding the {label} type you need, then choose a pickup date. Payment is handled at pickup.</p>
               {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
@@ -169,6 +169,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
+            <div className="min-w-0">
             <section className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
                 <div>
@@ -335,6 +336,8 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                 </div>
               )}
             </section>
+            <ReservationArticle type="turkey-breast" />
+            </div>
 
             <aside className="self-start border border-[#b8aa97] bg-[#faf8f3] p-5 sm:p-6">
               <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup & Contact</h2>

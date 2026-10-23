@@ -1,3 +1,4 @@
+import ReservationNavigation from "@/components/reservations/ReservationNavigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
@@ -15,7 +16,7 @@ export default function TurkeyReservationsLayout({
 
       <main
         id="main-content"
-        className="flex flex-1 flex-col"
+        className="flex flex-1 flex-col bg-white"
       >
          <InteriorHero
                 title="Turkeys"
@@ -23,6 +24,7 @@ export default function TurkeyReservationsLayout({
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
               />
+        <ReservationNavigation current="turkey" />
         {children}
 
       </main>
