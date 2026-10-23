@@ -121,6 +121,41 @@ export default function FeatureGrid() {
             </div>
           </div>
         </div>
+
+        {/* Row 4 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
+        <div
+          className="relative order-4 flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:order-none md:px-[60px] md:py-14"
+          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+        >
+          <div className="mx-auto w-full max-w-[600px] text-center text-white">
+             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
+             Good food. Great company.
+            </p>
+            <h2 className="font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[58px]">
+              Party Platters!
+            </h2>
+              <p className="mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg">
+              We carry a variety of gourmet party trays, including deli sandwiches, Italian platters, and veggie assortments.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-8">
+              <Link href="/party-platters" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
+              Party Platters &gt;
+              </Link>
+             
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
+        <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
+          <Image
+            src="/images/features/party-platters.webp"
+            alt="Gourmet party trays from Siesel's Meats"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
  </div>
 
     </section>
