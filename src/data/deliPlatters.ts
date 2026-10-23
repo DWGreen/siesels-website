@@ -24,12 +24,6 @@ export const deliPlatters = [
     description: "Trimmed & tied Choice roast beef, homestyle turkey breast and deluxe imported cooked ham, complemented by white and yellow American cheese and Lacey Swiss.",
   },
   {
-    slug: "gourmet-lite-platter",
-    title: "Gourmet Lite Platter",
-    price: "Call For Pricing",
-    description: "Gourmet Lite ham and turkey breast, rotisserie style chicken breast and Lacey Swiss cheese come together in a delicious deli assortment.",
-  },
-  {
     slug: "veggie-platter",
     title: "Veggie Platter",
     price: "Call For Pricing",

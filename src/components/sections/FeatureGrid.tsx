@@ -61,18 +61,10 @@ export default function FeatureGrid() {
               Reserve your holiday meats in advance to ensure you have the perfect centerpiece for your festive meals.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-8">
-              <Link href="/turkey-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
-              Turkey &gt;
+              <Link href="/holiday-meats" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
+              Holiday Meats &gt;
               </Link>
-              <Link href="/turkey-breast-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
-              Breast &gt;
-              </Link>
-              <Link href="/roast-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
-              Roast &gt;
-              </Link>
-              <Link href="/ham-reservations" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">
-              Ham &gt;
-              </Link>
+             
             </div>
           </div>
         </div>
