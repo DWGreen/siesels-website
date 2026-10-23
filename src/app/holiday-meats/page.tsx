@@ -14,25 +14,25 @@ const holidayMeats = [
   {
     title: "Turkey",
     href: "/turkey-reservations",
-    image: "/images/holiday-meats/turkey.webp",
+    image: "/images/holiday-meats/turkey_with_logo.webp",
     description: "Whole turkeys, fresh and premium quality, perfect for your holiday table.",
   },
   {
     title: "Ham",
     href: "/ham-reservations",
-    image: "/images/holiday-meats/ham.webp",
+    image: "/images/holiday-meats/ham_with_logo.webp",
     description: "Traditional and specialty hams, ready to make your holiday meal special.",
   },
   {
     title: "Turkey Breast",
     href: "/turkey-breast-reservations",
-    image: "/images/holiday-meats/breast.webp",
+    image: "/images/holiday-meats/breast_with_logo.webp",
     description: "Tender and flavorful turkey breasts, a delicious option for smaller gatherings.",
   },
   {
     title: "Standing Rib Roast",
     href: "/roast-reservations",
-    image: "/images/holiday-meats/roast.webp",
+    image: "/images/holiday-meats/roast_with_logo.webp",
     description: "Premium bone-in rib roasts for an impressive and unforgettable holiday meal.",
   },
 ];

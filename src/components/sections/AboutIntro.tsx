@@ -22,9 +22,11 @@ export default function AboutIntro({ hideButton = false }: AboutIntroProps) {
 
         {/* Body text */}
         <p className="mt-6 font-zilla text-[18px] font-medium leading-[1.5] text-[#333]">
-          Since debuting in San Diego&apos;s Bay Park community in 1968, Siesel&apos;s Old Fashioned Meats and our sister store Iowa Meat Farms, are well known for carrying the “Best Meats in San Diego”. True to the core butcher shops, with real butchers who take pride in their craft. We hand-cut steaks, prepare roasts, make specialty items, and provide the personalized service that only a true butcher shop can offer.
+          Iowa Meat Farms was opened in 1982 by the Cohn Family, who then purchased it’s sister store Siesels Old Fashioned Meats, which has been in the San Diego Bay Park Community since 1968. Both stores are well known for carrying the “Best Meats in San Diego”, and being true to the core butcher shops, with real butchers who take pride in their craft. We hand-cut steaks, prepare roasts, make specialty items, and provide the personalized service that only a true butcher shop can offer. We carry 100% Midwestern USDA Prime and USDA Choice Beef, prized for its exceptional quality, amazing marbling. And rich beef flavor. 
+
 <br></br><br></br>
-We also boast an award-winning deli providing gourmet sandwiches, our “Signature Famous”, handmade from scratch potato salad and baked beans,  gourmet sliced meats and a large variety of artisanal specialty cheese. Add farm-fresh produce, specialty grocery and an impressive wine selection, and you're sure to have everything you need for an overall gourmet experience.
+We also boast an award-winning deli providing gourmet sandwiches, our “Signature Famous”, handmade from scratch potato salad, baked beans, and gourmet dips. Our boneless netted turkey breast is roasted in our ovens for tender, juicy flavor, and our roast beef is smoked in our in-house smoker for a rich, smoky taste, both sliced fresh at our deli and packed with amazing flavor in every bite.
+Add farm-fresh produce, specialty grocery and an impressive wine selection, and you're sure to have everything you need for an overall gourmet experience.
     
         </p>
 
