@@ -36,7 +36,10 @@ export default function Footer() {
 
             {/* Navigation links */}
             <nav aria-label="Footer navigation">
-              <ul className="flex flex-col items-center gap-1 md:items-start md:gap-3">
+              <ul
+                className="grid grid-flow-col grid-cols-2 gap-x-6 gap-y-1 md:gap-x-8 md:gap-y-3"
+                style={{ gridTemplateRows: `repeat(${Math.ceil(footerNavItems.length / 2)}, auto)` }}
+              >
                 {footerNavItems.map((item) => (
                   <li key={item.href}>
                     <Link
