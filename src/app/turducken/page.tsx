@@ -53,7 +53,7 @@ export default function TurduckenPage() {
               <section aria-labelledby="turducken-details" className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
                 <h2 id="turducken-details" className="border-b border-[#b8aa97] pb-3 font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Holiday Centerpiece</h2>
                 <div className="mt-4 overflow-hidden">
-                  <Image src="/images/holiday-meats/turducken-article-image.webp" alt="Turducken for your holiday table" width={1232} height={928} sizes="(min-width: 1024px) 650px, 100vw" className="h-auto max-h-80 w-full object-contain object-top sm:max-h-96" />
+                  <Image src="/images/holiday-meats/turducken-article-feature.webp" alt="Turducken for your holiday table" width={1232} height={928} sizes="(min-width: 1024px) 650px, 100vw" className="h-auto max-h-80 w-full object-contain object-top sm:max-h-96" />
                 </div>
                 <article className="space-y-7 pt-5">
                   <section>
