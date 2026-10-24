@@ -1,3 +1,4 @@
+import MeatArticleLogo from "@/components/reservations/MeatArticleLogo";
 import ReservationNavigation from "@/components/reservations/ReservationNavigation";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -56,6 +57,7 @@ export default function TurduckenPage() {
                   <Image src="/images/holiday-meats/turducken-article-feature.webp" alt="Turducken for your holiday table" width={1232} height={928} sizes="(min-width: 1024px) 650px, 100vw" className="h-auto max-h-80 w-full object-contain object-top sm:max-h-96" />
                 </div>
                 <article className="space-y-7 pt-5">
+                  <MeatArticleLogo brand="siesels" />
                   <section>
                     <h3 className="font-heading text-2xl font-bold uppercase tracking-[0.08em]">Handcrafted Turduckens</h3>
                     <span aria-hidden="true" className="mb-4 mt-2 block h-0.5 w-10 bg-[#9d321e]" />

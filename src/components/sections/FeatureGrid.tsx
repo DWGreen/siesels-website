@@ -72,7 +72,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
         <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
           <Image
-            src="/images/features/holiday_meats_bonein.jpg"
+            src="/images/features/holiday_meats_bonein.webp"
             alt="Holiday turkey on a wooden cutting board with festive decorations"
             fill
             className="object-cover object-top"

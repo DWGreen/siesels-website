@@ -1,3 +1,4 @@
+import MeatArticleLogo from "@/components/reservations/MeatArticleLogo";
 import type { ReservationType } from "@/data/storeLocations";
 
 const articles = {
@@ -39,15 +40,11 @@ const articles = {
 
 export default function ReservationArticle({ type }: { type: ReservationType }) {
   return (
-    <article aria-label="About your holiday selection" className="relative mt-7 bg-white px-4 pb-4 pt-20 sm:px-6 sm:pb-6">
-      <div aria-hidden="true" className="absolute left-1/2 top-6 flex h-8 -translate-x-1/2 items-center justify-center gap-3 text-2xl leading-none text-brand-black">
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-      </div>
+    <article aria-label="About your holiday selection" className="relative mt-7 bg-white px-4 pb-4 pt-6 sm:px-6 sm:pb-6">
       <div className="space-y-8">
-      {articles[type].map(section => (
+      {articles[type].map((section, index) => (
         <section key={section.title}>
+          <MeatArticleLogo brand={type === "turkey" || type === "turkey-breast" ? "diestel" : type === "ham" && index === 0 ? "kruse" : "siesels"} />
           <h2 className="font-heading text-2xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-3xl">{section.title}</h2>
           <span aria-hidden="true" className="mb-5 mt-3 block h-0.5 w-10 bg-[#9d321e]" />
           <div className="space-y-4 font-serif text-base leading-7 text-neutral-700">
