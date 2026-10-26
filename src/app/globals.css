@@ -100,3 +100,17 @@
 .hero-text-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+/* Hero crops can be tuned per page without changing the desktop image. */
+.hero-image-position { object-position: var(--hero-mobile-position, center); }
+@media (min-width: 1024px) {
+  .hero-image-position { object-position: var(--hero-desktop-position, center); }
+}
+@keyframes reservation-scroll-arrow {
+  0%, 20%, 24%, 44%, 100% { opacity: 0; }
+  7%, 13%, 31%, 37% { opacity: 1; }
+}
+.reservation-scroll-arrow { opacity: 0; animation: reservation-scroll-arrow 5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .reservation-scroll-arrow { animation: none; opacity: 1; }
+}

@@ -80,6 +80,7 @@ export default function EventsPage() {
           backgroundAlt="Butcher at work at Siesel's Meats"
           showMasterLogo={true}
           overlayOpacity={0}
+          mobileObjectPosition="100% center"
         />
 
         <section aria-labelledby="events-heading" className="bg-white">

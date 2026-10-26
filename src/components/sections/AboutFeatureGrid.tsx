@@ -5,7 +5,7 @@ export default function AboutFeatureGrid() {
     <section>
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {/* Top-left: Dining image */}
-        <div className="relative aspect-[3/2] md:aspect-[4/3]">
+        <div className="relative order-1 aspect-[3/2] md:order-none md:aspect-[4/3]">
           <Image
             src="/images/features/family.png"
             alt="Fine dining table setting"
@@ -17,7 +17,7 @@ export default function AboutFeatureGrid() {
 
         {/* Top-right: Personal service copy */}
         <div
-          className="relative flex min-h-[250px] items-center justify-center bg-[#6B4226] bg-cover bg-center px-8 py-10 md:aspect-[4/3] md:min-h-0 md:px-[60px]"
+          className="relative order-2 flex min-h-[250px] items-center justify-center bg-[#6B4226] bg-cover bg-center px-8 py-10 md:order-none md:aspect-[4/3] md:min-h-0 md:px-[60px]"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="text-center">
@@ -34,7 +34,7 @@ That success became the foundation for creating and growing several outstanding 
 
         {/* Bottom-left: Master Meat Cutters copy */}
         <div
-          className="relative flex min-h-[250px] items-center justify-center bg-[#8B6914] bg-cover bg-center px-8 py-10 md:aspect-[4/3] md:min-h-0 md:px-[60px]"
+          className="relative order-4 flex min-h-[250px] items-center justify-center bg-[#8B6914] bg-cover bg-center px-8 py-10 md:order-none md:aspect-[4/3] md:min-h-0 md:px-[60px]"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="text-center">
@@ -54,7 +54,7 @@ At our markets, you&apos;ll find real butchers who take pride in their craft. We
         </div>
 
         {/* Bottom-right: Meat image */}
-        <div className="relative aspect-[3/2] md:aspect-[4/3]">
+        <div className="relative order-3 aspect-[3/2] md:order-none md:aspect-[4/3]">
           <Image
             src="/images/features/butcher.jpg"
             alt="Premium cuts of meat"

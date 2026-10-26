@@ -25,6 +25,7 @@ export default function DeliMeatsPage() {
                 backgroundImage="/images/hero/platters_party.webp"
                 backgroundAlt="Gourmet party trays from Siesel's Meats"
                 showMasterLogo={true}
+                mobileObjectPosition="20% center"
               />
       <main id="main-content" className="flex-1 bg-white text-neutral-950">
         <section className="px-5 pb-10 pt-12 sm:px-8 lg:pb-12 lg:pt-16" aria-labelledby="platters-title">

@@ -6,10 +6,10 @@ export default function FeatureGrid() {
     <section>
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {/* Row 1 - Left: Sandwich photo */}
-        <div className="relative aspect-[3/2] md:aspect-[4/3]">
+        <div className="relative order-1 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
             src="/images/ad-images/2026-09-11.jpg"
-            alt="Roast beef deli sandwich with greens on artisan bread, served on a wooden cutting board"
+            alt="Marinated tri-tip weekly special"
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -18,7 +18,7 @@ export default function FeatureGrid() {
 
         {/* Row 1 - Right: Order Online CTA */}
         <div
-          className="relative flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
+          className="relative order-2 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
@@ -47,7 +47,7 @@ export default function FeatureGrid() {
 
         {/* Row 2 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
         <div
-          className="relative order-4 flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:order-none md:px-[60px] md:py-14"
+          className="relative order-4 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="mx-auto w-full max-w-[600px] text-center text-white">
@@ -70,7 +70,7 @@ export default function FeatureGrid() {
         </div>
 
         {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
-        <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
+        <div className="relative order-3 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
             src="/images/features/holiday_meats_bonein.webp"
             alt="Holiday turkey on a wooden cutting board with festive decorations"
@@ -81,10 +81,10 @@ export default function FeatureGrid() {
         </div>
      
       {/* Row 3 - Left: Sandwich photo */}
-        <div className="relative aspect-[3/2] md:aspect-[4/3]">
+        <div className="relative order-5 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
             src="/images/events/charcuterie_1.jpg"
-            alt="Roast beef deli sandwich with greens on artisan bread, served on a wooden cutting board"
+            alt="Charcuterie selection for our November events"
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -93,7 +93,7 @@ export default function FeatureGrid() {
 
         {/* Row 3 - Right: Order Online CTA */}
         <div
-          className="relative flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
+          className="relative order-6 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
          <div className="mx-auto max-w-[600px] text-center text-white">
@@ -116,7 +116,7 @@ export default function FeatureGrid() {
 
         {/* Row 4 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
         <div
-          className="relative order-4 flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:order-none md:px-[60px] md:py-14"
+          className="relative order-8 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
           style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
         >
           <div className="mx-auto w-full max-w-[600px] text-center text-white">
@@ -139,7 +139,7 @@ export default function FeatureGrid() {
         </div>
 
         {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
-        <div className="relative order-3 aspect-[3/2] md:aspect-[4/3] md:order-none">
+        <div className="relative order-7 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
             src="/images/features/party-platters.webp"
             alt="Gourmet party trays from Siesel's Meats"

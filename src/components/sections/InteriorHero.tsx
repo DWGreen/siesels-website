@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 
 interface InteriorHeroProps {
@@ -6,6 +7,9 @@ interface InteriorHeroProps {
   backgroundAlt: string;
   showMasterLogo?: boolean;
   overlayOpacity?: number;
+  /** CSS object-position below 1024px, e.g. "65% 50%". */
+  mobileObjectPosition?: string;
+  objectPosition?: string;
 }
 
 export default function InteriorHero({
@@ -14,6 +18,8 @@ export default function InteriorHero({
   backgroundAlt,
   showMasterLogo = false,
   overlayOpacity = 20,
+  mobileObjectPosition = "center",
+  objectPosition = "center",
 }: InteriorHeroProps) {
   const normalizedOverlayOpacity = Math.min(Math.max(overlayOpacity, 0), 100);
 
@@ -25,7 +31,8 @@ export default function InteriorHero({
         alt={backgroundAlt}
         fill
         sizes="100vw"
-        className="object-cover"
+        className="hero-image-position object-cover"
+        style={{ "--hero-mobile-position": mobileObjectPosition, "--hero-desktop-position": objectPosition } as CSSProperties}
         priority
       />
 
@@ -60,7 +67,7 @@ export default function InteriorHero({
               className="absolute bottom-0 right-full hidden lg:mr-5 lg:block lg:size-[192px]"
             />
           )}
-          <h1 className="font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl">
+          <h1 className="text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl">
             {title}
           </h1>
         </div>

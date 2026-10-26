@@ -23,7 +23,7 @@ export default function TurduckenPage() {
     <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col bg-white">
-        <InteriorHero title="Turducken" backgroundImage="/images/hero/turducken.webp" backgroundAlt="Holiday turkey centerpiece" showMasterLogo />
+        <InteriorHero title="Turducken" backgroundImage="/images/hero/turducken.webp" backgroundAlt="Holiday turkey centerpiece" showMasterLogo mobileObjectPosition="70% center" />
         <ReservationNavigation current="turducken" />
         <div className="relative flex-1 overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
           <div className="relative mx-auto max-w-6xl">

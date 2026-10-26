@@ -14,6 +14,7 @@ export default function AboutPage() {
           backgroundImage="/images/hero/steak-101-new.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
           showMasterLogo
+          mobileObjectPosition="35% center"
         />
         <AboutIntro hideButton />
         <AboutFeatureGrid />

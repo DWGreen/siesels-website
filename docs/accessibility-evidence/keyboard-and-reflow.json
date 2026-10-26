@@ -1,0 +1,3980 @@
+[
+  {
+    "path": "/",
+    "width": 390,
+    "opener": "Open menu",
+    "opened": {
+      "tag": "BUTTON",
+      "text": "Close menu",
+      "inModal": true,
+      "dialogCount": 1
+    },
+    "escapedAt": 11,
+    "focusTrail": [
+      {
+        "tag": "A",
+        "text": "Specials",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Holiday Meats",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Steak 101",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Instacart",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Gift Cards",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Events",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Locations",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "About",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Instagram",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Facebook",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Accept cookies",
+        "inModal": false,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "BUTTON",
+      "text": "Accept cookies",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "violations": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".mb-8"
+            ],
+            "html": "<h2 class=\"mb-8 px-4 text-center font-barlow text-lg font-bold tracking-[0.15em] text-brand-white md:mb-12 md:text-xl\">",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"Holiday ham dinner spread\"]"
+            ],
+            "html": "<img src=\"images/instagram/573816110_18161735002385133_8782683820096044712_n.jpg\" alt=\"Holiday ham dinner spread\" loading=\"lazy\" class=\"object-cover w-full h-full\">",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(1) > .absolute.inset-0.justify-center:nth-child(2)"
+            ],
+            "html": "<div class=\"absolute inset-0 flex items-center justify-center\"><span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Holiday Ham</span></div>",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"Prime rib rack of lamb dinner\"]"
+            ],
+            "html": "<img src=\"images/instagram/583088626_18163694464385133_8105374841340819312_n.jpg\" alt=\"Prime rib rack of lamb dinner\" loading=\"lazy\" class=\"object-cover w-full h-full\">",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(2) > .absolute.inset-0.justify-center:nth-child(2)"
+            ],
+            "html": "<div class=\"absolute inset-0 flex items-center justify-center\"><span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Prime Rib</span></div>",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"Iowa Meat Farms gift cards\"]"
+            ],
+            "html": "<img src=\"images/instagram/591049543_18165879238385133_6597505046112348860_n.jpg\" alt=\"Iowa Meat Farms gift cards\" loading=\"lazy\" class=\"object-cover w-full h-full\">",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(3) > .absolute.inset-0.justify-center:nth-child(2)"
+            ],
+            "html": "<div class=\"absolute inset-0 flex items-center justify-center\"><span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Gift Cards</span></div>",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"Store interior and staff\"]"
+            ],
+            "html": "<img src=\"images/instagram/600614286_18166249816385133_382410465862591004_n.jpg\" alt=\"Store interior and staff\" loading=\"lazy\" class=\"object-cover w-full h-full\">",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(4) > .absolute.inset-0.justify-center:nth-child(2)"
+            ],
+            "html": "<div class=\"absolute inset-0 flex items-center justify-center\"><span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Our Team</span></div>",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "message": "Some page content is not contained by landmarks"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".tracking-\\[0\\.3em\\]"
+            ],
+            "html": "<span class=\"font-heading text-2xl font-bold tracking-[0.3em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] sm:text-3xl lg:text-5xl\">EXPERT</span>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"mt-3 font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:mt-4 lg:text-8xl\">BUTCHER SHOP</h1>"
+          },
+          {
+            "target": [
+              ".mt-5"
+            ],
+            "html": "<p class=\"mt-5 font-body text-lg font-bold tracking-[0.2em] text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)] lg:mt-6 lg:text-2xl\">SERVING SAN DIEGO SINCE 1968</p>"
+          },
+          {
+            "target": [
+              ".text-2xl.leading-none:nth-child(1)"
+            ],
+            "html": "<span class=\"text-2xl leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".text-2xl.leading-none:nth-child(3)"
+            ],
+            "html": "<span class=\"text-2xl leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".order-2 > .max-w-\\[600px\\].text-center.mx-auto > .tracking-\\[0\\.14em\\].md\\:text-xl.font-semibold"
+            ],
+            "html": "<p class=\"font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl\">Hawaiian &amp; Assorted Flavors</p>"
+          },
+          {
+            "target": [
+              ".tracking-\\[0\\.11em\\]"
+            ],
+            "html": "<p class=\"mt-2 font-barlow text-xs font-semibold uppercase tracking-[0.11em] text-white/85 md:mt-3 md:text-base\">USDA Choice, 100% Midwestern Angus Beef</p>"
+          },
+          {
+            "target": [
+              ".order-2 > .max-w-\\[600px\\].text-center.mx-auto > .md\\:text-\\[62px\\].mt-3.text-\\[42px\\]"
+            ],
+            "html": "<h2 class=\"mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]\">Marinated Tri-Tip</h2>"
+          },
+          {
+            "target": [
+              ".text-\\[38px\\]"
+            ],
+            "html": "<p class=\"mt-2 font-heading text-[38px] font-bold uppercase tracking-[0.08em] text-[#f6e3b0] md:mt-3 md:text-[50px]\">$15.99 LB</p>"
+          },
+          {
+            "target": [
+              ".order-4 > .max-w-\\[600px\\].text-center.mx-auto > .tracking-\\[0\\.14em\\].md\\:text-xl.font-semibold"
+            ],
+            "html": "<p class=\"font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl\">Now Available</p>"
+          },
+          {
+            "target": [
+              ".order-4 > .max-w-\\[600px\\].text-center.mx-auto > .md\\:text-\\[58px\\].text-\\[42px\\].leading-\\[1\\.02\\]"
+            ],
+            "html": "<h2 class=\"font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[58px]\">Reserve Your<br> Holiday Meats Online!</h2>"
+          },
+          {
+            "target": [
+              ".order-4 > .max-w-\\[600px\\].text-center.mx-auto > .max-w-\\[38ch\\].text-base.leading-relaxed"
+            ],
+            "html": "<p class=\"mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg\">Reserve your holiday meats in advance to ensure you have the perfect centerpiece for your festive meals.</p>"
+          },
+          {
+            "target": [
+              ".order-6 > .max-w-\\[600px\\].text-center.mx-auto > .tracking-\\[0\\.14em\\].md\\:text-xl.font-semibold"
+            ],
+            "html": "<p class=\"font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl\">Siesels &amp; Iowa</p>"
+          },
+          {
+            "target": [
+              ".order-6 > .max-w-\\[600px\\].text-center.mx-auto > .md\\:text-\\[62px\\].mt-3.text-\\[42px\\]"
+            ],
+            "html": "<h2 class=\"mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]\">November Events</h2>"
+          },
+          {
+            "target": [
+              ".order-6 > .max-w-\\[600px\\].text-center.mx-auto > .max-w-\\[38ch\\].text-base.leading-relaxed"
+            ],
+            "html": "<p class=\"mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg\">Join us for a sampling of our curated charcuterie boards and delicious holiday meats!</p>"
+          },
+          {
+            "target": [
+              ".order-8 > .max-w-\\[600px\\].text-center.mx-auto > .tracking-\\[0\\.14em\\].md\\:text-xl.font-semibold"
+            ],
+            "html": "<p class=\"font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl\">Good food. Great company.</p>"
+          },
+          {
+            "target": [
+              ".order-8 > .max-w-\\[600px\\].text-center.mx-auto > .md\\:text-\\[58px\\].text-\\[42px\\].leading-\\[1\\.02\\]"
+            ],
+            "html": "<h2 class=\"font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[58px]\">Party Platters!</h2>"
+          },
+          {
+            "target": [
+              ".order-8 > .max-w-\\[600px\\].text-center.mx-auto > .max-w-\\[38ch\\].text-base.leading-relaxed"
+            ],
+            "html": "<p class=\"mx-auto mt-4 max-w-[38ch] font-body text-base leading-relaxed text-white/90 md:max-w-[42ch] md:text-lg\">We carry a variety of gourmet party trays, including deli sandwiches, Italian platters, and veggie assortments.</p>"
+          },
+          {
+            "target": [
+              ".mb-8"
+            ],
+            "html": "<h2 class=\"mb-8 px-4 text-center font-barlow text-lg font-bold tracking-[0.15em] text-brand-white md:mb-12 md:text-xl\">"
+          },
+          {
+            "target": [
+              ".duration-200.hover\\:text-brand-wood[target=\"_blank\"]"
+            ],
+            "html": "<a target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-white transition-colors duration-200 hover:text-brand-wood\" href=\"https://www.instagram.com/bestmeatssandiego/\">@BESTMEATSSANDIEGO</a>"
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(1) > .absolute.inset-0.justify-center:nth-child(2) > .text-white\\/40.text-xs"
+            ],
+            "html": "<span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Holiday Ham</span>"
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(2) > .absolute.inset-0.justify-center:nth-child(2) > .text-white\\/40.text-xs"
+            ],
+            "html": "<span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Prime Rib</span>"
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(3) > .absolute.inset-0.justify-center:nth-child(2) > .text-white\\/40.text-xs"
+            ],
+            "html": "<span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Gift Cards</span>"
+          },
+          {
+            "target": [
+              ".group.aspect-square.max-md\\:last\\:odd\\:hidden:nth-child(4) > .absolute.inset-0.justify-center:nth-child(2) > .text-white\\/40.text-xs"
+            ],
+            "html": "<span class=\"font-heading text-xs uppercase tracking-widest text-white/40\">Our Team</span>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      },
+      {
+        "id": "frame-tested",
+        "nodes": [
+          {
+            "target": [
+              "iframe[title=\"Map of Iowa Meat Farms\"]"
+            ],
+            "html": "<iframe title=\"Map of Iowa Meat Farms\" src=\"https://www.google.com/maps?q=6041+Mission+Gorge+Rd,San+Diego,CA+92120&amp;output=embed\" class=\"h-[240px] w-full sm:h-[350px] md:h-[400px]\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" allowfullscreen=\"\"></iframe>"
+          },
+          {
+            "target": [
+              "iframe[title=\"Map of Siesel's Meats\"]"
+            ],
+            "html": "<iframe title=\"Map of Siesel's Meats\" src=\"https://www.google.com/maps?q=4131+Ashton+Street,San+Diego,CA+92109&amp;output=embed\" class=\"h-[240px] w-full sm:h-[350px] md:h-[400px]\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" allowfullscreen=\"\"></iframe>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/turkey-reservations",
+    "width": 1440,
+    "opener": "ADD DIESTEL TURKEY TO RESERVATION",
+    "opened": {
+      "tag": "SELECT",
+      "text": "10-12 lb12-14 lb14-16 lb16-18 lb18-20 lb20-22 lb22-24 lb24-26 lb26-28 lb28-30 lb8-10 lb",
+      "inModal": true,
+      "dialogCount": 1
+    },
+    "escapedAt": 3,
+    "focusTrail": [
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add Diestel Turkey",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "INPUT",
+      "text": "",
+      "inModal": false,
+      "dialogCount": 1
+    },
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".text-neutral-500"
+            ],
+            "html": "<p class=\"mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500\">0<!-- --> <!-- -->Diestel Turkeys</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#faf8f3",
+                  "contrastRatio": 4.46,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8.flex-1:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Turkeys</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 390,
+    "opener": "ADD TURKEY BREAST TO RESERVATION",
+    "opened": {
+      "tag": "SELECT",
+      "text": "Bone-In Turkey BreastBoneless Turkey Breast",
+      "inModal": true,
+      "dialogCount": 1
+    },
+    "escapedAt": 4,
+    "focusTrail": [
+      {
+        "tag": "SELECT",
+        "text": "Select weight4-6 lb6-8 lb8-10 lb",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add Turkey Breast",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "INPUT",
+      "text": "",
+      "inModal": false,
+      "dialogCount": 1
+    },
+    "violations": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=axeAPI",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              "span[aria-label=\"Scroll right\"]"
+            ],
+            "html": "<span aria-label=\"Scroll right\" class=\"flex items-center -space-x-1 text-white\">",
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a span with no valid role attribute.",
+            "any": [],
+            "all": []
+          },
+          {
+            "target": [
+              "span[aria-label=\"Scroll left\"]"
+            ],
+            "html": "<span aria-label=\"Scroll left\" class=\"flex items-center -space-x-1 text-white\">",
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a span with no valid role attribute.",
+            "any": [],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".text-neutral-500"
+            ],
+            "html": "<p class=\"mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500\">0<!-- --> <!-- -->Turkey Breasts</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#faf8f3",
+                  "contrastRatio": 4.46,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Turkey Breast</h1>"
+          },
+          {
+            "target": [
+              "#turkey-picker-title"
+            ],
+            "html": "<h2 id=\"turkey-picker-title\" class=\"font-heading text-lg font-bold uppercase tracking-[0.12em]\">Add a Turkey Breast</h2>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/roast-reservations",
+    "width": 390,
+    "opener": "ADD A STANDING RIB ROAST",
+    "opened": {
+      "tag": "BUTTON",
+      "text": " Add A Standing Rib Roast",
+      "inModal": false,
+      "dialogCount": 1
+    },
+    "escapedAt": 1,
+    "focusTrail": [
+      {
+        "tag": "BUTTON",
+        "text": " Add A Standing Rib Roast",
+        "inModal": false,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "BUTTON",
+      "text": " Add A Standing Rib Roast",
+      "inModal": false,
+      "dialogCount": 1
+    },
+    "violations": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=axeAPI",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              "span[aria-label=\"Scroll right\"]"
+            ],
+            "html": "<span aria-label=\"Scroll right\" class=\"flex items-center -space-x-1 text-white\">",
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a span with no valid role attribute.",
+            "any": [],
+            "all": []
+          },
+          {
+            "target": [
+              "span[aria-label=\"Scroll left\"]"
+            ],
+            "html": "<span aria-label=\"Scroll left\" class=\"flex items-center -space-x-1 text-white\">",
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a span with no valid role attribute.",
+            "any": [],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".text-neutral-500"
+            ],
+            "html": "<p class=\"mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500\">0<!-- --> roast<!-- -->s</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#faf8f3",
+                  "contrastRatio": 4.46,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Rib Roast</h1>"
+          },
+          {
+            "target": [
+              "#roast-picker-title"
+            ],
+            "html": "<h2 id=\"roast-picker-title\" class=\"text-lg font-black uppercase tracking-[0.12em]\">Add a Standing Rib Roast</h2>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/ham-reservations",
+    "width": 390,
+    "opener": "ADD A HAM",
+    "opened": {
+      "tag": "SELECT",
+      "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+      "inModal": true,
+      "dialogCount": 1
+    },
+    "escapedAt": null,
+    "focusTrail": [
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "SELECT",
+        "text": "Select Type Of HamSiesels Signature Double Smoked HamKruse Ham",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close ham picker",
+        "inModal": true,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "BUTTON",
+      "text": " Add A Ham",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "violations": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=axeAPI",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".-space-x-1"
+            ],
+            "html": "<span aria-label=\"Scroll left\" class=\"flex items-center -space-x-1 text-white\">",
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a span with no valid role attribute.",
+            "any": [],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".text-neutral-500"
+            ],
+            "html": "<p aria-live=\"polite\" class=\"mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500\">0<!-- --> ham<!-- -->s</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#faf8f3",
+                  "contrastRatio": 4.46,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Holiday Hams</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/gift-cards",
+    "width": 390,
+    "opener": "ADD TO CART",
+    "opened": {
+      "tag": "INPUT",
+      "text": "",
+      "inModal": true,
+      "dialogCount": 1
+    },
+    "escapedAt": 3,
+    "focusTrail": [
+      {
+        "tag": "BUTTON",
+        "text": "Cancel",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add To Cart",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Instagram",
+        "inModal": false,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "A",
+      "text": "Instagram",
+      "inModal": false,
+      "dialogCount": 1
+    },
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".mt-1.text-neutral-500"
+            ],
+            "html": "<p class=\"mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500\">0 cards</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#faf8f3",
+                  "contrastRatio": 4.46,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".font-normal"
+            ],
+            "html": "<span class=\"font-normal normal-case tracking-normal text-neutral-500\">(optional, 200 characters max)</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#faf8f3",
+                  "contrastRatio": 4.46,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.46 (foreground color: #737373, background color: #faf8f3, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "landmark-main-is-top-level",
+        "impact": "moderate",
+        "description": "Ensure the main landmark is at top level",
+        "help": "Main landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=axeAPI",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".py-10"
+            ],
+            "html": "<main class=\"min-h-screen bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14\">",
+            "failureSummary": "Fix any of the following:\n  The main landmark is contained in another landmark.",
+            "any": [
+              {
+                "id": "landmark-is-top-level",
+                "data": {
+                  "role": "main"
+                },
+                "message": "The main landmark is contained in another landmark."
+              }
+            ],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-main",
+        "impact": "moderate",
+        "description": "Ensure the document has at most one main landmark",
+        "help": "Document should not have more than one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=axeAPI",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "nodes": [
+          {
+            "target": [
+              "#main-content"
+            ],
+            "html": "<main id=\"main-content\" class=\"flex flex-1 flex-col\">",
+            "failureSummary": "Fix any of the following:\n  Document has more than one main landmark",
+            "any": [
+              {
+                "id": "page-no-duplicate-main",
+                "data": null,
+                "message": "Document has more than one main landmark"
+              }
+            ],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "description": "Ensure landmarks are unique",
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=axeAPI",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "nodes": [
+          {
+            "target": [
+              "#main-content"
+            ],
+            "html": "<main id=\"main-content\" class=\"flex flex-1 flex-col\">",
+            "failureSummary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable",
+            "any": [
+              {
+                "id": "landmark-is-unique",
+                "data": {
+                  "role": "main",
+                  "accessibleText": null
+                },
+                "message": "The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "nodes": [
+          {
+            "target": [
+              ".__PrivateStripeElement-input"
+            ],
+            "html": "<input class=\"__PrivateStripeEleme...\" aria-hidden=\"true\" aria-label=\" \" autocomplete=\"false\" maxlength=\"1\" style=\"border-width: medium...\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-5xl"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Gift Cards</h1>"
+          },
+          {
+            "target": [
+              ".border-2 > .text-neutral-600.font-serif.text-xs"
+            ],
+            "html": "<p class=\"mt-2 font-serif text-xs text-neutral-600\">Maximum 10 per denomination.</p>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              "h3"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      },
+      {
+        "id": "frame-tested",
+        "nodes": [
+          {
+            "target": [
+              "iframe[name=\"__privateStripeFrame0394\"]"
+            ],
+            "html": "<iframe name=\"__privateStripeFrame...\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\" role=\"presentation\" allow=\"payment *\" src=\"https://js.stripe.co...\" title=\"Secure card payment ...\" style=\"border: 0px !importa...\">"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/specials",
+    "width": 390,
+    "opener": "Open menu",
+    "opened": {
+      "tag": "BUTTON",
+      "text": "Close menu",
+      "inModal": true,
+      "dialogCount": 1
+    },
+    "escapedAt": 11,
+    "focusTrail": [
+      {
+        "tag": "A",
+        "text": "Specials",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Holiday Meats",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Steak 101",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Instacart",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Gift Cards",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Events",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Locations",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "About",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Instagram",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "A",
+        "text": "Facebook",
+        "inModal": true,
+        "dialogCount": 1
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Accept cookies",
+        "inModal": false,
+        "dialogCount": 1
+      }
+    ],
+    "afterEscape": {
+      "tag": "BUTTON",
+      "text": "Accept cookies",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/steak-101",
+    "width": 390,
+    "opener": "TEMPERATURE\nRARE\n\nCOOL RED CENTER WITH A LIGHTLY SEARED EXTERIOR.\n\n120-125F\nLEARN MORE ›",
+    "opened": {
+      "tag": "BUTTON",
+      "text": "TemperatureRareCool red center with a lightly seared exterior.120-125FLearn more ›",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "escapedAt": null,
+    "focusTrail": [
+      {
+        "tag": "BUTTON",
+        "text": "TemperatureMedium RareWarm red center — the classic steakhouse favorite.130-135FLearn more",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "TemperatureMediumWarm pink center with excellent balance.140-145FLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutBoneless Ribeyes / DelmonicosThe king of steaks — richest flavor of all the steak",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutNew YorkFirm, tender, and full of flavorLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutFilet MignonThe most tender of all the steaksLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutTop SirloinMaximum flavor, a great everyday steakLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutCattleman's TopThe ultimate combination of flavor and tendernessLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutBaseball TopExtremely lean, tender, and uniquely shapedLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutT-Bone & PorterhouseA bone-in combination of New York and filetLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Steak CutFlatironSecond most tender muscle in the animalLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ReferenceThe Grading SystemWhat separates Prime from the restLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ReferenceThe Dry-Aging Process30+ days of transformationLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ReferenceSeafoodFresh shipments daily — except SundaysLearn more ›",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Instagram",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Facebook",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Specials",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Gift Cards",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Turkey Reservations",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Ham Reservations",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Turkey Breast Reservations",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Roast Reservations",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Turduckens",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Party Platters",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Steak 101",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Events",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Locations",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "About",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Contact",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Email address",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Sign Up",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "NEXTJS-PORTAL",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "Skip to main content",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Open menu",
+        "inModal": false,
+        "dialogCount": 0
+      }
+    ],
+    "afterEscape": {
+      "tag": "BUTTON",
+      "text": "Open menu",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(3) > .group.border-2.border-neutral-900:nth-child(1) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Temperature</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(3) > .group.border-2.border-neutral-900:nth-child(1) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(3) > .group.border-2.border-neutral-900:nth-child(2) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Temperature</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(3) > .group.border-2.border-neutral-900:nth-child(2) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(3) > .group.border-2.border-neutral-900:nth-child(3) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Temperature</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(3) > .group.border-2.border-neutral-900:nth-child(3) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(5) > .group.border-2.border-neutral-900:nth-child(1) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(5) > .group.border-2.border-neutral-900:nth-child(1) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(5) > .group.border-2.border-neutral-900:nth-child(2) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(5) > .group.border-2.border-neutral-900:nth-child(2) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(5) > .group.border-2.border-neutral-900:nth-child(3) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(5) > .group.border-2.border-neutral-900:nth-child(3) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(4) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(4) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(5) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(5) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(6) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(6) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(7) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(7) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(8) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Steak Cut</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".group.border-2.border-neutral-900:nth-child(8) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(7) > .group.border-2.border-neutral-900:nth-child(1) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Reference</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(7) > .group.border-2.border-neutral-900:nth-child(1) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(7) > .group.border-2.border-neutral-900:nth-child(2) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Reference</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(7) > .group.border-2.border-neutral-900:nth-child(2) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(7) > .group.border-2.border-neutral-900:nth-child(3) > .p-1.sm\\:p-2.pt-2 > .mb-1.text-\\[9px\\].sm\\:text-\\[10px\\]"
+            ],
+            "html": "<span class=\"mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]\">Reference</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "6.8pt (9px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 6.8pt (9px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".sm\\:gap-6.lg\\:grid-cols-3.lg\\:gap-8:nth-child(7) > .group.border-2.border-neutral-900:nth-child(3) > .p-1.sm\\:p-2.pt-2 > .group-hover\\:text-brand-black.sm\\:tracking-\\[0\\.28em\\].sm\\:mt-4"
+            ],
+            "html": "<span class=\"mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]\">Learn more ›</span>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1a1",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 2.58,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 2.58 (foreground color: #a1a1a1, background color: #ffffff, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".mt-6"
+            ],
+            "html": "<p class=\"mt-6 text-[10px] font-black uppercase tracking-[0.3em] text-white/40\">Click outside to close</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.78 (foreground color: #797979, background color: #1f1f1f, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#797979",
+                  "bgColor": "#1f1f1f",
+                  "contrastRatio": 3.78,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 3.78 (foreground color: #797979, background color: #1f1f1f, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".CookieConsent > div:nth-child(1)"
+            ],
+            "html": "<div class=\"\" style=\"flex: 1 0 300px; margin: 15px;\">This website uses cookies to enhance the user experience.</div>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Steak 101</h1>"
+          },
+          {
+            "target": [
+              ".whitespace-pre-line"
+            ],
+            "html": "<p class=\"whitespace-pre-line text-sm leading-relaxed text-white/85\">"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".text-\\[30px\\]"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/cooking",
+    "width": 390,
+    "opener": "ADVANCED",
+    "opened": {
+      "tag": "BUTTON",
+      "text": "Advanced",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "escapedAt": null,
+    "focusTrail": [
+      {
+        "tag": "BUTTON",
+        "text": "Clear",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Close",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "SELECT",
+        "text": "CuisinesAfricanAmericanAsianCajunChineseCreoleCaribbeanCentral/South AmericanFrenchGermanG",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "SELECT",
+        "text": "Special DietsDairy FreeFat FreeGluten-FreeHigh FiberLow FatLow sodiumLow SugarVeganVegetar",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "SELECT",
+        "text": "Main IngredientBeansBeefCheeseChocolateDairyEggsFruitGrainsLambLegumesNutsPastaPorkPoultry",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "SELECT",
+        "text": "OccasionsNew Year's Eve/DayValentine's DaySt. Patrick's DayEasterMother's DayMemorial DayF",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "SELECT",
+        "text": "Cooking MethodBakeBroilGrillRoastSlow CookerStovetop",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Search Recipes",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "View My Recipes",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "View My Menu",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "View Shopping List",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Show slide 1",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Show slide 2",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "View Collection",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "+Classic Tomato Soup with Roasted Red Peppers",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "+Easy Chicken Tortilla Soup",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "+French Onion Soup",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "+Potato Soup in Bread Bowls",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "View All",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "1Classic Tomato Soup with Roasted Red PeppersRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "2Easy Chicken Tortilla SoupRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "3French Onion SoupRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "4Potato Soup in Bread BowlsRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "5Alfredo-Spinach LasagnaRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "6Hash Browns and Corn Flakes CasseroleRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "7Macaroni and Cheese with Caramelized Onions, Butternut Squash and BaconRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      },
+      {
+        "tag": "A",
+        "text": "8Marinated Pork ChopsRating 0.0",
+        "inModal": false,
+        "dialogCount": 0
+      }
+    ],
+    "afterEscape": {
+      "tag": "A",
+      "text": "8Marinated Pork ChopsRating 0.0",
+      "inModal": false,
+      "dialogCount": 0
+    },
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".lg\\:hidden.text-neutral-500"
+            ],
+            "html": "<p class=\"text-sm text-neutral-500 lg:hidden\">No recipes planned this week.</p>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.34 (foreground color: #737373, background color: #f5f5f5, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#f5f5f5",
+                  "contrastRatio": 4.34,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.34 (foreground color: #737373, background color: #f5f5f5, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          },
+          {
+            "target": [
+              ".leading-relaxed"
+            ],
+            "html": "<div class=\" border-t border-neutral-300 p-4 text-xs leading-relaxed text-neutral-500 \">My Recipe Box info is saved locally on this computer for 30 days.</div>",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.34 (foreground color: #737373, background color: #f5f5f5, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#737373",
+                  "bgColor": "#f5f5f5",
+                  "contrastRatio": 4.34,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "message": "Element has insufficient color contrast of 4.34 (foreground color: #737373, background color: #f5f5f5, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "description": "Ensure landmarks are unique",
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=axeAPI",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".order-last"
+            ],
+            "html": "<aside class=\" order-last border-t border-neutral-300 bg-neutral-100 lg:order-none lg:border-r lg:border-t-0 \">",
+            "failureSummary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable",
+            "any": [
+              {
+                "id": "landmark-is-unique",
+                "data": {
+                  "role": "complementary",
+                  "accessibleText": null
+                },
+                "message": "The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+              }
+            ],
+            "all": []
+          }
+        ]
+      },
+      {
+        "id": "select-name",
+        "impact": "critical",
+        "description": "Ensure select element has an accessible name",
+        "help": "Select element must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/select-name?application=axeAPI",
+        "tags": [
+          "cat.forms",
+          "wcag2a",
+          "wcag412",
+          "section508",
+          "section508.22.n",
+          "TTv5",
+          "TT5.c",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-11.1.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".lg\\:grid-cols-\\[260px_1fr_auto_auto\\] > select"
+            ],
+            "html": "<select class=\" border border-neutral-900 px-3 py-2 text-sm font-bold \">",
+            "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+            "any": [
+              {
+                "id": "implicit-label",
+                "data": null,
+                "message": "Element does not have an implicit (wrapped) <label>"
+              },
+              {
+                "id": "explicit-label",
+                "data": null,
+                "message": "Element does not have an explicit <label>"
+              },
+              {
+                "id": "aria-label",
+                "data": null,
+                "message": "aria-label attribute does not exist or is empty"
+              },
+              {
+                "id": "aria-labelledby",
+                "data": null,
+                "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+              },
+              {
+                "id": "non-empty-title",
+                "data": {
+                  "messageKey": "noAttr"
+                },
+                "message": "Element has no title attribute"
+              },
+              {
+                "id": "presentational-role",
+                "data": null,
+                "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+              }
+            ],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Recipes</h1>"
+          },
+          {
+            "target": [
+              ".text-4xl"
+            ],
+            "html": "<h2 class=\" font-heading mt-2 text-4xl font-black uppercase leading-none tracking-tight \">Cooking</h2>"
+          },
+          {
+            "target": [
+              ".max-w-2xl"
+            ],
+            "html": "<p class=\"mt-2 max-w-2xl text-sm text-white\">Browse recipes, save favorites, plan weekly meals, and build a shopping list.</p>"
+          },
+          {
+            "target": [
+              "a[href$=\"cooking\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking\">Recipes</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"my-recipes\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-recipes\">My Recipes</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"my-menu\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-menu\">My Menu</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"shoppinglist\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/shoppinglist\">Shopping List</a>"
+          },
+          {
+            "target": [
+              ".text-neutral-600.mt-1"
+            ],
+            "html": "<p class=\"mt-1 text-sm text-neutral-600\">Search by phrase, course, cuisine, or special diet.</p>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Address\" class=\"h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      },
+      {
+        "id": "duplicate-id-aria",
+        "nodes": [
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(7)"
+            ],
+            "html": "<select id=\"browse-cuisine\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(8)"
+            ],
+            "html": "<select id=\"browse-diet\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(9)"
+            ],
+            "html": "<select id=\"browse-mainIngredient\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(10)"
+            ],
+            "html": "<select id=\"browse-holiday\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(11)"
+            ],
+            "html": "<select id=\"browse-cookingMethod\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          }
+        ]
+      },
+      {
+        "id": "form-field-multiple-labels",
+        "nodes": [
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(7)"
+            ],
+            "html": "<select id=\"browse-cuisine\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(8)"
+            ],
+            "html": "<select id=\"browse-diet\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(9)"
+            ],
+            "html": "<select id=\"browse-mainIngredient\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(10)"
+            ],
+            "html": "<select id=\"browse-holiday\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".cookingModule > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(11)"
+            ],
+            "html": "<select id=\"browse-cookingMethod\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".gap-5.grid > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(7)"
+            ],
+            "html": "<select id=\"browse-cuisine\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".gap-5.grid > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(8)"
+            ],
+            "html": "<select id=\"browse-diet\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".gap-5.grid > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(9)"
+            ],
+            "html": "<select id=\"browse-mainIngredient\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".gap-5.grid > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(10)"
+            ],
+            "html": "<select id=\"browse-holiday\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          },
+          {
+            "target": [
+              ".gap-5.grid > .border-y.bg-neutral-100.flex-wrap > .min-w-40.tracking-wide:nth-child(11)"
+            ],
+            "html": "<select id=\"browse-cookingMethod\" class=\" min-w-40 border border-neutral-900 bg-white px-3 py-2 text-sm font-bold uppercase tracking-wide \">"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/about",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/party-platters",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/ham-reservations",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/roast-reservations",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/turducken",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/gift-cards",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  },
+  {
+    "path": "/contact",
+    "width": 320,
+    "reflow": {
+      "width": 320,
+      "docWidth": 320,
+      "overflow": []
+    }
+  }
+]

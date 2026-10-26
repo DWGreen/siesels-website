@@ -23,6 +23,7 @@ export default function RoastReservationsLayout({
                 backgroundImage="/images/hero/rib-roasts-hero.webp"
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
+                     mobileObjectPosition="70% center"
               />
         <ReservationNavigation current="roast" />
         {children}

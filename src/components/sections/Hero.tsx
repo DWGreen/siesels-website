@@ -1,6 +1,10 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 
-export default function Hero() {
+export default function Hero({ mobileObjectPosition = "center", objectPosition = "center" }: {
+  mobileObjectPosition?: string;
+  objectPosition?: string;
+}) {
   return (
     <section className="relative flex h-[400px] w-full items-center justify-center overflow-hidden lg:h-[650px]">
       {/* Hero background image */}
@@ -9,7 +13,8 @@ export default function Hero() {
         alt="Siesel's Meats butcher shop"
         fill
         sizes="100vw"
-        className="object-cover"
+        className="hero-image-position object-cover"
+        style={{ "--hero-mobile-position": mobileObjectPosition, "--hero-desktop-position": objectPosition } as CSSProperties}
         priority
       />
 

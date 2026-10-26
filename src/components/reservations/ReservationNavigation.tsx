@@ -1,5 +1,8 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Bird, Drumstick, Beef, Utensils } from "lucide-react";
+import { Bird, Drumstick, Beef, Utensils, ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReservationType } from "@/data/storeLocations";
 
 const pages = [
@@ -11,9 +14,38 @@ const pages = [
 ] as const;
 
 export default function ReservationNavigation({ current }: { current: ReservationType | "turducken" }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [directions, setDirections] = useState({ left: false, right: false });
+  useEffect(() => {
+    const element = scrollRef.current;
+    if (!element) return;
+    const update = () => setDirections({
+      left: element.scrollLeft > 1,
+      right: element.scrollLeft + element.clientWidth < element.scrollWidth - 1,
+    });
+    const revealCurrent = () => {
+      const selected = element.querySelector<HTMLElement>('[aria-current="page"]');
+      if (selected) {
+        const viewport = element.getBoundingClientRect();
+        const button = selected.getBoundingClientRect();
+        if (button.left < viewport.left) element.scrollLeft += button.left - viewport.left;
+        else if (button.right > viewport.right) element.scrollLeft += button.right - viewport.right;
+      }
+      update();
+    };
+    revealCurrent();
+    element.addEventListener("scroll", update, { passive: true });
+    const observer = new ResizeObserver(revealCurrent);
+    observer.observe(element);
+    if (element.firstElementChild) observer.observe(element.firstElementChild);
+    return () => { observer.disconnect(); element.removeEventListener("scroll", update); };
+
+  }, [current]);
+
   return (
-    <nav aria-label="Holiday reservations" className="mt-[2px] bg-brand-black px-5 sm:px-8">
-      <ul className="mx-auto flex w-fit max-w-full overflow-x-auto">
+    <nav aria-label="Holiday reservations" className="relative mt-[2px] w-full min-w-0 max-w-full bg-brand-black">
+      <div ref={scrollRef} tabIndex={0} aria-label="Scroll holiday reservation links horizontally" className="w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white">
+      <ul className="mx-auto flex w-max min-w-max">
         {pages.map((page, index) => (
           <li key={page.type} className={`relative shrink-0 ${index > 0 ? "-ml-2.5" : ""}`}>
             <Link
@@ -38,6 +70,28 @@ export default function ReservationNavigation({ current }: { current: Reservatio
           </li>
         ))}
       </ul>
+      </div>
+      {directions.left && (
+        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center bg-gradient-to-r from-brand-black/75 via-brand-black/40 to-transparent pl-1 pr-4">
+          <ScrollArrows direction="right" />
+        </div>
+      )}
+      {directions.right && (
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center bg-gradient-to-l from-brand-black/75 via-brand-black/40 to-transparent pl-4 pr-1">
+          <ScrollArrows direction="left" />
+        </div>
+      )}
     </nav>
+  );
+}
+
+function ScrollArrows({ direction }: { direction: "left" | "right" }) {
+  const Icon = direction === "left" ? ChevronLeft : ChevronRight;
+  return (
+    <span aria-label={`Scroll ${direction}`} className="flex items-center -space-x-1 text-white">
+      {[0, 1, 2].map(index => (
+        <Icon key={index} aria-hidden="true" className="reservation-scroll-arrow h-6 w-6" style={{ animationDelay: `${(direction === "right" ? index : 2 - index) * 400}ms` }} />
+      ))}
+    </span>
   );
 }
