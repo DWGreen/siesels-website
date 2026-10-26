@@ -59,11 +59,11 @@ export default function ReservationNavigation({ current }: { current: Reservatio
               <page.icon aria-hidden="true" className="h-4 w-4 shrink-0 text-white" strokeWidth={1.75} />
               {page.label}
             </Link>
-            <svg aria-hidden="true" viewBox="0 0 14 44" preserveAspectRatio="none" className="pointer-events-none absolute inset-y-0 left-0 h-full w-3.5 overflow-visible" fill="none">
+            <svg aria-hidden="true" viewBox="0 0 14 44" preserveAspectRatio="none" className={`pointer-events-none absolute inset-y-0 left-0 h-full w-3.5 overflow-visible ${index === 0 ? "hidden sm:block" : ""}`} fill="none">
               <path d="M-1 0L11 22L-1 44" stroke="white" strokeWidth="2" />
             </svg>
             {index === pages.length - 1 && (
-              <svg aria-hidden="true" viewBox="0 0 14 44" preserveAspectRatio="none" className="pointer-events-none absolute inset-y-0 right-0 h-full w-3.5" fill="none">
+              <svg aria-hidden="true" viewBox="0 0 14 44" preserveAspectRatio="none" className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-3.5 sm:block" fill="none">
                 <path d="M2 0L14 22L2 44" stroke="white" strokeWidth="2" />
               </svg>
             )}
