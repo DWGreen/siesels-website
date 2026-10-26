@@ -88,7 +88,7 @@ export default function RecipeRightRail({
   ).slice(0, 16);
 
   return (
-    <aside
+    <aside aria-label="Recipe suggestions"
       className="
         border-l
         border-neutral-300
@@ -143,7 +143,7 @@ export default function RecipeRightRail({
                       {recipe.image ? (
                         <img
                           src={recipe.image}
-                          alt={recipe.name}
+                          alt=""
                           className="h-full w-full object-cover"
                         />
                       ) : (
@@ -160,6 +160,7 @@ export default function RecipeRightRail({
 
                   <button
                     type="button"
+                    aria-label={`View more ${section.label} recipes`}
                     onClick={() =>
                       onSelectTag("diet", section.label)
                     }

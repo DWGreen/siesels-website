@@ -1,5 +1,7 @@
 "use client";
 
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
 import { useState } from "react";
 import Image from "next/image";
 import { Thermometer, X } from "lucide-react";
@@ -7,6 +9,8 @@ import { steaks, SteakEntry } from "@/data/steaks";
 
 export default function SteakGrid() {
   const [active, setActive] = useState<SteakEntry | null>(null);
+
+  const modalRef = useAccessibleModal<HTMLDivElement>(Boolean(active), () => setActive(null));
 
   const cuts = steaks.filter((s) => s.category === "cut");
   const temps = steaks.filter((s) => s.category === "temps");
@@ -63,6 +67,10 @@ export default function SteakGrid() {
       {/* ── Modal ──────────────────────────────────────────────────────── */}
       {active ? (
         <div
+          ref={modalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={active.name}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-4 py-6"
           onClick={() => setActive(null)}
         >
@@ -182,15 +190,20 @@ function SteakCard({
         group
         flex
         flex-col
-        border-2
-        border-neutral-900
-        bg-white
-        p-2
+        h-full
+        overflow-hidden
+        border
+        border-[#b8aa97]
+        bg-[#faf8f3]
+        p-3
         text-left
-        transition
-        hover:-translate-y-1
-        hover:shadow-[6px_6px_0px_rgba(0,0,0,1)]
-        sm:p-3
+        transition-shadow
+        duration-300
+        hover:shadow-lg
+        motion-reduce:transition-none
+        focus-visible:outline-2
+        focus-visible:outline-offset-4
+        focus-visible:outline-[#9d321e]
       "
     >
       {/* card image */}
@@ -200,7 +213,7 @@ function SteakCard({
             src={steak.image}
             alt={steak.name}
             fill
-            className="object-cover transition duration-300 group-hover:scale-105"
+            className="object-cover"
             sizes="(max-width: 1024px) 50vw, 33vw"
           />
         ) : (
@@ -213,8 +226,8 @@ function SteakCard({
       </div>
 
       {/* card text */}
-      <div className="p-1 pt-2 sm:p-2 sm:pt-3">
-        <span className="mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400 sm:text-[10px] sm:tracking-[0.35em]">
+      <div className="flex flex-1 flex-col p-2 pt-4 sm:p-4 lg:p-6">
+        <span className="mb-1 block text-[9px] font-black uppercase tracking-[0.2em] text-[#9d321e] sm:text-[10px] sm:tracking-[0.12em]">
           {steak.category === "cut"
             ? "Steak Cut"
             : steak.category === "temps"
@@ -222,17 +235,19 @@ function SteakCard({
               : "Reference"}
         </span>
 
-        <h3 className="font-barlow text-base font-bold uppercase leading-tight tracking-[0.06em] text-brand-black sm:text-xl sm:tracking-[0.1em]">
+        <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-[0.08em] text-brand-black sm:text-2xl">
           {steak.name}
         </h3>
 
-        <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.1em] text-neutral-600 sm:mt-2 sm:text-xs sm:tracking-[0.18em]">
+        <span aria-hidden="true" className="mb-3 mt-3 block h-0.5 w-10 bg-[#9d321e]" />
+
+        <p className="font-serif text-xs leading-relaxed text-brand-black sm:text-base sm:leading-7">
           {steak.tagline}
         </p>
 
         {steak.tempRange ? (
           <div
-            className="mt-3 flex items-center gap-1.5 border-t border-neutral-200 pt-2 font-black uppercase tracking-[0.1em] text-red-700 sm:mt-4 sm:gap-2 sm:pt-3 sm:tracking-[0.2em]"
+            className="mt-3 flex items-center gap-1.5 border-t border-[#b8aa97] pt-2 font-black uppercase tracking-[0.1em] text-[#9d321e] sm:mt-4 sm:gap-2 sm:pt-3 sm:tracking-[0.2em]"
             style={{ fontSize: "0.71875rem" }}
           >
             <Thermometer size={16} strokeWidth={2.5} aria-hidden="true" />
@@ -240,7 +255,7 @@ function SteakCard({
           </div>
         ) : null}
 
-        <span className="mt-3 block text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition group-hover:text-brand-black sm:mt-4 sm:tracking-[0.28em]">
+        <span className="mt-auto block pt-4 font-heading text-[10px] font-bold uppercase tracking-[0.12em] text-[#9d321e] group-hover:text-brand-black sm:pt-5 sm:text-xs">
           Learn more &rsaquo;
         </span>
       </div>

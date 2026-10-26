@@ -393,6 +393,7 @@ function AddRecipeToDay({
   return (
     <div className="mt-4">
       <select
+        aria-label={`Add recipe to ${day}`}
         value={selected}
         onChange={event =>
           setSelected(event.target.value)

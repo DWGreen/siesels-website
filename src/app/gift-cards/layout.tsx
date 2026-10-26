@@ -1,3 +1,5 @@
+export const metadata = { title: "Gift Cards | Iowa Meat Farms & Siesel’s Meats" };
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";

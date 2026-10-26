@@ -142,6 +142,7 @@ useEffect(() => {
           />
 
           <select
+          aria-label="Sort saved recipes"
             value={sortBy}
             onChange={event =>
               setSortBy(

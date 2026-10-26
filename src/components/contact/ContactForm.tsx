@@ -1,5 +1,7 @@
 "use client";
 
+import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
+
 import { FormEvent, useState } from "react";
 
 import { ContactApiResponse } from "@/types/contact";
@@ -17,12 +19,14 @@ const initialState = {
 };
 
 export default function ContactForm() {
+  const validationProps = useAccessibleValidation();
   const [formData, setFormData] = useState(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<ContactApiResponse | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!event.currentTarget.reportValidity()) return;
 
     setIsSubmitting(true);
     setStatus(null);
@@ -53,7 +57,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+    <form {...validationProps} onSubmit={handleSubmit} className="space-y-5" noValidate>
       <div className="grid gap-4 md:grid-cols-2">
         <label className="flex flex-col gap-2">
           <span className="font-heading text-sm font-bold uppercase tracking-[0.14em] text-brand-black">
@@ -67,7 +71,7 @@ export default function ContactForm() {
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, firstName: event.target.value }))
             }
-            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
           />
         </label>
 
@@ -83,7 +87,7 @@ export default function ContactForm() {
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, lastName: event.target.value }))
             }
-            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
           />
         </label>
       </div>
@@ -101,7 +105,7 @@ export default function ContactForm() {
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, email: event.target.value }))
             }
-            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
           />
         </label>
 
@@ -116,7 +120,7 @@ export default function ContactForm() {
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, phone: event.target.value }))
             }
-            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
           />
         </label>
       </div>
@@ -134,7 +138,7 @@ export default function ContactForm() {
                 preferredLocation: event.target.value,
               }))
             }
-            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
           >
             <option value="">No preference</option>
             <option value="Iowa Meat Farms">Iowa Meat Farms</option>
@@ -152,7 +156,7 @@ export default function ContactForm() {
             onChange={(event) =>
               setFormData((prev) => ({ ...prev, subject: event.target.value }))
             }
-            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+            className="h-12 border border-black/20 bg-white px-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
           />
         </label>
       </div>
@@ -169,7 +173,7 @@ export default function ContactForm() {
           onChange={(event) =>
             setFormData((prev) => ({ ...prev, message: event.target.value }))
           }
-          className="border border-black/20 bg-white px-3 py-3 font-body text-sm text-brand-black focus:border-brand-black focus:outline-none"
+          className="border border-black/20 bg-white px-3 py-3 font-body text-sm text-brand-black focus:border-brand-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]"
         />
       </label>
 
@@ -214,8 +218,8 @@ export default function ContactForm() {
       {status && (
         <p
           className={`font-body text-sm ${status.ok ? "text-green-700" : "text-red-700"}`}
-          role="status"
-          aria-live="polite"
+          role={status.ok ? "status" : "alert"}
+          aria-live={status.ok ? "polite" : "assertive"}
         >
           {status.message}
         </p>

@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
+import { useId, useState } from "react";
 
 import {
   OptionGroup,
@@ -39,6 +41,7 @@ export default function AdvancedRecipeSearch({
   onApply,
   onClose,
 }: Props) {
+  const controlId = useId();
   const [searchTerm, setSearchTerm] = useState(
     filters.searchTerm
   );
@@ -66,8 +69,14 @@ export default function AdvancedRecipeSearch({
 
 
 
+  const modalRef = useAccessibleModal<HTMLDivElement>(true, onClose);
+
   return (
     <div
+      ref={modalRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Advanced recipe search"
       className="
         fixed
         inset-0
@@ -178,7 +187,7 @@ export default function AdvancedRecipeSearch({
               Match
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div role="group" aria-label="Match search terms" className="flex flex-wrap gap-4">
               {[
                 ["every", "Every Word"],
                 ["any", "Any Word"],
@@ -190,6 +199,8 @@ export default function AdvancedRecipeSearch({
                 >
                   <input
                     type="radio"
+                    name={`${controlId}-match-mode`}
+                    value={value}
                     checked={matchMode === value}
                     onChange={() =>
                       setMatchMode(
@@ -232,7 +243,7 @@ export default function AdvancedRecipeSearch({
         <label
           key={group.value}
           className="sr-only"
-          htmlFor={`browse-${group.value}`}
+          htmlFor={`${controlId}-browse-${group.value}`}
         >
           {group.label}
         </label>
@@ -241,7 +252,7 @@ export default function AdvancedRecipeSearch({
       {groups.map(group => (
         <select
           key={group.value}
-          id={`browse-${group.value}`}
+          id={`${controlId}-browse-${group.value}`}
           value={
             group.value === "cuisine"
               ? cuisine

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DesktopNav from "./DesktopNav";
@@ -9,9 +9,41 @@ import { MenuIcon } from "@/components/ui/Icons";
 import CookieConsent from "react-cookie-consent";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    let frame = 0;
+    const revealFocus = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const element = document.activeElement;
+        const header = headerRef.current;
+        if (!(element instanceof HTMLElement) || !header ||
+            header.contains(element) || element.closest('[role="dialog"], dialog') ||
+            !element.matches(":focus-visible")) return;
+        const rect = element.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const top = Math.max(0, header.getBoundingClientRect().bottom) + 8;
+        const banner = header.querySelector<HTMLElement>(".CookieConsent");
+        const bottom = Math.min(window.innerHeight,
+          banner && banner.getClientRects().length
+            ? banner.getBoundingClientRect().top : window.innerHeight) - 8;
+        if (bottom <= top) return;
+        // Scroll only; preserve the banner, page layout, and current focus.
+        const delta = rect.top < top ? rect.top - top
+          : rect.bottom > bottom ? Math.min(rect.bottom - bottom, rect.top - top) : 0;
+        if (delta) window.scrollBy({ top: delta, behavior: "instant" });
+      });
+    };
+    document.addEventListener("focusin", revealFocus);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("focusin", revealFocus);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-wood-texture bg-brand-dark text-brand-white lg:border-b-8 lg:border-white">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-wood-texture bg-brand-dark text-brand-white lg:border-b-8 lg:border-white">
       {/* Desktop navigation */}
       <DesktopNav />
 
@@ -43,6 +75,7 @@ export default function Header() {
           className="-mr-2 flex size-11 items-center justify-center text-brand-white transition-colors hover:text-brand-wood"
           aria-label="Open menu"
           aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
           <MenuIcon className="h-7 w-7" />
         </button>

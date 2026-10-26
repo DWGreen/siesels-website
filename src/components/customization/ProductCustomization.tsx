@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 
 import ModifierSection from "@/components/modifiers/ModifierSection";
 
@@ -220,6 +220,7 @@ export default function ProductCustomization({
   modifierDefinitions,
   initialModifiers = [],
 }: Props) {
+  const quantityId = useId();
   const [
     draftProductOrder,
     setDraftProductOrder,
@@ -828,6 +829,7 @@ const ingredientOverrideOptions =
             "
           >
             <label
+              htmlFor={quantityId}
               className="
                 mb-2
                 block
@@ -841,6 +843,7 @@ const ingredientOverrideOptions =
             </label>
 
             <select
+              id={quantityId}
               value={quantity}
               onChange={(event) =>
                 handleQuantityChange(
@@ -854,7 +857,7 @@ const ingredientOverrideOptions =
                 px-4
                 py-2
                 text-sm
-                outline-none
+                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]
               "
             >
               {[

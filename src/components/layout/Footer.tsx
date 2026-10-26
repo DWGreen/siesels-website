@@ -67,7 +67,7 @@ export default function Footer() {
                 autoComplete="email"
                 aria-label="Email address"
                 placeholder="Enter Your Email Address"
-                className="h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus:outline-none sm:flex-1 sm:rounded-none"
+                className="h-12 w-full border border-brand-white bg-transparent px-4 font-body text-sm text-brand-white placeholder:text-gray-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:flex-1 sm:rounded-none"
               />
               <button
                 type="submit"

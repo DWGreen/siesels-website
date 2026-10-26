@@ -88,7 +88,7 @@ export default function ReservationNavigation({ current }: { current: Reservatio
 function ScrollArrows({ direction }: { direction: "left" | "right" }) {
   const Icon = direction === "left" ? ChevronLeft : ChevronRight;
   return (
-    <span aria-label={`Scroll ${direction}`} className="flex items-center -space-x-1 text-white">
+    <span role="img" aria-label={`Drag ${direction}`} className="flex items-center -space-x-1 text-white">
       {[0, 1, 2].map(index => (
         <Icon key={index} aria-hidden="true" className="reservation-scroll-arrow h-6 w-6" style={{ animationDelay: `${(direction === "right" ? index : 2 - index) * 400}ms` }} />
       ))}

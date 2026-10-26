@@ -112,7 +112,7 @@ export default function CartProductCard({
       uppercase
       tracking-[0.12em]
       text-neutral-950
-      outline-none
+      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]
       transition
       focus:bg-white
       sm:min-h-0

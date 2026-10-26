@@ -14,7 +14,7 @@ const iconMap = {
 
 export default function DesktopNav() {
   return (
-    <nav className="mx-auto hidden max-w-7xl items-center justify-between px-6 py-6 lg:flex">
+    <nav aria-label="Main navigation" className="mx-auto hidden max-w-7xl items-center justify-between px-6 py-6 lg:flex">
       {/* Left nav group */}
       <ul className="flex flex-1 items-center gap-8">
         {leftNavItems.map((item) => (

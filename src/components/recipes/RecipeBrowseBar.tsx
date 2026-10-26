@@ -1,6 +1,7 @@
 "use client";
 //this is the bar that displays drop downs that allow you to filter recipes when browsing, it originally used a RecipeFilters type, which is part of the reason things were a little screwed up, because types diverged
 //
+import { useId } from "react";
 import { OptionGroup, RecipeFilters } from "@/lib/recipes/recipeTypes";
 
 
@@ -21,6 +22,7 @@ export default function RecipeBrowseBar({
   isLoading = false,
   onChange,
 }: Props) {
+  const controlId = useId();
   console.log("RecipeBrowseBar filters:", filters);
   return (
     <div
@@ -58,7 +60,7 @@ export default function RecipeBrowseBar({
         <label
           key={group.value}
           className="sr-only"
-          htmlFor={`browse-${group.value}`}
+          htmlFor={`${controlId}-browse-${group.value}`}
         >
           {group.label}
         </label>
@@ -67,7 +69,7 @@ export default function RecipeBrowseBar({
       {groups.map(group => (
         <select
           key={group.value}
-          id={`browse-${group.value}`}
+          id={`${controlId}-browse-${group.value}`}
           value={filters[group.value]}
           disabled={isLoading}
           onChange={event =>

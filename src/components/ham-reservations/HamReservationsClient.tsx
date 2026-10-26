@@ -1,6 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
+
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
+import { useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
@@ -41,6 +45,7 @@ function matchesSelections(variation: HamReservationVariation, selections: Recor
 }
 
 export default function HamReservationsClient({ products }: Props) {
+  const validationProps = useAccessibleValidation();
   const router = useRouter();
   const ordering = useReservationOrdering("ham");
   const pickupDateBounds = getReservationPickupDateBounds("ham");
@@ -58,43 +63,10 @@ export default function HamReservationsClient({ products }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submittingRef = useRef(false);
-  const dialogRef = useRef<HTMLElement>(null);
+  const dialogRef = useAccessibleModal<HTMLElement>(pickerOpen, () => setPickerOpen(false));
   const hamTypeRef = useRef<HTMLSelectElement>(null);
   const sizeRef = useRef<HTMLSelectElement>(null);
 
-  useEffect(() => {
-    if (!pickerOpen) return;
-    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    hamTypeRef.current?.focus();
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setPickerOpen(false);
-      }
-      if (event.key !== "Tab") return;
-      const controls = dialogRef.current?.querySelectorAll<HTMLElement>(
-        'button:not(:disabled), select:not(:disabled), input:not(:disabled), [tabindex="0"]'
-      );
-      if (!controls?.length) return;
-      const first = controls[0];
-      const last = controls[controls.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    }
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-      previousFocus?.focus();
-    };
-  }, [pickerOpen]);
 
   function maximumQuantity(product: HamReservationProduct, variation: HamReservationVariation, lines = items) {
     if (!variation.inStock) return 0;
@@ -286,13 +258,13 @@ export default function HamReservationsClient({ products }: Props) {
           </ol>
         </header>
 
-        <form onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
+        <form {...validationProps} onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
           <div className="min-w-0">
             <section className="min-w-0 border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6" aria-labelledby="ham-selections-title">
             <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
               <div>
                 <h2 id="ham-selections-title" className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Hams</h2>
-                <p aria-live="polite" className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">{selectedCount} ham{selectedCount === 1 ? "" : "s"}</p>
+                <p aria-live="polite" className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-600">{selectedCount} ham{selectedCount === 1 ? "" : "s"}</p>
               </div>
               <button type="button" onClick={openPicker} disabled={!ordering.isOpen || isSubmitting || !availableProducts.length} className={addClass}><Plus aria-hidden="true" className="h-4 w-4 shrink-0" /> Add A Ham</button>
             </div>

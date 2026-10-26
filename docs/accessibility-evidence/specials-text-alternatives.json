@@ -1,0 +1,1360 @@
+[
+  {
+    "width": 1440,
+    "category": "Weekly Specials",
+    "page": 1,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Butcher Shops — Happy 4th of July!",
+      "offers": [
+        "“Fat On” Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Marbled to perfection: this well-marbled tri-tip is left with its natural fat cap intact, delivering exceptional flavor, tenderness, and juiciness whether grilled, smoked, or roasted.",
+        "T-Bone Steak$27.99 per lb.USDA Choice, Midwestern Angus beef. Our T-Bone steaks are rich in flavor with beautiful marbling and a hearty steakhouse-quality cut. Perfect for grilling and serving as the centerpiece of any meal.",
+        "Brisket$9.99 per lb.USDA Choice, boneless Midwestern Angus beef. A rich, flavorful beef cut best when slow-cooked until tender and juicy.",
+        "New York Steak$31.99 per lb.USDA Prime, boneless, Midwestern Angus beef. A tender, well-marbled beef cut with bold flavor, ideal for grilling or pan-searing.",
+        "All Beef Hot Dogs$8.99 per lb.1/4 lb. Savory, juicy, and perfect for grilling or quick meals. They deliver classic, crowd-pleasing flavor in every bite.",
+        "Baby Back Ribs$5.99 per lb.Tender, meaty pork ribs that are perfect for slow-cooking or grilling until fall-off-the-bone delicious.",
+        "Mary’s Bone-In Chicken Breast$6.99 per lb.Air-chilled, No Antibiotic Ever, and Free-Range.",
+        "Bone-In Pork Butt$5.99 per lb.A flavorful pork cut ideal for slow roasting or smoking until tender and juicy."
+      ],
+      "text": "Read this ad as textButcher Shops — Happy 4th of July!Prices effective Friday, June 26 through Thursday, July 9, 2026.Family-owned, locally operated. Premium meats, hand-cut by skilled butchers. For serious cooks since 1968. Featuring 100% Midwestern USDA Prime & Choice beef, plus premium poultry, pork, and seafood. Celebrating 250 years of American independence. Expertly cut. Exceptionally sourced.“Fat On” Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Marbled to perfection: this well-marbled tri-tip is left with its natural fat cap intact, delivering exceptional flavor, tenderness, and juiciness whether grilled, smoked, or roasted.T-Bone Steak$27.99 per lb.USDA Choice, Midwestern Angus beef. Our T-Bone steaks are rich in flavor with beautiful marbling and a hearty steakhouse-quality cut. Perfect for grilling and serving as the centerpiece of any meal.Brisket$9.99 per lb.USDA Choice, boneless Midwestern Angus beef. A rich, flavorful beef cut best when slow-cooked until tender and juicy.New York Steak$31.99 per lb.USDA Prime, boneless, Midwestern Angus beef. A tender, well-marbled beef cut with bold flavor, ideal for grilling or pan-searing.All Beef Hot Dogs$8.99 per lb.1/4 lb. Savory, juicy, and perfect for grilling or quick meals. They deliver classic, crowd-pleasing flavor in every bite.Baby Back Ribs$5.99 per lb.Tender, meaty pork ribs that are perfect for slow-cooking or grilling until fall-off-the-bone delicious.Mary’s Bone-In Chicken Breast$6.99 per lb.Air-chilled, No Antibiotic Ever, and Free-Range.Bone-In Pork Butt$5.99 per lb.A flavorful pork cut ideal for slow roasting or smoking until tender and juicy.4th of July hours: Iowa Meat Farms, 9am–4pm; Siesel’s, 9am–5pm.",
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".flex-1.gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 1440,
+    "category": "Weekly Specials",
+    "page": 2,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Fresh. Local. Seasonal. — Fresh Deli Favorites",
+      "offers": [
+        "Fresh Sweet White Corn$0.99 eachPicked just for you! Naturally sweet, crisp, and full of fresh summer flavor. It’s perfect for grilling, boiling, or adding to your favorite meals.",
+        "Sweet Red Cherries$2.99 per lb.Sweet red cherries.",
+        "Large Red Tomatoes$1.99 per lb.Large red tomatoes.",
+        "Red, White, & Blue Potato Salad$6.99 per lb.Red and white potatoes with blue cheese.",
+        "Dietz & Watson Hot Dogs$8.99 eachAssorted varieties, 15 oz.",
+        "BLTA Sandwich$10.99 eachA classic American favorite; bacon, lettuce, tomato, & avocado on fresh bread!",
+        "Joe’s Potato Chips$3.99 eachAssorted varieties, 5 oz.",
+        "Meat Church BBQ Rubs$9.99 eachAssorted varieties, 12–13 oz.",
+        "Bone Suckin’ Sauce BBQ Sauce$7.99 eachAssorted varieties, 18 oz.",
+        "AleSmith Brewing Company .394 Pale Ale$12.99 each6 pack, 12 oz. cans.",
+        "Ranga. Ranga. Sauvignon Blanc$16.99 each750 ml bottle."
+      ],
+      "text": "Read this ad as textFresh. Local. Seasonal. — Fresh Deli FavoritesPrices effective June 26 through July 9, 2026 (date range printed on page 1 of this ad).Fresh Sweet White Corn$0.99 eachPicked just for you! Naturally sweet, crisp, and full of fresh summer flavor. It’s perfect for grilling, boiling, or adding to your favorite meals.Sweet Red Cherries$2.99 per lb.Sweet red cherries.Large Red Tomatoes$1.99 per lb.Large red tomatoes.Red, White, & Blue Potato Salad$6.99 per lb.Red and white potatoes with blue cheese.Dietz & Watson Hot Dogs$8.99 eachAssorted varieties, 15 oz.BLTA Sandwich$10.99 eachA classic American favorite; bacon, lettuce, tomato, & avocado on fresh bread!Joe’s Potato Chips$3.99 eachAssorted varieties, 5 oz.Meat Church BBQ Rubs$9.99 eachAssorted varieties, 12–13 oz.Bone Suckin’ Sauce BBQ Sauce$7.99 eachAssorted varieties, 18 oz.AleSmith Brewing Company .394 Pale Ale$12.99 each6 pack, 12 oz. cans.Ranga. Ranga. Sauvignon Blanc$16.99 each750 ml bottle.Fresh baked Julian Pies, while supplies last!Don’t forget your deli party trays! A convenient assortment of sliced meats, cheeses, and sides, perfect for entertaining and serving a crowd.Don’t forget our homemade signature famous potato salad, baked beans, & dips!Iowa Meat Farms: 6041 Mission Gorge Road, San Diego, CA 92120. 619-281-5766. Hours: Monday–Saturday 9am–6pm; Sunday 10am–6pm.Siesel’s Meat & Deli: 4131 Ashton Street, San Diego, CA 92110. 619-275-1234. Hours: Monday–Saturday 9am–7pm; Sunday 9am–6pm.BestMeatSanDiego.com. Groceries delivered right to your door through Instacart.",
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".flex-1.gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 1440,
+    "category": "Weekend Two Day Only Specials",
+    "page": 1,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Butcher Shop — Saturday & Sunday Savings — 2 Day Sale!",
+      "offers": [
+        "Raw Shrimp$19.99 per lb.Mexican wild, peeled & deveined, 16–20 count. Fresh seafood favorites: fresh, wild-caught shrimp that are peeled and deveined for convenience, perfect for grilling, sautéing, or a great addition to any meal."
+      ],
+      "text": "Read this ad as textButcher Shop — Saturday & Sunday Savings — 2 Day Sale!Prices effective Saturday, June 13 through Sunday, June 14, 2026 only.Iowa Meat Farms & Siesel’s Meats. Since 1968 for serious cooks.Raw Shrimp$19.99 per lb.Mexican wild, peeled & deveined, 16–20 count. Fresh seafood favorites: fresh, wild-caught shrimp that are peeled and deveined for convenience, perfect for grilling, sautéing, or a great addition to any meal.",
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".flex-1.gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 1440,
+    "category": "Weekend Two Day Only Specials",
+    "page": 2,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Something Sweet!",
+      "offers": [
+        "Marinated Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Hawaiian & assorted flavors. A flavorful beef cut soaked in marinade for extra tenderness and taste, perfect for grilling or roasting."
+      ],
+      "text": "Read this ad as textSomething Sweet!Paired with the June 13–14, 2026 weekend ad. This image does not print a separate date range.Marinated Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Hawaiian & assorted flavors. A flavorful beef cut soaked in marinade for extra tenderness and taste, perfect for grilling or roasting.",
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".flex-1.gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 390,
+    "category": "Weekly Specials",
+    "page": 1,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Butcher Shops — Happy 4th of July!",
+      "offers": [
+        "“Fat On” Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Marbled to perfection: this well-marbled tri-tip is left with its natural fat cap intact, delivering exceptional flavor, tenderness, and juiciness whether grilled, smoked, or roasted.",
+        "T-Bone Steak$27.99 per lb.USDA Choice, Midwestern Angus beef. Our T-Bone steaks are rich in flavor with beautiful marbling and a hearty steakhouse-quality cut. Perfect for grilling and serving as the centerpiece of any meal.",
+        "Brisket$9.99 per lb.USDA Choice, boneless Midwestern Angus beef. A rich, flavorful beef cut best when slow-cooked until tender and juicy.",
+        "New York Steak$31.99 per lb.USDA Prime, boneless, Midwestern Angus beef. A tender, well-marbled beef cut with bold flavor, ideal for grilling or pan-searing.",
+        "All Beef Hot Dogs$8.99 per lb.1/4 lb. Savory, juicy, and perfect for grilling or quick meals. They deliver classic, crowd-pleasing flavor in every bite.",
+        "Baby Back Ribs$5.99 per lb.Tender, meaty pork ribs that are perfect for slow-cooking or grilling until fall-off-the-bone delicious.",
+        "Mary’s Bone-In Chicken Breast$6.99 per lb.Air-chilled, No Antibiotic Ever, and Free-Range.",
+        "Bone-In Pork Butt$5.99 per lb.A flavorful pork cut ideal for slow roasting or smoking until tender and juicy."
+      ],
+      "text": "Read this ad as textButcher Shops — Happy 4th of July!Prices effective Friday, June 26 through Thursday, July 9, 2026.Family-owned, locally operated. Premium meats, hand-cut by skilled butchers. For serious cooks since 1968. Featuring 100% Midwestern USDA Prime & Choice beef, plus premium poultry, pork, and seafood. Celebrating 250 years of American independence. Expertly cut. Exceptionally sourced.“Fat On” Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Marbled to perfection: this well-marbled tri-tip is left with its natural fat cap intact, delivering exceptional flavor, tenderness, and juiciness whether grilled, smoked, or roasted.T-Bone Steak$27.99 per lb.USDA Choice, Midwestern Angus beef. Our T-Bone steaks are rich in flavor with beautiful marbling and a hearty steakhouse-quality cut. Perfect for grilling and serving as the centerpiece of any meal.Brisket$9.99 per lb.USDA Choice, boneless Midwestern Angus beef. A rich, flavorful beef cut best when slow-cooked until tender and juicy.New York Steak$31.99 per lb.USDA Prime, boneless, Midwestern Angus beef. A tender, well-marbled beef cut with bold flavor, ideal for grilling or pan-searing.All Beef Hot Dogs$8.99 per lb.1/4 lb. Savory, juicy, and perfect for grilling or quick meals. They deliver classic, crowd-pleasing flavor in every bite.Baby Back Ribs$5.99 per lb.Tender, meaty pork ribs that are perfect for slow-cooking or grilling until fall-off-the-bone delicious.Mary’s Bone-In Chicken Breast$6.99 per lb.Air-chilled, No Antibiotic Ever, and Free-Range.Bone-In Pork Butt$5.99 per lb.A flavorful pork cut ideal for slow roasting or smoking until tender and juicy.4th of July hours: Iowa Meat Farms, 9am–4pm; Siesel’s, 9am–5pm.",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 390,
+    "category": "Weekly Specials",
+    "page": 2,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Fresh. Local. Seasonal. — Fresh Deli Favorites",
+      "offers": [
+        "Fresh Sweet White Corn$0.99 eachPicked just for you! Naturally sweet, crisp, and full of fresh summer flavor. It’s perfect for grilling, boiling, or adding to your favorite meals.",
+        "Sweet Red Cherries$2.99 per lb.Sweet red cherries.",
+        "Large Red Tomatoes$1.99 per lb.Large red tomatoes.",
+        "Red, White, & Blue Potato Salad$6.99 per lb.Red and white potatoes with blue cheese.",
+        "Dietz & Watson Hot Dogs$8.99 eachAssorted varieties, 15 oz.",
+        "BLTA Sandwich$10.99 eachA classic American favorite; bacon, lettuce, tomato, & avocado on fresh bread!",
+        "Joe’s Potato Chips$3.99 eachAssorted varieties, 5 oz.",
+        "Meat Church BBQ Rubs$9.99 eachAssorted varieties, 12–13 oz.",
+        "Bone Suckin’ Sauce BBQ Sauce$7.99 eachAssorted varieties, 18 oz.",
+        "AleSmith Brewing Company .394 Pale Ale$12.99 each6 pack, 12 oz. cans.",
+        "Ranga. Ranga. Sauvignon Blanc$16.99 each750 ml bottle."
+      ],
+      "text": "Read this ad as textFresh. Local. Seasonal. — Fresh Deli FavoritesPrices effective June 26 through July 9, 2026 (date range printed on page 1 of this ad).Fresh Sweet White Corn$0.99 eachPicked just for you! Naturally sweet, crisp, and full of fresh summer flavor. It’s perfect for grilling, boiling, or adding to your favorite meals.Sweet Red Cherries$2.99 per lb.Sweet red cherries.Large Red Tomatoes$1.99 per lb.Large red tomatoes.Red, White, & Blue Potato Salad$6.99 per lb.Red and white potatoes with blue cheese.Dietz & Watson Hot Dogs$8.99 eachAssorted varieties, 15 oz.BLTA Sandwich$10.99 eachA classic American favorite; bacon, lettuce, tomato, & avocado on fresh bread!Joe’s Potato Chips$3.99 eachAssorted varieties, 5 oz.Meat Church BBQ Rubs$9.99 eachAssorted varieties, 12–13 oz.Bone Suckin’ Sauce BBQ Sauce$7.99 eachAssorted varieties, 18 oz.AleSmith Brewing Company .394 Pale Ale$12.99 each6 pack, 12 oz. cans.Ranga. Ranga. Sauvignon Blanc$16.99 each750 ml bottle.Fresh baked Julian Pies, while supplies last!Don’t forget your deli party trays! A convenient assortment of sliced meats, cheeses, and sides, perfect for entertaining and serving a crowd.Don’t forget our homemade signature famous potato salad, baked beans, & dips!Iowa Meat Farms: 6041 Mission Gorge Road, San Diego, CA 92120. 619-281-5766. Hours: Monday–Saturday 9am–6pm; Sunday 10am–6pm.Siesel’s Meat & Deli: 4131 Ashton Street, San Diego, CA 92110. 619-275-1234. Hours: Monday–Saturday 9am–7pm; Sunday 9am–6pm.BestMeatSanDiego.com. Groceries delivered right to your door through Instacart.",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 390,
+    "category": "Weekend Two Day Only Specials",
+    "page": 1,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Butcher Shop — Saturday & Sunday Savings — 2 Day Sale!",
+      "offers": [
+        "Raw Shrimp$19.99 per lb.Mexican wild, peeled & deveined, 16–20 count. Fresh seafood favorites: fresh, wild-caught shrimp that are peeled and deveined for convenience, perfect for grilling, sautéing, or a great addition to any meal."
+      ],
+      "text": "Read this ad as textButcher Shop — Saturday & Sunday Savings — 2 Day Sale!Prices effective Saturday, June 13 through Sunday, June 14, 2026 only.Iowa Meat Farms & Siesel’s Meats. Since 1968 for serious cooks.Raw Shrimp$19.99 per lb.Mexican wild, peeled & deveined, 16–20 count. Fresh seafood favorites: fresh, wild-caught shrimp that are peeled and deveined for convenience, perfect for grilling, sautéing, or a great addition to any meal.",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".CookieConsent > div:nth-child(1)"
+            ],
+            "html": "<div class=\"\" style=\"flex: 1 0 300px; margin: 15px;\">This website uses cookies to enhance the user experience.</div>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  },
+  {
+    "width": 390,
+    "category": "Weekend Two Day Only Specials",
+    "page": 2,
+    "initiallyClosed": true,
+    "keyboardOpened": true,
+    "info": {
+      "open": true,
+      "heading": "Something Sweet!",
+      "offers": [
+        "Marinated Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Hawaiian & assorted flavors. A flavorful beef cut soaked in marinade for extra tenderness and taste, perfect for grilling or roasting."
+      ],
+      "text": "Read this ad as textSomething Sweet!Paired with the June 13–14, 2026 weekend ad. This image does not print a separate date range.Marinated Tri-Tip$16.99 per lb.USDA Choice, Midwestern Angus beef. Hawaiian & assorted flavors. A flavorful beef cut soaked in marinade for extra tenderness and taste, perfect for grilling or roasting.",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".CookieConsent > div:nth-child(1)"
+            ],
+            "html": "<div class=\"\" style=\"flex: 1 0 300px; margin: 15px;\">This website uses cookies to enhance the user experience.</div>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Specials</h1>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(1)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".shrink-0.leading-none:nth-child(3)"
+            ],
+            "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 46
+  }
+]

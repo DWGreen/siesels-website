@@ -17,7 +17,7 @@ export default function Home() {
         <Locations />
       </main>
       <div className="bg-footer-texture">
-        <InstagramGallery />
+        <section aria-label="Instagram gallery"><InstagramGallery /></section>
         <Footer />
       </div>
     </div>

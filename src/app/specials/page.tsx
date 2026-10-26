@@ -1,3 +1,5 @@
+export const metadata = { title: "Specials | Iowa Meat Farms & Siesel’s Meats" };
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
@@ -27,21 +29,31 @@ export default async function SpecialsPage({ searchParams }: Props) {
   return (
     <div className="flex min-h-svh flex-col">
       <Header />
-      <main id="main-content" className="flex flex-1 flex-col">
+      <main id="main-content" className="flex flex-1 flex-col bg-white text-neutral-950">
         <InteriorHero
           title="Specials"
           backgroundImage="/images/hero/butcher.jpg"
           backgroundAlt="Butcher at work at Siesel's Meats"
+          showMasterLogo={true}
         />
-        <section className="flex flex-1 items-center justify-center bg-white px-4 py-20 lg:py-32">
-          <div className="w-full max-w-6xl text-center">
-            <div className="mb-4 flex justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M446.33-80q-13 0-25.66-4.67-12.67-4.66-22-14.66l-299.34-300q-10-9.34-14.83-21.84T79.67-446q0-12.33 4.83-25t14.83-22.67l366-366.33q9-9 21.67-14.5 12.67-5.5 26-5.5h300.33q27.67 0 47.17 19.5t19.5 47.17v299.66q0 13.34-5.33 25.5Q869.33-476 860.33-467l-367 367.67q-9.33 10-22 14.66-12.66 4.67-25 4.67ZM710-656q22.33 0 38.5-16.17 16.17-16.16 16.17-38.5 0-22.33-16.17-38.5-16.17-16.16-38.5-16.16t-38.5 16.16q-16.17 16.17-16.17 38.5 0 22.34 16.17 38.5Q687.67-656 710-656Z"/></svg>
-            </div>
-
-            <h2 className="mb-10 text-center font-barlow text-[40px] font-bold uppercase leading-tight tracking-[0.12em] text-brand-black md:text-[50px]">
-              CHECK OUT OUR SPECIALS
-            </h2>
+        <section className="px-5 pb-12 pt-12 sm:px-8 lg:pb-16 lg:pt-16" aria-labelledby="specials-title">
+          <div className="mx-auto w-full max-w-6xl">
+            <header className="mx-auto mb-8 max-w-3xl text-center">
+              <p className="flex items-center justify-center gap-3 font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#9d321e] sm:gap-4 sm:tracking-[0.24em]">
+                <span aria-hidden="true" className="shrink-0 leading-none">★</span>
+                <span>Quality cuts. Great value.</span>
+                <span aria-hidden="true" className="shrink-0 leading-none">★</span>
+              </p>
+              <h2 id="specials-title" className="mt-4 font-heading text-4xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-6xl">
+                Fresh Finds &amp; Favorites
+              </h2>
+              <p className="mt-5 font-serif text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+                Explore the latest specials from Iowa Meat Farms and Siesel’s Meats.
+                Browse our weekly and weekend ads to find something delicious for your table.
+              </p>
+              <span aria-hidden="true" className="mx-auto my-6 block h-0.5 w-12 bg-[#9d321e]" />
+              <p className="font-serif text-base leading-7 text-neutral-700">Choose an ad below, then open the full viewer for a closer look.</p>
+            </header>
             <SpecialsGallery
               categories={specialsCategories}
               initialCategoryId={initialCategoryId}

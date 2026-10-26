@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState }
+import { useId, useMemo, useState }
   from "react";
 import {
   useCart
@@ -262,7 +262,8 @@ export default function SandwichBuilder({
 const { addItem, updateItem } =
 
     useCart();
-      const router = useRouter();
+      const quantityId = useId();
+  const router = useRouter();
   const { cart } = useCart();
       const editingItem =
   cart.items.find(
@@ -728,6 +729,7 @@ const maxSelections =
             "
           >
             <label
+              htmlFor={quantityId}
               className="
                 mb-2
                 block
@@ -741,6 +743,7 @@ const maxSelections =
             </label>
 
             <select
+              id={quantityId}
               value={quantity}
               onChange={(event) =>
                 handleQuantityChange(Number(event.target.value))
@@ -752,7 +755,7 @@ const maxSelections =
                 px-4
                 py-2
                 text-sm
-                outline-none
+                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]
               "
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(quantity => (

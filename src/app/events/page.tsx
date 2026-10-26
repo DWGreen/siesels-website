@@ -35,7 +35,7 @@ const events: EventItem[] = [
     description:
       "Our turducken roll layers boneless chicken, duck, and turkey into one delicious holiday centerpiece. Handmade in-house by our skilled butchers, it brings together three savory favorites in every deli gravy and mashed potatoes!",
     image: "/images/events/turducken_1.jpg",
-    imageAlt: "Siesel's butcher preparing a cut of meat",
+    imageAlt: "Sliced turducken roll showing layers of turkey, duck, chicken, and stuffing",
   },
   {
     eyebrow: "Tasting 2",
@@ -45,7 +45,7 @@ const events: EventItem[] = [
     description:
       "Our Siesel’s Signature Double Smoked Ham starts with a premium bone-in Kruse ham, hand-scored and slow-smoked in our in-house smoker. The result is a juicy interior and a smoky, naturally glazed exterior. We’ll sample it with our famous homemade potato salad. Bring home this delicious centerpiece for your holiday table!",
     image: "/images/events/smoked_ham.jpg",
-    imageAlt: "Steak cooking on a hot grill",
+    imageAlt: "Double smoked ham with a scored exterior",
   },
   {
     eyebrow: "Tasting 3",
@@ -55,7 +55,7 @@ const events: EventItem[] = [
     description:
       "Join us for a taste of tender, juicy Diestel turkey, roasted to a beautiful golden brown and served with creamy garlic mashed potatoes and rich, savory gravy. It’s a delicious preview of your holiday feast!",
     image: "/images/events/diestelTurkey.jpg",
-    imageAlt: "Premium meat prepared for a special gathering",
+    imageAlt: "Sliced roasted turkey breast on a wooden cutting board",
   },
    {
     eyebrow: "Tasting 4",
@@ -65,7 +65,7 @@ const events: EventItem[] = [
     description:
       "Join us for a festive sampling of everything you need to create an amazing holiday board: artisan cheeses, premium cured meats, an olive medley, dried fruit, gourmet jams, and more. Discover your favorites and make holiday entertaining delicious!",
     image: "/images/events/charcuterie_1.jpg",
-    imageAlt: "Premium meat prepared for a special gathering",
+    imageAlt: "Charcuterie board with cured meats, cheeses, crackers, grapes, and preserves",
   },
 ];
 

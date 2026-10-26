@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/about",
+    "skip": {
+      "active": "Instagram",
+      "inMain": false,
+      "inFooter": true,
+      "inHeader": false
+    }
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "skip": {
+      "active": "Scroll holiday reservation links horizontally",
+      "inMain": true,
+      "inFooter": false,
+      "inHeader": false
+    }
+  },
+  {
+    "path": "/cooking",
+    "skip": {
+      "active": "Recipes",
+      "inMain": true,
+      "inFooter": false,
+      "inHeader": true
+    }
+  },
+  {
+    "path": "/cooking",
+    "phase": "advanced-open",
+    "info": {
+      "duplicateIds": [],
+      "labels": [
+        {
+          "id": "_r_0_-browse-cuisine",
+          "labels": [
+            "Cuisines"
+          ]
+        },
+        {
+          "id": "_r_0_-browse-diet",
+          "labels": [
+            "Special Diets"
+          ]
+        },
+        {
+          "id": "_r_0_-browse-mainIngredient",
+          "labels": [
+            "Main Ingredient"
+          ]
+        },
+        {
+          "id": "_r_0_-browse-holiday",
+          "labels": [
+            "Occasions"
+          ]
+        },
+        {
+          "id": "_r_0_-browse-cookingMethod",
+          "labels": [
+            "Cooking Method"
+          ]
+        }
+      ]
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-neutral-600.mt-1"
+            ],
+            "html": "<p class=\"mt-1 text-sm text-neutral-600\">Search by phrase, course, cuisine, or special diet.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 37
+  },
+  {
+    "phase": "radio-arrow-key",
+    "info": {
+      "activeLabel": "Any Word",
+      "checked": [
+        "any"
+      ]
+    }
+  }
+]

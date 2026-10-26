@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
@@ -27,22 +28,7 @@ export default function SpecialsImageViewer({
   const [zoomedSrc, setZoomedSrc] = useState<string | null>(null);
   const isOpen = Boolean(image);
 
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, onClose]);
+  const modalRef = useAccessibleModal<HTMLDivElement>(isOpen, onClose);
 
   if (!image) {
     return null;
@@ -67,6 +53,7 @@ export default function SpecialsImageViewer({
         sm:px-4
         sm:py-6
       "
+      ref={modalRef}
       role="dialog"
       aria-modal="true"
       aria-label={heading ?? "Weekly Special"}

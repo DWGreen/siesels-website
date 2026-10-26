@@ -20,6 +20,7 @@ export default function DeliMeatsPage() {
   return (
     <div className="flex min-h-svh flex-col">
       <Header />
+      <main id="main-content" className="flex-1 bg-white text-neutral-950">
           <InteriorHero
                 title="Party Platters"
                 backgroundImage="/images/hero/platters_party.webp"
@@ -27,7 +28,6 @@ export default function DeliMeatsPage() {
                 showMasterLogo={true}
                 mobileObjectPosition="20% center"
               />
-      <main id="main-content" className="flex-1 bg-white text-neutral-950">
         <section className="px-5 pb-10 pt-12 sm:px-8 lg:pb-12 lg:pt-16" aria-labelledby="platters-title">
           <div className="mx-auto max-w-3xl text-center">
             <p className="flex items-center justify-center gap-3 font-heading text-xs font-bold uppercase tracking-[0.2em] text-brand-black sm:gap-4 sm:tracking-[0.24em]">
@@ -35,7 +35,7 @@ export default function DeliMeatsPage() {
               <span>Good food. Great company.</span>
               <span aria-hidden="true" className="shrink-0 leading-none">★</span>
             </p>
-            <h1 id="platters-title" className="mt-4 font-heading text-4xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-6xl">Gourmet Party Trays</h1>
+            <h2 id="platters-title" className="mt-4 font-heading text-4xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-6xl">Gourmet Party Trays</h2>
             <p className="mt-5 font-serif text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
               Make your next gathering delicious with party trays from Iowa Meat Farms and Siesel’s Meats.
               Our deli platters feature premium meats and artisan cheeses from Dietz &amp; Watson,

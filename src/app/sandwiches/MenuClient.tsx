@@ -405,6 +405,7 @@ const animationFrameRef =
                     <button
                       key={section.category.id}
                       type="button"
+                      aria-pressed={isActive}
                       onClick={() =>
   setActiveTab(
     section.category.id
@@ -436,6 +437,7 @@ const animationFrameRef =
                 <div className="flex-1" />
                 <button
   type="button"
+  aria-pressed={activeTab === "cart"}
   onClick={() =>
     setActiveTab("cart")
   }

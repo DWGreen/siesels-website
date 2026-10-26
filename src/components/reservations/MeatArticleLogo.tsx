@@ -9,7 +9,7 @@ const logos = {
 export default function MeatArticleLogo({ brand }: { brand: keyof typeof logos }) {
   return (
     <div className="mb-6 flex justify-center">
-      <Image {...logos[brand]} sizes="180px" className="h-24 w-44 object-contain" />
+      <Image {...logos[brand]} alt={logos[brand].alt} sizes="180px" className="h-24 w-44 object-contain" />
     </div>
   );
 }

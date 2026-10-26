@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
+import { useId, useState } from "react";
 
 import {
   capitalizeDay,
@@ -22,9 +24,12 @@ export default function AddToMenuDialog({
   buttonLabel = "Add to My Menu",
   linkOrButton = "button",
 }: Props) {
+  const dayLabelId = useId();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] =
     useState<string>("monday");
+
+  const modalRef = useAccessibleModal<HTMLDivElement>(isOpen, () => setIsOpen(false));
 
   function handleAdd() {
     onAdd(selectedDay);
@@ -36,6 +41,10 @@ export default function AddToMenuDialog({
       {linkOrButton === "link" ? (
         <a
           href="#"
+          role="button"
+          onKeyDown={event => {
+            if (event.key === " ") { event.preventDefault(); setIsOpen(true); }
+          }}
           onClick={e => {
             e.preventDefault();
             setIsOpen(true);
@@ -66,6 +75,7 @@ export default function AddToMenuDialog({
             bg-black/60
             px-4
           "
+          ref={modalRef}
           role="dialog"
           aria-modal="true"
           aria-label="Add recipe to menu"
@@ -114,7 +124,7 @@ export default function AddToMenuDialog({
               </h2>
             </div>
 
-            <label
+            <div id={dayLabelId}
               className="
                 mb-2
                 block
@@ -125,9 +135,9 @@ export default function AddToMenuDialog({
               "
             >
               Choose Day
-            </label>
+            </div>
 
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            <div role="group" aria-labelledby={dayLabelId} className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {menuDays.map(day => {
                 const isSelected =
                   selectedDay === day;
@@ -136,6 +146,7 @@ export default function AddToMenuDialog({
                   <button
                     key={day}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() =>
                       setSelectedDay(day)
                     }

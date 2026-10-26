@@ -1,5 +1,9 @@
 # Live-browser accessibility audit — October 26, 2026
 
+## Remediation update
+
+The first nonvisual remediation pass is recorded in [accessibility-remediation.md](accessibility-remediation.md). Approved contrast/focus changes and still-deferred visual proposals are recorded in [accessibility-visual-changes-review.md](accessibility-visual-changes-review.md). The findings below are the original audit baseline, not a claim that repaired issues remain open.
+
 ## Result
 
 The local site at `http://localhost:3000` was accessed and tested in an isolated **Chrome 155** browser with **axe-core 4.11.4**, using desktop and mobile viewport layouts. This replaces the earlier source-only coverage statement below. The site has confirmed accessibility defects and should not currently be described as WCAG 2.2 AA conformant.

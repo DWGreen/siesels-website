@@ -1,0 +1,2048 @@
+{
+  "comparisons": [
+    {
+      "path": "/gift-cards",
+      "width": 1440,
+      "headingStylesUnchanged": true,
+      "h1Count": 1
+    },
+    {
+      "path": "/party-platters",
+      "width": 1440,
+      "headingStylesUnchanged": true,
+      "h1Count": 1
+    },
+    {
+      "path": "/cooking",
+      "width": 1440,
+      "headingStylesUnchanged": true,
+      "h1Count": 1
+    },
+    {
+      "path": "/gift-cards",
+      "width": 390,
+      "headingStylesUnchanged": true,
+      "h1Count": 1
+    },
+    {
+      "path": "/party-platters",
+      "width": 390,
+      "headingStylesUnchanged": true,
+      "h1Count": 1
+    },
+    {
+      "path": "/cooking",
+      "width": 390,
+      "headingStylesUnchanged": true,
+      "h1Count": 1
+    }
+  ],
+  "scans": [
+    {
+      "path": "/gift-cards",
+      "width": 1440,
+      "info": {
+        "headings": [
+          {
+            "text": "Gift Cards",
+            "tag": "H1",
+            "font": "700 96px / 96px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "96px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 607.875,
+            "height": 96
+          },
+          {
+            "text": "Send A Little Something Special",
+            "tag": "H2",
+            "font": "700 36px / 45px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "36px",
+            "margin": "8px 0px 0px",
+            "padding": "0px",
+            "width": 1152,
+            "height": 45
+          },
+          {
+            "text": "$25 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 109.484375,
+            "height": 22.5
+          },
+          {
+            "text": "$50 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 110.125,
+            "height": 22.5
+          },
+          {
+            "text": "$75 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 108.140625,
+            "height": 22.5
+          },
+          {
+            "text": "$100 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 117.796875,
+            "height": 22.5
+          },
+          {
+            "text": "$200 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 120.125,
+            "height": 22.5
+          },
+          {
+            "text": "Your Gift Cards",
+            "tag": "H2",
+            "font": "700 18px / 28px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 164.484375,
+            "height": 28
+          },
+          {
+            "text": "Gift Details",
+            "tag": "H2",
+            "font": "700 18px / 28px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 566.4375,
+            "height": 28
+          },
+          {
+            "text": "Purchaser Information",
+            "tag": "H2",
+            "font": "700 18px / 28px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 566.4375,
+            "height": 28
+          },
+          {
+            "text": "Payment",
+            "tag": "H2",
+            "font": "900 20px / 28px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "20px",
+            "margin": "0px 0px 24px",
+            "padding": "0px",
+            "width": 407.5625,
+            "height": 28
+          }
+        ],
+        "stripe": [
+          {
+            "tag": "IFRAME",
+            "title": "Secure card payment input frame",
+            "hidden": null,
+            "tabIndex": 0,
+            "style": "border: 0px !important; margin-top: 0px; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translate(0px) !important; color-scheme: light only !important; height: 19.2px;"
+          },
+          {
+            "tag": "INPUT",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": 0,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; display: block !important; position: absolute !important; height: 1px !important; top: -1px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": null,
+            "tabIndex": -1,
+            "style": "margin: 0px !important; user-select: none !important; transform: translate(0px) !important; color-scheme: light only !important; display: block !important; position: absolute !important; top: 0px !important; right: 0px !important; height: 40px !important; width: calc(var(--stripeElementWidth) + 12px) !important; padding: 0px !important; border: 0px !important; overflow: hidden !important; opacity: 1 !important; transition: visibility 0.4s !important; visibility: hidden !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": -1,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": null,
+            "tabIndex": 0,
+            "style": null
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": -1,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": -1,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"
+          }
+        ]
+      },
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=axeAPI",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag412",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-10.8.1"
+          ],
+          "nodes": [
+            {
+              "target": [
+                ".__PrivateStripeElement-input"
+              ],
+              "html": "<input class=\"__PrivateStripeEleme...\" aria-hidden=\"true\" aria-label=\" \" autocomplete=\"false\" maxlength=\"1\" style=\"border-width: medium...\">",
+              "failureSummary": "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM",
+              "any": [],
+              "all": [
+                {
+                  "id": "focusable-disabled",
+                  "data": null,
+                  "message": "Focusable content should be disabled or be removed from the DOM"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "h1"
+              ],
+              "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Gift Cards</h1>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turkey-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"ham-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href=\"/turkey-breast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"roast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turducken\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"party-platters\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"contact\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+            },
+            {
+              "target": [
+                "h3"
+              ],
+              "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+            },
+            {
+              "target": [
+                ".border-brand-white"
+              ],
+              "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+            },
+            {
+              "target": [
+                ".text-\\[11px\\]"
+              ],
+              "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+            }
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "nodes": [
+            {
+              "target": [
+                "iframe[name=\"__privateStripeFrame9544\"]"
+              ],
+              "html": "<iframe name=\"__privateStripeFrame...\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\" role=\"presentation\" allow=\"payment *\" src=\"https://js.stripe.co...\" title=\"Secure card payment ...\" style=\"border: 0px !importa...\">"
+            }
+          ]
+        }
+      ],
+      "passes": 49
+    },
+    {
+      "path": "/party-platters",
+      "width": 1440,
+      "info": {
+        "headings": [
+          {
+            "text": "Party Platters",
+            "tag": "H1",
+            "font": "700 96px / 96px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "96px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 856.71875,
+            "height": 96
+          },
+          {
+            "text": "Gourmet Party Trays",
+            "tag": "H2",
+            "font": "700 60px / 75px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "60px",
+            "margin": "16px 0px 0px",
+            "padding": "0px",
+            "width": 768,
+            "height": 75
+          },
+          {
+            "text": "Deli Sandwich Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 283.234375,
+            "height": 32
+          },
+          {
+            "text": "Italian Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 192.515625,
+            "height": 32
+          },
+          {
+            "text": "Deli Nibbler Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 260.984375,
+            "height": 32
+          },
+          {
+            "text": "Deli Pleaser Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 261.875,
+            "height": 32
+          },
+          {
+            "text": "Veggie Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 185.234375,
+            "height": 32
+          },
+          {
+            "text": "Call Your Store to Place an Order",
+            "tag": "H2",
+            "font": "700 48px / 60px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "48px",
+            "margin": "16px 0px 0px",
+            "padding": "0px",
+            "width": 896,
+            "height": 60
+          }
+        ],
+        "stripe": []
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "h1"
+              ],
+              "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Party Platters</h1>"
+            },
+            {
+              "target": [
+                ".shrink-0.leading-none:nth-child(1)"
+              ],
+              "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+            },
+            {
+              "target": [
+                ".shrink-0.leading-none:nth-child(3)"
+              ],
+              "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+            },
+            {
+              "target": [
+                ".ml-3"
+              ],
+              "html": "<span aria-hidden=\"true\" class=\"ml-3\">↓</span>"
+            },
+            {
+              "target": [
+                ".tracking-\\[0\\.22em\\]"
+              ],
+              "html": "<p class=\"font-heading text-xs font-bold uppercase tracking-[0.22em] text-[#e4c791] sm:text-sm\">Let us help with your next gathering</p>"
+            },
+            {
+              "target": [
+                "#order-title"
+              ],
+              "html": "<h2 id=\"order-title\" class=\"mt-4 font-heading text-3xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-5xl\">Call Your Store to Place an Order</h2>"
+            },
+            {
+              "target": [
+                ".mt-4.text-base.tracking-\\[0\\.12em\\]"
+              ],
+              "html": "<p class=\"mt-4 font-heading text-base font-bold uppercase tracking-[0.12em]\">Ask for the Deli Department</p>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Iowa Meat Farms\"] > h3"
+              ],
+              "html": "<h3 class=\"font-heading text-2xl font-bold uppercase tracking-[0.08em]\">Iowa Meat Farms</h3>"
+            },
+            {
+              "target": [
+                "a[href=\"tel:+16192815766\"]"
+              ],
+              "html": "<a href=\"tel:+16192815766\" class=\"mt-3 inline-flex min-h-11 items-center font-heading text-3xl font-bold tracking-wide underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white\">(619) 281-5766</a>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Iowa Meat Farms\"] > .leading-7.mt-3.font-serif"
+              ],
+              "html": "<p class=\"mt-3 font-serif text-base leading-7\">6041 Mission Gorge Rd<br>San Diego, CA 92120</p>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Siesel's Meats\"] > h3"
+              ],
+              "html": "<h3 class=\"font-heading text-2xl font-bold uppercase tracking-[0.08em]\">Siesel's Meats</h3>"
+            },
+            {
+              "target": [
+                "a[href=\"tel:+16192751234\"]"
+              ],
+              "html": "<a href=\"tel:+16192751234\" class=\"mt-3 inline-flex min-h-11 items-center font-heading text-3xl font-bold tracking-wide underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white\">(619) 275-1234</a>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Siesel's Meats\"] > .leading-7.mt-3.font-serif"
+              ],
+              "html": "<p class=\"mt-3 font-serif text-base leading-7\">4131 Ashton Street<br>San Diego, CA 92109</p>"
+            },
+            {
+              "target": [
+                ".text-lg"
+              ],
+              "html": "<p class=\"font-serif text-lg font-bold\">All party trays require a 48-hour preorder.</p>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"specials\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turkey-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"ham-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href=\"/turkey-breast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"roast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turducken\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"party-platters\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"events\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"locations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"about\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"contact\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+            },
+            {
+              "target": [
+                ".font-barlow"
+              ],
+              "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+            },
+            {
+              "target": [
+                "input"
+              ],
+              "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+            },
+            {
+              "target": [
+                ".text-\\[11px\\]"
+              ],
+              "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+            }
+          ]
+        }
+      ],
+      "passes": 45
+    },
+    {
+      "path": "/cooking",
+      "width": 1440,
+      "info": {
+        "headings": [
+          {
+            "text": "Recipes",
+            "tag": "H1",
+            "font": "700 96px / 96px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "96px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 431.328125,
+            "height": 96
+          },
+          {
+            "text": "Cooking",
+            "tag": "H2",
+            "font": "900 36px / 36px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "36px",
+            "margin": "8px 0px 0px",
+            "padding": "0px",
+            "width": 492.546875,
+            "height": 36
+          },
+          {
+            "text": "My Recipes",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 247,
+            "height": 20
+          },
+          {
+            "text": "My Menu",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 247,
+            "height": 20
+          },
+          {
+            "text": "Sunday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "Monday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "Tuesday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "Wednesday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "Thursday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "Friday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "Saturday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 223,
+            "height": 29
+          },
+          {
+            "text": "My Shopping List",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 247,
+            "height": 20
+          },
+          {
+            "text": "Add to Shopping List",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 247,
+            "height": 20
+          },
+          {
+            "text": "Warm up with delicious soup!",
+            "tag": "H2",
+            "font": "900 24px / 30px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 576,
+            "height": 30
+          },
+          {
+            "text": "Our Top 10 Favorites",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 233.796875,
+            "height": 20
+          },
+          {
+            "text": "Healthy Choices",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 227,
+            "height": 20
+          },
+          {
+            "text": "See Other Recipes Like This",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 227,
+            "height": 40
+          }
+        ],
+        "stripe": []
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+              ],
+              "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "h1"
+              ],
+              "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Recipes</h1>"
+            },
+            {
+              "target": [
+                ".text-4xl"
+              ],
+              "html": "<h2 class=\" font-heading mt-2 text-4xl font-black uppercase leading-none tracking-tight \">Cooking</h2>"
+            },
+            {
+              "target": [
+                ".max-w-2xl"
+              ],
+              "html": "<p class=\"mt-2 max-w-2xl text-sm text-white\">Browse recipes, save favorites, plan weekly meals, and build a shopping list.</p>"
+            },
+            {
+              "target": [
+                "a[href$=\"cooking\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking\">Recipes</a>"
+            },
+            {
+              "target": [
+                ".border-white\\/70.hover\\:border-white[href$=\"my-recipes\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-recipes\">My Recipes</a>"
+            },
+            {
+              "target": [
+                ".border-white\\/70.hover\\:border-white[href$=\"my-menu\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-menu\">My Menu</a>"
+            },
+            {
+              "target": [
+                ".border-white\\/70.hover\\:border-white[href$=\"shoppinglist\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/shoppinglist\">Shopping List</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turkey-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"ham-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href=\"/turkey-breast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"roast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turducken\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"party-platters\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"contact\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+            },
+            {
+              "target": [
+                ".font-barlow"
+              ],
+              "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+            },
+            {
+              "target": [
+                ".border-brand-white"
+              ],
+              "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+            },
+            {
+              "target": [
+                ".text-\\[\\#999\\]"
+              ],
+              "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+            }
+          ]
+        }
+      ],
+      "passes": 48
+    },
+    {
+      "path": "/gift-cards",
+      "width": 390,
+      "info": {
+        "headings": [
+          {
+            "text": "Gift Cards",
+            "tag": "H1",
+            "font": "700 48px / 48px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "48px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 303.9375,
+            "height": 48
+          },
+          {
+            "text": "Send A Little Something Special",
+            "tag": "H2",
+            "font": "700 30px / 37.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "30px",
+            "margin": "8px 0px 0px",
+            "padding": "0px",
+            "width": 350,
+            "height": 75
+          },
+          {
+            "text": "$25 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 109.484375,
+            "height": 22.5
+          },
+          {
+            "text": "$50 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 110.125,
+            "height": 22.5
+          },
+          {
+            "text": "$75 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 108.140625,
+            "height": 22.5
+          },
+          {
+            "text": "$100 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 117.796875,
+            "height": 22.5
+          },
+          {
+            "text": "$200 Gift Card",
+            "tag": "H2",
+            "font": "700 18px / 22.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 120.125,
+            "height": 22.5
+          },
+          {
+            "text": "Your Gift Cards",
+            "tag": "H2",
+            "font": "700 18px / 28px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 164.484375,
+            "height": 28
+          },
+          {
+            "text": "Gift Details",
+            "tag": "H2",
+            "font": "700 18px / 28px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 308,
+            "height": 28
+          },
+          {
+            "text": "Purchaser Information",
+            "tag": "H2",
+            "font": "700 18px / 28px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "18px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 308,
+            "height": 28
+          },
+          {
+            "text": "Payment",
+            "tag": "H2",
+            "font": "900 20px / 28px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "20px",
+            "margin": "0px 0px 24px",
+            "padding": "0px",
+            "width": 274,
+            "height": 28
+          }
+        ],
+        "stripe": [
+          {
+            "tag": "IFRAME",
+            "title": "Secure card payment input frame",
+            "hidden": null,
+            "tabIndex": 0,
+            "style": "border: 0px !important; margin-top: 0px; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translate(0px) !important; color-scheme: light only !important; height: 19.2px;"
+          },
+          {
+            "tag": "INPUT",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": 0,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; display: block !important; position: absolute !important; height: 1px !important; top: -1px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": null,
+            "tabIndex": -1,
+            "style": "margin: 0px !important; user-select: none !important; transform: translate(0px) !important; color-scheme: light only !important; display: block !important; position: absolute !important; top: 0px !important; right: 0px !important; height: 40px !important; width: calc(var(--stripeElementWidth) + 12px) !important; padding: 0px !important; border: 0px !important; overflow: hidden !important; opacity: 1 !important; transition: visibility 0.4s !important; visibility: hidden !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": -1,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": null,
+            "tabIndex": 0,
+            "style": null
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": -1,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"
+          },
+          {
+            "tag": "IFRAME",
+            "title": "",
+            "hidden": "true",
+            "tabIndex": -1,
+            "style": "border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"
+          }
+        ]
+      },
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=axeAPI",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag412",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-10.8.1"
+          ],
+          "nodes": [
+            {
+              "target": [
+                ".__PrivateStripeElement-input"
+              ],
+              "html": "<input class=\"__PrivateStripeEleme...\" aria-hidden=\"true\" aria-label=\" \" autocomplete=\"false\" maxlength=\"1\" style=\"border-width: medium...\">",
+              "failureSummary": "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM",
+              "any": [],
+              "all": [
+                {
+                  "id": "focusable-disabled",
+                  "data": null,
+                  "message": "Focusable content should be disabled or be removed from the DOM"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "h1"
+              ],
+              "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Gift Cards</h1>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turkey-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"ham-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href=\"/turkey-breast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"roast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turducken\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"party-platters\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"contact\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+            },
+            {
+              "target": [
+                "h3"
+              ],
+              "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+            },
+            {
+              "target": [
+                ".border-brand-white"
+              ],
+              "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+            },
+            {
+              "target": [
+                ".text-\\[11px\\]"
+              ],
+              "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+            }
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "nodes": [
+            {
+              "target": [
+                "iframe[name=\"__privateStripeFrame5504\"]"
+              ],
+              "html": "<iframe name=\"__privateStripeFrame...\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\" role=\"presentation\" allow=\"payment *\" src=\"https://js.stripe.co...\" title=\"Secure card payment ...\" style=\"border: 0px !importa...\">"
+            }
+          ]
+        }
+      ],
+      "passes": 49
+    },
+    {
+      "path": "/party-platters",
+      "width": 390,
+      "info": {
+        "headings": [
+          {
+            "text": "Party Platters",
+            "tag": "H1",
+            "font": "700 48px / 48px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "48px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 358,
+            "height": 96
+          },
+          {
+            "text": "Gourmet Party Trays",
+            "tag": "H2",
+            "font": "700 36px / 45px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "36px",
+            "margin": "16px 0px 0px",
+            "padding": "0px",
+            "width": 350,
+            "height": 90
+          },
+          {
+            "text": "Deli Sandwich Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 283.234375,
+            "height": 32
+          },
+          {
+            "text": "Italian Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 192.515625,
+            "height": 32
+          },
+          {
+            "text": "Deli Nibbler Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 260.984375,
+            "height": 32
+          },
+          {
+            "text": "Deli Pleaser Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 261.875,
+            "height": 32
+          },
+          {
+            "text": "Veggie Platter",
+            "tag": "H2",
+            "font": "700 24px / 32px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 185.234375,
+            "height": 32
+          },
+          {
+            "text": "Call Your Store to Place an Order",
+            "tag": "H2",
+            "font": "700 30px / 37.5px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "30px",
+            "margin": "16px 0px 0px",
+            "padding": "0px",
+            "width": 350,
+            "height": 75
+          }
+        ],
+        "stripe": []
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "h1"
+              ],
+              "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Party Platters</h1>"
+            },
+            {
+              "target": [
+                ".shrink-0.leading-none:nth-child(1)"
+              ],
+              "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+            },
+            {
+              "target": [
+                ".shrink-0.leading-none:nth-child(3)"
+              ],
+              "html": "<span aria-hidden=\"true\" class=\"shrink-0 leading-none\">★</span>"
+            },
+            {
+              "target": [
+                ".ml-3"
+              ],
+              "html": "<span aria-hidden=\"true\" class=\"ml-3\">↓</span>"
+            },
+            {
+              "target": [
+                ".tracking-\\[0\\.22em\\]"
+              ],
+              "html": "<p class=\"font-heading text-xs font-bold uppercase tracking-[0.22em] text-[#e4c791] sm:text-sm\">Let us help with your next gathering</p>"
+            },
+            {
+              "target": [
+                "#order-title"
+              ],
+              "html": "<h2 id=\"order-title\" class=\"mt-4 font-heading text-3xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-5xl\">Call Your Store to Place an Order</h2>"
+            },
+            {
+              "target": [
+                ".mt-4.text-base.tracking-\\[0\\.12em\\]"
+              ],
+              "html": "<p class=\"mt-4 font-heading text-base font-bold uppercase tracking-[0.12em]\">Ask for the Deli Department</p>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Iowa Meat Farms\"] > h3"
+              ],
+              "html": "<h3 class=\"font-heading text-2xl font-bold uppercase tracking-[0.08em]\">Iowa Meat Farms</h3>"
+            },
+            {
+              "target": [
+                "a[href=\"tel:+16192815766\"]"
+              ],
+              "html": "<a href=\"tel:+16192815766\" class=\"mt-3 inline-flex min-h-11 items-center font-heading text-3xl font-bold tracking-wide underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white\">(619) 281-5766</a>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Iowa Meat Farms\"] > .leading-7.mt-3.font-serif"
+              ],
+              "html": "<p class=\"mt-3 font-serif text-base leading-7\">6041 Mission Gorge Rd<br>San Diego, CA 92120</p>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Siesel's Meats\"] > h3"
+              ],
+              "html": "<h3 class=\"font-heading text-2xl font-bold uppercase tracking-[0.08em]\">Siesel's Meats</h3>"
+            },
+            {
+              "target": [
+                "a[href=\"tel:+16192751234\"]"
+              ],
+              "html": "<a href=\"tel:+16192751234\" class=\"mt-3 inline-flex min-h-11 items-center font-heading text-3xl font-bold tracking-wide underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white\">(619) 275-1234</a>"
+            },
+            {
+              "target": [
+                "section[aria-label=\"Siesel's Meats\"] > .leading-7.mt-3.font-serif"
+              ],
+              "html": "<p class=\"mt-3 font-serif text-base leading-7\">4131 Ashton Street<br>San Diego, CA 92109</p>"
+            },
+            {
+              "target": [
+                ".text-lg"
+              ],
+              "html": "<p class=\"font-serif text-lg font-bold\">All party trays require a 48-hour preorder.</p>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"specials\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turkey-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"ham-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href=\"/turkey-breast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"roast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turducken\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"party-platters\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"events\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"locations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".py-2.text-\\[13px\\][href$=\"about\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"contact\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+            },
+            {
+              "target": [
+                ".font-barlow"
+              ],
+              "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+            },
+            {
+              "target": [
+                "input"
+              ],
+              "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+            },
+            {
+              "target": [
+                ".text-\\[11px\\]"
+              ],
+              "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+            }
+          ]
+        }
+      ],
+      "passes": 45
+    },
+    {
+      "path": "/cooking",
+      "width": 390,
+      "info": {
+        "headings": [
+          {
+            "text": "Recipes",
+            "tag": "H1",
+            "font": "700 48px / 48px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "48px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 215.671875,
+            "height": 48
+          },
+          {
+            "text": "Cooking",
+            "tag": "H2",
+            "font": "900 36px / 36px Oswald, \"Oswald Fallback\", sans-serif",
+            "fontSize": "36px",
+            "margin": "8px 0px 0px",
+            "padding": "0px",
+            "width": 358,
+            "height": 36
+          },
+          {
+            "text": "My Recipes",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 358,
+            "height": 20
+          },
+          {
+            "text": "My Menu",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 358,
+            "height": 20
+          },
+          {
+            "text": "Sunday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "Monday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "Tuesday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "Wednesday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "Thursday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "Friday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "Saturday",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px 0px 8px",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "text": "My Shopping List",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 358,
+            "height": 20
+          },
+          {
+            "text": "Add to Shopping List",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 358,
+            "height": 20
+          },
+          {
+            "text": "Warm up with delicious soup!",
+            "tag": "H2",
+            "font": "900 24px / 30px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "24px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 314,
+            "height": 60
+          },
+          {
+            "text": "Our Top 10 Favorites",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px",
+            "padding": "0px",
+            "width": 233.796875,
+            "height": 20
+          },
+          {
+            "text": "Healthy Choices",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 357,
+            "height": 20
+          },
+          {
+            "text": "See Other Recipes Like This",
+            "tag": "H2",
+            "font": "900 14px / 20px \"Open Sans\", \"Open Sans Fallback\", sans-serif",
+            "fontSize": "14px",
+            "margin": "0px 0px 12px",
+            "padding": "0px",
+            "width": 357,
+            "height": 20
+          }
+        ],
+        "stripe": []
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "h1"
+              ],
+              "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Recipes</h1>"
+            },
+            {
+              "target": [
+                ".text-4xl"
+              ],
+              "html": "<h2 class=\" font-heading mt-2 text-4xl font-black uppercase leading-none tracking-tight \">Cooking</h2>"
+            },
+            {
+              "target": [
+                ".max-w-2xl"
+              ],
+              "html": "<p class=\"mt-2 max-w-2xl text-sm text-white\">Browse recipes, save favorites, plan weekly meals, and build a shopping list.</p>"
+            },
+            {
+              "target": [
+                "a[href$=\"cooking\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking\">Recipes</a>"
+            },
+            {
+              "target": [
+                ".border-white\\/70.hover\\:border-white[href$=\"my-recipes\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-recipes\">My Recipes</a>"
+            },
+            {
+              "target": [
+                ".border-white\\/70.hover\\:border-white[href$=\"my-menu\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-menu\">My Menu</a>"
+            },
+            {
+              "target": [
+                ".border-white\\/70.hover\\:border-white[href$=\"shoppinglist\"]"
+              ],
+              "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/shoppinglist\">Shopping List</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turkey-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"ham-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href=\"/turkey-breast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"roast-reservations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"turducken\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"party-platters\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+            },
+            {
+              "target": [
+                ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"contact\"]"
+              ],
+              "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+            },
+            {
+              "target": [
+                ".font-barlow"
+              ],
+              "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+            },
+            {
+              "target": [
+                ".border-brand-white"
+              ],
+              "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+            },
+            {
+              "target": [
+                ".text-\\[\\#999\\]"
+              ],
+              "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+            }
+          ]
+        }
+      ],
+      "passes": 48
+    }
+  ]
+}

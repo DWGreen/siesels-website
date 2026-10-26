@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { notFound } from "next/navigation";
 
 import RecipeModuleHeader from "@/components/recipes/RecipeModuleHeader";
@@ -18,19 +19,23 @@ type Props = {
   }>;
 };
 
+const loadCollection = cache(async (id: string) => {
+  const live = await getRecipeCollectionByIdOrSlugLive(id);
+  return { live, collection: live ?? getRecipeCollectionById(id) };
+});
+
+export async function generateMetadata({ params }: Props) {
+  const { collectionId } = await params;
+  const { collection } = await loadCollection(collectionId);
+  return { title: `${collection?.title ?? "Recipe Collection Not Found"} | Iowa Meat Farms & Siesel’s Meats` };
+}
+
 export default async function RecipeCollectionPage({
   params,
 }: Props) {
   const { collectionId } = await params;
 
-  const liveCollection =
-    await getRecipeCollectionByIdOrSlugLive(
-      collectionId
-    );
-
-  const collection =
-    liveCollection ??
-    getRecipeCollectionById(collectionId);
+  const { live: liveCollection, collection } = await loadCollection(collectionId);
 
   if (!collection) {
     notFound();

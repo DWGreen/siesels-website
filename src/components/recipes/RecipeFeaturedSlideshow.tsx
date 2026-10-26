@@ -76,6 +76,7 @@ export default function RecipeFeaturedSlideshow({
                 <button
                   key={slide.id}
                   type="button"
+                  aria-pressed={isActive}
                   onClick={() =>
                     setActiveIndex(index)
                   }

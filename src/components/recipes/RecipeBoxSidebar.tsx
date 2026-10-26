@@ -132,7 +132,7 @@ export default function RecipeBoxSidebar({
   }, [weekMenuRecipeIds]);
 
   return (
-    <aside
+    <aside aria-label="My recipe box"
       className="
         order-last
         border-t
@@ -177,6 +177,7 @@ export default function RecipeBoxSidebar({
 
                 <button
                   type="button"
+                  aria-label={`Remove ${recipe.name} from saved recipes`}
                   onClick={() =>
                     onRemoveSavedRecipe(recipe.id)
                   }
@@ -224,7 +225,7 @@ export default function RecipeBoxSidebar({
         )}
         <div className="space-y-2">
           {menuDays.every(day => (weekMenu[day] ?? []).length === 0) && (
-            <p className="text-sm text-neutral-500 lg:hidden">
+            <p className="text-sm text-neutral-600 lg:hidden">
               No recipes planned this week.
             </p>
           )}
@@ -252,7 +253,7 @@ export default function RecipeBoxSidebar({
                 </h2>
 
                 {recipeIds.length === 0 ? (
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-neutral-600">
                     No recipes planned.
                   </p>
                 ) : (
@@ -457,7 +458,7 @@ export default function RecipeBoxSidebar({
           p-4
           text-xs
           leading-relaxed
-          text-neutral-500
+          text-neutral-600
         "
       >
         My Recipe Box info is saved locally on this

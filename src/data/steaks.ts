@@ -14,7 +14,7 @@ export const steaks: SteakEntry[] = [
     name: "Rare",
     category: "temps",
     tagline: "Cool red center with a lightly seared exterior.",
-    image: "/images/steaks/temp/rare.jpg",
+    image: "/images/steaks/temp/rare.webp",
     tempRange: "120-125F",
     paragraphs: [
      "Rare steaks are seared on the outside while remaining cool and bright red throughout most of the center. This temperature offers the softest texture and highlights the natural flavor of the beef. Best suited for premium, well-marbled cuts like ribeye and filet mignon."
@@ -25,7 +25,7 @@ export const steaks: SteakEntry[] = [
     name: "Medium Rare",
     category: "temps",
     tagline: "Warm red center — the classic steakhouse favorite.",
-    image: "/images/steaks/temp/medium-rare.jpg",
+    image: "/images/steaks/temp/medium-rare.webp",
     tempRange: "130-135F",
     paragraphs: [
       "Often considered the ideal steak temperature, medium rare features a warm red center surrounded by a thin band of pink. It delivers the perfect balance of tenderness, juiciness, and rich beef flavor, making it the preferred doneness for most premium steaks."
@@ -36,7 +36,7 @@ export const steaks: SteakEntry[] = [
     name: "Medium",
     category: "temps",
     tagline: "Warm pink center with excellent balance.",
-    image: "/images/steaks/temp/medium.jpg",
+    image: "/images/steaks/temp/medium.webp",
     tempRange: "140-145F",
     paragraphs: [
      "Medium steaks have a warm pink center with more of the interior fully cooked. They remain juicy while offering a firmer texture than medium rare. This is a great choice for those who enjoy a little less redness without sacrificing moisture."

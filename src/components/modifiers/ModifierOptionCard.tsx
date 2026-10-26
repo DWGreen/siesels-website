@@ -24,6 +24,7 @@ export default function ModifierOptionCard({
   return (
     <button
       type="button"
+      aria-pressed={selected}
       disabled={disabled}
       onClick={onToggle}
       className={`

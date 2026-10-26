@@ -470,7 +470,7 @@ const validatedItemByCartItemId = new Map(
               </div>
 
               {checkoutMessage && (
-                <div
+                <div role="alert"
                   className="
                     mb-5
                     border

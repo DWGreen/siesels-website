@@ -1,3 +1,5 @@
+export const metadata = { title: "Sandwich Order Received | Iowa Meat Farms & Siesel’s Meats" };
+
 export default function OrderPlacedPage() {
   return (
     <div

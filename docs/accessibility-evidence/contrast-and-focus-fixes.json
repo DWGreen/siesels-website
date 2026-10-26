@@ -1,0 +1,2375 @@
+[
+  {
+    "path": "/turkey-reservations",
+    "width": 1440,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8.flex-1:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Turkeys</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 1440,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8.flex-1:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Turkey Breast</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "path": "/ham-reservations",
+    "width": 1440,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8.flex-1:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Holiday Hams</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "path": "/roast-reservations",
+    "width": 1440,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8.flex-1:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Rib Roast</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "path": "/gift-cards",
+    "width": 1440,
+    "violations": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=axeAPI",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag412",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-10.8.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".__PrivateStripeElement-input"
+            ],
+            "html": "<input class=\"__PrivateStripeEleme...\" aria-hidden=\"true\" aria-label=\" \" autocomplete=\"false\" maxlength=\"1\" style=\"border-width: medium...\">",
+            "failureSummary": "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM",
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-disabled",
+                "data": null,
+                "message": "Focusable content should be disabled or be removed from the DOM"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              ".text-5xl"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Gift Cards</h1>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              "h3"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      },
+      {
+        "id": "frame-tested",
+        "nodes": [
+          {
+            "target": [
+              "iframe[name=\"__privateStripeFrame5994\"]"
+            ],
+            "html": "<iframe name=\"__privateStripeFrame...\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\" role=\"presentation\" allow=\"payment *\" src=\"https://js.stripe.co...\" title=\"Secure card payment ...\" style=\"border: 0px !importa...\">"
+          }
+        ]
+      }
+    ],
+    "passes": 49
+  },
+  {
+    "path": "/steak-101",
+    "width": 1440,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Steak 101</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 45
+  },
+  {
+    "path": "/cooking",
+    "width": 1440,
+    "violations": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/image-redundant-alt?application=axeAPI",
+        "tags": [
+          "cat.text-alternatives",
+          "best-practice"
+        ],
+        "nodes": [
+          {
+            "target": [
+              "img[alt=\"20-Minute Marinara Sauce\"]"
+            ],
+            "html": "<img alt=\"20-Minute Marinara Sauce\" class=\"h-full w-full object-cover\" src=\"https://cms.dwgreen.com/_photos/recipes/HomemadePastaTomatoSauceettyImages886084642.png\">",
+            "failureSummary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text",
+            "any": [],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"Bacon Avocado Omelettes\"]"
+            ],
+            "html": "<img alt=\"Bacon Avocado Omelettes\" class=\"h-full w-full object-cover\" src=\"https://cms.dwgreen.com/_photos/recipes/default10.jpg\">",
+            "failureSummary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text",
+            "any": [],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"3-Bean Meatless Chili\"]"
+            ],
+            "html": "<img alt=\"3-Bean Meatless Chili\" class=\"h-full w-full object-cover\" src=\"https://cms.dwgreen.com/_photos/recipes/ChiliGettyImages1198712283.jpg\">",
+            "failureSummary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text",
+            "any": [],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"holiday-meats\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/holiday-meats\">Holiday Meats</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".gap-8:nth-child(1) > li:nth-child(4) > .text-\\[15px\\].tracking-\\[0\\.13em\\].hover\\:text-\\[\\#f8f0c6\\]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"https://www.instacart.com/store/siesels-meats-and-deli/storefront\">Instacart</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[15px\\].tracking-\\[0\\.13em\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"font-heading text-[15px] font-bold uppercase tracking-[0.13em] text-brand-white transition-colors hover:text-[#f8f0c6]\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Recipes</h1>"
+          },
+          {
+            "target": [
+              ".text-4xl"
+            ],
+            "html": "<h2 class=\" font-heading mt-2 text-4xl font-black uppercase leading-none tracking-tight \">Cooking</h2>"
+          },
+          {
+            "target": [
+              ".max-w-2xl"
+            ],
+            "html": "<p class=\"mt-2 max-w-2xl text-sm text-white\">Browse recipes, save favorites, plan weekly meals, and build a shopping list.</p>"
+          },
+          {
+            "target": [
+              "a[href$=\"cooking\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking\">Recipes</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"my-recipes\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-recipes\">My Recipes</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"my-menu\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-menu\">My Menu</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"shoppinglist\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/shoppinglist\">Shopping List</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "path": "/turkey-reservations",
+    "width": 390,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Turkeys</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 49
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 390,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Turkey Breast</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 49
+  },
+  {
+    "path": "/ham-reservations",
+    "width": 390,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".CookieConsent > div:nth-child(1)"
+            ],
+            "html": "<div class=\"\" style=\"flex: 1 0 300px; margin: 15px;\">This website uses cookies to enhance the user experience.</div>"
+          },
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Holiday Hams</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 49
+  },
+  {
+    "path": "/roast-reservations",
+    "width": 390,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          {
+            "target": [
+              ".overflow-x-auto"
+            ],
+            "html": "<div tabindex=\"0\" aria-label=\"Scroll holiday reservation links horizontally\" class=\"w-full min-w-0 overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Rib Roast</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 49
+  },
+  {
+    "path": "/gift-cards",
+    "width": 390,
+    "violations": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=axeAPI",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag412",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-10.8.1"
+        ],
+        "nodes": [
+          {
+            "target": [
+              ".__PrivateStripeElement-input"
+            ],
+            "html": "<input class=\"__PrivateStripeEleme...\" aria-hidden=\"true\" aria-label=\" \" autocomplete=\"false\" maxlength=\"1\" style=\"border-width: medium...\">",
+            "failureSummary": "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM",
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-disabled",
+                "data": null,
+                "message": "Focusable content should be disabled or be removed from the DOM"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".text-5xl"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Gift Cards</h1>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              "h3"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      },
+      {
+        "id": "frame-tested",
+        "nodes": [
+          {
+            "target": [
+              "iframe[name=\"__privateStripeFrame6474\"]"
+            ],
+            "html": "<iframe name=\"__privateStripeFrame...\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\" role=\"presentation\" allow=\"payment *\" src=\"https://js.stripe.co...\" title=\"Secure card payment ...\" style=\"border: 0px !importa...\">"
+          }
+        ]
+      }
+    ],
+    "passes": 49
+  },
+  {
+    "path": "/steak-101",
+    "width": 390,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Steak 101</h1>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".py-2.text-\\[13px\\][href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".mb-6"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              "input"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[11px\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 45
+  },
+  {
+    "path": "/cooking",
+    "width": 390,
+    "violations": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/image-redundant-alt?application=axeAPI",
+        "tags": [
+          "cat.text-alternatives",
+          "best-practice"
+        ],
+        "nodes": [
+          {
+            "target": [
+              "img[alt=\"20-Minute Marinara Sauce\"]"
+            ],
+            "html": "<img alt=\"20-Minute Marinara Sauce\" class=\"h-full w-full object-cover\" src=\"https://cms.dwgreen.com/_photos/recipes/HomemadePastaTomatoSauceettyImages886084642.png\">",
+            "failureSummary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text",
+            "any": [],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"Bacon Avocado Omelettes\"]"
+            ],
+            "html": "<img alt=\"Bacon Avocado Omelettes\" class=\"h-full w-full object-cover\" src=\"https://cms.dwgreen.com/_photos/recipes/default3.jpg\">",
+            "failureSummary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text",
+            "any": [],
+            "all": []
+          },
+          {
+            "target": [
+              "img[alt=\"3-Bean Meatless Chili\"]"
+            ],
+            "html": "<img alt=\"3-Bean Meatless Chili\" class=\"h-full w-full object-cover\" src=\"https://cms.dwgreen.com/_photos/recipes/ChiliGettyImages1198712283.jpg\">",
+            "failureSummary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text",
+            "any": [],
+            "all": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1 class=\"text-center font-heading text-5xl font-bold uppercase leading-none tracking-[0.15em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-8xl\">Recipes</h1>"
+          },
+          {
+            "target": [
+              ".text-4xl"
+            ],
+            "html": "<h2 class=\" font-heading mt-2 text-4xl font-black uppercase leading-none tracking-tight \">Cooking</h2>"
+          },
+          {
+            "target": [
+              ".max-w-2xl"
+            ],
+            "html": "<p class=\"mt-2 max-w-2xl text-sm text-white\">Browse recipes, save favorites, plan weekly meals, and build a shopping list.</p>"
+          },
+          {
+            "target": [
+              "a[href$=\"cooking\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking\">Recipes</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"my-recipes\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-recipes\">My Recipes</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"my-menu\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/my-menu\">My Menu</a>"
+          },
+          {
+            "target": [
+              ".border-white\\/70.hover\\:border-white[href$=\"shoppinglist\"]"
+            ],
+            "html": "<a class=\" border border-white/70 px-3 py-2 text-xs font-black uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-neutral-900 \" href=\"/cooking/shoppinglist\">Shopping List</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"specials\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/specials\">Specials</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"gift-cards\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/gift-cards\">Gift Cards</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turkey-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-reservations\">Turkey Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"ham-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/ham-reservations\">Ham Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href=\"/turkey-breast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turkey-breast-reservations\">Turkey Breast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"roast-reservations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/roast-reservations\">Roast Reservations</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"turducken\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/turducken\">Turduckens</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"party-platters\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/party-platters\">Party Platters</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"steak-101\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/steak-101\">Steak 101</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"events\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/events\">Events</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"locations\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/locations\">Locations</a>"
+          },
+          {
+            "target": [
+              ".text-\\[13px\\].md\\:py-0[href$=\"about\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/about\">About</a>"
+          },
+          {
+            "target": [
+              "a[href$=\"contact\"]"
+            ],
+            "html": "<a class=\"block py-2 font-heading text-[13px] font-bold uppercase tracking-[0.2em] text-brand-white transition-opacity hover:opacity-60 md:py-0\" href=\"/contact\">Contact</a>"
+          },
+          {
+            "target": [
+              ".font-barlow"
+            ],
+            "html": "<h3 class=\"mb-6 max-w-lg text-center font-barlow text-[30px] leading-snug font-bold uppercase tracking-[0.08em] text-brand-white md:text-left md:text-[34px]\">Sign Up to Receive Weekly Specials, Promotions and More!</h3>"
+          },
+          {
+            "target": [
+              ".border-brand-white"
+            ],
+            "html": "<input type=\"email\" required=\"\" autocomplete=\"email\" aria-label=\"Email address\" placeholder=\"Enter Your Email Add...\" class=\"h-12 w-full border b...\">"
+          },
+          {
+            "target": [
+              ".text-\\[\\#999\\]"
+            ],
+            "html": "<p class=\"text-center font-body text-[11px] text-[#999]\">©<!-- -->2026<!-- --> <!-- -->Iowa Meat Farms, Siesel's Meats, all rights reserved. Website by DW Green Company.</p>"
+          }
+        ]
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "path": "/about",
+    "selector": "footer input",
+    "focus": {
+      "focusVisible": true,
+      "outline": "rgb(255, 255, 255) solid 2px",
+      "offset": "2px",
+      "before": {
+        "width": 342,
+        "height": 48
+      },
+      "after": {
+        "width": 342,
+        "height": 48
+      }
+    }
+  },
+  {
+    "path": "/contact",
+    "selector": "main input",
+    "focus": {
+      "focusVisible": true,
+      "outline": "rgb(157, 50, 30) solid 2px",
+      "offset": "2px",
+      "before": {
+        "width": 300,
+        "height": 48
+      },
+      "after": {
+        "width": 300,
+        "height": 48
+      }
+    }
+  },
+  {
+    "path": "/sandwiches/build?productId=89",
+    "selector": "main select",
+    "focus": {
+      "focusVisible": true,
+      "outline": "rgb(157, 50, 30) solid 2px",
+      "offset": "2px",
+      "before": {
+        "width": 320,
+        "height": 40
+      },
+      "after": {
+        "width": 320,
+        "height": 40
+      }
+    }
+  },
+  {
+    "path": "/sandwiches/customize?productId=124",
+    "selector": "main select",
+    "focus": {
+      "focusVisible": true,
+      "outline": "rgb(157, 50, 30) solid 2px",
+      "offset": "2px",
+      "before": {
+        "width": 320,
+        "height": 40
+      },
+      "after": {
+        "width": 320,
+        "height": 40
+      }
+    }
+  },
+  {
+    "path": "/cooking",
+    "selector": "input[aria-label=\"Find recipes\"]",
+    "focus": {
+      "focusVisible": true,
+      "outline": "rgb(157, 50, 30) solid 2px",
+      "offset": "2px",
+      "before": {
+        "width": 259.375,
+        "height": 38.84375
+      },
+      "after": {
+        "width": 259.375,
+        "height": 38.84375
+      }
+    }
+  }
+]

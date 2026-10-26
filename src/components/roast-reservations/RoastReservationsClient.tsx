@@ -1,5 +1,9 @@
 "use client";
 
+import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
+
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
 import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Minus, Plus, X } from "lucide-react";
@@ -20,6 +24,7 @@ type SelectedRoast = {
 };
 
 export default function RoastReservationsClient({ products }: Props) {
+  const validationProps = useAccessibleValidation();
   const router = useRouter();
   const ordering = useReservationOrdering("roast");
   const pickupDateBounds = getReservationPickupDateBounds("roast");
@@ -31,6 +36,7 @@ export default function RoastReservationsClient({ products }: Props) {
   const [notes, setNotes] = useState("");
   const [items, setItems] = useState<SelectedRoast[]>([]);
   const [pickerOpen, setPickerOpen] = useState(false);
+  const modalRef = useAccessibleModal<HTMLElement>(pickerOpen, () => setPickerOpen(false));
   const [pickerProductId, setPickerProductId] = useState<number | "">("");
   const [pickerVariationId, setPickerVariationId] = useState<number | "">("");
   const [error, setError] = useState<string | null>(null);
@@ -185,13 +191,13 @@ export default function RoastReservationsClient({ products }: Props) {
         {products.length === 0 ? (
           <div className="border border-[#b8aa97] bg-[#faf8f3] p-6 font-serif text-sm">Standing rib roast options are not currently available. Please check back soon.</div>
         ) : (
-          <form onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
+          <form {...validationProps} onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
             <div className="min-w-0">
             <section className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
                 <div>
                   <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Roasts</h2>
-                  <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">{selectedCount} roast{selectedCount === 1 ? "" : "s"}</p>
+                  <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-600">{selectedCount} roast{selectedCount === 1 ? "" : "s"}</p>
                 </div>
                 <button type="button" onClick={openPicker} disabled={!ordering.isOpen || availablePairs.length === 0} className="inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
                   <Plus aria-hidden="true" className="h-4 w-4" /> Add A Standing Rib Roast
@@ -231,7 +237,7 @@ export default function RoastReservationsClient({ products }: Props) {
 
               {pickerOpen && (
                 <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 pb-[env(safe-area-inset-bottom)] sm:items-center sm:p-6" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget) setPickerOpen(false); }}>
-                  <section role="dialog" aria-modal="true" aria-labelledby="roast-picker-title" className="w-full border-2 border-neutral-950 bg-[#faf8f3] p-6 sm:max-w-lg">
+                  <section ref={modalRef} role="dialog" aria-modal="true" aria-labelledby="roast-picker-title" className="w-full border-2 border-neutral-950 bg-[#faf8f3] p-6 sm:max-w-lg">
                     <div className="flex items-center justify-between gap-4">
                       <h2 id="roast-picker-title" className="text-lg font-black uppercase tracking-[0.12em]">Add a Standing Rib Roast</h2>
                       <button type="button" onClick={() => setPickerOpen(false)} aria-label="Close roast picker" className="grid h-10 w-10 cursor-pointer place-items-center"><X aria-hidden="true" className="h-5 w-5" /></button>

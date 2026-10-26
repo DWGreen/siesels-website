@@ -13,17 +13,17 @@ it("shows a scroll cue when links overflow and starts at the left edge", () => {
   expect(screen.getByLabelText("Scroll holiday reservation links horizontally").scrollLeft).toBe(0);
   expect(screen.getByRole("link", { name: "Turducken" })).toHaveAttribute("aria-current", "page");
   expect(screen.getAllByRole("link")).toHaveLength(5);
-  expect(screen.getByLabelText("Scroll left")).toBeInTheDocument();
-  expect(screen.queryByLabelText("Scroll right")).not.toBeInTheDocument();
+  expect(screen.getByLabelText("Drag left")).toBeInTheDocument();
+  expect(screen.queryByLabelText("Drag right")).not.toBeInTheDocument();
   const scroller = screen.getByLabelText("Scroll holiday reservation links horizontally");
   scroller.scrollLeft = 200;
   fireEvent.scroll(scroller);
-  expect(screen.getByLabelText("Scroll right")).toBeInTheDocument();
-  expect(screen.getByLabelText("Scroll left")).toBeInTheDocument();
+  expect(screen.getByLabelText("Drag right")).toBeInTheDocument();
+  expect(screen.getByLabelText("Drag left")).toBeInTheDocument();
   scroller.scrollLeft = 525;
   fireEvent.scroll(scroller);
-  expect(screen.getByLabelText("Scroll right")).toBeInTheDocument();
-  expect(screen.queryByLabelText("Scroll left")).not.toBeInTheDocument();
+  expect(screen.getByLabelText("Drag right")).toBeInTheDocument();
+  expect(screen.queryByLabelText("Drag left")).not.toBeInTheDocument();
 });
 
 it("hides the scroll cue when all links fit", () => {
@@ -44,6 +44,6 @@ it("reveals the selected page when it is outside the visible menu", () => {
   });
   render(<ReservationNavigation current="turducken" />);
   expect(screen.getByLabelText("Scroll holiday reservation links horizontally").scrollLeft).toBe(525);
-  expect(screen.getByLabelText("Scroll right")).toBeInTheDocument();
-  expect(screen.queryByLabelText("Scroll left")).not.toBeInTheDocument();
+  expect(screen.getByLabelText("Drag right")).toBeInTheDocument();
+  expect(screen.queryByLabelText("Drag left")).not.toBeInTheDocument();
 });

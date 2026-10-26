@@ -1,0 +1,1478 @@
+[
+  {
+    "path": "/",
+    "width": 1440,
+    "baseline": {
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "spacing": {
+      "width": 1440,
+      "scrollWidth": 1425,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 15,
+        "tag": "A",
+        "text": "View Weekly Specials >",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 17,
+        "tag": "A",
+        "text": "Holiday Meats >",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 20,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/contact",
+    "width": 1440,
+    "baseline": {
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "spacing": {
+      "width": 1440,
+      "scrollWidth": 1425,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 26,
+        "tag": "A",
+        "text": "Instagram",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 27,
+        "tag": "A",
+        "text": "Facebook",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 28,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 29,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 1440,
+    "baseline": {
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "spacing": {
+      "width": 1440,
+      "scrollWidth": 1425,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 22,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "SPAN"
+      },
+      {
+        "tab": 28,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/party-platters",
+    "width": 1440,
+    "baseline": {
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "spacing": {
+      "width": 1440,
+      "scrollWidth": 1425,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 20,
+        "tag": "A",
+        "text": "(619) 281-5766",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 21,
+        "tag": "A",
+        "text": "(619) 275-1234",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/cooking",
+    "width": 1440,
+    "baseline": {
+      "width": 1440,
+      "scrollWidth": 1425
+    },
+    "spacing": {
+      "width": 1440,
+      "scrollWidth": 1425,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Cuisines"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Special Diets"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Main Ingredient"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Occasions"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Cooking Method"
+        },
+        {
+          "tag": "H3",
+          "text": "Classic Tomato Soup with Roasted Red Peppers"
+        },
+        {
+          "tag": "H3",
+          "text": "Hash Browns and Corn Flakes Casserole"
+        },
+        {
+          "tag": "H3",
+          "text": "Macaroni and Cheese with Caramelized Onions, Butternut Squash and Bacon"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 23,
+        "tag": "SELECT",
+        "text": "Recipe category",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 24,
+        "tag": "INPUT",
+        "text": "Find recipes",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 25,
+        "tag": "BUTTON",
+        "text": "Search",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 26,
+        "tag": "BUTTON",
+        "text": "Advanced",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 27,
+        "tag": "BUTTON",
+        "text": "Clear",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 35,
+        "tag": "BUTTON",
+        "text": "Show slide 1",
+        "offscreen": false,
+        "covered": true,
+        "cover": "HEADER"
+      },
+      {
+        "tab": 36,
+        "tag": "BUTTON",
+        "text": "Show slide 2",
+        "offscreen": false,
+        "covered": true,
+        "cover": "HEADER"
+      },
+      {
+        "tab": 51,
+        "tag": "A",
+        "text": "20-Minute Marinara Sauce",
+        "offscreen": false,
+        "covered": true,
+        "cover": "HEADER"
+      },
+      {
+        "tab": 52,
+        "tag": "BUTTON",
+        "text": "View more Vegetarian recipes",
+        "offscreen": false,
+        "covered": true,
+        "cover": "HEADER"
+      }
+    ]
+  },
+  {
+    "path": "/",
+    "width": 390,
+    "baseline": {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "spacing": {
+      "width": 390,
+      "scrollWidth": 390,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 11,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 14,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 18,
+        "tag": "A",
+        "text": "Holiday Ham",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "A",
+        "text": "Prime Rib",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 20,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 21,
+        "tag": "A",
+        "text": "Our Team",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 29,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 30,
+        "tag": "A",
+        "text": "Turduckens",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 36,
+        "tag": "A",
+        "text": "Contact",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 50,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 53,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/contact",
+    "width": 390,
+    "baseline": {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "spacing": {
+      "width": 390,
+      "scrollWidth": 390,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 5,
+        "tag": "A",
+        "text": "(619) 281-5766",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 10,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 14,
+        "tag": "TEXTAREA",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 20,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 21,
+        "tag": "A",
+        "text": "Turkey Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 32,
+        "tag": "INPUT",
+        "text": "Email address",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 44,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 45,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 49,
+        "tag": "TEXTAREA",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 54,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 55,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 390,
+    "baseline": {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "spacing": {
+      "width": 390,
+      "scrollWidth": 390,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 12,
+        "tag": "BUTTON",
+        "text": "Add A Turkey Breast",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 13,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "SPAN"
+      },
+      {
+        "tab": 18,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 23,
+        "tag": "A",
+        "text": "Instagram",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 24,
+        "tag": "A",
+        "text": "Facebook",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 31,
+        "tag": "A",
+        "text": "Turduckens",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 52,
+        "tag": "BUTTON",
+        "text": "Add A Turkey Breast",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 53,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "SPAN"
+      }
+    ]
+  },
+  {
+    "path": "/party-platters",
+    "width": 390,
+    "baseline": {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "spacing": {
+      "width": 390,
+      "scrollWidth": 390,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 11,
+        "tag": "A",
+        "text": "(619) 281-5766",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 13,
+        "tag": "A",
+        "text": "Instagram",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 14,
+        "tag": "A",
+        "text": "Facebook",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 15,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 16,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 28,
+        "tag": "INPUT",
+        "text": "Email address",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 42,
+        "tag": "A",
+        "text": "(619) 281-5766",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 44,
+        "tag": "A",
+        "text": "Instagram",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 45,
+        "tag": "A",
+        "text": "Facebook",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 46,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 47,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/cooking",
+    "width": 390,
+    "baseline": {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "spacing": {
+      "width": 390,
+      "scrollWidth": 390,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Cuisines"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Special Diets"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Main Ingredient"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Occasions"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Cooking Method"
+        },
+        {
+          "tag": "H3",
+          "text": "Classic Tomato Soup with Roasted Red Peppers"
+        },
+        {
+          "tag": "H3",
+          "text": "Hash Browns and Corn Flakes Casserole"
+        },
+        {
+          "tag": "H3",
+          "text": "Macaroni and Cheese with Caramelized Onions, Butternut Squash and Bacon"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 9,
+        "tag": "SELECT",
+        "text": "CuisinesAfricanAmericanAsianCajunChineseCreoleCaribbeanCentral/South AmericanFrenchGermanGreekIndian",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 10,
+        "tag": "SELECT",
+        "text": "Special DietsDairy FreeFat FreeGluten-FreeHigh FiberLow FatLow sodiumLow SugarVeganVegetarianNutrien",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 17,
+        "tag": "BUTTON",
+        "text": "Advanced",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 18,
+        "tag": "BUTTON",
+        "text": "Clear",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 23,
+        "tag": "INPUT",
+        "text": "Enter Custom Item",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 24,
+        "tag": "BUTTON",
+        "text": "Add",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 28,
+        "tag": "A",
+        "text": "View Collection",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 36,
+        "tag": "A",
+        "text": "3French Onion SoupRating 0.0",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 37,
+        "tag": "A",
+        "text": "4Potato Soup in Bread BowlsRating 0.0",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 42,
+        "tag": "A",
+        "text": "20-Minute Marinara Sauce",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 43,
+        "tag": "BUTTON",
+        "text": "View more Vegetarian recipes",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 55,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/",
+    "width": 320,
+    "baseline": {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    "spacing": {
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 11,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 14,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 17,
+        "tag": "A",
+        "text": "@BESTMEATSSANDIEGO",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 18,
+        "tag": "A",
+        "text": "Holiday Ham",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "A",
+        "text": "Prime Rib",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 20,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 21,
+        "tag": "A",
+        "text": "Our Team",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 28,
+        "tag": "A",
+        "text": "Turkey Breast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 29,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 30,
+        "tag": "A",
+        "text": "Turduckens",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 36,
+        "tag": "A",
+        "text": "Contact",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 50,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 53,
+        "tag": "IFRAME",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/contact",
+    "width": 320,
+    "baseline": {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    "spacing": {
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 9,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 10,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 14,
+        "tag": "TEXTAREA",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 20,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 21,
+        "tag": "A",
+        "text": "Turkey Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 32,
+        "tag": "INPUT",
+        "text": "Email address",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 44,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 45,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 49,
+        "tag": "TEXTAREA",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 54,
+        "tag": "A",
+        "text": "Specials",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 55,
+        "tag": "A",
+        "text": "Gift Cards",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/turkey-breast-reservations",
+    "width": 320,
+    "baseline": {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    "spacing": {
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 12,
+        "tag": "BUTTON",
+        "text": "Add A Turkey Breast",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 13,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "SPAN"
+      },
+      {
+        "tab": 18,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 23,
+        "tag": "A",
+        "text": "Instagram",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 24,
+        "tag": "A",
+        "text": "Facebook",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 30,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 31,
+        "tag": "A",
+        "text": "Turduckens",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 53,
+        "tag": "BUTTON",
+        "text": "Add A Turkey Breast",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 54,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "SPAN"
+      }
+    ]
+  },
+  {
+    "path": "/party-platters",
+    "width": 320,
+    "baseline": {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    "spacing": {
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 19,
+        "tag": "A",
+        "text": "Turkey Breast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 20,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 21,
+        "tag": "A",
+        "text": "Turduckens",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 27,
+        "tag": "A",
+        "text": "Contact",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 50,
+        "tag": "A",
+        "text": "Turkey Breast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 51,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 52,
+        "tag": "A",
+        "text": "Turduckens",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  },
+  {
+    "path": "/cooking",
+    "width": 320,
+    "baseline": {
+      "width": 332,
+      "scrollWidth": 332
+    },
+    "spacing": {
+      "width": 333,
+      "scrollWidth": 333,
+      "clipped": [
+        {
+          "tag": "A",
+          "text": "Skip to main content"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Cuisines"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Special Diets"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Main Ingredient"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Occasions"
+        },
+        {
+          "tag": "LABEL",
+          "text": "Cooking Method"
+        },
+        {
+          "tag": "H3",
+          "text": "Classic Tomato Soup with Roasted Red Peppers"
+        },
+        {
+          "tag": "H3",
+          "text": "Potato Soup in Bread Bowls"
+        },
+        {
+          "tag": "H3",
+          "text": "Alfredo-Spinach Lasagna"
+        },
+        {
+          "tag": "H3",
+          "text": "Hash Browns and Corn Flakes Casserole"
+        },
+        {
+          "tag": "H3",
+          "text": "Macaroni and Cheese with Caramelized Onions, Butternut Squash and Bacon"
+        }
+      ]
+    },
+    "focusConcerns": [
+      {
+        "tab": 9,
+        "tag": "SELECT",
+        "text": "CuisinesAfricanAmericanAsianCajunChineseCreoleCaribbeanCentral/South AmericanFrenchGermanGreekIndian",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 10,
+        "tag": "SELECT",
+        "text": "Special DietsDairy FreeFat FreeGluten-FreeHigh FiberLow FatLow sodiumLow SugarVeganVegetarianNutrien",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 17,
+        "tag": "BUTTON",
+        "text": "Advanced",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 18,
+        "tag": "BUTTON",
+        "text": "Clear",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 19,
+        "tag": "INPUT",
+        "text": "",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 23,
+        "tag": "INPUT",
+        "text": "Enter Custom Item",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 24,
+        "tag": "BUTTON",
+        "text": "Add",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 28,
+        "tag": "A",
+        "text": "View Collection",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 34,
+        "tag": "A",
+        "text": "1Classic Tomato Soup with Roasted Red PeppersRating 0.0",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 35,
+        "tag": "A",
+        "text": "2Easy Chicken Tortilla SoupRating 0.0",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 36,
+        "tag": "A",
+        "text": "3French Onion SoupRating 0.0",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 37,
+        "tag": "A",
+        "text": "4Potato Soup in Bread BowlsRating 0.0",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 42,
+        "tag": "A",
+        "text": "20-Minute Marinara Sauce",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 43,
+        "tag": "BUTTON",
+        "text": "View more Vegetarian recipes",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 54,
+        "tag": "A",
+        "text": "Turkey Breast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      },
+      {
+        "tab": 55,
+        "tag": "A",
+        "text": "Roast Reservations",
+        "offscreen": false,
+        "covered": true,
+        "cover": "DIV"
+      }
+    ]
+  }
+]

@@ -129,6 +129,7 @@ export default function EditableIngredientList({
             >
               <button
                 type="button"
+                aria-pressed={!isRemoved}
                 onClick={() =>
                   onChangeIngredient?.(
                     updateIngredientMode(

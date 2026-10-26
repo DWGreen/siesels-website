@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
 import Link from "next/link";
 import {
   leftNavItems,
@@ -25,35 +26,15 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      closeButtonRef.current?.focus();
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => { if (desktop.matches && isOpen) onClose(); };
+    closeOnDesktop();
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
   }, [isOpen, onClose]);
+
+  const modalRef = useAccessibleModal<HTMLDivElement>(isOpen, onClose);
 
   const allNavItems: NavItem[] = [...leftNavItems, ...rightNavItems];
 
@@ -73,6 +54,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-brand-black pb-[env(safe-area-inset-bottom)] transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        ref={modalRef}
+        id="mobile-navigation"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
@@ -82,7 +65,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         {/* Close button */}
         <div className="flex justify-end p-4">
           <button
-            ref={closeButtonRef}
             onClick={onClose}
             className="flex size-11 items-center justify-center text-brand-white transition-colors hover:text-brand-wood"
             aria-label="Close menu"
@@ -92,7 +74,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
 
         {/* Nav links */}
-        <nav className="px-6">
+        <nav aria-label="Main navigation" className="px-6">
           <ul className="space-y-1">
             {allNavItems.map((item) => (
               <li key={item.label}>

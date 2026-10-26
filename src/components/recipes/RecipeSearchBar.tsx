@@ -1,5 +1,7 @@
 "use client";
 
+import { useId } from "react";
+
 import { RecipeFilters } from "@/lib/recipes/recipeTypes";
 
 type CategoryGroup = {
@@ -28,6 +30,7 @@ export default function RecipeSearchBar({
   onClear,
   onAdvancedSearch,
 }: Props) {
+  const controlId = useId();
   return (
     <div
       className="
@@ -46,6 +49,7 @@ export default function RecipeSearchBar({
         "
       >
         <select
+          aria-label="Recipe category"
           value={filters.categoryValue}
           disabled={isLoadingMeta}
           onChange={event =>
@@ -94,6 +98,7 @@ export default function RecipeSearchBar({
           "
         >
           <input
+            aria-label="Find recipes"
             value={filters.searchTerm}
             onChange={event =>
               onChange(
@@ -110,7 +115,7 @@ export default function RecipeSearchBar({
               text-sm
               font-bold
               uppercase
-              outline-none
+              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]
             "
           />
 
@@ -168,6 +173,8 @@ export default function RecipeSearchBar({
       </div>
 
       <div
+        role="group"
+        aria-label="Match search terms"
         className="
           mt-3
           flex
@@ -192,7 +199,7 @@ export default function RecipeSearchBar({
           >
             <input
               type="radio"
-              name="matchMode"
+              name={`${controlId}-match-mode`}
               value={value}
               checked={filters.matchMode === value}
               onChange={() =>

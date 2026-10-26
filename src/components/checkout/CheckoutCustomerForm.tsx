@@ -23,7 +23,7 @@ export default function CheckoutCustomerForm({ values, onChange }: Props) {
     px-4
     py-3
     text-sm
-    outline-none
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e]
     placeholder:text-neutral-500
     focus:bg-[#f5f5f5]
   `;

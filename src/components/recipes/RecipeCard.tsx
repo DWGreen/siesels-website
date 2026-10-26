@@ -155,6 +155,8 @@ export default function RecipeCard({
         >
           <button
             type="button"
+            aria-pressed={isSaved}
+            aria-label={`${isSaved ? "Remove" : "Add to My Recipes"}: ${recipe.name}`}
             onClick={() =>
               onToggleSaved(recipe.id)
             }

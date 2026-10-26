@@ -1,5 +1,7 @@
 "use client";
 
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -74,6 +76,7 @@ export default function RecipeDetailView({
     useState(true);
   const [showRatingDialog, setShowRatingDialog] =
     useState(false);
+  const ratingModalRef = useAccessibleModal<HTMLDivElement>(showRatingDialog, () => setShowRatingDialog(false));
   const [isSubmittingRating, setIsSubmittingRating] =
     useState(false);
   const [ratingError, setRatingError] =
@@ -562,6 +565,7 @@ export default function RecipeDetailView({
               <div className="grid gap-2">
                 <button
                   type="button"
+                  aria-pressed={isSaved}
                   onClick={() =>
                     recipeBox.toggleSavedRecipe(
                       recipe.id
@@ -668,13 +672,13 @@ export default function RecipeDetailView({
               </div>
 
               {ratingSuccess && (
-                <p className="mt-3 text-xs font-bold text-emerald-700">
+                <p role="status" className="mt-3 text-xs font-bold text-emerald-700">
                   {ratingSuccess}
                 </p>
               )}
 
               {ratingError && (
-                <p className="mt-3 text-xs font-bold text-red-700">
+                <p role={showRatingDialog ? undefined : "alert"} className="mt-3 text-xs font-bold text-red-700">
                   {ratingError}
                 </p>
               )}
@@ -765,6 +769,10 @@ export default function RecipeDetailView({
 
       {showRatingDialog && (
         <div
+          ref={ratingModalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Rate this recipe"
           className="
             fixed
             inset-0
@@ -800,6 +808,7 @@ export default function RecipeDetailView({
               </button>
             </div>
 
+            {ratingError && <p role="alert" className="sr-only">{ratingError}</p>}
             <div className="grid gap-2 sm:grid-cols-2">
               {ratingOptions.map(option => (
                 <button

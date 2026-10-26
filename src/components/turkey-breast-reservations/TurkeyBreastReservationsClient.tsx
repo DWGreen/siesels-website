@@ -1,5 +1,9 @@
 "use client";
 
+import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
+
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
 import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Minus, Plus, X } from "lucide-react";
@@ -15,6 +19,7 @@ type Props = {
 };
 
 export default function TurkeyBreastReservationsClient({ products: parentProducts }: Props) {
+  const validationProps = useAccessibleValidation();
   const products = useMemo(() => parentProducts.flatMap(parent => parent.variations
     ? parent.variations.map(variation => ({
       ...parent, ...variation, parentId: parent.id, weight: variation.attributes[0].value,
@@ -36,6 +41,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
   const [notes, setNotes] = useState("");
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const modalRef = useAccessibleModal<HTMLElement>(isPickerOpen, () => setIsPickerOpen(false));
   const [pickerProductId, setPickerProductId] = useState<number | "">("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -168,13 +174,13 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
            {label} reservation sizes are not currently available. Please check back soon.
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
+          <form {...validationProps} onSubmit={handleSubmit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
             <div className="min-w-0">
             <section className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
                 <div>
                   <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your {plural}</h2>
-                  <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">{selectedCount} {selectedCount === 1 ? label : plural}</p>
+                  <p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-600">{selectedCount} {selectedCount === 1 ? label : plural}</p>
                 </div>
                 <button
                   type="button"
@@ -276,6 +282,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                   }}
                 >
                   <section
+                    ref={modalRef}
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="turkey-picker-title"

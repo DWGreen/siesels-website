@@ -1,0 +1,377 @@
+{
+  "contactMobileBefore": [
+    {
+      "tab": 5,
+      "text": "(619) 281-5766",
+      "rect": {
+        "top": 815.390625,
+        "bottom": 843.390625
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    },
+    {
+      "tab": 10,
+      "text": "INPUT",
+      "rect": {
+        "top": 761.390625,
+        "bottom": 809.390625
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    },
+    {
+      "tab": 14,
+      "text": "TEXTAREA",
+      "rect": {
+        "top": 682.390625,
+        "bottom": 868.296875
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    },
+    {
+      "tab": 19,
+      "text": "Specials",
+      "rect": {
+        "top": 707.296875,
+        "bottom": 742.796875
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    },
+    {
+      "tab": 20,
+      "text": "Gift Cards",
+      "rect": {
+        "top": 746.796875,
+        "bottom": 782.296875
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    },
+    {
+      "tab": 21,
+      "text": "Turkey Reservations",
+      "rect": {
+        "top": 786.296875,
+        "bottom": 841.296875
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "NEXTJS-PORTAL"
+        },
+        {
+          "visible": false,
+          "cover": "NEXTJS-PORTAL"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    },
+    {
+      "tab": 32,
+      "text": "Email address",
+      "rect": {
+        "top": 793.046875,
+        "bottom": 841.046875
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        },
+        {
+          "visible": false,
+          "cover": "cookie banner"
+        }
+      ]
+    }
+  ],
+  "contactMobileAfter": [],
+  "turkeyBreastMobileAfter": [
+    {
+      "tab": 13,
+      "text": "storeLocationId",
+      "rect": {
+        "top": 411.546875,
+        "bottom": 431.546875
+      },
+      "samples": [
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        },
+        {
+          "visible": false,
+          "cover": "SPAN"
+        }
+      ]
+    }
+  ],
+  "contactDesktopAfter": [],
+  "notes": "Reservation storeLocationId radio is visually represented by its custom label; hit-test coverage by that label is not a confirmed overlay failure. Initial center-point sweeps and text-clipping heuristics are candidates only."
+}

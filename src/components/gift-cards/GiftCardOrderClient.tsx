@@ -1,5 +1,9 @@
 "use client";
 
+import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
+
+import { useAccessibleModal } from "@/hooks/useAccessibleModal";
+
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
@@ -17,6 +21,7 @@ type GiftCardLine = { productId: number; quantity: number };
 type Props = { products: Product[] };
 
 function GiftCardOrderForm({ products }: Props) {
+  const validationProps = useAccessibleValidation();
   const router = useRouter();
   const createPaymentMethod = useCheckoutPaymentMethod();
   const [lines, setLines] = useState<GiftCardLine[]>([]);
@@ -87,7 +92,9 @@ function GiftCardOrderForm({ products }: Props) {
     }
   }
 
-  const inputClass = "mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm outline-none focus:border-[#9d321e]";
+  const inputClass = "mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d321e] focus:border-[#9d321e]";
+
+  const modalRef = useAccessibleModal<HTMLElement>(Boolean(pickerProduct), () => setPickerProduct(null));
 
   return (
     <>
@@ -111,11 +118,11 @@ function GiftCardOrderForm({ products }: Props) {
         ))}
       </div>
 
-      <form onSubmit={submit} className="mt-12 grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(290px,0.8fr)]">
+      <form {...validationProps} onSubmit={submit} className="mt-12 grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(290px,0.8fr)]">
         <div className="space-y-7">
           <section className="border border-[#b8aa97] bg-[#faf8f3] p-5 sm:p-7">
             <div className="flex items-end justify-between gap-4 pb-2">
-              <div><h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Gift Cards</h2><p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">{itemCount} card{itemCount === 1 ? "" : "s"}</p></div>
+              <div><h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Gift Cards</h2><p className="mt-1 font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-600">{itemCount} card{itemCount === 1 ? "" : "s"}</p></div>
               <p className="font-heading text-sm font-bold uppercase">${orderTotal.toFixed(2)}</p>
             </div>
             {selectedLines.length === 0 ? (
@@ -144,7 +151,7 @@ function GiftCardOrderForm({ products }: Props) {
               <label className="font-heading text-[10px] font-bold uppercase tracking-[0.15em]">To<input required maxLength={100} autoComplete="off" value={recipientName} onChange={event => setRecipientName(event.target.value)} className={inputClass} /></label>
               <label className="font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Recipient email<input required type="email" maxLength={254} autoComplete="off" value={recipientEmail} onChange={event => setRecipientEmail(event.target.value)} className={inputClass} /></label>
               <label className="font-heading text-[10px] font-bold uppercase tracking-[0.15em] sm:col-span-2">From<input required maxLength={100} autoComplete="off" value={fromName} onChange={event => setFromName(event.target.value)} className={inputClass} /></label>
-              <label className="font-heading text-[10px] font-bold uppercase tracking-[0.15em] sm:col-span-2">Gift note <span className="font-normal normal-case tracking-normal text-neutral-500">(optional, 200 characters max)</span><textarea maxLength={200} value={giftNote} onChange={event => setGiftNote(event.target.value)} className={`${inputClass} min-h-24 resize-y`} /></label>
+              <label className="font-heading text-[10px] font-bold uppercase tracking-[0.15em] sm:col-span-2">Gift note <span className="font-normal normal-case tracking-normal text-neutral-600">(optional, 200 characters max)</span><textarea maxLength={200} value={giftNote} onChange={event => setGiftNote(event.target.value)} className={`${inputClass} min-h-24 resize-y`} /></label>
             </div>
           </section>
 
@@ -173,7 +180,7 @@ function GiftCardOrderForm({ products }: Props) {
 
       {pickerProduct && (
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 sm:items-center sm:p-6" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget) setPickerProduct(null); }}>
-          <section role="dialog" aria-modal="true" aria-labelledby="gift-card-quantity-title" className="w-full border-2 border-neutral-950 bg-[#faf8f3] p-6 sm:max-w-md">
+          <section ref={modalRef} role="dialog" aria-modal="true" aria-labelledby="gift-card-quantity-title" className="w-full border-2 border-neutral-950 bg-[#faf8f3] p-6 sm:max-w-md">
             <div className="flex items-start justify-between gap-4"><div><p className="font-heading text-[10px] font-bold uppercase tracking-[0.18em] text-[#9d321e]">{pickerProduct.name}</p><h2 id="gift-card-quantity-title" className="mt-1 font-heading text-xl font-bold uppercase">How Many?</h2></div><button type="button" aria-label="Close quantity picker" onClick={() => setPickerProduct(null)} className="grid h-9 w-9 place-items-center"><X className="h-5 w-5" /></button></div>
             <label className="mt-5 block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Quantity<input autoFocus type="number" min={1} max={MAX_GIFT_CARD_QUANTITY - (lines.find(line => line.productId === pickerProduct.id)?.quantity ?? 0)} value={pickerQuantity} onChange={event => setPickerQuantity(Math.min(MAX_GIFT_CARD_QUANTITY - (lines.find(line => line.productId === pickerProduct.id)?.quantity ?? 0), Math.max(1, Number(event.target.value) || 1)))} className="mt-2 block h-12 w-full border border-neutral-950 bg-white px-3 text-center font-heading text-lg font-bold" /></label>
             <p className="mt-2 font-serif text-xs text-neutral-600">Maximum {MAX_GIFT_CARD_QUANTITY} per denomination.</p>
