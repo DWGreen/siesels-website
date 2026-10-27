@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookiePreferencesButton } from "@/components/privacy/CookiePreferences";
 import { footerNavItems, socialLinks } from "@/lib/navigation";
 import { InstagramIcon, FacebookIcon } from "@/components/ui/Icons";
 
@@ -82,6 +83,10 @@ export default function Footer() {
 
       {/* Copyright bar */}
       <div className="border-t border-white/10 px-6 py-4">
+        <div className="mb-2 flex flex-wrap items-center justify-center gap-4 text-sm">
+          <Link href="/privacy" className="inline-flex min-h-11 items-center underline underline-offset-4">Privacy &amp; cookies</Link>
+          <CookiePreferencesButton />
+        </div>
         <p className="text-center font-body text-[11px] text-[#999]">
           &copy;{new Date().getFullYear()}{" "}Iowa Meat Farms, Siesel&apos;s
           Meats, all rights reserved. Website by DW Green Company.

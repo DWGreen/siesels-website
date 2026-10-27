@@ -6,7 +6,6 @@ import Image from "next/image";
 import DesktopNav from "./DesktopNav";
 import MobileMenu from "./MobileMenu";
 import { MenuIcon } from "@/components/ui/Icons";
-import CookieConsent from "react-cookie-consent";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -24,7 +23,7 @@ export default function Header() {
         const rect = element.getBoundingClientRect();
         if (!rect.width || !rect.height) return;
         const top = Math.max(0, header.getBoundingClientRect().bottom) + 8;
-        const banner = header.querySelector<HTMLElement>(".CookieConsent");
+        const banner = document.querySelector<HTMLElement>("#cc-main .cm");
         const bottom = Math.min(window.innerHeight,
           banner && banner.getClientRects().length
             ? banner.getBoundingClientRect().top : window.innerHeight) - 8;
@@ -86,7 +85,6 @@ export default function Header() {
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
       />
-      <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
     </header>
   );
 }

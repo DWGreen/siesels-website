@@ -1,3 +1,5 @@
+import ConsentMap from "@/components/privacy/ConsentMap";
+
 const locations = [
   {
     name: "Iowa Meat Farms",
@@ -44,14 +46,7 @@ export default function Locations() {
               key={loc.name}
               className="overflow-hidden border-2 border-brand-black bg-white p-3"
             >
-              <iframe
-                title={`Map of ${loc.name}`}
-                src={`https://www.google.com/maps?q=${loc.mapQuery}&output=embed`}
-                className="h-[240px] w-full sm:h-[350px] md:h-[400px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              <ConsentMap name={loc.name} query={loc.mapQuery} />
               <div className="p-5 text-sm font-medium text-gray-700">
                 <h3 className="mb-2 font-heading text-xl font-bold uppercase tracking-[0.1em] text-brand-black">
                   {loc.name}

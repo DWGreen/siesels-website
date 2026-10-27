@@ -1,5 +1,7 @@
 "use client";
 
+import CollectionNotice from "@/components/privacy/CollectionNotice";
+
 import {
   useEffect,
   useMemo,
@@ -552,6 +554,7 @@ const validatedItemByCartItemId = new Map(
               </div>
             </section>
 
+            <CollectionNotice />
             <CheckoutCustomerForm
               values={customer}
               onChange={setCustomer}

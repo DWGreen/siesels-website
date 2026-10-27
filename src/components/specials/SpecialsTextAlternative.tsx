@@ -10,7 +10,7 @@ export default function SpecialsTextAlternative({ image }: { image: SpecialImage
       <summary className="cursor-pointer font-heading text-lg font-bold text-brand-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9d321e]">
         Read this ad as text
       </summary>
-      <section aria-labelledby={headingId} className="mt-5 space-y-5 font-serif text-base leading-relaxed text-neutral-700">
+      <section aria-labelledby={headingId} className="mt-5 space-y-5 font-body text-base leading-relaxed text-neutral-700">
         <header>
           <h4 id={headingId} className="font-heading text-2xl font-bold text-brand-black">{text.heading}</h4>
           <p className="mt-2 font-bold">{text.effectiveDates}</p>

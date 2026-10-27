@@ -47,12 +47,12 @@ export default async function SpecialsPage({ searchParams }: Props) {
               <h2 id="specials-title" className="mt-4 font-heading text-4xl font-bold uppercase leading-tight tracking-[0.06em] sm:text-6xl">
                 Fresh Finds &amp; Favorites
               </h2>
-              <p className="mt-5 font-serif text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+              <p className="mt-5 font-body text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
                 Explore the latest specials from Iowa Meat Farms and Siesel’s Meats.
                 Browse our weekly and weekend ads to find something delicious for your table.
               </p>
               <span aria-hidden="true" className="mx-auto my-6 block h-0.5 w-12 bg-[#9d321e]" />
-              <p className="font-serif text-base leading-7 text-neutral-700">Choose an ad below, then open the full viewer for a closer look.</p>
+              <p className="font-body text-base leading-7 text-neutral-700">Choose an ad below, then open the full viewer for a closer look.</p>
             </header>
             <SpecialsGallery
               categories={specialsCategories}

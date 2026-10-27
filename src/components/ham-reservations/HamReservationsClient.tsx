@@ -1,5 +1,7 @@
 "use client";
 
+import CollectionNotice from "@/components/privacy/CollectionNotice";
+
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
 
 import { useAccessibleModal } from "@/hooks/useAccessibleModal";
@@ -259,6 +261,7 @@ export default function HamReservationsClient({ products }: Props) {
         </header>
 
         <form {...validationProps} onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
+        <CollectionNotice />
           <div className="min-w-0">
             <section className="min-w-0 border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6" aria-labelledby="ham-selections-title">
             <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">

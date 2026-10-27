@@ -1,5 +1,7 @@
 "use client";
 
+import CollectionNotice from "@/components/privacy/CollectionNotice";
+
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
 
 import { FormEvent, useState } from "react";
@@ -58,6 +60,7 @@ export default function ContactForm() {
 
   return (
     <form {...validationProps} onSubmit={handleSubmit} className="space-y-5" noValidate>
+      <CollectionNotice contact />
       <div className="grid gap-4 md:grid-cols-2">
         <label className="flex flex-col gap-2">
           <span className="font-heading text-sm font-bold uppercase tracking-[0.14em] text-brand-black">

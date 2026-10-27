@@ -48,7 +48,7 @@ export async function submitContactRequest(
   const config = getContactFormConfig();
 
   if (config.mode === "disabled") {
-    console.info("Contact submission mode is disabled. Payload:", payload);
+    console.info("Contact submission mode is disabled; no message was delivered.");
 
     return {
       delivered: true,

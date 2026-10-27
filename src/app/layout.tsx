@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import {
   CartProvider
 } from "@/context/CartContext";
-import CookieConsent from "react-cookie-consent";
+import CookiePreferences from "@/components/privacy/CookiePreferences";
+import "vanilla-cookieconsent/dist/cookieconsent.css";
 import { Oswald, Open_Sans, Playfair_Display, Barlow_Condensed, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 
@@ -86,6 +87,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <CookiePreferences />
         <CartProvider>
           {children}
         </CartProvider>

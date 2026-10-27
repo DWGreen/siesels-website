@@ -1,5 +1,7 @@
 "use client";
 
+import CollectionNotice from "@/components/privacy/CollectionNotice";
+
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
 
 import { useAccessibleModal } from "@/hooks/useAccessibleModal";
@@ -119,6 +121,7 @@ function GiftCardOrderForm({ products }: Props) {
       </div>
 
       <form {...validationProps} onSubmit={submit} className="mt-12 grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(290px,0.8fr)]">
+        <CollectionNotice />
         <div className="space-y-7">
           <section className="border border-[#b8aa97] bg-[#faf8f3] p-5 sm:p-7">
             <div className="flex items-end justify-between gap-4 pb-2">

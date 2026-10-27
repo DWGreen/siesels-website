@@ -193,7 +193,7 @@ export default function SpecialsGallery({
                       {activeImage.title}
                     </p>
                   ) : null}
-                  <p className="mt-1 font-serif text-base leading-7 text-neutral-700">
+                  <p className="mt-1 font-body text-base leading-7 text-neutral-700">
                     Click the page to open the full viewer
                   </p>
                 </div>
