@@ -8,8 +8,8 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative order-1 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/ad-images/2026-09-11.jpg"
-            alt="Marinated tri-tip weekly special"
+            src="/images/ad-images/2026-10-28.webp"
+            alt="Flanken Style Short Ribs weekly special"
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -23,13 +23,13 @@ export default function FeatureGrid() {
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
-              Hawaiian &amp; Assorted Flavors
+               100% Midwestern Beef, USDA Choice
             </p>
             <p className="mt-2 font-barlow text-xs font-semibold uppercase tracking-[0.11em] text-white/85 md:mt-3 md:text-base">
-              USDA Choice, 100% Midwestern Angus Beef
+             Korean Style or Maui Marinated
             </p>
             <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
-              Marinated Tri-Tip
+              Flanken Style Short Ribs
             </h2>
             <p className="mt-2 font-heading text-[38px] font-bold uppercase tracking-[0.08em] text-[#f6e3b0] md:mt-3 md:text-[50px]">
               $15.99 LB

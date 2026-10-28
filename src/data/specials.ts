@@ -29,51 +29,43 @@ export type SpecialsCategory = {
 export const biWeeklySpecials: SpecialImage[] = [
   {
     id: "special-1",
-    src: "/images/specials/biweekly/specials1.jpg",
-    alt: "Weekly butcher shop ad, page 1 of 2: meat specials, June 26–July 9, 2026",
-    title: "Meat Specials",
+    src: "/images/specials/biweekly/page1.webp",
+    alt: "Weekly butcher shop ad, page 1 of 2: meat and seafood specials, October 23–November 5, 2026",
+    title: "Meat & Seafood Specials",
     textAlternative: {
-      heading: "Butcher Shops — Happy 4th of July!",
-      effectiveDates: "Prices effective Friday, June 26 through Thursday, July 9, 2026.",
-      introduction: "Family-owned, locally operated. Premium meats, hand-cut by skilled butchers. For serious cooks since 1968. Featuring 100% Midwestern USDA Prime & Choice beef, plus premium poultry, pork, and seafood. Celebrating 250 years of American independence. Expertly cut. Exceptionally sourced.",
+      heading: "A True Butcher Shop — Butcher Shop Specialty",
+      effectiveDates: "Prices effective Friday, October 23 through Thursday, November 5, 2026.",
+      introduction: "Iowa Meat Farms & Siesel’s Meats. For the serious cooks. Locally owned. Real butchers since 1968. 100% Midwestern beef. Expertly cut. Exceptionally sourced.",
       offers: [
-        { name: "“Fat On” Tri-Tip", price: "$16.99 per lb.", details: "USDA Choice, Midwestern Angus beef. Marbled to perfection: this well-marbled tri-tip is left with its natural fat cap intact, delivering exceptional flavor, tenderness, and juiciness whether grilled, smoked, or roasted." },
-        { name: "T-Bone Steak", price: "$27.99 per lb.", details: "USDA Choice, Midwestern Angus beef. Our T-Bone steaks are rich in flavor with beautiful marbling and a hearty steakhouse-quality cut. Perfect for grilling and serving as the centerpiece of any meal." },
-        { name: "Brisket", price: "$9.99 per lb.", details: "USDA Choice, boneless Midwestern Angus beef. A rich, flavorful beef cut best when slow-cooked until tender and juicy." },
-        { name: "New York Steak", price: "$31.99 per lb.", details: "USDA Prime, boneless, Midwestern Angus beef. A tender, well-marbled beef cut with bold flavor, ideal for grilling or pan-searing." },
-        { name: "All Beef Hot Dogs", price: "$8.99 per lb.", details: "1/4 lb. Savory, juicy, and perfect for grilling or quick meals. They deliver classic, crowd-pleasing flavor in every bite." },
-        { name: "Baby Back Ribs", price: "$5.99 per lb.", details: "Tender, meaty pork ribs that are perfect for slow-cooking or grilling until fall-off-the-bone delicious." },
-        { name: "Mary’s Bone-In Chicken Breast", price: "$6.99 per lb.", details: "Air-chilled, No Antibiotic Ever, and Free-Range." },
-        { name: "Bone-In Pork Butt", price: "$5.99 per lb.", details: "A flavorful pork cut ideal for slow roasting or smoking until tender and juicy." },
+        { name: "Flanken Style Short Ribs", price: "$15.99 per lb.", details: "100% Midwestern beef, USDA Choice. Korean-style or Maui marinated. Packed with rich beef flavor and beautifully layered with marbling. Perfect for grilling or braising in your favorite savory sauce." },
+        { name: "White Shrimp", price: "$12.99 per lb.", details: "Wild-caught, Mexican. Shell-on, 16/20 count. Previously frozen and defrosted. Offering a sweet, succulent flavor and a firm texture, perfect for grilling, sautéing, or serving with your favorite seafood seasonings." },
+        { name: "Beef Shank", price: "$7.99 per lb.", details: "100% Midwestern Angus beef, USDA Choice. Rich in flavor and perfect for slow cooking until tender and delicious. Ideal for hearty stews, braised dishes, and comforting homemade soups." },
+        { name: "Baseball Cut Sirloin Steak", price: "$21.99 per lb.", details: "100% Midwestern beef, USDA Prime. Prized for its exceptional tenderness, rich beef flavor, and beautiful marbling. Perfect for grilling or pan-searing to create a delicious, steakhouse-quality meal at home." },
+        { name: "Top Sirloin Steak", price: "$15.99 per lb.", details: "100% Midwestern Angus beef, USDA Choice. Lean, tender, and packed with rich beef flavor. Perfect for grilling, pan-searing, or serving with your favorite sides." },
+        { name: "Inside Skirt Steak", price: "$17.99 per lb.", details: "100% Midwestern Angus beef, USDA Choice. Rich in beefy flavor with a deliciously tender texture when cooked properly. Perfect for grilling, fajitas, or slicing thin for tacos and stir-fry." },
+        { name: "St. Louis Style Pork Ribs", price: "$6.99 per lb.", details: "Heritage breed premium pork. Meaty and full of rich, savory flavor. Perfect for slow cooking or grilling with your favorite barbecue sauce." },
+        { name: "Mary’s Whole Chicken Wings", price: "$5.99 per lb.", details: "Flavorful and versatile, perfect for grilling, roasting, or baking with your favorite seasonings." },
       ],
-      notices: ["4th of July hours: Iowa Meat Farms, 9am–4pm; Siesel’s, 9am–5pm."],
     },
   },
   {
     id: "special-2",
-    src: "/images/specials/biweekly/specials2.jpg",
-    alt: "Weekly butcher shop ad, page 2 of 2: produce, deli, and grocery specials, June 26–July 9, 2026",
-    title: "Produce, Deli & Grocery Specials",
+    src: "/images/specials/biweekly/page2.webp",
+    alt: "Weekly butcher shop ad, page 2 of 2: sandwich, deli, and grocery specials, October 23–November 5, 2026",
+    title: "Sandwich, Deli & Grocery Specials",
     textAlternative: {
-      heading: "Fresh. Local. Seasonal. — Fresh Deli Favorites",
-      effectiveDates: "Prices effective June 26 through July 9, 2026 (date range printed on page 1 of this ad).",
+      heading: "Sandwich of the Week — Across the Store — Fresh Deli Favorites",
+      effectiveDates: "Prices effective October 23 through November 5, 2026 (date range printed on page 1 of this ad).",
       offers: [
-        { name: "Fresh Sweet White Corn", price: "$0.99 each", details: "Picked just for you! Naturally sweet, crisp, and full of fresh summer flavor. It’s perfect for grilling, boiling, or adding to your favorite meals." },
-        { name: "Sweet Red Cherries", price: "$2.99 per lb.", details: "Sweet red cherries." },
-        { name: "Large Red Tomatoes", price: "$1.99 per lb.", details: "Large red tomatoes." },
-        { name: "Red, White, & Blue Potato Salad", price: "$6.99 per lb.", details: "Red and white potatoes with blue cheese." },
-        { name: "Dietz & Watson Hot Dogs", price: "$8.99 each", details: "Assorted varieties, 15 oz." },
-        { name: "BLTA Sandwich", price: "$10.99 each", details: "A classic American favorite; bacon, lettuce, tomato, & avocado on fresh bread!" },
-        { name: "Joe’s Potato Chips", price: "$3.99 each", details: "Assorted varieties, 5 oz." },
-        { name: "Meat Church BBQ Rubs", price: "$9.99 each", details: "Assorted varieties, 12–13 oz." },
-        { name: "Bone Suckin’ Sauce BBQ Sauce", price: "$7.99 each", details: "Assorted varieties, 18 oz." },
-        { name: "AleSmith Brewing Company .394 Pale Ale", price: "$12.99 each", details: "6 pack, 12 oz. cans." },
-        { name: "Ranga. Ranga. Sauvignon Blanc", price: "$16.99 each", details: "750 ml bottle." },
+        { name: "Club House Sandwich", price: "$10.99 each", details: "Sandwich of the week. Turkey, baked ham, bacon, avocado, Monterey Jack, mayo, lettuce, tomato, & onion." },
+        { name: "Rummo Pasta", price: "$5.49 each", details: "Assorted varieties, 16 oz." },
+        { name: "Tresanti Italian Cookies", price: "$9.99 each", details: "16 oz." },
+        { name: "Dietz and Watson Cheddarwurst, Knockwurst, or Bratwurst", price: "$7.99 each", details: "Selected varieties, 16 oz." },
+        { name: "El Indio Tortilla Chips", price: "$6.99 each", details: "16 oz." },
+        { name: "La Salsa Chilen Salsa", price: "$4.99 each", details: "Mild, medium, or hot, 16 oz." },
+        { name: "Jalapeño Macaroni Salad", price: "$5.99 per lb.", details: "Combines a creamy pasta with a zesty kick of jalapeño for a flavorful side dish with just the right amount of heat." },
       ],
       notices: [
-        "Fresh baked Julian Pies, while supplies last!",
-        "Don’t forget your deli party trays! A convenient assortment of sliced meats, cheeses, and sides, perfect for entertaining and serving a crowd.",
-        "Don’t forget our homemade signature famous potato salad, baked beans, & dips!",
         "Iowa Meat Farms: 6041 Mission Gorge Road, San Diego, CA 92120. 619-281-5766. Hours: Monday–Saturday 9am–6pm; Sunday 10am–6pm.",
         "Siesel’s Meat & Deli: 4131 Ashton Street, San Diego, CA 92110. 619-275-1234. Hours: Monday–Saturday 9am–7pm; Sunday 9am–6pm.",
         "BestMeatSanDiego.com. Groceries delivered right to your door through Instacart.",
@@ -84,7 +76,7 @@ export const biWeeklySpecials: SpecialImage[] = [
 
 
 export const weekendSpecials: SpecialImage[] = [
-  {
+ /* {
     id: "special-1",
     src: "/images/specials/weekend/weekend1.jpg",
     alt: "Weekend two-day sale ad, page 1 of 2: raw shrimp, June 13–14, 2026",
@@ -110,7 +102,7 @@ export const weekendSpecials: SpecialImage[] = [
         { name: "Marinated Tri-Tip", price: "$16.99 per lb.", details: "USDA Choice, Midwestern Angus beef. Hawaiian & assorted flavors. A flavorful beef cut soaked in marinade for extra tenderness and taste, perfect for grilling or roasting." },
       ],
     },
-  },
+  },*/
 ];
 
 export const specialsCategories: SpecialsCategory[] = [
