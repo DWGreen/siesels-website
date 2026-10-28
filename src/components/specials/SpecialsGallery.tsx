@@ -17,15 +17,13 @@ export default function SpecialsGallery({
   initialCategoryId,
 }: Props) {
   const resolveCategoryIndex = (categoryId?: string) => {
-    if (!categoryId) {
-      return 0;
-    }
-
     const matchingIndex = categories.findIndex(
-      (category) => category.id === categoryId
+      (category) => category.id === categoryId && category.images.length > 0
     );
 
-    return matchingIndex >= 0 ? matchingIndex : 0;
+    return matchingIndex >= 0
+      ? matchingIndex
+      : categories.findIndex((category) => category.images.length > 0);
   };
 
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(() =>
@@ -54,7 +52,7 @@ export default function SpecialsGallery({
       ? activeImage
       : null;
 
-  if (categories.length === 0) {
+  if (!categories.some((category) => category.images.length > 0)) {
     return (
       <div className="border border-[#b8aa97] bg-[#faf8f3] p-8 text-center">
         <p className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-500">
@@ -72,6 +70,7 @@ export default function SpecialsGallery({
       >
         <div className="flex flex-col gap-2 sm:flex-row sm:justify-center sm:gap-3">
           {categories.map((category, index) => {
+            if (category.images.length === 0) return null;
             const isActive = index === activeCategoryIndex;
 
             return (
@@ -194,7 +193,7 @@ export default function SpecialsGallery({
                     </p>
                   ) : null}
                   <p className="mt-1 font-body text-base leading-7 text-neutral-700">
-                    Click the page to open the full viewer
+                    Explore the ad one item at a time
                   </p>
                 </div>
 
@@ -205,7 +204,7 @@ export default function SpecialsGallery({
                   }}
                   className="inline-flex min-h-11 shrink-0 items-center justify-center bg-brand-black px-6 py-3 font-heading text-sm font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#9d321e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9d321e] motion-reduce:transition-none"
                 >
-                  View Full Ad
+                  Explore Ad
                 </button>
               </div>
             </div>
@@ -221,7 +220,10 @@ export default function SpecialsGallery({
       ) : null}
 
       <SpecialsImageViewer
+        key={selectedImage ? "open" : "closed"}
         image={selectedImage}
+        images={activeImages}
+        onSelectImage={setActiveImageIndex}
         heading={activeCategory?.title}
         onClose={() => {
           setIsLightboxOpen(false);

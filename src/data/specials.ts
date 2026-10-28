@@ -12,12 +12,22 @@ export type SpecialTextAlternative = {
   notices?: string[];
 };
 
+// Crop bounds are percentages of the original flyer, measured from its top-left.
+export type SpecialRegion = {
+  label: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
 export type SpecialImage = {
   id: string;
   src: string;
   alt: string;
   title?: string;
   textAlternative: SpecialTextAlternative;
+  guidedRegions?: SpecialRegion[];
 };
 
 export type SpecialsCategory = {
@@ -32,6 +42,16 @@ export const biWeeklySpecials: SpecialImage[] = [
     src: "/images/specials/biweekly/page1.webp",
     alt: "Weekly butcher shop ad, page 1 of 2: meat and seafood specials, October 23–November 5, 2026",
     title: "Meat & Seafood Specials",
+    guidedRegions: [
+      { label: "Flanken Style Short Ribs", x: 2, y: 28.3, width: 93.5, height: 28 },
+      { label: "White Shrimp", x: 2, y: 57.1, width: 25.8, height: 41.7 },
+      { label: "Beef Shank", x: 29.1, y: 60.3, width: 21.9, height: 19.7 },
+      { label: "Baseball Cut Sirloin Steak", x: 52.4, y: 60.3, width: 22, height: 19.7 },
+      { label: "Top Sirloin Steak", x: 75.8, y: 60.3, width: 19.7, height: 19.7 },
+      { label: "Inside Skirt Steak", x: 29.1, y: 80.3, width: 21.9, height: 19.2 },
+      { label: "St. Louis Style Pork Ribs", x: 52.4, y: 80.3, width: 22, height: 19.2 },
+      { label: "Mary’s Whole Chicken Wings", x: 75.8, y: 80.3, width: 19.7, height: 19.2 },
+    ],
     textAlternative: {
       heading: "A True Butcher Shop — Butcher Shop Specialty",
       effectiveDates: "Prices effective Friday, October 23 through Thursday, November 5, 2026.",
@@ -53,6 +73,15 @@ export const biWeeklySpecials: SpecialImage[] = [
     src: "/images/specials/biweekly/page2.webp",
     alt: "Weekly butcher shop ad, page 2 of 2: sandwich, deli, and grocery specials, October 23–November 5, 2026",
     title: "Sandwich, Deli & Grocery Specials",
+    guidedRegions: [
+      { label: "Club House Sandwich", x: 0.4, y: 0, width: 95.2, height: 24.2 },
+      { label: "Rummo Pasta", x: 0.4, y: 28.6, width: 31.7, height: 30.4 },
+      { label: "Tresanti Italian Cookies", x: 32.2, y: 28.6, width: 31.4, height: 30.4 },
+      { label: "Dietz and Watson Sausages", x: 65.2, y: 28.6, width: 30.1, height: 27.6 },
+      { label: "El Indio Tortilla Chips", x: 0.4, y: 59.4, width: 31.7, height: 30 },
+      { label: "La Salsa Chilen Salsa", x: 32.2, y: 59.4, width: 31.4, height: 30 },
+      { label: "Jalapeño Macaroni Salad", x: 65.2, y: 56.3, width: 30.1, height: 33.1 },
+    ],
     textAlternative: {
       heading: "Sandwich of the Week — Across the Store — Fresh Deli Favorites",
       effectiveDates: "Prices effective October 23 through November 5, 2026 (date range printed on page 1 of this ad).",
