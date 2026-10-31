@@ -321,7 +321,7 @@ export default function HamReservationsClient({ products }: Props) {
                 <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className={fieldClass} />
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Phone
-                <input type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className={fieldClass} />
+                <input type="tel" inputMode="tel" maxLength={80} placeholder="(619) 555-1234" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className={fieldClass} />
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Notes for the butcher (optional)
                 <textarea maxLength={500} rows={4} value={notes} onChange={event => setNotes(event.target.value)} className={`${fieldClass} resize-y`} />

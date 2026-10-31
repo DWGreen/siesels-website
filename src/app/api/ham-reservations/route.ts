@@ -1,3 +1,4 @@
+import { normalizeReservationPhone, RESERVATION_PHONE_ERROR } from "@/utils/reservationPhone";
 import { NextResponse } from "next/server";
 import { getReservationStoreLocation } from "@/data/storeLocations";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
@@ -22,7 +23,7 @@ export async function POST(request: Request) {
     const store = getReservationStoreLocation(body.storeLocationId);
     const name = typeof body.customer?.name === "string" ? body.customer.name.trim() : "";
     const email = typeof body.customer?.email === "string" ? body.customer.email.trim() : "";
-    const phone = typeof body.customer?.phone === "string" ? body.customer.phone.trim() : "";
+    const phone = normalizeReservationPhone(body.customer?.phone);
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items: Array<{ productId: number; variationId: number; quantity: number }> = Array.isArray(body.items) ? body.items : [];
     if (!isReservationPickupDateAllowed("ham", pickupDate)) {
@@ -30,6 +31,9 @@ export async function POST(request: Request) {
     }
     if (!store || !name || !/^\S+@\S+\.\S+$/.test(email)) {
       return respond({ message: "Choose a pickup location and enter your name and a valid email address." }, 400, session);
+    }
+    if (phone === null) {
+      return respond({ message: RESERVATION_PHONE_ERROR }, 400, session);
     }
     if (Buffer.byteLength(notes, "utf8") > 2000) {
       return respond({ message: "Reservation notes must be 500 characters or fewer." }, 400, session);

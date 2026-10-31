@@ -1,3 +1,4 @@
+import { normalizeReservationPhone, RESERVATION_PHONE_ERROR } from "@/utils/reservationPhone";
 import { NextResponse } from "next/server";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession";
@@ -78,7 +79,7 @@ export async function POST(request: Request) {
     const storeLocation = getReservationStoreLocation(body.storeLocationId);
     const name = body.customer?.name?.trim() ?? "";
     const email = body.customer?.email?.trim() ?? "";
-    const phone = body.customer?.phone?.trim() ?? "";
+    const phone = normalizeReservationPhone(body.customer?.phone);
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items = body.items ?? [];
 
@@ -90,6 +91,9 @@ export async function POST(request: Request) {
     }
     if (!storeLocation) {
       return respond({ message: "Choose a valid pickup location." }, 400, session);
+    }
+    if (phone === null) {
+      return respond({ message: RESERVATION_PHONE_ERROR }, 400, session);
     }
     if (Buffer.byteLength(notes, "utf8") > 2000) {
       return respond({ message: "Reservation notes must be 500 characters or fewer." }, 400, session);

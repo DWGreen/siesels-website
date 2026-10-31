@@ -24,7 +24,7 @@ describe("turkey breast checkout", () => {
       method: "POST",
       body: JSON.stringify({
         pickupDate: "2026-11-20", storeLocationId: "iowa-meat-farms", notes: "Please call at pickup.",
-        customer: { name: "Test Customer", email: "customer@example.test", phone: "5551234567" },
+        customer: { name: "Test Customer", email: "customer@example.test", phone: "(619) 555-1234" },
         items: [{ productId: 430, variationId: 431, quantity: 2 }],
       }),
     }));
@@ -35,8 +35,20 @@ describe("turkey breast checkout", () => {
     expect(JSON.parse(added![1].body)).toMatchObject({ id: 431, quantity: 2 });
     const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");
     const payload = JSON.parse(checkout![1].body);
+    expect(payload.billing_address.phone).toBe("+16195551234");
     expect(payload.customer_note).toContain("Turkey breast reservation.");
     expect(payload.customer_note).toContain("Iowa Meat Farms (iowa-meat-farms)");
     expect(payload.customer_note).toContain("Reservation notes:\nPlease call at pickup.");
   });
+});
+it.each(["turkey", "turkey-breast"] as const)("rejects invalid %s phones before touching the cart", async type => {
+  const response = await createTurkeyReservationHandler(type)(new Request("http://localhost/api/reservations", {
+    method: "POST", body: JSON.stringify({
+      pickupDate: "2026-11-20", storeLocationId: "iowa-meat-farms",
+      customer: { name: "Test Customer", email: "customer@example.test", phone: "123" },
+      items: [{ productId: 430, quantity: 1 }],
+    }),
+  }));
+  expect(response.status).toBe(400);
+  expect(mocks.call).not.toHaveBeenCalled();
 });
