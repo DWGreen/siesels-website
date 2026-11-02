@@ -30,6 +30,11 @@ type WooCommerceReservationProduct = {
   status?: string;
 };
 
+function minimumTurkeyWeight(name: string): number {
+  const match = name.match(/(\d+(?:\.\d+)?)\s*(?:[-–—]\s*\d+(?:\.\d+)?\s*)?(?:lbs?\b|pounds?\b)/i);
+  return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
+}
+
 export async function getTurkeyReservationProducts(type: TurkeyReservationType = "turkey"): Promise<TurkeyReservationProduct[]> {
   const categoryConfig = categories[type];
   try {
@@ -44,6 +49,13 @@ export async function getTurkeyReservationProducts(type: TurkeyReservationType =
           category => category.id === categoryConfig.id || category.slug === categoryConfig.slug
         )
       );
+    if (type === "turkey") {
+      parents.sort((a, b) => {
+        const first = minimumTurkeyWeight(a.name);
+        const second = minimumTurkeyWeight(b.name);
+        return first === second ? 0 : first - second;
+      });
+    }
     return await Promise.all(parents.map(async product => ({
         id: product.id,
         name: product.name,

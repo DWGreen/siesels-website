@@ -57,3 +57,11 @@ describe("turkey breast weight variations", () => {
     expect(await validateTurkeyReservationLines([{ productId: 430, variationId: 431, quantity: 6 }, { productId: 430, variationId: 432, quantity: 5 }], "turkey-breast")).toContain("combined quantity");
   });
 });
+
+it("orders whole turkey ranges numerically from smallest to largest regardless of menu order", async () => {
+  const names = ["Turkey 20–24 lbs", "Turkey 8-10 lb", "Turkey 14 - 16 pounds", "Turkey 10-12 lb", "Turkey (call for sizes)"];
+  api.get.mockResolvedValue({ data: names.map((name, id) => ({ ...breast, id, name, categories: [{ id: 40, slug: "turkey-reservations" }] })) });
+  expect((await getTurkeyReservationProducts()).map(product => product.name)).toEqual([
+    "Turkey 8-10 lb", "Turkey 10-12 lb", "Turkey 14 - 16 pounds", "Turkey 20–24 lbs", "Turkey (call for sizes)",
+  ]);
+});
