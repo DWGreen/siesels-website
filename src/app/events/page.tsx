@@ -33,7 +33,7 @@ const events: EventItem[] = [
     date: "Saturday, November 7th, 2026",
     time: "11:00 AM - 3:00 PM",
     description:
-      "Our turducken roll layers boneless chicken, duck, and turkey into one delicious holiday centerpiece. Handmade in-house by our skilled butchers, it brings together three savory favorites in every deli gravy and mashed potatoes!",
+      "Our turducken roll layers boneless chicken, duck, and turkey into one delicious holiday centerpiece. Handmade in-house by our skilled butchers, it brings together three savory favorites.",
     image: "/images/events/turducken_1.jpg",
     imageAlt: "Sliced turducken roll showing layers of turkey, duck, chicken, and stuffing",
   },
