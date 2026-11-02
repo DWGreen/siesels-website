@@ -39,7 +39,7 @@ export type SpecialsCategory = {
 export const biWeeklySpecials: SpecialImage[] = [
   {
     "id": "special-1",
-    "src": "/images/specials/biweekly/page1.webp",
+    "src": "/images/specials/biweekly/11-02-26/page1.webp",
     "alt": "Butcher shop holiday ad, page 1 of 2: turkey, turducken, ham, and beef specials, November 2–25, 2026",
     "title": "Holiday Meat Specials",
     "guidedRegions": [
@@ -165,7 +165,7 @@ export const biWeeklySpecials: SpecialImage[] = [
   },
   {
     "id": "special-2",
-    "src": "/images/specials/biweekly/page2.webp",
+    "src": "/images/specials/biweekly/11-02-26/page2.webp",
     "alt": "Butcher shop holiday ad, page 2 of 2: pork, chicken, seafood, and deli specials, November 2–25, 2026",
     "title": "Seafood, Deli & More Holiday Specials",
     "guidedRegions": [

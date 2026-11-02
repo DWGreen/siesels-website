@@ -2,7 +2,7 @@
 
 Each flyer entry in `src/data/specials.ts` owns both the image reference and its `textAlternative`. The Specials page renders the selected entry below its flyer in a native “Read this ad as text” disclosure. Keep both versions synchronized when publishing.
 
-1. Replace the appropriate image in `public/images/specials/biweekly` or `public/images/specials/weekend`.
+1. Add each new ad’s images to a dated subfolder, such as `public/images/specials/biweekly/11-02-26/` (or a dated folder under `weekend`). Update each entry’s `src` to the new dated URL so browsers and image caches fetch the new ad. Keep earlier dated folders intact.
 2. Update that entry’s `title` and concise `alt` so they identify the actual flyer, page, and date range.
 3. Update `textAlternative.heading`, `effectiveDates`, and every offer’s name, price/unit, package size, grade/brand, and description. Include advertised notices, availability limits, special hours, and relevant store details. Do not omit an offer merely because it appears in a small panel.
 4. Use the dates printed on the ad. If dates are only on its paired page, explicitly say so; do not invent dates or relabel old offers as current.
