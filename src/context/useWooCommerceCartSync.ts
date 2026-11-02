@@ -1,6 +1,7 @@
 "use client";
 
 import { MutableRefObject, useEffect, useRef } from "react";
+import { sandwichOrderingEnabled } from "@/config/disabledFeatures";
 import { CartItem } from "@/types/cart";
 import { StoreApiCart } from "@/types/checkout";
 import { getDesiredLineItemsForCartItem } from "@/utils/cartLineItemMapper";
@@ -28,6 +29,7 @@ export function useWooCommerceCartSync(items: CartItem[]) {
   const queueRef = useRef(Promise.resolve());
 
   useEffect(() => {
+    if (!sandwichOrderingEnabled) return;
     queueRef.current = queueRef.current
       .then(async () => {
         // The Store API requires a nonce on every write, which is only issued by a prior read.

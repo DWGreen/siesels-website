@@ -6,7 +6,7 @@ vi.mock("@/lib/storeApiSession", () => ({ readStoreApiSession: async () => ({}),
 vi.mock("@/lib/wooCommerceStoreApi", () => ({ callStoreApi: mocks.call, StoreApiError: class extends Error {} }));
 vi.mock("@/lib/woocommerce", () => ({ getWooCommerceApi: () => ({ get: mocks.get }) }));
 vi.mock("@/services/hamReservations", () => ({ getHamReservationProducts: async () => [], validateHamReservationLines: () => null }));
-vi.mock("@/services/roastReservations", () => ({ getGrade: () => "USDA Prime", getRoastSeasoning: () => null }));
+vi.mock("@/services/roastReservations", () => ({ getGrade: () => "USDA Prime", getRoastSeasoning: () => null, getRoastEasyCarve: () => null }));
 vi.mock("@/utils/reservationOrdering", () => ({ getReservationOrderingStatus: () => ({ isOpen: true }), isReservationPickupDateAllowed: () => true }));
 beforeEach(() => {
  vi.clearAllMocks();
@@ -28,4 +28,13 @@ it.each([["ham", ham], ["roast", roast]] as const)("rejects invalid %s phones be
  expect((await handler(request("123"))).status).toBe(400);
  expect(mocks.call).not.toHaveBeenCalled();
  expect(mocks.get).not.toHaveBeenCalled();
+});
+
+it.each([true, false])("saves the Easy Carve %s selection on the roast order line", async easyCarve => {
+ const body = await request("6195551234").json();
+ body.items[0].easyCarve = easyCarve;
+ const response = await roast(new Request("http://localhost/api/roast-reservations", { method: "POST", body: JSON.stringify(body) }));
+ expect(response.status).toBe(200);
+ const added = mocks.call.mock.calls.find(([path]) => path === "/cart/add-item");
+ expect(JSON.parse(added![1].body).siesels_selection_metadata).toContain(`Easy Carve: ${easyCarve ? "Yes" : "No"}`);
 });

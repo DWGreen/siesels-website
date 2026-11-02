@@ -34,3 +34,22 @@ describe("roast picker", () => {
     expect(screen.getByText("USDA Prime / Seasoned")).toBeInTheDocument();
   });
 });
+it("sorts bone counts descending, defaults to the largest, and keeps Easy Carve separate", () => {
+  const sizes = [2, 7, 4].map(bones => ({ ...products[0], id: bones, name: `${bones} Bone Standing Rib Roast`, variations: products[0].variations.map(v => ({ ...v, id: bones * 100 + v.id })) }));
+  render(<RoastReservationsClient products={sizes} />);
+  fireEvent.click(screen.getAllByRole("button", { name: "Add A Standing Rib Roast" })[0]);
+  let dialog = within(screen.getByRole("dialog"));
+  const cut = dialog.getByRole("combobox", { name: /^Cut/ });
+  expect(within(cut).getAllByRole("option").map(option => option.textContent)).toEqual(["7 Bone Standing Rib Roast", "4 Bone Standing Rib Roast", "2 Bone Standing Rib Roast"]);
+  expect(cut).toHaveValue("7");
+  expect(dialog.getByRole("checkbox", { name: "Easy Carve" })).not.toBeChecked();
+  fireEvent.click(dialog.getByRole("checkbox", { name: "Easy Carve" }));
+  fireEvent.click(dialog.getByRole("button", { name: "Add Roast" }));
+  expect(screen.getByText("USDA Prime / Plain / Easy Carve")).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Add A Standing Rib Roast" }));
+  dialog = within(screen.getByRole("dialog"));
+  expect(dialog.getByRole("checkbox", { name: "Easy Carve" })).not.toBeChecked();
+  fireEvent.click(dialog.getByRole("button", { name: "Add Roast" }));
+  expect(screen.getByText("USDA Prime / Plain")).toBeInTheDocument();
+  expect(screen.getByText("USDA Prime / Plain / Easy Carve")).toBeInTheDocument();
+});

@@ -5,12 +5,12 @@ import { readStoreApiSession, writeStoreApiSession } from "@/lib/storeApiSession
 import { StoreApiError, callStoreApi, StoreApiSession } from "@/lib/wooCommerceStoreApi";
 import { getReservationStoreLocation } from "@/data/storeLocations";
 import { getReservationOrderingStatus, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
-import { getGrade, getRoastSeasoning } from "@/services/roastReservations";
+import { getGrade, getRoastSeasoning, getRoastEasyCarve } from "@/services/roastReservations";
 
 const SESSION_COOKIE_PREFIX = "wc_roast_reservation";
 const ROAST_CATEGORY_ID = 41;
 
-type RoastLineRequest = { productId: number; variationId: number; grade: string; seasoning?: string | null; quantity: number };
+type RoastLineRequest = { productId: number; variationId: number; grade: string; seasoning?: string | null; easyCarve?: boolean; quantity: number };
 type RequestBody = {
   pickupDate?: string;
   storeLocationId?: string;
@@ -27,7 +27,7 @@ async function validateLines(lines: RoastLineRequest[]): Promise<string | null> 
   const api = getWooCommerceApi();
 
   for (const line of lines) {
-    if (!Number.isInteger(line.productId) || !Number.isInteger(line.variationId) || !Number.isInteger(line.quantity) || line.quantity < 1 || !["USDA Prime", "USDA Choice"].includes(line.grade)) {
+    if ((line.easyCarve !== undefined && typeof line.easyCarve !== "boolean") || !Number.isInteger(line.productId) || !Number.isInteger(line.variationId) || !Number.isInteger(line.quantity) || line.quantity < 1 || !["USDA Prime", "USDA Choice"].includes(line.grade)) {
       return "Choose a valid roast cut, grade, and quantity.";
     }
 
@@ -41,8 +41,9 @@ async function validateLines(lines: RoastLineRequest[]): Promise<string | null> 
       const categoryMatch = parent.categories?.some((category: { id: number }) => category.id === ROAST_CATEGORY_ID);
       const variationGrade = getGrade(variation);
       const variationSeasoning = getRoastSeasoning(variation);
+      const variationEasyCarve = getRoastEasyCarve(variation);
 
-      if (parent.status !== "publish" || parent.type !== "variable" || !categoryMatch || variation.status !== "publish" || variationGrade !== line.grade || variationSeasoning !== (line.seasoning ?? null)) {
+      if (parent.status !== "publish" || parent.type !== "variable" || !categoryMatch || variation.status !== "publish" || variationGrade !== line.grade || (variationEasyCarve !== null && variationEasyCarve !== (line.easyCarve ?? false)) || variationSeasoning !== (line.seasoning ?? null)) {
         return "One of the selected roast options is no longer available.";
       }
       const stockManaged = variation.manage_stock === true || parent.manage_stock === true;
@@ -53,7 +54,7 @@ async function validateLines(lines: RoastLineRequest[]): Promise<string | null> 
       if (!stockManaged || !inStock) {
         return `${parent.name} (${line.grade}) is not available for reservation yet.`;
       }
-      if (typeof stockQuantity === "number" && line.quantity > stockQuantity) {
+      if (typeof stockQuantity === "number" && lines.filter(item => item.variationId === line.variationId).reduce((sum, item) => sum + item.quantity, 0) > stockQuantity) {
         return `The requested quantity for ${parent.name} (${line.grade}) exceeds the amount available.`;
       }
     } catch {
@@ -116,7 +117,7 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           id: item.variationId,
           quantity: item.quantity,
-          siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})\nGrade: ${item.grade}${item.seasoning ? `\nSeasoning: ${item.seasoning}` : ""}`,
+          siesels_selection_metadata: `Pickup location: ${storeLocation.name} (${storeLocation.id})\nGrade: ${item.grade}${item.seasoning ? `\nSeasoning: ${item.seasoning}` : ""}\nEasy Carve: ${item.easyCarve ? "Yes" : "No"}`,
         }),
       });
       session = addResult.session;

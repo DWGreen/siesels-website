@@ -1,5 +1,6 @@
 "use client";
 
+import { sortRoastsByBoneCount } from "@/utils/roastOptions";
 import CollectionNotice from "@/components/privacy/CollectionNotice";
 
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
@@ -23,6 +24,7 @@ type SelectedRoast = {
   grade: "USDA Prime" | "USDA Choice";
   seasoning: "Plain" | "Seasoned" | null;
   quantity: number;
+  easyCarve: boolean;
 };
 
 export default function RoastReservationsClient({ products }: Props) {
@@ -37,6 +39,8 @@ export default function RoastReservationsClient({ products }: Props) {
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
   const [items, setItems] = useState<SelectedRoast[]>([]);
+  const [pickerEasyCarve, setPickerEasyCarve] = useState(false);
+  const sortedProducts = sortRoastsByBoneCount(products);
   const [pickerOpen, setPickerOpen] = useState(false);
   const modalRef = useAccessibleModal<HTMLElement>(pickerOpen, () => setPickerOpen(false));
   const [pickerProductId, setPickerProductId] = useState<number | "">("");
@@ -45,14 +49,14 @@ export default function RoastReservationsClient({ products }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const selectedCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
-  const availablePairs = products.flatMap(product =>
+  const availablePairs = sortedProducts.flatMap(product =>
     [...product.variations].sort((first, second) => second.grade.localeCompare(first.grade) ||
       (first.seasoning ?? "").localeCompare(second.seasoning ?? ""))
       .filter(variation => variation.stockManaged && variation.inStock && (variation.stockQuantity ?? 0) > 0)
       .map(variation => ({ product, variation }))
   );
   const pickerProduct = products.find(product => product.id === pickerProductId);
-  const pickerVariations = [...(pickerProduct?.variations ?? [])].sort((first, second) =>
+  const pickerVariations = [...(pickerProduct?.variations ?? [])].filter(variation => variation.easyCarve == null || variation.easyCarve === pickerEasyCarve).sort((first, second) =>
     second.grade.localeCompare(first.grade) || (first.seasoning ?? "").localeCompare(second.seasoning ?? ""));
   const pickerVariation = pickerVariations.find(variation => variation.id === pickerVariationId);
   const pickerGrades = [...new Set(pickerVariations.map(variation => variation.grade))];
@@ -60,7 +64,7 @@ export default function RoastReservationsClient({ products }: Props) {
   const pickerSeasonings = [...new Set(seasoningVariations.flatMap(variation => variation.seasoning ? [variation.seasoning] : []))];
   function variationAvailable(variation: RoastReservationVariation) {
     return variation.stockManaged && variation.inStock && (variation.stockQuantity ?? 0) >
-      (items.find(item => item.variationId === variation.id)?.quantity ?? 0);
+      items.filter(item => item.variationId === variation.id).reduce((sum, item) => sum + item.quantity, 0);
   }
   const pickerPairAvailable = Boolean(
     pickerProduct && pickerVariation && variationAvailable(pickerVariation) &&
@@ -68,7 +72,8 @@ export default function RoastReservationsClient({ products }: Props) {
   );
 
   function openPicker() {
-    const firstPair = availablePairs.find(pair => variationAvailable(pair.variation));
+    setPickerEasyCarve(false);
+    const firstPair = availablePairs.find(pair => pair.variation.easyCarve !== true && variationAvailable(pair.variation));
     setPickerProductId(firstPair?.product.id ?? "");
     setPickerVariationId(firstPair?.variation.id ?? "");
     setPickerOpen(true);
@@ -77,7 +82,7 @@ export default function RoastReservationsClient({ products }: Props) {
   function changePickerProduct(productId: number) {
     setPickerProductId(productId);
     const product = products.find(item => item.id === productId);
-    const sorted = [...(product?.variations ?? [])].sort((first, second) =>
+    const sorted = [...(product?.variations ?? [])].filter(variation => variation.easyCarve == null || variation.easyCarve === pickerEasyCarve).sort((first, second) =>
       second.grade.localeCompare(first.grade) || (first.seasoning ?? "").localeCompare(second.seasoning ?? ""));
     setPickerVariationId(sorted.find(variationAvailable)?.id ?? sorted[0]?.id ?? "");
   }
@@ -89,15 +94,21 @@ export default function RoastReservationsClient({ products }: Props) {
     setPickerVariationId(next?.id ?? "");
   }
 
+  function changeEasyCarve(checked: boolean) {
+    setPickerEasyCarve(checked);
+    const choices = (pickerProduct?.variations ?? []).filter(variation => variation.easyCarve == null || variation.easyCarve === checked);
+    const next = choices.find(variation => variation.grade === pickerVariation?.grade && variation.seasoning === pickerVariation?.seasoning) ?? choices.find(variationAvailable) ?? choices[0];
+    setPickerVariationId(next?.id ?? "");
+  }
+
   function addRoast() {
     if (!pickerProduct || !pickerVariation || !pickerPairAvailable) return;
-    const currentQuantity = items.find(item => item.variationId === pickerVariation.id)?.quantity ?? 0;
     const stock = pickerVariation.stockQuantity ?? 0;
 
     setItems(current => {
-      const existing = current.find(item => item.variationId === pickerVariation.id);
+      const existing = current.find(item => item.variationId === pickerVariation.id && item.easyCarve === pickerEasyCarve);
       if (existing) {
-        return current.map(item => item.variationId === pickerVariation.id
+        return current.map(item => item.variationId === pickerVariation.id && item.easyCarve === pickerEasyCarve
           ? { ...item, quantity: Math.min(stock, item.quantity + 1) }
           : item);
       }
@@ -106,17 +117,19 @@ export default function RoastReservationsClient({ products }: Props) {
         variationId: pickerVariation.id,
         grade: pickerVariation.grade,
         seasoning: pickerVariation.seasoning,
-        quantity: Math.min(stock, currentQuantity + 1),
+        easyCarve: pickerEasyCarve,
+        quantity: 1,
       }];
     });
     setPickerOpen(false);
   }
 
-  function updateQuantity(variation: RoastReservationVariation, quantity: number) {
-    const bounded = Math.min(variation.stockQuantity ?? 0, Math.max(0, Math.floor(quantity)));
+  function updateQuantity(variation: RoastReservationVariation, quantity: number, easyCarve: boolean) {
+    const otherQuantity = items.filter(item => item.variationId === variation.id && item.easyCarve !== easyCarve).reduce((sum, item) => sum + item.quantity, 0);
+    const bounded = Math.min((variation.stockQuantity ?? 0) - otherQuantity, Math.max(0, Math.floor(quantity)));
     setItems(current => bounded === 0
-      ? current.filter(item => item.variationId !== variation.id)
-      : current.map(item => item.variationId === variation.id ? { ...item, quantity: bounded } : item));
+      ? current.filter(item => item.variationId !== variation.id || item.easyCarve !== easyCarve)
+      : current.map(item => item.variationId === variation.id && item.easyCarve === easyCarve ? { ...item, quantity: bounded } : item));
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -224,13 +237,13 @@ export default function RoastReservationsClient({ products }: Props) {
                     const variation = product.variations.find(entry => entry.id === item.variationId)!;
                     const max = variation.stockQuantity ?? item.quantity;
                     return (
-                      <div key={item.variationId} className="flex flex-wrap items-center justify-between gap-4 border border-[#d8cec0] bg-white p-4 sm:px-5">
-                        <div><h3 className="font-heading text-base font-bold uppercase">{product.name}</h3><p className="mt-1 font-serif text-sm text-neutral-600">{[variation.grade, variation.seasoning].filter(Boolean).join(" / ")}</p></div>
+                      <div key={`${item.variationId}-${item.easyCarve}`} className="flex flex-wrap items-center justify-between gap-4 border border-[#d8cec0] bg-white p-4 sm:px-5">
+                        <div><h3 className="font-heading text-base font-bold uppercase">{product.name}</h3><p className="mt-1 font-serif text-sm text-neutral-600">{[variation.grade, variation.seasoning, item.easyCarve ? "Easy Carve" : null].filter(Boolean).join(" / ")}</p></div>
                         <div className="flex items-center gap-2">
-                          <button type="button" aria-label={`Decrease ${product.name} ${variation.grade} quantity`} disabled={item.quantity <= 1} onClick={() => updateQuantity(variation, item.quantity - 1)} className="grid h-10 w-10 cursor-pointer place-items-center border border-[#2d2d2d] disabled:cursor-not-allowed disabled:opacity-35"><Minus aria-hidden="true" className="h-4 w-4" /></button>
-                          <input aria-label={`Quantity for ${product.name} ${variation.grade}`} type="number" min={1} max={max} value={item.quantity} onChange={event => updateQuantity(variation, Number(event.target.value))} className="h-10 w-16 border border-[#2d2d2d] bg-white text-center font-heading text-base font-bold" />
-                          <button type="button" aria-label={`Increase ${product.name} ${variation.grade} quantity`} disabled={item.quantity >= max} onClick={() => updateQuantity(variation, item.quantity + 1)} className="grid h-10 w-10 cursor-pointer place-items-center border border-[#2d2d2d] disabled:cursor-not-allowed disabled:opacity-35"><Plus aria-hidden="true" className="h-4 w-4" /></button>
-                          <button type="button" aria-label={`Remove ${product.name} ${variation.grade}`} onClick={() => updateQuantity(variation, 0)} className="ml-1 grid h-10 w-10 cursor-pointer place-items-center text-neutral-500 hover:text-[#9d321e]"><X aria-hidden="true" className="h-5 w-5" /></button>
+                          <button type="button" aria-label={`Decrease ${product.name} ${variation.grade} quantity`} disabled={item.quantity <= 1} onClick={() => updateQuantity(variation, item.quantity - 1, item.easyCarve)} className="grid h-10 w-10 cursor-pointer place-items-center border border-[#2d2d2d] disabled:cursor-not-allowed disabled:opacity-35"><Minus aria-hidden="true" className="h-4 w-4" /></button>
+                          <input aria-label={`Quantity for ${product.name} ${variation.grade}`} type="number" min={1} max={max} value={item.quantity} onChange={event => updateQuantity(variation, Number(event.target.value), item.easyCarve)} className="h-10 w-16 border border-[#2d2d2d] bg-white text-center font-heading text-base font-bold" />
+                          <button type="button" aria-label={`Increase ${product.name} ${variation.grade} quantity`} disabled={item.quantity >= max} onClick={() => updateQuantity(variation, item.quantity + 1, item.easyCarve)} className="grid h-10 w-10 cursor-pointer place-items-center border border-[#2d2d2d] disabled:cursor-not-allowed disabled:opacity-35"><Plus aria-hidden="true" className="h-4 w-4" /></button>
+                          <button type="button" aria-label={`Remove ${product.name} ${variation.grade}`} onClick={() => updateQuantity(variation, 0, item.easyCarve)} className="ml-1 grid h-10 w-10 cursor-pointer place-items-center text-neutral-500 hover:text-[#9d321e]"><X aria-hidden="true" className="h-5 w-5" /></button>
                         </div>
                       </div>
                     );
@@ -248,7 +261,7 @@ export default function RoastReservationsClient({ products }: Props) {
                     <div className="mt-5 space-y-4">
                       <label className="block text-xs font-bold uppercase tracking-[0.1em]">Cut
                         <select aria-describedby="roast-size-help" value={pickerProductId} onChange={event => changePickerProduct(Number(event.target.value))} className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal">
-                          {products.map(product => <option key={product.id} value={product.id}>{product.name}</option>)}
+                          {sortedProducts.map(product => <option key={product.id} value={product.id}>{product.name}</option>)}
                         </select>
                         <span id="roast-size-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click above to select other sizes.</span>
                       </label>
@@ -269,6 +282,10 @@ export default function RoastReservationsClient({ products }: Props) {
                           {pickerSeasonings.map(seasoning => <option key={seasoning} value={seasoning} disabled={!seasoningVariations.some(variation => variation.seasoning === seasoning && variationAvailable(variation))}>{seasoning}</option>)}
                         </select>
                       </label>}
+                      <label className="flex items-center gap-3 border-t border-[#b8aa97] pt-4 text-sm font-bold">
+                        <input type="checkbox" checked={pickerEasyCarve} onChange={event => changeEasyCarve(event.target.checked)} className="h-5 w-5 accent-[#9d321e]" />
+                        Easy Carve
+                      </label>
                     </div>
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       <button type="button" onClick={() => setPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 text-xs font-black uppercase tracking-[0.12em]">Cancel</button>

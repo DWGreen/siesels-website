@@ -6,6 +6,7 @@ export interface RoastReservationVariation {
   id: number;
   grade: RoastGrade;
   seasoning: "Plain" | "Seasoned" | null;
+  easyCarve?: boolean | null;
   attributeName: string;
   stockManaged: boolean;
   stockQuantity: number | null;
@@ -57,6 +58,15 @@ export function getRoastSeasoning(variation: WooVariation): "Plain" | "Seasoned"
   return null;
 }
 
+export function getRoastEasyCarve(variation: WooVariation): boolean | null {
+  const value = variation.attributes?.find(attribute =>
+    attribute.name.trim().toLowerCase().replace(/^pa_/, "").replace(/[-_]/g, " ") === "easy carve"
+  )?.option.trim().toLowerCase();
+  if (["yes", "true", "1", "easy carve"].includes(value ?? "")) return true;
+  if (["no", "false", "0", "standard"].includes(value ?? "")) return false;
+  return null;
+}
+
 export async function getRoastReservationProducts(): Promise<RoastReservationProduct[]> {
   try {
     const api = getWooCommerceApi();
@@ -74,7 +84,7 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
         );
         const variations = (variationsResponse.data as WooVariation[])
           .filter(variation => variation.status === "publish")
-          .map(variation => {
+          .map((variation): RoastReservationVariation | null => {
             const grade = getGrade(variation);
             if (!grade) return null;
 
@@ -87,6 +97,7 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
               id: variation.id,
               grade,
               seasoning: getRoastSeasoning(variation),
+              easyCarve: getRoastEasyCarve(variation),
               attributeName: variation.attributes?.find(attribute =>
                 attribute.name.trim().toLowerCase() === "grade"
               )?.name ?? "Grade",

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { getGrade, getRoastSeasoning, getRoastReservationProducts } from "./roastReservations";
+import { getGrade, getRoastSeasoning, getRoastEasyCarve, getRoastReservationProducts } from "./roastReservations";
 
 const api = vi.hoisted(() => ({ get: vi.fn() }));
 vi.mock("@/lib/woocommerce", () => ({ getWooCommerceApi: () => api }));
@@ -30,4 +30,9 @@ describe("roast reservation options", () => {
     expect(products[0].variations.map(variation => [variation.id, variation.grade, variation.seasoning]))
       .toEqual([[13, "USDA Prime", "Plain"], [12, "USDA Prime", "Seasoned"], [14, "USDA Choice", "Plain"], [11, "USDA Choice", "Seasoned"]]);
   });
+});
+it("recognizes Easy Carve variation attributes without requiring them on legacy products", () => {
+  expect(getRoastEasyCarve({ id: 1, attributes: [{ name: "Easy Carve", option: "Yes" }] })).toBe(true);
+  expect(getRoastEasyCarve({ id: 1, attributes: [{ name: "pa_easy-carve", option: "No" }] })).toBe(false);
+  expect(getRoastEasyCarve({ id: 1 })).toBeNull();
 });
