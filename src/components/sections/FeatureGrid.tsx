@@ -8,8 +8,8 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative order-1 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/ad-images/2026-10-28.webp"
-            alt="Flanken Style Short Ribs weekly special"
+            src="/images/ad-images/2026-11-02.webp"
+            alt="Thanksgiving turkey in pan with Whole Diestel turkey next to it"
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -23,16 +23,16 @@ export default function FeatureGrid() {
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
-               100% Midwestern Beef, USDA Choice
+               Make your holiday centerpiece a fresh Diestel turkey, roasting up tender and juicy with rich, traditional turkey flavor.
             </p>
-            <p className="mt-2 font-barlow text-xs font-semibold uppercase tracking-[0.11em] text-white/85 md:mt-3 md:text-base">
-             Korean Style or Maui Marinated
+            <p className="mt-2 font-barlow text-[21px] font-semibold uppercase tracking-[0.21em] text-white/85 md:mt-3 md:text-[28px]">
+             Diestel
             </p>
             <h2 className="mt-3 font-zilla text-[42px] font-semibold leading-[1.02] text-white md:text-[62px]">
-              Flanken Style Short Ribs
+              Fresh Turkeys
             </h2>
             <p className="mt-2 font-heading text-[38px] font-bold uppercase tracking-[0.08em] text-[#f6e3b0] md:mt-3 md:text-[50px]">
-              $15.99 LB
+              $5.99 LB
             </p>
             <div className="mt-6 flex flex-col items-center gap-3 md:mt-8">
               <Link href="/specials?tab=weekly" className="btn-outline-white px-10 py-3 text-[1.05rem] md:text-[1.15rem]">

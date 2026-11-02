@@ -12,7 +12,7 @@ it("opens guided, navigates each item, and preserves the view choice across page
   const onNext = vi.fn();
   const { rerender } = render(<SpecialsImageViewer image={biWeeklySpecials[0]} onClose={onClose} onNext={onNext} />);
   expect(screen.getByRole("button", { name: "Guided view: On" })).toHaveAttribute("aria-pressed", "true");
-  expect(screen.getByRole("img")).toHaveAccessibleName("Flanken Style Short Ribs, enlarged ad region");
+  expect(screen.getByRole("img")).toHaveAccessibleName(`${biWeeklySpecials[0].guidedRegions![0].label}, enlarged ad region`);
   expect(screen.getByRole("button", { name: "Previous item" })).toBeDisabled();
   for (const region of biWeeklySpecials[0].guidedRegions!.slice(1)) {
     fireEvent.click(screen.getByRole("button", { name: "Next item" }));
@@ -21,7 +21,7 @@ it("opens guided, navigates each item, and preserves the view choice across page
   expect(screen.getByRole("button", { name: "Next item" })).toBeDisabled();
   expect(screen.queryByRole("button", { name: "Next ad page" })).not.toBeInTheDocument();
   rerender(<SpecialsImageViewer image={biWeeklySpecials[1]} onClose={onClose} onNext={onNext} />);
-  expect(screen.getByRole("img")).toHaveAccessibleName("Club House Sandwich, enlarged ad region");
+  expect(screen.getByRole("img")).toHaveAccessibleName(`${biWeeklySpecials[1].guidedRegions![0].label}, enlarged ad region`);
   fireEvent.click(screen.getByRole("button", { name: "Guided view: On" }));
   expect(screen.getByRole("button", { name: "Zoom in on image" })).toBeInTheDocument();
   rerender(<SpecialsImageViewer image={biWeeklySpecials[0]} onClose={onClose} />);
@@ -40,7 +40,9 @@ it("supports ads without regions", () => {
 
 it("defines complete, bounded item regions for both current ads", () => {
   for (const ad of biWeeklySpecials) {
-    expect(ad.guidedRegions).toHaveLength(ad.textAlternative.offers.length);
+    // A shared panel can show multiple prices (sizes, grades, or bone-in/boneless).
+    expect(ad.guidedRegions!.length).toBeGreaterThan(0);
+    expect(ad.guidedRegions!.length).toBeLessThanOrEqual(ad.textAlternative.offers.length);
     for (const region of ad.guidedRegions!) {
       expect(region.x).toBeGreaterThanOrEqual(0);
       expect(region.y).toBeGreaterThanOrEqual(0);
@@ -61,12 +63,12 @@ it("navigates continuously across pages in both directions with a combined item 
   }
   render(<Fixture />);
   const labels = biWeeklySpecials.flatMap(page => page.guidedRegions!.map(region => region.label));
-  expect(screen.getByText("Item 1 of 15")).toBeInTheDocument();
+  expect(screen.getByText(`Item 1 of ${labels.length}`)).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Previous item" })).toBeDisabled();
   for (let index = 1; index < labels.length; index++) {
     fireEvent.click(screen.getByRole("button", { name: "Next item" }));
     expect(screen.getByRole("img")).toHaveAccessibleName(`${labels[index]}, enlarged ad region`);
-    expect(screen.getByText(`Item ${index + 1} of 15`)).toBeInTheDocument();
+    expect(screen.getByText(`Item ${index + 1} of ${labels.length}`)).toBeInTheDocument();
   }
   expect(screen.getByRole("button", { name: "Next item" })).toBeDisabled();
   for (let index = labels.length - 2; index >= 0; index--) {
@@ -76,5 +78,5 @@ it("navigates continuously across pages in both directions with a combined item 
   fireEvent.click(screen.getByRole("button", { name: "Guided view: On" }));
   expect(screen.queryByRole("button", { name: "Next item" })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Next ad page" }));
-  expect(screen.getByRole("heading")).toHaveTextContent("Sandwich, Deli & Grocery Specials");
+  expect(screen.getByRole("heading")).toHaveTextContent(biWeeklySpecials[1].title!);
 });

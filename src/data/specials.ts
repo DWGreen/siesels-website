@@ -38,71 +38,275 @@ export type SpecialsCategory = {
 
 export const biWeeklySpecials: SpecialImage[] = [
   {
-    id: "special-1",
-    src: "/images/specials/biweekly/page1.webp",
-    alt: "Weekly butcher shop ad, page 1 of 2: meat and seafood specials, October 23–November 5, 2026",
-    title: "Meat & Seafood Specials",
-    guidedRegions: [
-      { label: "Flanken Style Short Ribs", x: 2, y: 28.3, width: 93.5, height: 28 },
-      { label: "White Shrimp", x: 2, y: 57.1, width: 25.8, height: 41.7 },
-      { label: "Beef Shank", x: 29.1, y: 60.3, width: 21.9, height: 19.7 },
-      { label: "Baseball Cut Sirloin Steak", x: 52.4, y: 60.3, width: 22, height: 19.7 },
-      { label: "Top Sirloin Steak", x: 75.8, y: 60.3, width: 19.7, height: 19.7 },
-      { label: "Inside Skirt Steak", x: 29.1, y: 80.3, width: 21.9, height: 19.2 },
-      { label: "St. Louis Style Pork Ribs", x: 52.4, y: 80.3, width: 22, height: 19.2 },
-      { label: "Mary’s Whole Chicken Wings", x: 75.8, y: 80.3, width: 19.7, height: 19.2 },
+    "id": "special-1",
+    "src": "/images/specials/biweekly/page1.webp",
+    "alt": "Butcher shop holiday ad, page 1 of 2: turkey, turducken, ham, and beef specials, November 2–25, 2026",
+    "title": "Holiday Meat Specials",
+    "guidedRegions": [
+      {
+        "label": "Diestel Fresh Turkeys",
+        "x": 4.3,
+        "y": 27.7,
+        "width": 91.4,
+        "height": 27.5
+      },
+      {
+        "label": "Turduckens",
+        "x": 4.3,
+        "y": 55.8,
+        "width": 25.3,
+        "height": 21.4
+      },
+      {
+        "label": "Turducken Roll",
+        "x": 4.3,
+        "y": 77.1,
+        "width": 25.3,
+        "height": 19.5
+      },
+      {
+        "label": "Diestel Turkey Breast",
+        "x": 29.6,
+        "y": 57.6,
+        "width": 18,
+        "height": 39.1
+      },
+      {
+        "label": "Kruse Hams",
+        "x": 47.6,
+        "y": 60,
+        "width": 23.1,
+        "height": 12.9
+      },
+      {
+        "label": "Siesel’s Double Smoked Hams",
+        "x": 70.9,
+        "y": 60,
+        "width": 24.8,
+        "height": 12.9
+      },
+      {
+        "label": "Standing Rib Roast — Choice & Prime",
+        "x": 47.6,
+        "y": 73.5,
+        "width": 28,
+        "height": 23.5
+      },
+      {
+        "label": "New York Roast",
+        "x": 76.5,
+        "y": 73.5,
+        "width": 19.2,
+        "height": 23.5
+      }
     ],
-    textAlternative: {
-      heading: "A True Butcher Shop — Butcher Shop Specialty",
-      effectiveDates: "Prices effective Friday, October 23 through Thursday, November 5, 2026.",
-      introduction: "Iowa Meat Farms & Siesel’s Meats. For the serious cooks. Locally owned. Real butchers since 1968. 100% Midwestern beef. Expertly cut. Exceptionally sourced.",
-      offers: [
-        { name: "Flanken Style Short Ribs", price: "$15.99 per lb.", details: "100% Midwestern beef, USDA Choice. Korean-style or Maui marinated. Packed with rich beef flavor and beautifully layered with marbling. Perfect for grilling or braising in your favorite savory sauce." },
-        { name: "White Shrimp", price: "$12.99 per lb.", details: "Wild-caught, Mexican. Shell-on, 16/20 count. Previously frozen and defrosted. Offering a sweet, succulent flavor and a firm texture, perfect for grilling, sautéing, or serving with your favorite seafood seasonings." },
-        { name: "Beef Shank", price: "$7.99 per lb.", details: "100% Midwestern Angus beef, USDA Choice. Rich in flavor and perfect for slow cooking until tender and delicious. Ideal for hearty stews, braised dishes, and comforting homemade soups." },
-        { name: "Baseball Cut Sirloin Steak", price: "$21.99 per lb.", details: "100% Midwestern beef, USDA Prime. Prized for its exceptional tenderness, rich beef flavor, and beautiful marbling. Perfect for grilling or pan-searing to create a delicious, steakhouse-quality meal at home." },
-        { name: "Top Sirloin Steak", price: "$15.99 per lb.", details: "100% Midwestern Angus beef, USDA Choice. Lean, tender, and packed with rich beef flavor. Perfect for grilling, pan-searing, or serving with your favorite sides." },
-        { name: "Inside Skirt Steak", price: "$17.99 per lb.", details: "100% Midwestern Angus beef, USDA Choice. Rich in beefy flavor with a deliciously tender texture when cooked properly. Perfect for grilling, fajitas, or slicing thin for tacos and stir-fry." },
-        { name: "St. Louis Style Pork Ribs", price: "$6.99 per lb.", details: "Heritage breed premium pork. Meaty and full of rich, savory flavor. Perfect for slow cooking or grilling with your favorite barbecue sauce." },
-        { name: "Mary’s Whole Chicken Wings", price: "$5.99 per lb.", details: "Flavorful and versatile, perfect for grilling, roasting, or baking with your favorite seasonings." },
-      ],
-    },
+    "textAlternative": {
+      "heading": "Set the Table! — Holiday Favorites",
+      "effectiveDates": "Prices effective Monday, November 2 through Wednesday, November 25, 2026.",
+      "introduction": "Iowa Meat Farms & Siesel’s Meats. For the serious cooks. Make your holiday centerpiece a fresh Diestel turkey, roasting up tender and juicy with rich, traditional turkey flavor.",
+      "offers": [
+        {
+          "name": "Diestel Fresh Turkeys",
+          "price": "$5.99 per lb.",
+          "details": "Fresh Diestel turkeys for your holiday centerpiece."
+        },
+        {
+          "name": "Turduckens — Small",
+          "price": "$170 each",
+          "details": "A boneless chicken nestled inside a boneless duck, then inside a turkey, layered with savory stuffing and made in-house by our skilled butchers."
+        },
+        {
+          "name": "Turduckens — Large",
+          "price": "$195 each",
+          "details": "A boneless chicken nestled inside a boneless duck, then inside a turkey, layered with savory stuffing and made in-house by our skilled butchers."
+        },
+        {
+          "name": "Turducken Roll",
+          "price": "$125 each",
+          "details": "Boneless turkey, duck, and chicken layered with stuffing, rolled into an easy-to-carve holiday roast."
+        },
+        {
+          "name": "Diestel Bone-In Turkey Breast",
+          "price": "$10.99 per lb.",
+          "details": "Tender, flavorful white meat. Choose bone-in for a classic presentation."
+        },
+        {
+          "name": "Diestel Boneless Turkey Breast",
+          "price": "$12.99 per lb.",
+          "details": "Tender, flavorful white meat. Choose boneless for easy carving."
+        },
+        {
+          "name": "Kruse Hams",
+          "price": "$4.49 per lb.",
+          "details": "Whole or half. Bring home the savory, smoky flavor of a Kruse ham—a delicious centerpiece available whole or half to fit your gathering."
+        },
+        {
+          "name": "Siesel’s In-House Double Smoked Hams",
+          "price": "$5.49 per lb.",
+          "details": "Our signature hams are double smoked in-house for deep, smoky flavor and a juicy, tender bite—a holiday favorite worth sharing."
+        },
+        {
+          "name": "USDA Choice Standing Rib Roast",
+          "price": "$29.99 per lb.",
+          "details": "100% Midwestern beef. Beautifully marbled with exceptional tenderness and rich flavor. Available in USDA Prime or USDA Choice—when the very best is what matters!"
+        },
+        {
+          "name": "USDA Prime Standing Rib Roast",
+          "price": "$35.99 per lb.",
+          "details": "100% Midwestern beef. Beautifully marbled with exceptional tenderness and rich flavor. Available in USDA Prime or USDA Choice—when the very best is what matters!"
+        },
+        {
+          "name": "USDA Choice Boneless New York Roast",
+          "price": "$25.99 per lb.",
+          "details": "100% Midwestern beef. Treat your guests to boneless New York steaks, prized for their hearty beef flavor and satisfying tenderness. Excellent grilled or pan-seared."
+        }
+      ]
+    }
   },
   {
-    id: "special-2",
-    src: "/images/specials/biweekly/page2.webp",
-    alt: "Weekly butcher shop ad, page 2 of 2: sandwich, deli, and grocery specials, October 23–November 5, 2026",
-    title: "Sandwich, Deli & Grocery Specials",
-    guidedRegions: [
-      { label: "Club House Sandwich", x: 0.4, y: 0, width: 95.2, height: 24.2 },
-      { label: "Rummo Pasta", x: 0.4, y: 28.6, width: 31.7, height: 30.4 },
-      { label: "Tresanti Italian Cookies", x: 32.2, y: 28.6, width: 31.4, height: 30.4 },
-      { label: "Dietz and Watson Sausages", x: 65.2, y: 28.6, width: 30.1, height: 27.6 },
-      { label: "El Indio Tortilla Chips", x: 0.4, y: 59.4, width: 31.7, height: 30 },
-      { label: "La Salsa Chilen Salsa", x: 32.2, y: 59.4, width: 31.4, height: 30 },
-      { label: "Jalapeño Macaroni Salad", x: 65.2, y: 56.3, width: 30.1, height: 33.1 },
+    "id": "special-2",
+    "src": "/images/specials/biweekly/page2.webp",
+    "alt": "Butcher shop holiday ad, page 2 of 2: pork, chicken, seafood, and deli specials, November 2–25, 2026",
+    "title": "Seafood, Deli & More Holiday Specials",
+    "guidedRegions": [
+      {
+        "label": "Stuffed Pork Chops",
+        "x": 4.4,
+        "y": 2.6,
+        "width": 20.3,
+        "height": 20.2
+      },
+      {
+        "label": "Boneless Pork Loin Roast",
+        "x": 26.1,
+        "y": 2.6,
+        "width": 20.3,
+        "height": 20.2
+      },
+      {
+        "label": "Mary’s Whole Chickens",
+        "x": 4.4,
+        "y": 23.2,
+        "width": 20.3,
+        "height": 19.4
+      },
+      {
+        "label": "Breakfast Sausage",
+        "x": 26.1,
+        "y": 23.2,
+        "width": 20.3,
+        "height": 19.4
+      },
+      {
+        "label": "Colossal Raw Shrimp",
+        "x": 47.8,
+        "y": 5.4,
+        "width": 15.4,
+        "height": 26.6
+      },
+      {
+        "label": "Maine Lobster Tails",
+        "x": 64,
+        "y": 5.4,
+        "width": 15.4,
+        "height": 26.6
+      },
+      {
+        "label": "Fresh Scottish Salmon",
+        "x": 80.4,
+        "y": 5.4,
+        "width": 15.3,
+        "height": 26.6
+      },
+      {
+        "label": "Turkey Gravy",
+        "x": 47.8,
+        "y": 36,
+        "width": 15.4,
+        "height": 24.3
+      },
+      {
+        "label": "Red Skinned Mashed Potatoes",
+        "x": 64,
+        "y": 36,
+        "width": 15.4,
+        "height": 24.3
+      },
+      {
+        "label": "Macaroni & Cheese",
+        "x": 80.4,
+        "y": 36,
+        "width": 15.3,
+        "height": 24.3
+      }
     ],
-    textAlternative: {
-      heading: "Sandwich of the Week — Across the Store — Fresh Deli Favorites",
-      effectiveDates: "Prices effective October 23 through November 5, 2026 (date range printed on page 1 of this ad).",
-      offers: [
-        { name: "Club House Sandwich", price: "$10.99 each", details: "Sandwich of the week. Turkey, baked ham, bacon, avocado, Monterey Jack, mayo, lettuce, tomato, & onion." },
-        { name: "Rummo Pasta", price: "$5.49 each", details: "Assorted varieties, 16 oz." },
-        { name: "Tresanti Italian Cookies", price: "$9.99 each", details: "16 oz." },
-        { name: "Dietz and Watson Cheddarwurst, Knockwurst, or Bratwurst", price: "$7.99 each", details: "Selected varieties, 16 oz." },
-        { name: "El Indio Tortilla Chips", price: "$6.99 each", details: "16 oz." },
-        { name: "La Salsa Chilen Salsa", price: "$4.99 each", details: "Mild, medium, or hot, 16 oz." },
-        { name: "Jalapeño Macaroni Salad", price: "$5.99 per lb.", details: "Combines a creamy pasta with a zesty kick of jalapeño for a flavorful side dish with just the right amount of heat." },
+    "textAlternative": {
+      "heading": "The Freshest Catch — Holiday Across the Store",
+      "effectiveDates": "Prices effective November 2 through November 25, 2026 (date range printed on page 1 of this ad).",
+      "offers": [
+        {
+          "name": "Made In-House Stuffed Pork Chops",
+          "price": "$7.99 per lb.",
+          "details": "Heritage breed premium pork. Our hearty stuffed pork chops bring extra flavor to your table. Choose savory cajun, sage, or sweet apple cinnamon stuffing."
+        },
+        {
+          "name": "Boneless Pork Loin Roast",
+          "price": "$7.99 per lb.",
+          "details": "Heritage breed premium pork. Lean and tender with a mild, delicious flavor, our pork loin roast pairs beautifully with your favorite herbs, seasonings, or holiday glaze."
+        },
+        {
+          "name": "Mary’s Whole Chickens",
+          "price": "$5.99 per lb.",
+          "details": "Air-chilled, free-range. Roast a delicious family dinner with Mary’s air-chilled, free-range whole chickens, featuring tender meat and rich, natural chicken flavor."
+        },
+        {
+          "name": "Made In-House Bulk Breakfast Sausage",
+          "price": "$4.99 per lb.",
+          "details": "Start your morning with flavorful breakfast sausage. Delicious alongside eggs, pancakes, or your favorite holiday breakfast dishes."
+        },
+        {
+          "name": "Colossal Raw Shrimp",
+          "price": "$11.99 per lb.",
+          "details": "Peeled & deveined, U-15, frozen / defrosted. Big on size and flavor, our colossal raw shrimp offer a firm texture and sweet, delicate taste. Perfect for shrimp cocktail, grilling, or garlic butter scampi."
+        },
+        {
+          "name": "Maine Lobster Tails",
+          "price": "$14.99 each",
+          "details": "5–6 oz., frozen / defrosted. Make any meal a celebration with sweet, succulent Maine lobster tails. Serve with warm drawn butter for an elegant holiday treat."
+        },
+        {
+          "name": "Fresh Scottish Salmon",
+          "price": "$19.99 per lb.",
+          "details": "Enjoy the rich flavor and tender, flaky texture of Scottish salmon—a delicious choice for roasting, grilling, or pan-searing."
+        },
+        {
+          "name": "Deli Fresh Turkey Gravy",
+          "price": "$9.99 each",
+          "details": "1 quart. Complete your holiday meal with our rich, savory turkey gravy—delicious poured over roasted turkey, mashed potatoes, or stuffing."
+        },
+        {
+          "name": "Deli Fresh Red Skinned Mashed Potatoes",
+          "price": "$5.99 per lb.",
+          "details": "Round out your holiday meal with our creamy red-skinned mashed potatoes—a comforting side for turkey, ham, or roast beef."
+        },
+        {
+          "name": "Deli Fresh Macaroni & Cheese",
+          "price": "$6.99 per lb.",
+          "details": "Treat the whole family to tender macaroni in a rich, creamy cheese sauce—a satisfying side everyone will love."
+        }
       ],
-      notices: [
+      "notices": [
+        "Don’t forget our homemade signature famous potato salad, baked beans, & dips!",
+        "Fresh baked Julian Pies, while supplies last!",
+        "Don’t forget your deli party trays! A convenient assortment of sliced meats, cheeses, and sides, perfect for entertaining and serving a crowd. Made to order! Please order 48 hours in advance. Call store for details.",
+        "We’ve launched our new website! Reserve your holiday meats online today! View our weekly specials, cooking tips, upcoming events, & more.",
         "Iowa Meat Farms: 6041 Mission Gorge Road, San Diego, CA 92120. 619-281-5766. Hours: Monday–Saturday 9am–6pm; Sunday 10am–6pm.",
         "Siesel’s Meat & Deli: 4131 Ashton Street, San Diego, CA 92110. 619-275-1234. Hours: Monday–Saturday 9am–7pm; Sunday 9am–6pm.",
-        "BestMeatSanDiego.com. Groceries delivered right to your door through Instacart.",
-      ],
-    },
-  },
+        "BestMeatsSanDiego.com. Groceries delivered right to your door through Instacart."
+      ]
+    }
+  }
 ];
-
 
 export const weekendSpecials: SpecialImage[] = [
  /* {
