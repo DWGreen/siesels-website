@@ -8,7 +8,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative order-1 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/ad-images/2026-11-02_young.webp"
+            src="/images/ad-images/2026-11-02_young_ratio.webp"
             alt="Thanksgiving turkey in pan with Whole Diestel turkey next to it"
             fill
             className="object-cover object-top"
@@ -23,7 +23,7 @@ export default function FeatureGrid() {
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
-               Make your holiday centerpiece a fresh Diestel turkey, roasting up tender and juicy with rich, traditional turkey flavor.
+               Make your holiday centerpiece a fresh Diestel turkey
             </p>
             <p className="mt-2 font-barlow text-[21px] font-semibold uppercase tracking-[0.21em] text-white/85 md:mt-3 md:text-[28px]">
              Diestel
