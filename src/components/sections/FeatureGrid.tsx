@@ -8,7 +8,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative order-1 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/ad-images/2026-11-02.webp"
+            src="/images/ad-images/2026-11-02_young.webp"
             alt="Thanksgiving turkey in pan with Whole Diestel turkey next to it"
             fill
             className="object-cover object-top"
