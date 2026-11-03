@@ -20,7 +20,7 @@ import { getReservationOrderingStatus, getReservationPickupDateBounds, isReserva
 type SelectedHam = { productId: number; variationId: number; quantity: number };
 type Props = { products: HamReservationProduct[] };
 
-const hamImage = "/images/products/kruse-ham.webp";
+const hamImage = "/images/products/kruse-ham.optimized-23bbc43576.webp";
 const fieldClass = "mt-2 block w-full min-w-0 border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal";
 const addClass = "inline-flex cursor-pointer items-center justify-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50";
 
@@ -244,7 +244,7 @@ export default function HamReservationsClient({ products }: Props) {
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Reserve your holiday ham for pickup at Siesel&apos;s Meats or Iowa Meat Farms.</p>
               {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
-            <Image src="/images/hand-drawn/pig.webp" alt="Hand-drawn holiday ham illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
+            <Image src="/images/hand-drawn/pig.optimized-49c6f5a194.webp" alt="Hand-drawn holiday ham illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
           </div>
           <ol className="mt-6 grid gap-4 border-t border-[#b8aa97] pt-5 sm:grid-cols-3">
             {[

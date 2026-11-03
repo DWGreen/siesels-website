@@ -1,0 +1,27 @@
+{
+  "name": "wordpress-cron",
+  "description": "Triggers WordPress cron every five minutes for reservation CSV reports and other due tasks.",
+  "billing": {
+    "deploymentPlan": "nf-compute-10"
+  },
+  "deployment": {
+    "external": {
+      "imagePath": "curlimages/curl:8.12.1"
+    },
+    "docker": {
+      "configType": "customEntrypointCustomCommand",
+      "customEntrypoint": "curl",
+      "customCommand": "--fail --silent --show-error --connect-timeout 15 --max-time 120 --output /dev/null --write-out 'WordPress cron HTTP %{http_code} in %{time_total}s\\n' https://manage.bestmeatssandiego.com/wp-cron.php"
+    }
+  },
+  "settings": {
+    "backoffLimit": 1,
+    "activeDeadlineSeconds": 180,
+    "runOnSourceChange": "never",
+    "cron": {
+      "schedule": "*/5 * * * *",
+      "suspended": false,
+      "concurrencyPolicy": "forbid"
+    }
+  }
+}

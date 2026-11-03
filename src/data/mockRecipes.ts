@@ -8,7 +8,7 @@ export const mockRecipes: Recipe[] = [
     course: "Side",
     servings: "4",
     rating: 4.5,
-    image: "/images/recipes/grilled-peppers.webp",
+    image: "/images/recipes/grilled-peppers.optimized-0d80751823.webp",
     intro:
       "Colorful sweet peppers grilled until tender and finished with herbs, olive oil, and a little sea salt.",
     prepTimeMinutes: 10,
@@ -124,7 +124,7 @@ export const mockRecipes: Recipe[] = [
     course: "Dinner",
     servings: "4",
     rating: 4.7,
-    image: "/images/recipes/lemon-herb-salmon.jpg",
+    image: "/images/recipes/lemon-herb-salmon.optimized-deac3e3c95.webp",
     intro:
       "Tender salmon baked with lemon, herbs, garlic, and olive oil for a simple weeknight dinner.",
     prepTimeMinutes: 10,

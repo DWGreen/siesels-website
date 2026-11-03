@@ -20,7 +20,7 @@ export default function RoastReservationsLayout({
       >
          <InteriorHero
                 title="Rib Roast"
-                backgroundImage="/images/hero/rib-roasts-hero.webp"
+                backgroundImage="/images/hero/rib-roasts-hero.optimized-289ab689ea.webp"
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
                      mobileObjectPosition="70% center"

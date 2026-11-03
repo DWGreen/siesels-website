@@ -155,7 +155,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
               <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Build your reservation by adding the {label} type you need, then choose a pickup date. Payment is handled at pickup.</p>
               {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
-            <Image src="/images/hand-drawn/turkey-color.png" alt="Hand-drawn butcher illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
+            <Image src="/images/hand-drawn/turkey-color.optimized-91fd77d815.webp" alt="Hand-drawn butcher illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" priority />
           </div>
           <ol className="mt-6 grid gap-4 border-t border-[#b8aa97] pt-5 sm:grid-cols-3">
             {[
@@ -202,7 +202,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
 
               {selectedProducts.length === 0 ? (
                 <div className="flex min-h-[270px] flex-col items-center justify-center px-5 py-8 text-center">
-                  <Image src="/images/hand-drawn/turkey-breast.webp" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
+                  <Image src="/images/hand-drawn/turkey-breast.optimized-0ec471eb0e.webp" alt="Prepared turkey for a holiday meal" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Reserve Your {label}?</h3>
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose type, weight and quantity to get started.</p>
                   <button

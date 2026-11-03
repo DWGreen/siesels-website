@@ -7,7 +7,7 @@ export default function AboutFeatureGrid() {
         {/* Top-left: Dining image */}
         <div className="relative order-1 aspect-[3/2] md:order-none md:aspect-[4/3]">
           <Image
-            src="/images/features/family.png"
+            src="/images/features/family.optimized-b2307db6c0.webp"
             alt="Fine dining table setting"
             fill
             className="object-cover"
@@ -18,7 +18,7 @@ export default function AboutFeatureGrid() {
         {/* Top-right: Personal service copy */}
         <div
           className="relative order-2 flex min-h-[250px] items-center justify-center bg-[#6B4226] bg-cover bg-center px-8 py-10 md:order-none md:aspect-[4/3] md:min-h-0 md:px-[60px]"
-          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.optimized-911ef429f4.webp')" }}
         >
           <div className="text-center">
             <h2 className="font-barlow text-[1.4625rem] font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-[1.755rem]">
@@ -35,7 +35,7 @@ That success became the foundation for creating and growing several outstanding 
         {/* Bottom-left: Master Meat Cutters copy */}
         <div
           className="relative order-4 flex min-h-[250px] items-center justify-center bg-[#8B6914] bg-cover bg-center px-8 py-10 md:order-none md:aspect-[4/3] md:min-h-0 md:px-[60px]"
-          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.optimized-911ef429f4.webp')" }}
         >
           <div className="text-center">
             <h2 className="font-barlow text-[1.4625rem] font-bold uppercase leading-tight tracking-[0.08em] text-white md:text-[1.755rem]">
@@ -56,7 +56,7 @@ At our markets, you&apos;ll find real butchers who take pride in their craft. We
         {/* Bottom-right: Meat image */}
         <div className="relative order-3 aspect-[3/2] md:order-none md:aspect-[4/3]">
           <Image
-            src="/images/features/butcher.jpg"
+            src="/images/features/butcher.optimized-bc33cb7fbb.webp"
             alt="Premium cuts of meat"
             fill
             className="object-cover"

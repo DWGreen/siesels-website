@@ -11,7 +11,7 @@ export const mockRecipeSlides: RecipeSlide[] = [
       "Tired of the same dishes week after week? Try these tasty entrées for a scrumptious change of pace.",
     eyebrow: "Featured Collection",
     image:
-      "/images/recipes/FamilyDinnerHealthyEatingOrganicLifestyleGettyImages171582881_744_.jpg",
+      "/images/recipes/FamilyDinnerHealthyEatingOrganicLifestyleGettyImages171582881_744_.optimized-76838a037a.webp",
     imageAlt:
       "Family preparing a meal together in a kitchen",
     ctaLabel: "View Collection",
@@ -65,7 +65,7 @@ export const mockRecipeSlides: RecipeSlide[] = [
       "It’s time to kick off summer with backyard favorites, grilled mains, fresh sides, and crowd-pleasing sauces.",
     eyebrow: "Seasonal Feature",
     image:
-      "/images/recipes/MemorialDayJuly4thGrillingBurgeresHotDogsSausageGettyImages537386854_5450_.jpg",
+      "/images/recipes/MemorialDayJuly4thGrillingBurgeresHotDogsSausageGettyImages537386854_5450_.optimized-88bdee8329.webp",
     imageAlt:
       "Summer cookout table with burgers and drinks",
     ctaLabel: "View Recipes",

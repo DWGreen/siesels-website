@@ -8,21 +8,21 @@ export const instagramPhotos: InstagramImage[] = [
     alt: "Holiday ham dinner spread",
     color: "from-amber-900 to-amber-800",
     label: "Holiday Ham",
-    src:"images/instagram/573816110_18161735002385133_8782683820096044712_n.jpg"
+    src:"images/instagram/573816110_18161735002385133_8782683820096044712_n.optimized-aea0caac05.webp"
   },
   {
     id: 2,
     alt: "Prime rib rack of lamb dinner",
     color: "from-red-900 to-red-800",
     label: "Prime Rib",
-    src: "images/instagram/583088626_18163694464385133_8105374841340819312_n.jpg"
+    src: "images/instagram/583088626_18163694464385133_8105374841340819312_n.optimized-898444ecb5.webp"
   },
   {
     id: 3,
     alt: "Iowa Meat Farms gift cards",
     color: "from-yellow-800 to-yellow-700",
     label: "Gift Cards",
-    src:"images/instagram/591049543_18165879238385133_6597505046112348860_n.jpg"
+    src:"images/instagram/591049543_18165879238385133_6597505046112348860_n.optimized-1d1734bac8.webp"
   },
   {
     id: 4,

@@ -23,7 +23,7 @@ export default function DeliMeatsPage() {
       <main id="main-content" className="flex-1 bg-white text-neutral-950">
           <InteriorHero
                 title="Party Platters"
-                backgroundImage="/images/hero/platters_party.webp"
+                backgroundImage="/images/hero/platters_party.optimized-bf2a9a5a1a.webp"
                 backgroundAlt="Gourmet party trays from Siesel's Meats"
                 showMasterLogo={true}
                 mobileObjectPosition="20% center"
@@ -86,7 +86,7 @@ export default function DeliMeatsPage() {
           </ul>
         </section>
 
-        <section id="order" aria-labelledby="order-title" className="relative isolate scroll-mt-8 overflow-hidden bg-[#422b1f] bg-[url('/images/textures/footer-bg.png')] bg-cover bg-center px-5 py-12 text-center text-white sm:px-8 lg:py-16">
+        <section id="order" aria-labelledby="order-title" className="relative isolate scroll-mt-8 overflow-hidden bg-[#422b1f] bg-[url('/images/textures/footer-bg.optimized-d7fab5e85f.webp')] bg-cover bg-center px-5 py-12 text-center text-white sm:px-8 lg:py-16">
           <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/65" />
           <div className="mx-auto max-w-4xl">
             <p className="font-heading text-xs font-bold uppercase tracking-[0.22em] text-[#e4c791] sm:text-sm">Let us help with your next gathering</p>

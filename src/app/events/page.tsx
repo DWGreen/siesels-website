@@ -34,7 +34,7 @@ const events: EventItem[] = [
     time: "11:00 AM - 3:00 PM",
     description:
       "Our turducken roll layers boneless chicken, duck, and turkey into one delicious holiday centerpiece. Handmade in-house by our skilled butchers, it brings together three savory favorites.",
-    image: "/images/events/turducken_1.jpg",
+    image: "/images/events/turducken_1.optimized-7eed653941.webp",
     imageAlt: "Sliced turducken roll showing layers of turkey, duck, chicken, and stuffing",
   },
   {
@@ -44,7 +44,7 @@ const events: EventItem[] = [
     time: "11:00 AM - 3:00 PM",
     description:
       "Our Siesel’s Signature Double Smoked Ham starts with a premium bone-in Kruse ham, hand-scored and slow-smoked in our in-house smoker. The result is a juicy interior and a smoky, naturally glazed exterior. We’ll sample it with our famous homemade potato salad. Bring home this delicious centerpiece for your holiday table!",
-    image: "/images/events/smoked_ham.jpg",
+    image: "/images/events/smoked_ham.optimized-df35a8e839.webp",
     imageAlt: "Double smoked ham with a scored exterior",
   },
   {
@@ -54,7 +54,7 @@ const events: EventItem[] = [
     time: "11:00 AM - 3:00 PM",
     description:
       "Join us for a taste of tender, juicy Diestel turkey, roasted to a beautiful golden brown and served with creamy garlic mashed potatoes and rich, savory gravy. It’s a delicious preview of your holiday feast!",
-    image: "/images/events/diestelTurkey.jpg",
+    image: "/images/events/diestelTurkey.optimized-8a213e6cd4.webp",
     imageAlt: "Sliced roasted turkey breast on a wooden cutting board",
   },
    {
@@ -64,7 +64,7 @@ const events: EventItem[] = [
         time: "11:00 AM - 3:00 PM",
     description:
       "Join us for a festive sampling of everything you need to create an amazing holiday board: artisan cheeses, premium cured meats, an olive medley, dried fruit, gourmet jams, and more. Discover your favorites and make holiday entertaining delicious!",
-    image: "/images/events/charcuterie_1.jpg",
+    image: "/images/events/charcuterie_1.optimized-25ca3d1b23.webp",
     imageAlt: "Charcuterie board with cured meats, cheeses, crackers, grapes, and preserves",
   },
 ];
@@ -76,7 +76,7 @@ export default function EventsPage() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Events"
-          backgroundImage="/images/hero/events_new.jpg"
+          backgroundImage="/images/hero/events_new.optimized-c7ec7df47c.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
           showMasterLogo={true}
           overlayOpacity={0}

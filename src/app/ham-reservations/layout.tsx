@@ -12,7 +12,7 @@ export default function HamReservationsLayout({ children }: { children: React.Re
       <main id="main-content" className="flex flex-1 flex-col bg-white">
         <InteriorHero
           title="Holiday Hams"
-          backgroundImage="/images/hero/ham-hero.webp"
+          backgroundImage="/images/hero/ham-hero.optimized-2ed15c19aa.webp"
           backgroundAlt="Holiday ham from Siesel's Meats"
           showMasterLogo={true}
         />

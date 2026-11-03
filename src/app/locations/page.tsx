@@ -12,7 +12,7 @@ export default function LocationsPage() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Locations"
-          backgroundImage="/images/hero/locs.webp"
+          backgroundImage="/images/hero/locs.optimized-5c17f90ee4.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
         <section className="flex flex-1 items-center justify-center bg-white px-4 py-20 lg:py-32">

@@ -13,7 +13,7 @@ export default function Steak101Page() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Steak 101"
-          backgroundImage="/images/hero/tri-tip-black.webp"
+          backgroundImage="/images/hero/tri-tip-black.optimized-5b85ba83fa.webp"
           backgroundAlt="Butcher at work at Siesel's Meats"
         />
         
@@ -21,7 +21,7 @@ export default function Steak101Page() {
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
             <div className="mb-10 w-full max-w-[840px] border-8 border-brand-gray bg-white p-2">
               <Image
-                src="/images/features/cow.png"
+                src="/images/features/cow.optimized-31bde90917.webp"
                 alt="Decorative cow illustration"
                 width={520}
                 height={180}

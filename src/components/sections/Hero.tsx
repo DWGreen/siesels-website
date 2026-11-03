@@ -9,7 +9,7 @@ export default function Hero({ mobileObjectPosition = "center", objectPosition =
     <section className="relative flex h-[400px] w-full items-center justify-center overflow-hidden lg:h-[650px]">
       {/* Hero background image */}
       <Image
-        src="/images/hero/hero_image.webp"
+        src="/images/hero/hero_image.optimized-941de5011a.webp"
         alt="Siesel's Meats butcher shop"
         fill
         sizes="100vw"

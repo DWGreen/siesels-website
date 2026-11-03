@@ -15,7 +15,7 @@ export const mockRecipeCollections: RecipeCollection[] =
       description:
         "It’s time to kick off summer with backyard favorites, grilled mains, fresh sides, and crowd-pleasing sauces.",
       image:
-        "/images/recipes/MemorialDayJuly4thGrillingBurgeresHotDogsSausageGettyImages537386854_5450_.jpg",
+        "/images/recipes/MemorialDayJuly4thGrillingBurgeresHotDogsSausageGettyImages537386854_5450_.optimized-88bdee8329.webp",
       recipeSlugs: [
         "classic-barbecue-sauce",
         "filet-mignon-with-classic-steak-house-rub",
@@ -36,7 +36,7 @@ export const mockRecipeCollections: RecipeCollection[] =
       description:
         "Tried of the same dishes week after week? Try these tasty entrées for a scrumptious change of pace.",
       image:
-        "/images/recipes/FamilyDinnerHealthyEatingOrganicLifestyleGettyImages171582881_744_.jpg",
+        "/images/recipes/FamilyDinnerHealthyEatingOrganicLifestyleGettyImages171582881_744_.optimized-76838a037a.webp",
       recipeSlugs: [
         "grilled-sweet-peppers",
         "slow-cooker-bourbon-apple-butter-meatballs",

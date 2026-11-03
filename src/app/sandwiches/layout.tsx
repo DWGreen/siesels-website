@@ -21,7 +21,7 @@ export default function SandwichesLayout({
       >
          <InteriorHero
                 title="Sandwiches"
-                backgroundImage="/images/hero/sandwiches.webp"
+                backgroundImage="/images/hero/sandwiches.optimized-74b1266113.webp"
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
               />

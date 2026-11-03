@@ -23,7 +23,7 @@ export default function TurduckenPage() {
     <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col bg-white">
-        <InteriorHero title="Turducken" backgroundImage="/images/hero/turducken.webp" backgroundAlt="Holiday turkey centerpiece" showMasterLogo mobileObjectPosition="70% center" />
+        <InteriorHero title="Turducken" backgroundImage="/images/hero/turducken.optimized-ee5f9e7a9a.webp" backgroundAlt="Holiday turkey centerpiece" showMasterLogo mobileObjectPosition="70% center" />
         <ReservationNavigation current="turducken" />
         <div className="relative flex-1 overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
           <div className="relative mx-auto max-w-6xl">
@@ -35,7 +35,7 @@ export default function TurduckenPage() {
                   <p className="mt-3 max-w-2xl font-serif text-sm leading-6 text-neutral-700">Bring something special to your holiday table. Call either store to ask about turducken availability, pricing, and pickup arrangements.</p>
                   <p className="mt-4 font-heading text-sm font-bold text-[#9d321e]">Turducken orders are taken by phone. Online reservations are not available.</p>
                 </div>
-                <Image src="/images/hand-drawn/turducken.webp" alt="Hand-drawn turkey illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" />
+                <Image src="/images/hand-drawn/turducken.optimized-f67b766d93.webp" alt="Hand-drawn turkey illustration" width={520} height={300} className="mx-auto w-full max-w-sm object-contain md:justify-self-end" />
               </div>
               <ol className="mt-6 grid gap-4 border-t border-[#b8aa97] pt-5 sm:grid-cols-3">
                 {[
@@ -54,7 +54,7 @@ export default function TurduckenPage() {
               <section aria-labelledby="turducken-details" className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
                 <h2 id="turducken-details" className="border-b border-[#b8aa97] pb-3 font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Holiday Centerpiece</h2>
                 <div className="mt-4 overflow-hidden">
-                  <Image src="/images/holiday-meats/turducken-article-feature.webp" alt="Turducken for your holiday table" width={1232} height={928} sizes="(min-width: 1024px) 650px, 100vw" className="h-auto max-h-80 w-full object-contain object-top sm:max-h-96" />
+                  <Image src="/images/holiday-meats/turducken-article-feature.optimized-9a2b39fce6.webp" alt="Turducken for your holiday table" width={1232} height={928} sizes="(min-width: 1024px) 650px, 100vw" className="h-auto max-h-80 w-full object-contain object-top sm:max-h-96" />
                 </div>
                 <article className="space-y-7 pt-5">
                   <MeatArticleLogo brand="siesels" />

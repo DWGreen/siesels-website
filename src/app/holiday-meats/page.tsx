@@ -13,31 +13,31 @@ const holidayMeats = [
   {
     title: "Turkey",
     href: "/turkey-reservations",
-    image: "/images/holiday-meats/turkey_with_logo.webp",
+    image: "/images/holiday-meats/turkey_with_logo.optimized-469a6c3aac.webp",
     description: "Whole turkeys, fresh and premium quality, perfect for your holiday table.",
   },
   {
     title: "Ham",
     href: "/ham-reservations",
-    image: "/images/holiday-meats/ham_with_logo.webp",
+    image: "/images/holiday-meats/ham_with_logo.optimized-0e9e46eecf.webp",
     description: "Traditional and specialty hams, ready to make your holiday meal special.",
   },
   {
     title: "Standing Rib Roast",
     href: "/roast-reservations",
-    image: "/images/holiday-meats/roast_with_logo.webp",
+    image: "/images/holiday-meats/roast_with_logo.optimized-b06f0fc7b2.webp",
     description: "Premium bone-in rib roasts for an impressive and unforgettable holiday meal.",
   },
   {
     title: "Turkey Breast",
     href: "/turkey-breast-reservations",
-    image: "/images/holiday-meats/breast_with_logo.webp",
+    image: "/images/holiday-meats/breast_with_logo.optimized-b9d4d43afd.webp",
     description: "Tender and flavorful turkey breasts, a delicious option for smaller gatherings.",
   },
   {
     title: "Turducken",
     href: "/turducken",
-    image: "/images/holiday-meats/turducken_logo.webp",
+    image: "/images/holiday-meats/turducken_logo.optimized-a07bff5e2f.webp",
     description: "A turkey, duck, and chicken centerpiece for your holiday table. Call your store to order.",
   },
 ];
@@ -49,7 +49,7 @@ export default function HolidayMeatsPage() {
       <main id="main-content" className="flex flex-1 flex-col">
         <InteriorHero
           title="Holiday Meats"
-          backgroundImage="/images/hero/holiday-meats.webp"
+          backgroundImage="/images/hero/holiday-meats.optimized-6e8e596523.webp"
           backgroundAlt="Holiday meats from Siesel's Meats"
           showMasterLogo={true}
         />

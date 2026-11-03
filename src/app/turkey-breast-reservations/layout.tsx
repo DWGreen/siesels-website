@@ -8,7 +8,7 @@ export default function TurkeyBreastReservationsLayout({ children }: { children:
     <div className="flex min-h-svh flex-col">
       <Header />
       <main id="main-content" className="flex flex-1 flex-col bg-white">
-        <InteriorHero title="Turkey Breast" backgroundImage="/images/hero/turkey-breast-hero.jpg" backgroundAlt="Holiday turkey reservations" showMasterLogo={true} />
+        <InteriorHero title="Turkey Breast" backgroundImage="/images/hero/turkey-breast-hero.optimized-d930f98ca1.webp" backgroundAlt="Holiday turkey reservations" showMasterLogo={true} />
         <ReservationNavigation current="turkey-breast" />
         {children}
       </main>

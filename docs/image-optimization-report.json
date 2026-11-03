@@ -1,0 +1,612 @@
+[
+  {
+    "original": "images/ad-images/2026-11-02_young_ratio.webp",
+    "optimized": "images/ad-images/2026-11-02_young_ratio.optimized-bac3a70429.webp",
+    "originalBytes": 937856,
+    "optimizedBytes": 270144,
+    "originalWidth": 1731,
+    "originalHeight": 1298,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/events/charcuterie_1.jpg",
+    "optimized": "images/events/charcuterie_1.optimized-25ca3d1b23.webp",
+    "originalBytes": 879326,
+    "optimizedBytes": 168130,
+    "originalWidth": 1404,
+    "originalHeight": 744,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/events/diestelTurkey.jpg",
+    "optimized": "images/events/diestelTurkey.optimized-8a213e6cd4.webp",
+    "originalBytes": 218462,
+    "optimizedBytes": 127050,
+    "originalWidth": 1116,
+    "originalHeight": 744,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/events/smoked_ham.jpg",
+    "optimized": "images/events/smoked_ham.optimized-df35a8e839.webp",
+    "originalBytes": 718923,
+    "optimizedBytes": 119454,
+    "originalWidth": 1404,
+    "originalHeight": 744,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/events/turducken_1.jpg",
+    "optimized": "images/events/turducken_1.optimized-7eed653941.webp",
+    "originalBytes": 586453,
+    "optimizedBytes": 85440,
+    "originalWidth": 1404,
+    "originalHeight": 744,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/features/butcher.jpg",
+    "optimized": "images/features/butcher.optimized-bc33cb7fbb.webp",
+    "originalBytes": 327206,
+    "optimizedBytes": 90048,
+    "originalWidth": 1122,
+    "originalHeight": 918,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/features/cow.png",
+    "optimized": "images/features/cow.optimized-31bde90917.webp",
+    "originalBytes": 3543079,
+    "optimizedBytes": 364356,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/features/family.png",
+    "optimized": "images/features/family.optimized-b2307db6c0.webp",
+    "originalBytes": 1037948,
+    "optimizedBytes": 111844,
+    "originalWidth": 900,
+    "originalHeight": 643,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/features/holiday_meats_bonein.webp",
+    "optimized": "images/features/holiday_meats_bonein.optimized-bbf8dfecb2.webp",
+    "originalBytes": 1784464,
+    "optimizedBytes": 245304,
+    "originalWidth": 2392,
+    "originalHeight": 1792,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/features/party-platters.webp",
+    "optimized": "images/features/party-platters.optimized-231c491913.webp",
+    "originalBytes": 412040,
+    "optimizedBytes": 134582,
+    "originalWidth": 1024,
+    "originalHeight": 768,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/hand-drawn/bull-color.png",
+    "optimized": "images/hand-drawn/bull-color.optimized-4d746bab3a.webp",
+    "originalBytes": 2001979,
+    "optimizedBytes": 744260,
+    "originalWidth": 1774,
+    "originalHeight": 887,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/hand-drawn/pig.webp",
+    "optimized": "images/hand-drawn/pig.optimized-49c6f5a194.webp",
+    "originalBytes": 1171272,
+    "optimizedBytes": 786672,
+    "originalWidth": 1774,
+    "originalHeight": 887,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/hand-drawn/rib-roast_full.png",
+    "optimized": "images/hand-drawn/rib-roast_full.optimized-b724a6b844.webp",
+    "originalBytes": 2279701,
+    "optimizedBytes": 710222,
+    "originalWidth": 1254,
+    "originalHeight": 958,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/hand-drawn/turducken.webp",
+    "optimized": "images/hand-drawn/turducken.optimized-f67b766d93.webp",
+    "originalBytes": 993842,
+    "optimizedBytes": 507122,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/hand-drawn/turkey-breast.webp",
+    "optimized": "images/hand-drawn/turkey-breast.optimized-0ec471eb0e.webp",
+    "originalBytes": 1072704,
+    "optimizedBytes": 645868,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/hand-drawn/turkey-color.png",
+    "optimized": "images/hand-drawn/turkey-color.optimized-91fd77d815.webp",
+    "originalBytes": 2040931,
+    "optimizedBytes": 605794,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/hero/events_new.jpg",
+    "optimized": "images/hero/events_new.optimized-c7ec7df47c.webp",
+    "originalBytes": 398916,
+    "optimizedBytes": 61918,
+    "originalWidth": 1024,
+    "originalHeight": 462,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/gift-cards.jpg",
+    "optimized": "images/hero/gift-cards.optimized-5925970f94.webp",
+    "originalBytes": 470412,
+    "optimizedBytes": 163184,
+    "originalWidth": 1674,
+    "originalHeight": 939,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/ham-hero.webp",
+    "optimized": "images/hero/ham-hero.optimized-2ed15c19aa.webp",
+    "originalBytes": 653112,
+    "optimizedBytes": 180722,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/hero_image.webp",
+    "optimized": "images/hero/hero_image.optimized-941de5011a.webp",
+    "originalBytes": 1295490,
+    "optimizedBytes": 305608,
+    "originalWidth": 1690,
+    "originalHeight": 931,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/holiday-meats.webp",
+    "optimized": "images/hero/holiday-meats.optimized-6e8e596523.webp",
+    "originalBytes": 419214,
+    "optimizedBytes": 118186,
+    "originalWidth": 1456,
+    "originalHeight": 658,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/locs.webp",
+    "optimized": "images/hero/locs.optimized-5c17f90ee4.webp",
+    "originalBytes": 1104928,
+    "optimizedBytes": 216642,
+    "originalWidth": 1717,
+    "originalHeight": 754,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/platters_party.webp",
+    "optimized": "images/hero/platters_party.optimized-bf2a9a5a1a.webp",
+    "originalBytes": 1096862,
+    "optimizedBytes": 146950,
+    "originalWidth": 3190,
+    "originalHeight": 1440,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/rib-roasts-hero.webp",
+    "optimized": "images/hero/rib-roasts-hero.optimized-289ab689ea.webp",
+    "originalBytes": 895354,
+    "optimizedBytes": 271576,
+    "originalWidth": 2209,
+    "originalHeight": 997,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/sandwiches.webp",
+    "optimized": "images/hero/sandwiches.optimized-74b1266113.webp",
+    "originalBytes": 1059340,
+    "optimizedBytes": 149318,
+    "originalWidth": 3686,
+    "originalHeight": 2182,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/steak-101-new.webp",
+    "optimized": "images/hero/steak-101-new.optimized-9de0cabf93.webp",
+    "originalBytes": 1367074,
+    "optimizedBytes": 355654,
+    "originalWidth": 1642,
+    "originalHeight": 958,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/tri-tip-black.webp",
+    "optimized": "images/hero/tri-tip-black.optimized-5b85ba83fa.webp",
+    "originalBytes": 1234468,
+    "optimizedBytes": 265520,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/turducken.webp",
+    "optimized": "images/hero/turducken.optimized-ee5f9e7a9a.webp",
+    "originalBytes": 1453976,
+    "optimizedBytes": 142658,
+    "originalWidth": 3376,
+    "originalHeight": 1440,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/turkey-breast-hero.jpg",
+    "optimized": "images/hero/turkey-breast-hero.optimized-d930f98ca1.webp",
+    "originalBytes": 496584,
+    "optimizedBytes": 181352,
+    "originalWidth": 1905,
+    "originalHeight": 825,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/hero/turkey-reservation.jpg",
+    "optimized": "images/hero/turkey-reservation.optimized-6e41354c9a.webp",
+    "originalBytes": 482329,
+    "optimizedBytes": 195118,
+    "originalWidth": 1906,
+    "originalHeight": 825,
+    "maxWidth": 2400,
+    "quality": 80
+  },
+  {
+    "original": "images/holiday-meats/breast_with_logo.webp",
+    "optimized": "images/holiday-meats/breast_with_logo.optimized-b9d4d43afd.webp",
+    "originalBytes": 480234,
+    "optimizedBytes": 171018,
+    "originalWidth": 928,
+    "originalHeight": 1232,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/holiday-meats/ham_with_logo.webp",
+    "optimized": "images/holiday-meats/ham_with_logo.optimized-0e9e46eecf.webp",
+    "originalBytes": 453570,
+    "optimizedBytes": 169148,
+    "originalWidth": 928,
+    "originalHeight": 1232,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/holiday-meats/roast_with_logo.webp",
+    "optimized": "images/holiday-meats/roast_with_logo.optimized-b06f0fc7b2.webp",
+    "originalBytes": 458216,
+    "optimizedBytes": 167772,
+    "originalWidth": 928,
+    "originalHeight": 1232,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/holiday-meats/turducken-article-feature.webp",
+    "optimized": "images/holiday-meats/turducken-article-feature.optimized-9a2b39fce6.webp",
+    "originalBytes": 358852,
+    "optimizedBytes": 117786,
+    "originalWidth": 1456,
+    "originalHeight": 810,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/holiday-meats/turducken_logo.webp",
+    "optimized": "images/holiday-meats/turducken_logo.optimized-a07bff5e2f.webp",
+    "originalBytes": 284650,
+    "optimizedBytes": 101754,
+    "originalWidth": 808,
+    "originalHeight": 1078,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/holiday-meats/turkey_with_logo.webp",
+    "optimized": "images/holiday-meats/turkey_with_logo.optimized-469a6c3aac.webp",
+    "originalBytes": 445642,
+    "optimizedBytes": 146640,
+    "originalWidth": 928,
+    "originalHeight": 1232,
+    "maxWidth": 1600,
+    "quality": 85
+  },
+  {
+    "original": "images/instagram/573816110_18161735002385133_8782683820096044712_n.jpg",
+    "optimized": "images/instagram/573816110_18161735002385133_8782683820096044712_n.optimized-aea0caac05.webp",
+    "originalBytes": 276198,
+    "optimizedBytes": 108136,
+    "originalWidth": 1440,
+    "originalHeight": 959,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/instagram/583088626_18163694464385133_8105374841340819312_n.jpg",
+    "optimized": "images/instagram/583088626_18163694464385133_8105374841340819312_n.optimized-898444ecb5.webp",
+    "originalBytes": 329022,
+    "optimizedBytes": 110094,
+    "originalWidth": 1349,
+    "originalHeight": 1685,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/instagram/591049543_18165879238385133_6597505046112348860_n.jpg",
+    "optimized": "images/instagram/591049543_18165879238385133_6597505046112348860_n.optimized-1d1734bac8.webp",
+    "originalBytes": 241535,
+    "optimizedBytes": 131456,
+    "originalWidth": 1200,
+    "originalHeight": 1200,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/products/kruse-ham.webp",
+    "optimized": "images/products/kruse-ham.optimized-23bbc43576.webp",
+    "originalBytes": 553090,
+    "optimizedBytes": 197710,
+    "originalWidth": 1312,
+    "originalHeight": 1199,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/products/turkey.webp",
+    "optimized": "images/products/turkey.optimized-e834454fc6.webp",
+    "originalBytes": 585246,
+    "optimizedBytes": 253060,
+    "originalWidth": 1142,
+    "originalHeight": 1377,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/recipes/FamilyDinnerHealthyEatingOrganicLifestyleGettyImages171582881_744_.jpg",
+    "optimized": "images/recipes/FamilyDinnerHealthyEatingOrganicLifestyleGettyImages171582881_744_.optimized-76838a037a.webp",
+    "originalBytes": 864864,
+    "optimizedBytes": 91598,
+    "originalWidth": 1000,
+    "originalHeight": 1250,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/recipes/MemorialDayJuly4thGrillingBurgeresHotDogsSausageGettyImages537386854_5450_.jpg",
+    "optimized": "images/recipes/MemorialDayJuly4thGrillingBurgeresHotDogsSausageGettyImages537386854_5450_.optimized-88bdee8329.webp",
+    "originalBytes": 933018,
+    "optimizedBytes": 138136,
+    "originalWidth": 1000,
+    "originalHeight": 1250,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/recipes/grilled-peppers.webp",
+    "optimized": "images/recipes/grilled-peppers.optimized-0d80751823.webp",
+    "originalBytes": 206696,
+    "optimizedBytes": 161882,
+    "originalWidth": 1200,
+    "originalHeight": 800,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/recipes/lemon-herb-salmon.jpg",
+    "optimized": "images/recipes/lemon-herb-salmon.optimized-deac3e3c95.webp",
+    "originalBytes": 656312,
+    "optimizedBytes": 363676,
+    "originalWidth": 1600,
+    "originalHeight": 900,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/baseball.jpg",
+    "optimized": "images/steaks/new-cuts/baseball.optimized-d009c6ec1e.webp",
+    "originalBytes": 16127050,
+    "optimizedBytes": 128634,
+    "originalWidth": 5705,
+    "originalHeight": 3796,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/cattlemans.png",
+    "optimized": "images/steaks/new-cuts/cattlemans.optimized-09be611a22.webp",
+    "originalBytes": 3621124,
+    "optimizedBytes": 331024,
+    "originalWidth": 1508,
+    "originalHeight": 1508,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/dry-aged.png",
+    "optimized": "images/steaks/new-cuts/dry-aged.optimized-1e715bffce.webp",
+    "originalBytes": 2329806,
+    "optimizedBytes": 170994,
+    "originalWidth": 1448,
+    "originalHeight": 1086,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/filet-mignon.png",
+    "optimized": "images/steaks/new-cuts/filet-mignon.optimized-457071c6c4.webp",
+    "originalBytes": 6162164,
+    "optimizedBytes": 128600,
+    "originalWidth": 2392,
+    "originalHeight": 1590,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/flat-iron.jpg",
+    "optimized": "images/steaks/new-cuts/flat-iron.optimized-ce015f4daf.webp",
+    "originalBytes": 4324260,
+    "optimizedBytes": 357060,
+    "originalWidth": 3693,
+    "originalHeight": 3693,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/new-york.png",
+    "optimized": "images/steaks/new-cuts/new-york.optimized-4b30afb725.webp",
+    "originalBytes": 3559464,
+    "optimizedBytes": 335464,
+    "originalWidth": 1398,
+    "originalHeight": 1398,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/ribeye.jpg",
+    "optimized": "images/steaks/new-cuts/ribeye.optimized-689e730b85.webp",
+    "originalBytes": 14041776,
+    "optimizedBytes": 279584,
+    "originalWidth": 6099,
+    "originalHeight": 5587,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/salmon.jpg",
+    "optimized": "images/steaks/new-cuts/salmon.optimized-f105494f18.webp",
+    "originalBytes": 6103059,
+    "optimizedBytes": 80082,
+    "originalWidth": 5304,
+    "originalHeight": 5304,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/t-bone.png",
+    "optimized": "images/steaks/new-cuts/t-bone.optimized-91d62053e2.webp",
+    "originalBytes": 6952721,
+    "optimizedBytes": 168008,
+    "originalWidth": 2320,
+    "originalHeight": 1740,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/new-cuts/top-sirloin.jpg",
+    "optimized": "images/steaks/new-cuts/top-sirloin.optimized-d2f3c99a3e.webp",
+    "originalBytes": 35541692,
+    "optimizedBytes": 329570,
+    "originalWidth": 9000,
+    "originalHeight": 5044,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/temp/medium-rare.webp",
+    "optimized": "images/steaks/temp/medium-rare.optimized-5b7100da4e.webp",
+    "originalBytes": 662030,
+    "optimizedBytes": 196762,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/temp/medium.webp",
+    "optimized": "images/steaks/temp/medium.optimized-33f62ac025.webp",
+    "originalBytes": 610464,
+    "optimizedBytes": 186246,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/temp/rare.webp",
+    "optimized": "images/steaks/temp/rare.optimized-5658935e47.webp",
+    "originalBytes": 520960,
+    "optimizedBytes": 147650,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/steaks/usda_choice.png",
+    "optimized": "images/steaks/usda_choice.optimized-b77f30b6c1.webp",
+    "originalBytes": 1106170,
+    "optimizedBytes": 69300,
+    "originalWidth": 1448,
+    "originalHeight": 1086,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/textures/footer-bg.png",
+    "optimized": "images/textures/footer-bg.optimized-d7fab5e85f.webp",
+    "originalBytes": 1234560,
+    "optimizedBytes": 178714,
+    "originalWidth": 1444,
+    "originalHeight": 820,
+    "maxWidth": 1600,
+    "quality": 80
+  },
+  {
+    "original": "images/textures/wood-dark.jpg",
+    "optimized": "images/textures/wood-dark.optimized-911ef429f4.webp",
+    "originalBytes": 236813,
+    "optimizedBytes": 103916,
+    "originalWidth": 714,
+    "originalHeight": 583,
+    "maxWidth": 1600,
+    "quality": 80
+  }
+]

@@ -20,7 +20,7 @@ export default function TurkeyReservationsLayout({
       >
          <InteriorHero
                 title="Turkeys"
-                backgroundImage="/images/hero/turkey-reservation.jpg"
+                backgroundImage="/images/hero/turkey-reservation.optimized-6e41354c9a.webp"
                 backgroundAlt="Butcher at work at Siesel's Meats"
                 showMasterLogo={true}
               />

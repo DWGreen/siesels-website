@@ -21,16 +21,16 @@ function reservation(label: string, slug: ReservationType, heroImage: string): C
 }
 
 export const orderConfirmationConfig: Record<OrderType, ConfirmationConfig> = {
-  turkey: reservation("Turkey", "turkey", "/images/hero/turkey-reservation.jpg"),
-  "turkey-breast": reservation("Turkey Breast", "turkey-breast", "/images/hero/turkey-breast-hero.jpg"),
-  roast: reservation("Standing Rib Roast", "roast", "/images/hero/rib-roasts-hero.webp"),
-  ham: reservation("Ham", "ham", "/images/hero/ham-hero.webp"),
+  turkey: reservation("Turkey", "turkey", "/images/hero/turkey-reservation.optimized-6e41354c9a.webp"),
+  "turkey-breast": reservation("Turkey Breast", "turkey-breast", "/images/hero/turkey-breast-hero.optimized-d930f98ca1.webp"),
+  roast: reservation("Standing Rib Roast", "roast", "/images/hero/rib-roasts-hero.optimized-289ab689ea.webp"),
+  ham: reservation("Ham", "ham", "/images/hero/ham-hero.optimized-2ed15c19aa.webp"),
   sandwich: {
-    heroTitle: "Sandwiches", heroImage: "/images/hero/sandwiches.webp", heading: "Order Received",
+    heroTitle: "Sandwiches", heroImage: "/images/hero/sandwiches.optimized-74b1266113.webp", heading: "Order Received",
     message: "Thank you. Your order has been received.", returnHref: "/sandwiches", returnLabel: "Back to Sandwiches", isReservation: false,
   },
   "gift-card": {
-    heroTitle: "Gift Cards", heroImage: "/images/hero/gift-cards.jpg", heading: "Gift Card Order Received",
+    heroTitle: "Gift Cards", heroImage: "/images/hero/gift-cards.optimized-5925970f94.webp", heading: "Gift Card Order Received",
     message: "Thank you. Your gift card order has been received.", returnHref: "/gift-cards", returnLabel: "Back to Gift Cards", isReservation: false,
   },
 };

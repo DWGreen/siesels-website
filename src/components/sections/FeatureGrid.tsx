@@ -8,7 +8,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Left: Sandwich photo */}
         <div className="relative order-1 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/ad-images/2026-11-02_young_ratio.webp"
+            src="/images/ad-images/2026-11-02_young_ratio.optimized-bac3a70429.webp"
             alt="Thanksgiving turkey in pan with Whole Diestel turkey next to it"
             fill
             className="object-cover object-top"
@@ -19,7 +19,7 @@ export default function FeatureGrid() {
         {/* Row 1 - Right: Order Online CTA */}
         <div
           className="relative order-2 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
-          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.optimized-911ef429f4.webp')" }}
         >
           <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
@@ -48,7 +48,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
         <div
           className="relative order-4 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
-          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.optimized-911ef429f4.webp')" }}
         >
           <div className="mx-auto w-full max-w-[600px] text-center text-white">
              <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
@@ -72,7 +72,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
         <div className="relative order-3 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/features/holiday_meats_bonein.webp"
+            src="/images/features/holiday_meats_bonein.optimized-bbf8dfecb2.webp"
             alt="Holiday turkey on a wooden cutting board with festive decorations"
             fill
             className="object-cover object-top"
@@ -83,7 +83,7 @@ export default function FeatureGrid() {
       {/* Row 3 - Left: Sandwich photo */}
         <div className="relative order-5 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/events/charcuterie_1.jpg"
+            src="/images/events/charcuterie_1.optimized-25ca3d1b23.webp"
             alt="Charcuterie selection for our November events"
             fill
             className="object-cover object-top"
@@ -94,7 +94,7 @@ export default function FeatureGrid() {
         {/* Row 3 - Right: Order Online CTA */}
         <div
           className="relative order-6 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#6B4226] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
-          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.optimized-911ef429f4.webp')" }}
         >
          <div className="mx-auto max-w-[600px] text-center text-white">
             <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
@@ -117,7 +117,7 @@ export default function FeatureGrid() {
         {/* Row 4 - Left: Specials CTA (on mobile this comes AFTER blueberries) */}
         <div
           className="relative order-8 md:order-none flex aspect-[3/2] md:aspect-[4/3] items-center bg-[#8B6914] bg-cover bg-center px-6 py-12 md:px-[60px] md:py-14"
-          style={{ backgroundImage: "url('/images/textures/wood-dark.jpg')" }}
+          style={{ backgroundImage: "url('/images/textures/wood-dark.optimized-911ef429f4.webp')" }}
         >
           <div className="mx-auto w-full max-w-[600px] text-center text-white">
              <p className="font-barlow text-sm font-semibold uppercase tracking-[0.14em] md:text-xl">
@@ -141,7 +141,7 @@ export default function FeatureGrid() {
         {/* Row 2 - Right: Steak photo (on mobile this comes BEFORE specials) */}
         <div className="relative order-7 md:order-none aspect-[3/2] md:aspect-[4/3]">
           <Image
-            src="/images/features/party-platters.webp"
+            src="/images/features/party-platters.optimized-231c491913.webp"
             alt="Gourmet party trays from Siesel's Meats"
             fill
             className="object-cover object-top"

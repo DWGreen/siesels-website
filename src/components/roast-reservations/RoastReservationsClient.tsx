@@ -178,7 +178,7 @@ export default function RoastReservationsClient({ products }: Props) {
               {ordering.message && <p role="status" className="mt-4 font-heading text-base font-bold text-[#9d321e]">{ordering.message}</p>}
             </div>
             <Image
-              src="/images/hand-drawn/bull-color.png"
+              src="/images/hand-drawn/bull-color.optimized-4d746bab3a.webp"
               alt="Hand-drawn illustration of a standing rib roast and butcher knife"
               width={520}
               height={300}
@@ -222,7 +222,7 @@ export default function RoastReservationsClient({ products }: Props) {
 
               {items.length === 0 ? (
                 <div className="flex min-h-[270px] flex-col items-center justify-center px-5 py-8 text-center">
-                  <Image src="/images/hand-drawn/rib-roast_full.png" alt="Standing rib roast on butcher paper" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
+                  <Image src="/images/hand-drawn/rib-roast_full.optimized-b724a6b844.webp" alt="Standing rib roast on butcher paper" width={360} height={240} className="mb-3 h-36 w-64 object-contain mix-blend-multiply sm:h-40" />
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.05em]">Ready To Build Your Roast?</h3>
                   <p className="mt-1 font-serif text-sm text-neutral-600">Choose your size, grade, and quantity to get started.</p>
                   <button type="button" onClick={openPicker} disabled={!ordering.isOpen || availablePairs.length === 0} className="mt-5 inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50">
