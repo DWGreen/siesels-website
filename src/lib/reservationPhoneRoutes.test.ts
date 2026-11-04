@@ -15,10 +15,30 @@ beforeEach(() => {
 });
 function request(phone: string) {
  return new Request("http://localhost/api/reservations", { method: "POST", body: JSON.stringify({
-  pickupDate: "2026-11-20", storeLocationId: "siesels-meats", customer: { name: "Test Customer", email: "test@example.test", phone },
+  pickupDate: "2026-11-20", storeLocationId: "siesels-meats", customer: { firstName: "Test", lastName: "Customer", email: "test@example.test", phone },
   items: [{ productId: 1, variationId: 2, quantity: 1, grade: "USDA Prime" }],
  }) });
 }
+it.each([["ham", ham], ["roast", roast]] as const)("requires separate %s customer names and preserves multiword names", async (_name, handler) => {
+ for (const customer of [
+  { firstName: "Test" }, { lastName: "Customer" },
+  { firstName: " ", lastName: "Customer" }, { firstName: "Test", lastName: " " },
+  { firstName: 123, lastName: "Customer" }, { name: "Test Customer" },
+ ]) {
+  const body = await request("").json();
+  body.customer = { ...customer, email: "test@example.test" };
+  const response = await handler(new Request("http://localhost/api/reservations", { method: "POST", body: JSON.stringify(body) }));
+  expect(response.status).toBe(400);
+  expect((await response.json()).message).toContain("first and last name");
+  expect(mocks.call).not.toHaveBeenCalled();
+ }
+ const body = await request("").json();
+ body.customer.firstName = " Mary Jane ";
+ body.customer.lastName = " de la Cruz ";
+ expect((await handler(new Request("http://localhost/api/reservations", { method: "POST", body: JSON.stringify(body) }))).status).toBe(200);
+ const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");
+ expect(JSON.parse(checkout![1].body).billing_address).toMatchObject({ first_name: "Mary Jane", last_name: "de la Cruz" });
+});
 it.each([["ham", ham], ["roast", roast]] as const)("normalizes %s checkout phones", async (_name, handler) => {
  expect((await handler(request("(619) 555-1234"))).status).toBe(200);
  const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");

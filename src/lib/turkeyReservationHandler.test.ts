@@ -17,6 +17,30 @@ beforeEach(() => {
   mocks.validate.mockResolvedValue(null);
   mocks.call.mockResolvedValue({ session: {}, data: { order_id: 123, order_key: "test-key" } });
 });
+describe.each(["turkey", "turkey-breast"] as const)("%s customer names", type => {
+  const submit = (customer: Record<string, unknown>) => createTurkeyReservationHandler(type)(new Request("http://localhost/api/reservations", {
+    method: "POST", body: JSON.stringify({
+      pickupDate: "2026-11-20", storeLocationId: "siesels-meats",
+      customer: { email: "customer@example.test", ...customer },
+      items: [{ productId: 430, quantity: 1 }],
+    }),
+  }));
+  it.each([
+    { firstName: "Test" }, { lastName: "Customer" },
+    { firstName: " ", lastName: "Customer" }, { firstName: "Test", lastName: " " },
+    { firstName: 123, lastName: "Customer" }, { name: "Test Customer" },
+  ])("rejects missing or invalid separate names: %j", async customer => {
+    const response = await submit(customer);
+    expect(response.status).toBe(400);
+    expect((await response.json()).message).toContain("first and last name");
+    expect(mocks.call).not.toHaveBeenCalled();
+  });
+  it("preserves multiword first and last names in billing", async () => {
+    expect((await submit({ firstName: " Mary Jane ", lastName: " de la Cruz " })).status).toBe(200);
+    const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");
+    expect(JSON.parse(checkout![1].body).billing_address).toMatchObject({ first_name: "Mary Jane", last_name: "de la Cruz" });
+  });
+});
 
 describe("turkey breast checkout", () => {
   it("uses its own session, validates the breast category, and preserves pickup details and notes", async () => {
@@ -24,7 +48,7 @@ describe("turkey breast checkout", () => {
       method: "POST",
       body: JSON.stringify({
         pickupDate: "2026-11-20", storeLocationId: "iowa-meat-farms", notes: "Please call at pickup.",
-        customer: { name: "Test Customer", email: "customer@example.test", phone: "(619) 555-1234" },
+        customer: { firstName: "Test", lastName: "Customer", email: "customer@example.test", phone: "(619) 555-1234" },
         items: [{ productId: 430, variationId: 431, quantity: 2 }],
       }),
     }));
@@ -45,7 +69,7 @@ it.each(["turkey", "turkey-breast"] as const)("rejects invalid %s phones before 
   const response = await createTurkeyReservationHandler(type)(new Request("http://localhost/api/reservations", {
     method: "POST", body: JSON.stringify({
       pickupDate: "2026-11-20", storeLocationId: "iowa-meat-farms",
-      customer: { name: "Test Customer", email: "customer@example.test", phone: "123" },
+      customer: { firstName: "Test", lastName: "Customer", email: "customer@example.test", phone: "123" },
       items: [{ productId: 430, quantity: 1 }],
     }),
   }));

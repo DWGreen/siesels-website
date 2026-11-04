@@ -58,7 +58,8 @@ export default function HamReservationsClient({ products }: Props) {
   const [selections, setSelections] = useState<Record<string, string>>({});
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState("");
-  const [customerName, setCustomerName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
@@ -200,7 +201,7 @@ export default function HamReservationsClient({ products }: Props) {
       setError("One of your ham selections is no longer available in that quantity.");
       return;
     }
-    if (!customerName.trim() || !email.trim() || !isReservationPickupDateAllowed("ham", pickupDate) ||
+    if (!firstName.trim() || !lastName.trim() || !email.trim() || !isReservationPickupDateAllowed("ham", pickupDate) ||
       !reservationStoreLocations.some(location => location.id === storeLocationId)) {
       setError("Enter your contact details and choose a valid pickup date and location.");
       return;
@@ -214,7 +215,7 @@ export default function HamReservationsClient({ products }: Props) {
         body: JSON.stringify({
           pickupDate,
           storeLocationId,
-          customer: { name: customerName.trim(), email: email.trim(), phone: phone.trim() },
+          customer: { firstName: firstName.trim(), lastName: lastName.trim(), email: email.trim(), phone: phone.trim() },
           notes,
           items: items.map(({ productId, variationId, quantity }) => ({ productId, variationId, quantity })),
         }),
@@ -314,8 +315,13 @@ export default function HamReservationsClient({ products }: Props) {
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
                 <input required type="date" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className={fieldClass} />
               </label>
-              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Name
-                <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className={fieldClass} />
+              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                First name
+                <input required name="firstName" autoComplete="given-name" value={firstName} onChange={event => setFirstName(event.target.value)} className={fieldClass} />
+              </label>
+              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                Last name
+                <input required name="lastName" autoComplete="family-name" value={lastName} onChange={event => setLastName(event.target.value)} className={fieldClass} />
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Email
                 <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className={fieldClass} />

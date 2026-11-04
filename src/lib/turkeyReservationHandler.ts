@@ -17,7 +17,8 @@ type ReservationRequest = {
   storeLocationId?: string;
   notes?: string;
   customer?: {
-    name?: string;
+    firstName?: string;
+    lastName?: string;
     email?: string;
     phone?: string;
   };
@@ -51,7 +52,8 @@ return async function POST(request: Request) {
     const body = (await request.json()) as ReservationRequest;
     const pickupDate = body.pickupDate ?? "";
     const storeLocation = getReservationStoreLocation(body.storeLocationId);
-    const customerName = body.customer?.name?.trim() ?? "";
+    const firstName = typeof body.customer?.firstName === "string" ? body.customer.firstName.trim() : "";
+    const lastName = typeof body.customer?.lastName === "string" ? body.customer.lastName.trim() : "";
     const email = body.customer?.email?.trim() ?? "";
     const phone = normalizeReservationPhone(body.customer?.phone);
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
@@ -67,9 +69,9 @@ return async function POST(request: Request) {
       return reservationResponse({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
 
-    if (!customerName || !email || !/^\S+@\S+\.\S+$/.test(email)) {
+    if (!firstName || !lastName || !email || !/^\S+@\S+\.\S+$/.test(email)) {
       return reservationResponse(
-        { message: "Enter your name and a valid email address." },
+        { message: "Enter your first and last name and a valid email address." },
         400,
         session
       );
@@ -120,8 +122,6 @@ return async function POST(request: Request) {
       session = added.session;
     }
 
-    const firstName = customerName.split(/\s+/)[0] ?? "";
-    const lastName = customerName.split(/\s+/).slice(1).join(" ");
     const checkout = await callStoreApi<Record<string, unknown>>("/checkout", {
       session,
       method: "POST",

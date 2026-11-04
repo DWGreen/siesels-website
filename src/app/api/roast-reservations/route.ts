@@ -15,7 +15,7 @@ type RequestBody = {
   pickupDate?: string;
   storeLocationId?: string;
   notes?: string;
-  customer?: { name?: string; email?: string; phone?: string };
+  customer?: { firstName?: string; lastName?: string; email?: string; phone?: string };
   items?: RoastLineRequest[];
 };
 
@@ -78,7 +78,8 @@ export async function POST(request: Request) {
     const body = (await request.json()) as RequestBody;
     const pickupDate = body.pickupDate ?? "";
     const storeLocation = getReservationStoreLocation(body.storeLocationId);
-    const name = body.customer?.name?.trim() ?? "";
+    const firstName = typeof body.customer?.firstName === "string" ? body.customer.firstName.trim() : "";
+    const lastName = typeof body.customer?.lastName === "string" ? body.customer.lastName.trim() : "";
     const email = body.customer?.email?.trim() ?? "";
     const phone = normalizeReservationPhone(body.customer?.phone);
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
@@ -87,8 +88,8 @@ export async function POST(request: Request) {
     if (!isReservationPickupDateAllowed("roast", pickupDate)) {
       return respond({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
-    if (!name || !/^\S+@\S+\.\S+$/.test(email)) {
-      return respond({ message: "Enter your name and a valid email address." }, 400, session);
+    if (!firstName || !lastName || !/^\S+@\S+\.\S+$/.test(email)) {
+      return respond({ message: "Enter your first and last name and a valid email address." }, 400, session);
     }
     if (!storeLocation) {
       return respond({ message: "Choose a valid pickup location." }, 400, session);
@@ -123,9 +124,6 @@ export async function POST(request: Request) {
       session = addResult.session;
     }
 
-    const nameParts = name.split(/\s+/);
-    const firstName = nameParts.shift() ?? "";
-    const lastName = nameParts.join(" ");
     const checkout = await callStoreApi<Record<string, unknown>>("/checkout", {
       session,
       method: "POST",

@@ -21,7 +21,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const pickupDate = typeof body.pickupDate === "string" ? body.pickupDate : "";
     const store = getReservationStoreLocation(body.storeLocationId);
-    const name = typeof body.customer?.name === "string" ? body.customer.name.trim() : "";
+    const firstName = typeof body.customer?.firstName === "string" ? body.customer.firstName.trim() : "";
+    const lastName = typeof body.customer?.lastName === "string" ? body.customer.lastName.trim() : "";
     const email = typeof body.customer?.email === "string" ? body.customer.email.trim() : "";
     const phone = normalizeReservationPhone(body.customer?.phone);
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
@@ -29,8 +30,8 @@ export async function POST(request: Request) {
     if (!isReservationPickupDateAllowed("ham", pickupDate)) {
       return respond({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
-    if (!store || !name || !/^\S+@\S+\.\S+$/.test(email)) {
-      return respond({ message: "Choose a pickup location and enter your name and a valid email address." }, 400, session);
+    if (!store || !firstName || !lastName || !/^\S+@\S+\.\S+$/.test(email)) {
+      return respond({ message: "Choose a pickup location and enter your first and last name and a valid email address." }, 400, session);
     }
     if (phone === null) {
       return respond({ message: RESERVATION_PHONE_ERROR }, 400, session);
@@ -61,13 +62,12 @@ export async function POST(request: Request) {
       });
       session = added.session;
     }
-    const [firstName, ...lastName] = name.split(/\s+/);
     const checkout = await callStoreApi<Record<string, unknown>>("/checkout", {
       session,
       method: "POST",
       body: JSON.stringify({
         billing_address: {
-          first_name: firstName, last_name: lastName.join(" "), company: "",
+          first_name: firstName, last_name: lastName, company: "",
           address_1: "", address_2: "", city: "", state: "", postcode: "",
           email, phone, country: "US",
         },

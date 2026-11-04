@@ -34,7 +34,8 @@ export default function RoastReservationsClient({ products }: Props) {
   const pickupDateBounds = getReservationPickupDateBounds("roast");
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState("");
-  const [customerName, setCustomerName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
@@ -135,6 +136,10 @@ export default function RoastReservationsClient({ products }: Props) {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+    if (!firstName.trim() || !lastName.trim()) {
+      setError("Enter your first and last name.");
+      return;
+    }
     const currentOrdering = getReservationOrderingStatus("roast");
     if (!currentOrdering.isOpen) {
       setError(currentOrdering.message);
@@ -150,7 +155,7 @@ export default function RoastReservationsClient({ products }: Props) {
       const response = await fetch("/api/roast-reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pickupDate, storeLocationId, customer: { name: customerName, email, phone }, notes, items }),
+        body: JSON.stringify({ pickupDate, storeLocationId, customer: { firstName: firstName.trim(), lastName: lastName.trim(), email, phone }, notes, items }),
       });
       const result = await response.json();
       if (!response.ok) {
@@ -307,8 +312,13 @@ export default function RoastReservationsClient({ products }: Props) {
                   <input required type="date" aria-describedby="roast-date-help" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                   <span id="roast-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>
                 </label>
-                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Name
-                  <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                  First name
+                  <input required name="firstName" autoComplete="given-name" value={firstName} onChange={event => setFirstName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                </label>
+                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Last name
+                  <input required name="lastName" autoComplete="family-name" value={lastName} onChange={event => setLastName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Email
                   <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />

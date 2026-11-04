@@ -30,7 +30,8 @@ export default function TurkeyReservationsClient({ products }: Props) {
   const pickupDateBounds = getReservationPickupDateBounds(reservationType);
   const [pickupDate, setPickupDate] = useState("");
   const [storeLocationId, setStoreLocationId] = useState("");
-  const [customerName, setCustomerName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
@@ -78,6 +79,10 @@ export default function TurkeyReservationsClient({ products }: Props) {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+    if (!firstName.trim() || !lastName.trim()) {
+      setError("Enter your first and last name.");
+      return;
+    }
     const currentOrdering = getReservationOrderingStatus(reservationType);
     if (!currentOrdering.isOpen) {
       setError(currentOrdering.message);
@@ -104,7 +109,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
         body: JSON.stringify({
           pickupDate,
           storeLocationId,
-          customer: { name: customerName, email, phone },
+          customer: { firstName: firstName.trim(), lastName: lastName.trim(), email, phone },
           notes,
           items,
         }),
@@ -335,8 +340,12 @@ export default function TurkeyReservationsClient({ products }: Props) {
                   <span id="turkey-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
-                  Name
-                  <input required autoComplete="name" value={customerName} onChange={event => setCustomerName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  First name
+                  <input required name="firstName" autoComplete="given-name" value={firstName} onChange={event => setFirstName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                </label>
+                <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Last name
+                  <input required name="lastName" autoComplete="family-name" value={lastName} onChange={event => setLastName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Email
