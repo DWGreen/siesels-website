@@ -22,6 +22,12 @@ describe("turkey breast weight picker", () => {
     render(<TurkeyBreastReservationsClient products={products} />);
     fireEvent.click(screen.getByRole("button", { name: "Add A Turkey Breast" }));
     let dialog = within(screen.getByRole("dialog"));
+    expect(dialog.getByRole("combobox", { name: "Turkey Breast Type" })).toHaveValue("");
+    expect(dialog.getByRole("combobox", { name: "Turkey Breast Type" })).toBeRequired();
+    expect(dialog.getByRole("option", { name: "Select Bone In / Boneless" })).toBeDisabled();
+    expect(dialog.getByRole("combobox", { name: "Weight" })).toHaveValue("");
+    expect(dialog.getByRole("button", { name: "Add Turkey Breast" })).toBeDisabled();
+    fireEvent.change(dialog.getByRole("combobox", { name: "Turkey Breast Type" }), { target: { value: "10" } });
     expect(dialog.getByRole("combobox", { name: "Weight" })).toHaveValue("11");
     expect(dialog.getByRole("option", { name: "4-6 lb (Unavailable)" })).toBeDisabled();
     expect(dialog.queryByRole("option", { name: "6-8 lb" })).not.toBeInTheDocument();
@@ -29,6 +35,8 @@ describe("turkey breast weight picker", () => {
     expect(screen.getByText("Boneless Turkey Breast — 3-4 lb")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Add Turkey Breast To Reservation" }));
     dialog = within(screen.getByRole("dialog"));
+    expect(dialog.getByRole("combobox", { name: "Turkey Breast Type" })).toHaveValue("");
+    expect(dialog.getByRole("button", { name: "Add Turkey Breast" })).toBeDisabled();
     fireEvent.change(dialog.getByRole("combobox", { name: "Turkey Breast Type" }), { target: { value: "20" } });
     expect(dialog.getByRole("combobox", { name: "Weight" })).toHaveValue("21");
     expect(dialog.queryByRole("option", { name: "3-4 lb" })).not.toBeInTheDocument();

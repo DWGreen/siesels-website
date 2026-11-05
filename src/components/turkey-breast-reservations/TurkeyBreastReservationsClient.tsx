@@ -69,9 +69,9 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
   );
 
   function addSelectedSize() {
-    if (pickerProductId === "") return;
+    if (pickerParentId === "" || pickerProductId === "") return;
     const product = products.find(item => item.id === pickerProductId);
-    if (!product) return;
+    if (!product || product.parentId !== pickerParentId) return;
 
     setQuantities(current => ({
       ...current,
@@ -194,8 +194,8 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                   type="button"
                   disabled={!ordering.isOpen || availableProducts.length === 0}
                   onClick={() => {
-                    setPickerParentId(availableProducts[0]?.parentId ?? "");
-                    setPickerProductId(availableProducts[0]?.id ?? "");
+                    setPickerParentId("");
+                    setPickerProductId("");
                     setIsPickerOpen(true);
                   }}
                   className="inline-flex cursor-pointer items-center gap-2 bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.13em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50"
@@ -214,8 +214,8 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                     type="button"
                     disabled={!ordering.isOpen || availableProducts.length === 0}
                     onClick={() => {
-                      setPickerParentId(availableProducts[0]?.parentId ?? "");
-                    setPickerProductId(availableProducts[0]?.id ?? "");
+                      setPickerParentId("");
+                      setPickerProductId("");
                       setIsPickerOpen(true);
                     }}
                     className="mt-5 cursor-pointer bg-neutral-950 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-50"
@@ -306,6 +306,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                       Turkey Breast Type
                       <select
                         autoFocus
+                        required
                         aria-describedby="turkey-size-help"
                         value={pickerParentId}
                         onChange={event => {
@@ -315,6 +316,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                         }}
                         className="mt-2 block w-full border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal"
                       >
+                        <option value="" disabled>Select Bone In / Boneless</option>
                         {parentProducts.map(parent => (
                           <option key={parent.id} value={parent.id} disabled={!availableProducts.some(product => product.parentId === parent.id)}>
                             {parent.name}{!availableProducts.some(product => product.parentId === parent.id) ? " (Unavailable)" : ""}
@@ -343,7 +345,7 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                       <button type="button" onClick={() => setIsPickerOpen(false)} className="cursor-pointer border border-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em]">
                         Cancel
                       </button>
-                      <button type="button" onClick={addSelectedSize} disabled={!ordering.isOpen || pickerProductId === "" || !availableProducts.some(product => product.id === pickerProductId)} className="cursor-pointer bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40">
+                      <button type="button" onClick={addSelectedSize} disabled={!ordering.isOpen || pickerParentId === "" || pickerProductId === "" || !availableProducts.some(product => product.id === pickerProductId)} className="cursor-pointer bg-neutral-950 px-4 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40">
                         Add {label}
                       </button>
                     </div>
