@@ -20,6 +20,8 @@ it.each([
   const last = screen.getByRole("textbox", { name: "Last name" }) as HTMLInputElement;
   expect(first).toBeRequired();
   expect(last).toBeRequired();
+  expect(screen.getByRole("textbox", { name: "Email (optional)" })).not.toBeRequired();
+  expect(screen.getByRole("textbox", { name: "Phone" })).toBeRequired();
   expect(first).toHaveAttribute("autocomplete", "given-name");
   expect(last).toHaveAttribute("autocomplete", "family-name");
   expect(first.checkValidity()).toBe(false);

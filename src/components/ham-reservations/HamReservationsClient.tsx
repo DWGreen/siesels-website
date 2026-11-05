@@ -201,7 +201,7 @@ export default function HamReservationsClient({ products }: Props) {
       setError("One of your ham selections is no longer available in that quantity.");
       return;
     }
-    if (!firstName.trim() || !lastName.trim() || !email.trim() || !isReservationPickupDateAllowed("ham", pickupDate) ||
+    if (!firstName.trim() || !lastName.trim() || !isReservationPickupDateAllowed("ham", pickupDate) ||
       !reservationStoreLocations.some(location => location.id === storeLocationId)) {
       setError("Enter your contact details and choose a valid pickup date and location.");
       return;
@@ -323,11 +323,11 @@ export default function HamReservationsClient({ products }: Props) {
                 Last name
                 <input required name="lastName" autoComplete="family-name" value={lastName} onChange={event => setLastName(event.target.value)} className={fieldClass} />
               </label>
-              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Email
-                <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className={fieldClass} />
+              <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Email (optional)
+                <input type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className={fieldClass} />
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Phone
-                <input type="tel" inputMode="tel" maxLength={80} placeholder="(619) 555-1234" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className={fieldClass} />
+                <input required type="tel" inputMode="tel" maxLength={80} placeholder="(619) 555-1234" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className={fieldClass} />
               </label>
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Notes for the butcher (optional)
                 <textarea maxLength={500} rows={4} value={notes} onChange={event => setNotes(event.target.value)} className={`${fieldClass} resize-y`} />

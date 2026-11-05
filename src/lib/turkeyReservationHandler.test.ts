@@ -21,7 +21,7 @@ describe.each(["turkey", "turkey-breast"] as const)("%s customer names", type =>
   const submit = (customer: Record<string, unknown>) => createTurkeyReservationHandler(type)(new Request("http://localhost/api/reservations", {
     method: "POST", body: JSON.stringify({
       pickupDate: "2026-11-20", storeLocationId: "siesels-meats",
-      customer: { email: "customer@example.test", ...customer },
+      customer: { email: "customer@example.test", phone: "6195551234", ...customer },
       items: [{ productId: 430, quantity: 1 }],
     }),
   }));
@@ -37,8 +37,21 @@ describe.each(["turkey", "turkey-breast"] as const)("%s customer names", type =>
   });
   it("preserves multiword first and last names in billing", async () => {
     expect((await submit({ firstName: " Mary Jane ", lastName: " de la Cruz " })).status).toBe(200);
-    const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");
+    const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout/reservation");
     expect(JSON.parse(checkout![1].body).billing_address).toMatchObject({ first_name: "Mary Jane", last_name: "de la Cruz" });
+  });
+  it.each([undefined, "", "   ", " customer@example.test "])("accepts optional email %j", async email => {
+    expect((await submit({ firstName: "Test", lastName: "Customer", email })).status).toBe(200);
+    const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout/reservation");
+    expect(JSON.parse(checkout![1].body).billing_address.email).toBe(email?.trim() ?? "");
+  });
+  it("rejects a malformed supplied email", async () => {
+    expect((await submit({ firstName: "Test", lastName: "Customer", email: "bad-email" })).status).toBe(400);
+    expect(mocks.call).not.toHaveBeenCalled();
+  });
+  it.each([undefined, "", "   "])("requires a phone number: %j", async phone => {
+    expect((await submit({ firstName: "Test", lastName: "Customer", phone })).status).toBe(400);
+    expect(mocks.call).not.toHaveBeenCalled();
   });
 });
 
@@ -57,7 +70,7 @@ describe("turkey breast checkout", () => {
     expect(mocks.validate).toHaveBeenCalledWith([{ productId: 430, variationId: 431, quantity: 2 }], "turkey-breast");
     const added = mocks.call.mock.calls.find(([path]) => path === "/cart/add-item");
     expect(JSON.parse(added![1].body)).toMatchObject({ id: 431, quantity: 2 });
-    const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout");
+    const checkout = mocks.call.mock.calls.find(([path]) => path === "/checkout/reservation");
     const payload = JSON.parse(checkout![1].body);
     expect(payload.billing_address.phone).toBe("+16195551234");
     expect(payload.customer_note).toContain("Turkey breast reservation.");

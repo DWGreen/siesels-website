@@ -382,12 +382,12 @@ export default function TurkeyBreastReservationsClient({ products: parentProduct
                   <input required name="lastName" autoComplete="family-name" value={lastName} onChange={event => setLastName(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
-                  Email
-                  <input required type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  Email (optional)
+                  <input type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Phone
-                  <input type="tel" inputMode="tel" maxLength={80} placeholder="(619) 555-1234" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
+                  <input required type="tel" inputMode="tel" maxLength={80} placeholder="(619) 555-1234" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                 </label>
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Notes for the butcher (optional)

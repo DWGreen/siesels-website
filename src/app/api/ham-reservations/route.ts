@@ -30,10 +30,10 @@ export async function POST(request: Request) {
     if (!isReservationPickupDateAllowed("ham", pickupDate)) {
       return respond({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
-    if (!store || !firstName || !lastName || !/^\S+@\S+\.\S+$/.test(email)) {
-      return respond({ message: "Choose a pickup location and enter your first and last name and a valid email address." }, 400, session);
+    if (!store || !firstName || !lastName || (email !== "" && !/^\S+@\S+\.\S+$/.test(email))) {
+      return respond({ message: "Choose a pickup location and enter your first and last name and a valid email address if provided." }, 400, session);
     }
-    if (phone === null) {
+    if (!phone) {
       return respond({ message: RESERVATION_PHONE_ERROR }, 400, session);
     }
     if (Buffer.byteLength(notes, "utf8") > 2000) {
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       });
       session = added.session;
     }
-    const checkout = await callStoreApi<Record<string, unknown>>("/checkout", {
+    const checkout = await callStoreApi<Record<string, unknown>>("/checkout/reservation", {
       session,
       method: "POST",
       body: JSON.stringify({

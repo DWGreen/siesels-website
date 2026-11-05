@@ -99,3 +99,26 @@ and pass them directly into WooCommerce billing fields. The former combined
 stored names. Targeted form/API tests and the production build pass. The broader
 frontend suite has an existing pickup-window expectation for October 14 that
 conflicts with the configured November 20 start; pickup windows were unchanged.
+
+## Optional reservation email and required phone — November 5
+
+Reservation forms allow blank email and require a valid phone number. APIs trim
+email, validate it when supplied, and reject blank/invalid phones before cart
+changes. Names remain separate and required. Blank email remains blank in the
+order and CSV; no substitute email is generated. Customer email confirmations
+are unavailable when no email is supplied; staff reports still include the order.
+
+WooCommerce's standard Store API controller unconditionally requires email.
+Backend commit `0ac2281` adds a dedicated `/wc/store/v1/checkout/reservation`
+route using the core checkout implementation with a specialized order controller.
+It skips only the missing-email check for reservation-only carts with no payment
+due, validates supplied email through core, and requires phone. Standard checkout
+remains unchanged. The path retains the `/checkout` prefix used by WooCommerce's
+checkout rate-limit matching. Core session/nonce, stock, address, coupon, and
+other checkout checks are inherited.
+
+Regression checks cover all four form/API flows, missing email, malformed supplied
+email, missing phone, paid/mixed carts, and reuse of core checkout. Also verified
+against installed WooCommerce with an unsaved order: full pre-payment validation
+passes with blank email for a free reservation; standard validation still rejects
+blank email. No order was placed and no customer email was sent during validation.

@@ -80,7 +80,7 @@ export async function POST(request: Request) {
     const storeLocation = getReservationStoreLocation(body.storeLocationId);
     const firstName = typeof body.customer?.firstName === "string" ? body.customer.firstName.trim() : "";
     const lastName = typeof body.customer?.lastName === "string" ? body.customer.lastName.trim() : "";
-    const email = body.customer?.email?.trim() ?? "";
+    const email = typeof body.customer?.email === "string" ? body.customer.email.trim() : "";
     const phone = normalizeReservationPhone(body.customer?.phone);
     const notes = typeof body.notes === "string" ? body.notes.trim() : "";
     const items = body.items ?? [];
@@ -88,13 +88,13 @@ export async function POST(request: Request) {
     if (!isReservationPickupDateAllowed("roast", pickupDate)) {
       return respond({ message: "Choose a pickup date within the current reservation window." }, 400, session);
     }
-    if (!firstName || !lastName || !/^\S+@\S+\.\S+$/.test(email)) {
-      return respond({ message: "Enter your first and last name and a valid email address." }, 400, session);
+    if (!firstName || !lastName || (email !== "" && !/^\S+@\S+\.\S+$/.test(email))) {
+      return respond({ message: "Enter your first and last name and a valid email address if provided." }, 400, session);
     }
     if (!storeLocation) {
       return respond({ message: "Choose a valid pickup location." }, 400, session);
     }
-    if (phone === null) {
+    if (!phone) {
       return respond({ message: RESERVATION_PHONE_ERROR }, 400, session);
     }
     if (Buffer.byteLength(notes, "utf8") > 2000) {
@@ -124,7 +124,7 @@ export async function POST(request: Request) {
       session = addResult.session;
     }
 
-    const checkout = await callStoreApi<Record<string, unknown>>("/checkout", {
+    const checkout = await callStoreApi<Record<string, unknown>>("/checkout/reservation", {
       session,
       method: "POST",
       body: JSON.stringify({
