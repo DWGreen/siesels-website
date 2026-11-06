@@ -5,7 +5,7 @@ import { proxy, config } from "./proxy";
 
 describe("disabled public features", () => {
   it.each([
-    "/gift-cards", "/sandwiches", "/sandwiches/menu", "/sandwiches/checkout/success",
+    "/gift-cards",
     "/cooking", "/cooking/collections/dinner", "/cooking/my-menu", "/recipes",
     "/api/gift-cards/checkout", "/api/recipes", "/api/recipes/123/ratings",
     "/api/cart", "/api/cart/add", "/api/checkout/create-session",
@@ -19,6 +19,12 @@ describe("disabled public features", () => {
       if (path.startsWith("/api/")) expect(await response.json()).toEqual({ message: "Not found." });
     }
   });
+  it.each(["/sandwiches", "/sandwiches/build", "/sandwiches/customize", "/sandwiches/checkout"])(
+    "allows temporary client review of %s", path => {
+      expect(unstable_doesMiddlewareMatch({ config, url: `https://example.test${path}` })).toBe(true);
+      expect(proxy(new NextRequest(`https://example.test${path}`)).headers.get("x-middleware-next")).toBe("1");
+    }
+  );
   it.each([
     "/", "/specials", "/holiday-meats", "/contact", "/api/contact",
     "/turkey-reservations", "/ham-reservations", "/roast-reservations", "/turkey-breast-reservations",

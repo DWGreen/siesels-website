@@ -1,10 +1,10 @@
 // These unfinished features are intentionally unavailable, including their APIs.
 // Keep their implementation so they can be restored when ready to launch.
+// Temporarily expose the sandwich pages for client review; ordering APIs stay disabled.
 export const sandwichOrderingEnabled = false;
 
 export const disabledRoutePrefixes = [
   "/gift-cards",
-  "/sandwiches",
   "/cooking",
   "/recipes",
   "/api/gift-cards",
