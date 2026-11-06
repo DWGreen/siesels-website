@@ -1,3 +1,4 @@
+import { isAllowedReservationProduct, reservationProductIds } from "@/config/reservationProducts";
 import { mapHamVariation, type HamReservationVariation } from "@/services/hamReservations";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
@@ -40,12 +41,12 @@ export async function getTurkeyReservationProducts(type: TurkeyReservationType =
   try {
     const api = getWooCommerceApi();
     const response = await api.get(
-      `products?category=${categoryConfig.id}&per_page=100&orderby=menu_order&order=asc&status=publish`
+      `products?category=${categoryConfig.id}&per_page=100&orderby=menu_order&order=asc&status=publish&include=${reservationProductIds[type].join(",")}`
     );
 
     const parents = (response.data as WooCommerceReservationProduct[])
       .filter(product =>
-        product.categories?.some(
+        isAllowedReservationProduct(type, product.id) && product.categories?.some(
           category => category.id === categoryConfig.id || category.slug === categoryConfig.slug
         )
       );
@@ -97,7 +98,7 @@ export async function validateTurkeyReservationLines(
   const parentQuantities = new Map<number, number>();
 
   for (const line of lines) {
-    if (!Number.isInteger(line.productId) || !Number.isInteger(line.quantity) || line.quantity < 1) {
+    if (!isAllowedReservationProduct(type, line.productId) || !Number.isInteger(line.productId) || !Number.isInteger(line.quantity) || line.quantity < 1) {
       return "Choose a valid turkey range and quantity.";
     }
 

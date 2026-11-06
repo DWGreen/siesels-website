@@ -1,3 +1,4 @@
+import { isAllowedReservationProduct, reservationProductIds } from "@/config/reservationProducts";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
 export type RoastGrade = "USDA Prime" | "USDA Choice";
@@ -71,10 +72,10 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
   try {
     const api = getWooCommerceApi();
     const response = await api.get(
-      "products?category=41&per_page=100&orderby=menu_order&order=asc&status=publish"
+      `products?category=41&per_page=100&orderby=menu_order&order=asc&status=publish&include=${reservationProductIds.roast.join(",")}`
     );
     const parents = (response.data as WooProduct[]).filter(product =>
-      product.categories?.some(category => category.id === 41)
+      isAllowedReservationProduct("roast", product.id) && product.categories?.some(category => category.id === 41)
     );
 
     return await Promise.all(
@@ -126,6 +127,7 @@ export async function validateRoastReservationLines(
 
   for (const line of lines) {
     if (
+      !isAllowedReservationProduct("roast", line.productId) ||
       !Number.isInteger(line.productId) ||
       !Number.isInteger(line.variationId) ||
       !Number.isInteger(line.quantity) ||

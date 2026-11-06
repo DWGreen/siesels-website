@@ -1,3 +1,4 @@
+import { isAllowedReservationProduct } from "@/config/reservationProducts";
 import { normalizeReservationPhone, RESERVATION_PHONE_ERROR } from "@/utils/reservationPhone";
 import { NextResponse } from "next/server";
 import { getWooCommerceApi } from "@/lib/woocommerce";
@@ -27,7 +28,7 @@ async function validateLines(lines: RoastLineRequest[]): Promise<string | null> 
   const api = getWooCommerceApi();
 
   for (const line of lines) {
-    if ((line.easyCarve !== undefined && typeof line.easyCarve !== "boolean") || !Number.isInteger(line.productId) || !Number.isInteger(line.variationId) || !Number.isInteger(line.quantity) || line.quantity < 1 || !["USDA Prime", "USDA Choice"].includes(line.grade)) {
+    if (!isAllowedReservationProduct("roast", line.productId) || (line.easyCarve !== undefined && typeof line.easyCarve !== "boolean") || !Number.isInteger(line.productId) || !Number.isInteger(line.variationId) || !Number.isInteger(line.quantity) || line.quantity < 1 || !["USDA Prime", "USDA Choice"].includes(line.grade)) {
       return "Choose a valid roast cut, grade, and quantity.";
     }
 

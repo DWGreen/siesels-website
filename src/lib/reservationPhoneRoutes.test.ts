@@ -16,7 +16,7 @@ beforeEach(() => {
 function request(phone: string) {
  return new Request("http://localhost/api/reservations", { method: "POST", body: JSON.stringify({
   pickupDate: "2026-11-20", storeLocationId: "siesels-meats", customer: { firstName: "Test", lastName: "Customer", email: "test@example.test", phone },
-  items: [{ productId: 1, variationId: 2, quantity: 1, grade: "USDA Prime" }],
+  items: [{ productId: 191, variationId: 2, quantity: 1, grade: "USDA Prime" }],
  }) });
 }
 it.each([["ham", ham], ["roast", roast]] as const)("requires separate %s customer names and preserves multiword names", async (_name, handler) => {
@@ -77,4 +77,12 @@ it.each([true, false])("saves the Easy Carve %s selection on the roast order lin
  expect(response.status).toBe(200);
  const added = mocks.call.mock.calls.find(([path]) => path === "/cart/add-item");
  expect(JSON.parse(added![1].body).siesels_selection_metadata).toContain(`Easy Carve: ${easyCarve ? "Yes" : "No"}`);
+});
+
+it("rejects unlisted roast submissions before changing the cart", async () => {
+ const body = await request("6195551234").json();
+ body.items[0].productId = 999;
+ expect((await roast(new Request("http://localhost/api/roast-reservations", { method: "POST", body: JSON.stringify(body) }))).status).toBe(400);
+ expect(mocks.call).not.toHaveBeenCalled();
+ expect(mocks.get).not.toHaveBeenCalled();
 });
