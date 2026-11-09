@@ -18,7 +18,7 @@ import { useReservationOrdering } from "@/hooks/useReservationOrdering";
 import { getReservationOrderingStatus, getReservationPickupDateBounds, isReservationPickupDateAllowed } from "@/utils/reservationOrdering";
 
 type SelectedHam = { productId: number; variationId: number; quantity: number };
-type Props = { products: HamReservationProduct[] };
+type Props = { products: HamReservationProduct[]; initialStoreLocationId?: string; awaitingStore?: boolean };
 
 const hamImage = "/images/products/kruse-ham.optimized-23bbc43576.webp";
 const fieldClass = "mt-2 block w-full min-w-0 border border-neutral-950 bg-white px-3 py-3 text-sm font-normal normal-case tracking-normal";
@@ -46,7 +46,7 @@ function matchesSelections(variation: HamReservationVariation, selections: Recor
   return names.every(name => variation.attributes.some(({ attribute, value }) => attribute === name && value === selections[name]));
 }
 
-export default function HamReservationsClient({ products }: Props) {
+export default function HamReservationsClient({ products, initialStoreLocationId, awaitingStore = false }: Props) {
   const validationProps = useAccessibleValidation();
   const router = useRouter();
   const ordering = useReservationOrdering("ham");
@@ -57,7 +57,7 @@ export default function HamReservationsClient({ products }: Props) {
   const [hamType, setHamType] = useState("");
   const [selections, setSelections] = useState<Record<string, string>>({});
   const [pickupDate, setPickupDate] = useState("");
-  const [storeLocationId, setStoreLocationId] = useState("");
+  const [storeLocationId, setStoreLocationId] = useState(initialStoreLocationId ?? "");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -236,6 +236,7 @@ export default function HamReservationsClient({ products }: Props) {
 
   return (
     <div className="relative min-h-svh flex-1 overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
+      {initialStoreLocationId && products.length === 0 && <div className="mx-auto mb-4 max-w-6xl"><PickupStoreSelector locked value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} /></div>}
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-7 border-b-2 border-[#2d2d2d] pb-6">
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
@@ -278,7 +279,7 @@ export default function HamReservationsClient({ products }: Props) {
                 <Image src={hamImage} alt="Holiday ham from Siesel's Meats" width={360} height={240} className="mb-5 h-40 w-full max-w-64 object-contain" />
                 <h3 className="font-serif text-xl font-bold uppercase">Holiday Hams</h3>
                 <button type="button" onClick={openPicker} disabled={!ordering.isOpen || isSubmitting || !availableProducts.length} className={`${addClass} mt-5`}><Plus aria-hidden="true" className="h-4 w-4 shrink-0" /> Add A Ham</button>
-                {!availableProducts.length && <p role="status" className="mt-4 max-w-sm font-serif text-sm text-neutral-600">Holiday ham options are currently unavailable. Please check back soon.</p>}
+                {!awaitingStore && !availableProducts.length && <p role="status" className="mt-4 max-w-sm font-serif text-sm text-neutral-600">Holiday ham options are currently unavailable. Please check back soon.</p>}
               </div>
             ) : (
               <div className="space-y-3">
@@ -311,7 +312,7 @@ export default function HamReservationsClient({ products }: Props) {
             <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup &amp; Contact</h2>
             <fieldset disabled={isSubmitting} className="mt-5 min-w-0 space-y-4">
               <legend className="sr-only">Pickup and contact details</legend>
-              <PickupStoreSelector value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
+              <PickupStoreSelector locked={Boolean(initialStoreLocationId)} value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
               <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
                 <input required type="date" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className={fieldClass} />
               </label>

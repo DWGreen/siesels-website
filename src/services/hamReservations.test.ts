@@ -3,7 +3,7 @@ import { getHamReservationProducts, mapHamVariation, validateHamReservationLines
 
 const api = vi.hoisted(() => ({ get: vi.fn() }));
 vi.mock("@/lib/woocommerce", () => ({ getWooCommerceApi: () => api }));
-const parent = { id: 213, name: "Whole Ham", type: "variable", status: "publish", manage_stock: true, stock_quantity: 10, categories: [{ id: 42 }] };
+const parent = { id: 213, name: "Whole Ham - Siesel's", type: "variable", status: "publish", manage_stock: true, stock_quantity: 10, categories: [{ id: 42 }] };
 const plain = { id: 211, status: "publish", attributes: [{ name: "Preparation", option: "Plain" }] };
 const product = { id: parent.id, name: parent.name, variations: [mapHamVariation(parent, plain)!, mapHamVariation(parent, { ...plain, id: 212, attributes: [{ name: "Preparation", option: "Smoked" }] })!] };
 const line = { productId: 213, variationId: 211, quantity: 1 };
@@ -29,7 +29,7 @@ describe("dynamic ham reservations", () => {
   });
   it("shares parent stock between preparations, not between products", () => {
     expect(validateHamReservationLines([product], [{ ...line, quantity: 6 }, { ...line, variationId: 212, quantity: 6 }])).not.toBeNull();
-    const half = { ...product, id: 216, name: "Half Ham", variations: [mapHamVariation({ ...parent, id: 216 }, { ...plain, id: 221 })!] };
+    const half = { ...product, id: 216, name: "Half Ham - Siesel's", variations: [mapHamVariation({ ...parent, id: 216 }, { ...plain, id: 221 })!] };
     expect(validateHamReservationLines([product, half], [{ ...line, quantity: 10 }, { productId: 216, variationId: 221, quantity: 10 }])).toBeNull();
   });
   it("enforces variation stock and rejects mismatched or duplicate lines", () => {
@@ -55,13 +55,10 @@ describe("dynamic ham reservations", () => {
     expect(validateHamReservationLines([{ ...untrackedProduct, variations: [{ ...untrackedVariation, inStock: false }] }], [line])).not.toBeNull();
   });
   it("loads category products with only their actual variation options", async () => {
-    api.get.mockImplementation(async (path: string) => ({ data: path.startsWith("products?") ? [parent, { ...parent, id: 216, name: "Half Ham" }, { ...parent, id: 999 }] : path.includes("/216/") ? [{ ...plain, id: 221 }] : [plain] }));
-    const products = await getHamReservationProducts();
+    api.get.mockImplementation(async (path: string) => ({ data: path.startsWith("products?") ? [parent, { ...parent, id: 216, name: "Half Ham - Siesel's" }, { ...parent, id: 999, name: "Unassigned Ham" }] : path.includes("/216/") ? [{ ...plain, id: 221 }] : [plain] }));
+    const products = await getHamReservationProducts("siesels-meats");
     expect(products.map(entry => entry.name)).toEqual(["Whole Ham", "Half Ham"]);
     expect(products[1].variations.map(entry => entry.attributes[0].value)).toEqual(["Plain"]);
     expect(api.get).toHaveBeenCalledWith(expect.stringContaining("products?category=42"));
   });
-});
-it("rejects an unlisted ham even when supplied with matching product data", () => {
-  expect(validateHamReservationLines([{ ...product, id: 999 }], [{ ...line, productId: 999 }])).not.toBeNull();
 });

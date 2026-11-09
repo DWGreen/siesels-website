@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import InteriorHero from "@/components/sections/InteriorHero";
-import { getOrderType, orderConfirmationConfig } from "@/data/orderConfirmation";
+import { getOrderType, orderConfirmationConfig, reservationReceiptItemName } from "@/data/orderConfirmation";
 
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
@@ -78,7 +78,8 @@ export default async function OrderConfirmationPage({
 }: Props) {
   const params = await searchParams;
   const order = await getOrder(params.order_id, params.order_key);
-  const config = orderConfirmationConfig[getOrderType(params.orderType ?? params.reservation)];
+  const orderType = getOrderType(params.orderType ?? params.reservation);
+  const config = orderConfirmationConfig[orderType];
   const isReservation = config.isReservation;
   const pickupDate = order?.customer_note?.match(/Pickup date: (\d{4}-\d{2}-\d{2})/)?.[1];
   const pickupLocation = order?.customer_note?.match(/Pickup location: (.+?)\s*\([^)]+\)\./)?.[1];
@@ -153,7 +154,7 @@ export default async function OrderConfirmationPage({
                   {groups.map(group => {
                     return (
                       <div key={group.name} className="py-4 text-left">
-                        <h3 className="font-black uppercase tracking-[0.12em]">{group.name}</h3>
+                        <h3 className="font-black uppercase tracking-[0.12em]">{reservationReceiptItemName(group.name, orderType)}</h3>
                         <div className="mt-3 space-y-3 border-l-2 border-neutral-300 pl-4">
                           {group.items.map(({ item, index }) => {
                             const selections = getMeta(item, "Selections");
@@ -161,7 +162,7 @@ export default async function OrderConfirmationPage({
                             return (
                               <div key={`${item.name}-${index}`}>
                                 <div className="flex justify-between gap-4 font-bold">
-                                  <span>{item.name}</span>
+                                  <span>{reservationReceiptItemName(item.name, orderType)}</span>
                                   <span>
                                     {isReservation ? `Quantity: ${item.quantity}` : `${order.currency} ${item.total} (Qty: ${item.quantity})`}
                                   </span>

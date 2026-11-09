@@ -95,7 +95,7 @@ return async function POST(request: Request) {
       );
     }
 
-    const validationError = await validateTurkeyReservationLines(items, type);
+    const validationError = await validateTurkeyReservationLines(items, type, storeLocation.id);
     if (validationError) {
       return reservationResponse({ message: validationError }, 400, session);
     }

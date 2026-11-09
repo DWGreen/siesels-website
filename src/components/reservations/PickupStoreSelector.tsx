@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { House } from "lucide-react";
 import { reservationStoreLocations } from "@/data/storeLocations";
 
@@ -7,9 +9,27 @@ type Props = {
   value: string;
   onChange: (storeId: string) => void;
   disabled?: boolean;
+  locked?: boolean;
 };
 
-export default function PickupStoreSelector({ value, onChange, disabled = false }: Props) {
+export default function PickupStoreSelector({ value, onChange, disabled = false, locked = false }: Props) {
+  const pathname = usePathname();
+  if (locked) {
+    const store = reservationStoreLocations.find(location => location.id === value);
+    return (
+      <div aria-label="Selected pickup store" className="w-full font-body text-sm">
+        <p className="font-bold">Pickup Store:</p>
+        <p className="mt-1">
+          {store?.name}{" "}
+          {!disabled && (
+            <Link href={pathname} className="inline-flex min-h-11 items-center underline underline-offset-4">
+              (Change Pickup Store)<span className="sr-only"> — clears the reservation form</span>
+            </Link>
+          )}
+        </p>
+      </div>
+    );
+  }
   return (
     <fieldset disabled={disabled} className="min-w-0">
       <legend className="font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup Location</legend>

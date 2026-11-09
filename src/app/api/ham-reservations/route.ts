@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     if (!items.length || items.length > 100 || items.some(item => !item || !Number.isInteger(item.productId) || !Number.isInteger(item.variationId) || !Number.isInteger(item.quantity) || item.quantity < 1)) {
       return respond({ message: "Choose valid ham options and quantities." }, 400, session);
     }
-    const products = await getHamReservationProducts();
+    const products = await getHamReservationProducts(store.id);
     const validationError = validateHamReservationLines(products, items);
     if (validationError) return respond({ message: validationError }, 400, session);
 

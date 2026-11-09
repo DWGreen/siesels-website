@@ -18,9 +18,11 @@ import { getReservationOrderingStatus, getReservationPickupDateBounds } from "@/
 
 type Props = {
   products: TurkeyReservationProduct[];
+  initialStoreLocationId?: string;
+  awaitingStore?: boolean;
 };
 
-export default function TurkeyReservationsClient({ products }: Props) {
+export default function TurkeyReservationsClient({ products, initialStoreLocationId, awaitingStore = false }: Props) {
   const validationProps = useAccessibleValidation();
   const reservationType = "turkey";
   const label = "Diestel Turkey";
@@ -29,7 +31,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
   const ordering = useReservationOrdering(reservationType);
   const pickupDateBounds = getReservationPickupDateBounds(reservationType);
   const [pickupDate, setPickupDate] = useState("");
-  const [storeLocationId, setStoreLocationId] = useState("");
+  const [storeLocationId, setStoreLocationId] = useState(initialStoreLocationId ?? "");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -136,6 +138,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
 
   return (
     <div className="relative min-h-svh flex-1 overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
+      {initialStoreLocationId && products.length === 0 && <div className="mx-auto mb-4 max-w-6xl"><PickupStoreSelector locked value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} /></div>}
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-7 border-b-2 border-[#2d2d2d] pb-6">
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
@@ -161,7 +164,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
           </ol>
         </header>
 
-        {products.length === 0 ? (
+        {products.length === 0 && !awaitingStore ? (
           <div className="border border-[#b8aa97] bg-[#faf8f3] p-6 font-serif text-sm">
            {label} reservation sizes are not currently available. Please check back soon.
           </div>
@@ -324,7 +327,7 @@ export default function TurkeyReservationsClient({ products }: Props) {
               <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup & Contact</h2>
               <p className="mt-1 font-serif text-xs text-neutral-600">Where and when should we prepare your order?</p>
               <div className="mt-5 space-y-4">
-                <PickupStoreSelector value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
+                <PickupStoreSelector locked={Boolean(initialStoreLocationId)} value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">
                   Pickup date
                   <input

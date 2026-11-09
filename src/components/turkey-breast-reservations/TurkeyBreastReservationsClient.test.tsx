@@ -2,7 +2,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import TurkeyBreastReservationsClient from "./TurkeyBreastReservationsClient";
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+vi.mock("next/navigation", () => ({ usePathname: () => "/turkey-reservations", useRouter: () => ({ push: vi.fn() }) }));
 vi.mock("@/hooks/useReservationOrdering", () => ({ useReservationOrdering: () => ({ isOpen: true, message: null }) }));
 
 const products = [

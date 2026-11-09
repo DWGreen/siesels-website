@@ -5,7 +5,7 @@ import TurkeyBreastReservationsClient from "@/components/turkey-breast-reservati
 import HamReservationsClient from "@/components/ham-reservations/HamReservationsClient";
 import RoastReservationsClient from "@/components/roast-reservations/RoastReservationsClient";
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+vi.mock("next/navigation", () => ({ usePathname: () => "/turkey-reservations", useRouter: () => ({ push: vi.fn() }) }));
 vi.mock("@/hooks/useReservationOrdering", () => ({ useReservationOrdering: () => ({ isOpen: true, message: null }) }));
 afterEach(cleanup);
 
@@ -34,4 +34,16 @@ it.each([
   expect(last).toHaveValue("de la Cruz");
   expect(last.checkValidity()).toBe(true);
   expect(screen.queryByRole("textbox", { name: /^name$/i })).not.toBeInTheDocument();
+});
+
+it.each([
+  ["turkey", TurkeyReservationsClient], ["turkey breast", TurkeyBreastReservationsClient],
+  ["ham", HamReservationsClient], ["roast", RoastReservationsClient],
+] as const)("renders the %s form with item buttons disabled while awaiting a store", (_type, Form) => {
+  render(<Form products={[]} awaitingStore />);
+  expect(screen.getByRole("textbox", { name: "First name" })).toBeInTheDocument();
+  const buttons = screen.getAllByRole("button", { name: /^add/i });
+  expect(buttons.length).toBeGreaterThan(0);
+  for (const button of buttons) expect(button).toBeDisabled();
+  expect(screen.queryByText(/currently unavailable|not currently available/i)).not.toBeInTheDocument();
 });

@@ -17,7 +17,7 @@ import PickupStoreSelector from "@/components/reservations/PickupStoreSelector";
 import { useReservationOrdering } from "@/hooks/useReservationOrdering";
 import { getReservationOrderingStatus, getReservationPickupDateBounds } from "@/utils/reservationOrdering";
 
-type Props = { products: RoastReservationProduct[] };
+type Props = { products: RoastReservationProduct[]; initialStoreLocationId?: string; awaitingStore?: boolean };
 type SelectedRoast = {
   productId: number;
   variationId: number;
@@ -27,13 +27,13 @@ type SelectedRoast = {
   easyCarve: boolean;
 };
 
-export default function RoastReservationsClient({ products }: Props) {
+export default function RoastReservationsClient({ products, initialStoreLocationId, awaitingStore = false }: Props) {
   const validationProps = useAccessibleValidation();
   const router = useRouter();
   const ordering = useReservationOrdering("roast");
   const pickupDateBounds = getReservationPickupDateBounds("roast");
   const [pickupDate, setPickupDate] = useState("");
-  const [storeLocationId, setStoreLocationId] = useState("");
+  const [storeLocationId, setStoreLocationId] = useState(initialStoreLocationId ?? "");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -173,6 +173,7 @@ export default function RoastReservationsClient({ products }: Props) {
 
   return (
     <div className="relative min-h-svh flex-1 overflow-hidden bg-white px-5 py-10 text-neutral-950 sm:px-8 lg:py-14">
+      {initialStoreLocationId && products.length === 0 && <div className="mx-auto mb-4 max-w-6xl"><PickupStoreSelector locked value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} /></div>}
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-7 border-b-2 border-[#2d2d2d] pb-6">
           <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(250px,0.72fr)]">
@@ -208,7 +209,7 @@ export default function RoastReservationsClient({ products }: Props) {
           </ol>
         </header>
 
-        {products.length === 0 ? (
+        {products.length === 0 && !awaitingStore ? (
           <div className="border border-[#b8aa97] bg-[#faf8f3] p-6 font-serif text-sm">Standing rib roast options are not currently available. Please check back soon.</div>
         ) : (
           <form {...validationProps} onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
@@ -307,7 +308,7 @@ export default function RoastReservationsClient({ products }: Props) {
               <h2 className="font-heading text-lg font-bold uppercase tracking-[0.12em]">Pickup & Contact</h2>
               <p className="mt-1 font-serif text-xs text-neutral-600">Where and when should we prepare your order?</p>
               <div className="mt-5 space-y-4">
-                <PickupStoreSelector value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
+                <PickupStoreSelector locked={Boolean(initialStoreLocationId)} value={storeLocationId} onChange={setStoreLocationId} disabled={isSubmitting} />
                 <label className="block font-heading text-[10px] font-bold uppercase tracking-[0.15em]">Pickup date
                   <input required type="date" aria-describedby="roast-date-help" min={pickupDateBounds.minDate} max={pickupDateBounds.maxDate} value={pickupDate} onChange={event => setPickupDate(event.target.value)} className="mt-2 block w-full border border-neutral-950 bg-[#f4f4f4] px-3 py-3 text-sm font-normal normal-case tracking-normal" />
                   <span id="roast-date-help" className="mt-2 block font-body text-xs font-normal normal-case tracking-normal text-neutral-600">Click to pick date.</span>

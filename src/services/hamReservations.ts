@@ -1,4 +1,4 @@
-import { isAllowedReservationProduct, reservationProductIds } from "@/config/reservationProducts";
+import { reservationProductMatchesStore, reservationDisplayName } from "@/config/reservationProducts";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
 export const HAM_CATEGORY_ID = 42;
@@ -64,16 +64,16 @@ export function mapHamVariation(parent: WooProduct, variation: WooVariation): Ha
   };
 }
 
-export async function getHamReservationProducts(): Promise<HamReservationProduct[]> {
+export async function getHamReservationProducts(storeId?: string): Promise<HamReservationProduct[]> {
   const api = getWooCommerceApi();
   const parents: WooProduct[] = [];
   for (let page = 1; ; page += 1) {
-    const response = await api.get(`products?category=${HAM_CATEGORY_ID}&per_page=100&page=${page}&status=publish&orderby=menu_order&order=asc&include=${reservationProductIds.ham.join(",")}`);
+    const response = await api.get(`products?category=${HAM_CATEGORY_ID}&per_page=100&page=${page}&status=publish&orderby=menu_order&order=asc`);
     const batch = response.data as WooProduct[];
     parents.push(...batch);
     if (batch.length < 100) break;
   }
-  return Promise.all(parents.filter(parent => isAllowedReservationProduct("ham", parent.id) && parent.type === "variable" && parent.categories?.some(category => category.id === HAM_CATEGORY_ID)).map(async parent => {
+  return Promise.all(parents.filter(parent => reservationProductMatchesStore(parent, storeId) && parent.type === "variable" && parent.categories?.some(category => category.id === HAM_CATEGORY_ID)).map(async parent => {
     const variations: HamReservationVariation[] = [];
     for (let page = 1; ; page += 1) {
       const response = await api.get(`products/${parent.id}/variations?per_page=100&page=${page}&status=publish`);
@@ -85,7 +85,7 @@ export async function getHamReservationProducts(): Promise<HamReservationProduct
       }
       if (batch.length < 100) break;
     }
-    return { id: parent.id, name: parent.name, variations };
+    return { id: parent.id, name: reservationDisplayName(parent.name), variations };
   }));
 }
 
@@ -100,7 +100,7 @@ export function validateHamReservationLines(
   for (const item of items) {
     const product = products.find(entry => entry.id === item.productId);
     const variation = product?.variations.find(entry => entry.id === item.variationId);
-    if (!isAllowedReservationProduct("ham", item.productId) || !Number.isInteger(item.productId) || !Number.isInteger(item.variationId) || !Number.isInteger(item.quantity) || item.quantity < 1 || !product || !variation) {
+    if (!Number.isInteger(item.productId) || !Number.isInteger(item.variationId) || !Number.isInteger(item.quantity) || item.quantity < 1 || !product || !variation) {
       return "Choose valid ham options and quantities.";
     }
     if (!variation.inStock) {

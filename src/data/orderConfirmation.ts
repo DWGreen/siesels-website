@@ -38,3 +38,16 @@ export const orderConfirmationConfig: Record<OrderType, ConfirmationConfig> = {
 export function getOrderType(value?: string): OrderType {
   return value && Object.hasOwn(orderConfirmationConfig, value) ? value as OrderType : "sandwich";
 }
+
+export function reservationReceiptItemName(name: string, type: OrderType): string {
+  if (!orderConfirmationConfig[type].isReservation) return name;
+  const displayName = name.replace(/\s+-\s+(?:Siesel['’]s|Iowa Meat Farm['’]?s)\s*$/i, "").trim();
+  const labels = {
+    turkey: { label: "Turkey", present: /\bturkey\b/i },
+    "turkey-breast": { label: "Turkey Breast", present: /\bturkey[ -]+breast\b/i },
+    roast: { label: "Standing Rib Roast", present: /\b(?:rib[ -]+)?roast\b/i },
+    ham: { label: "Ham", present: /\bham\b/i },
+  };
+  const entry = labels[type as ReservationType];
+  return entry.present.test(displayName) ? displayName : `${entry.label} — ${displayName}`;
+}

@@ -1,4 +1,4 @@
-import { isAllowedReservationProduct, reservationProductIds } from "@/config/reservationProducts";
+import { reservationProductMatchesStore, reservationDisplayName } from "@/config/reservationProducts";
 import { mapHamVariation, type HamReservationVariation } from "@/services/hamReservations";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
@@ -36,17 +36,17 @@ function minimumTurkeyWeight(name: string): number {
   return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
 }
 
-export async function getTurkeyReservationProducts(type: TurkeyReservationType = "turkey"): Promise<TurkeyReservationProduct[]> {
+export async function getTurkeyReservationProducts(type: TurkeyReservationType = "turkey", storeId?: string): Promise<TurkeyReservationProduct[]> {
   const categoryConfig = categories[type];
   try {
     const api = getWooCommerceApi();
     const response = await api.get(
-      `products?category=${categoryConfig.id}&per_page=100&orderby=menu_order&order=asc&status=publish&include=${reservationProductIds[type].join(",")}`
+      `products?category=${categoryConfig.id}&per_page=100&orderby=menu_order&order=asc&status=publish`
     );
 
     const parents = (response.data as WooCommerceReservationProduct[])
       .filter(product =>
-        isAllowedReservationProduct(type, product.id) && product.categories?.some(
+        reservationProductMatchesStore(product, storeId) && product.categories?.some(
           category => category.id === categoryConfig.id || category.slug === categoryConfig.slug
         )
       );
@@ -59,7 +59,7 @@ export async function getTurkeyReservationProducts(type: TurkeyReservationType =
     }
     return await Promise.all(parents.map(async product => ({
         id: product.id,
-        name: product.name,
+        name: reservationDisplayName(product.name),
         description: product.description ?? "",
         stockManaged: product.manage_stock === true,
         stockQuantity: product.stock_quantity ?? null,
@@ -88,7 +88,8 @@ export async function getTurkeyReservationProducts(type: TurkeyReservationType =
 
 export async function validateTurkeyReservationLines(
   lines: Array<{ productId: number; variationId?: number; quantity: number }>,
-  type: TurkeyReservationType = "turkey"
+  type: TurkeyReservationType = "turkey",
+  storeId?: string
 ): Promise<string | null> {
   const categoryConfig = categories[type];
   const api = getWooCommerceApi();
@@ -98,7 +99,7 @@ export async function validateTurkeyReservationLines(
   const parentQuantities = new Map<number, number>();
 
   for (const line of lines) {
-    if (!isAllowedReservationProduct(type, line.productId) || !Number.isInteger(line.productId) || !Number.isInteger(line.quantity) || line.quantity < 1) {
+    if (!Number.isInteger(line.productId) || !Number.isInteger(line.quantity) || line.quantity < 1) {
       return "Choose a valid turkey range and quantity.";
     }
 
@@ -109,7 +110,7 @@ export async function validateTurkeyReservationLines(
         category => category.id === categoryConfig.id || category.slug === categoryConfig.slug
       );
 
-      if (product.status !== "publish" || !isTurkeyReservation) {
+      if (!reservationProductMatchesStore(product, storeId) || product.status !== "publish" || !isTurkeyReservation) {
         return "One of the selected turkey ranges is no longer available.";
       }
 

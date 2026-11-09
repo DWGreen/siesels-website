@@ -1,4 +1,4 @@
-import { isAllowedReservationProduct, reservationProductIds } from "@/config/reservationProducts";
+import { reservationProductMatchesStore, reservationDisplayName } from "@/config/reservationProducts";
 import { getWooCommerceApi } from "@/lib/woocommerce";
 
 export type RoastGrade = "USDA Prime" | "USDA Choice";
@@ -68,14 +68,14 @@ export function getRoastEasyCarve(variation: WooVariation): boolean | null {
   return null;
 }
 
-export async function getRoastReservationProducts(): Promise<RoastReservationProduct[]> {
+export async function getRoastReservationProducts(storeId?: string): Promise<RoastReservationProduct[]> {
   try {
     const api = getWooCommerceApi();
     const response = await api.get(
-      `products?category=41&per_page=100&orderby=menu_order&order=asc&status=publish&include=${reservationProductIds.roast.join(",")}`
+      `products?category=41&per_page=100&orderby=menu_order&order=asc&status=publish`
     );
     const parents = (response.data as WooProduct[]).filter(product =>
-      isAllowedReservationProduct("roast", product.id) && product.categories?.some(category => category.id === 41)
+      reservationProductMatchesStore(product, storeId) && product.categories?.some(category => category.id === 41)
     );
 
     return await Promise.all(
@@ -111,7 +111,7 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
           .sort((first, second) => second.grade.localeCompare(first.grade) ||
             (first.seasoning ?? "").localeCompare(second.seasoning ?? ""));
 
-        return { id: parent.id, name: parent.name, variations };
+        return { id: parent.id, name: reservationDisplayName(parent.name), variations };
       })
     );
   } catch (error) {
@@ -121,13 +121,13 @@ export async function getRoastReservationProducts(): Promise<RoastReservationPro
 }
 
 export async function validateRoastReservationLines(
-  lines: Array<{ productId: number; variationId: number; quantity: number }>
+  lines: Array<{ productId: number; variationId: number; quantity: number }>,
+  storeId?: string
 ): Promise<string | null> {
   const api = getWooCommerceApi();
 
   for (const line of lines) {
     if (
-      !isAllowedReservationProduct("roast", line.productId) ||
       !Number.isInteger(line.productId) ||
       !Number.isInteger(line.variationId) ||
       !Number.isInteger(line.quantity) ||
@@ -146,7 +146,7 @@ export async function validateRoastReservationLines(
       const isRoast = parent.categories?.some(category => category.id === 41);
       const grade = getGrade(variation);
 
-      if (parent.status !== "publish" || parent.type !== "variable" || !isRoast || variation.status !== "publish" || !grade) {
+      if (!reservationProductMatchesStore(parent, storeId) || parent.status !== "publish" || parent.type !== "variable" || !isRoast || variation.status !== "publish" || !grade) {
         return "One of the selected roast options is no longer available.";
       }
 

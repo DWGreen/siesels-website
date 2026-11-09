@@ -11,7 +11,7 @@ vi.mock("@/utils/reservationOrdering", () => ({ getReservationOrderingStatus: ()
 beforeEach(() => {
  vi.clearAllMocks();
  mocks.call.mockResolvedValue({ session: {}, data: { order_id: 123 } });
- mocks.get.mockResolvedValue({ data: { status: "publish", type: "variable", categories: [{ id: 41 }], manage_stock: true, stock_quantity: 20, stock_status: "instock" } });
+ mocks.get.mockResolvedValue({ data: { id: 191, name: "Roast - Siesel's", status: "publish", type: "variable", categories: [{ id: 41 }], manage_stock: true, stock_quantity: 20, stock_status: "instock" } });
 });
 function request(phone: string) {
  return new Request("http://localhost/api/reservations", { method: "POST", body: JSON.stringify({
@@ -67,7 +67,6 @@ it.each([["ham", ham], ["roast", roast]] as const)("allows optional %s email and
 it.each([["ham", ham], ["roast", roast]] as const)("rejects invalid %s phones before cart changes", async (_name, handler) => {
  expect((await handler(request("123"))).status).toBe(400);
  expect(mocks.call).not.toHaveBeenCalled();
- expect(mocks.get).not.toHaveBeenCalled();
 });
 
 it.each([true, false])("saves the Easy Carve %s selection on the roast order line", async easyCarve => {
@@ -80,9 +79,9 @@ it.each([true, false])("saves the Easy Carve %s selection on the roast order lin
 });
 
 it("rejects unlisted roast submissions before changing the cart", async () => {
+ mocks.get.mockResolvedValue({ data: { id: 999, name: "Original Roast", status: "publish" } });
  const body = await request("6195551234").json();
  body.items[0].productId = 999;
  expect((await roast(new Request("http://localhost/api/roast-reservations", { method: "POST", body: JSON.stringify(body) }))).status).toBe(400);
  expect(mocks.call).not.toHaveBeenCalled();
- expect(mocks.get).not.toHaveBeenCalled();
 });

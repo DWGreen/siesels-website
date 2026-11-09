@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 import RoastReservationsClient from "./RoastReservationsClient";
 import type { RoastReservationProduct } from "@/services/roastReservations";
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+vi.mock("next/navigation", () => ({ usePathname: () => "/turkey-reservations", useRouter: () => ({ push: vi.fn() }) }));
 vi.mock("@/hooks/useReservationOrdering", () => ({ useReservationOrdering: () => ({ isOpen: true, message: null }) }));
 
 const products: RoastReservationProduct[] = [{

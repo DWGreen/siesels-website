@@ -14,7 +14,7 @@ describe("roast reservation options", () => {
   });
 
   it("loads both seasonings and sorts Prime before Choice with Plain first", async () => {
-    const parent = { id: 191, name: "Rib Roast", categories: [{ id: 41 }], manage_stock: true, stock_quantity: 20 };
+    const parent = { id: 191, name: "Rib Roast - Siesel's", categories: [{ id: 41 }], manage_stock: true, stock_quantity: 20 };
     const variations = [
       { id: 11, grade: "USDA Choice", seasoning: "Seasoned" },
       { id: 12, grade: "USDA Prime", seasoning: "Seasoned" },
@@ -25,8 +25,8 @@ describe("roast reservation options", () => {
       status: "publish",
       attributes: [{ name: "Grade", option: variation.grade }, { name: "Seasoning", option: variation.seasoning }],
     }));
-    api.get.mockImplementation(async (path: string) => ({ data: path.startsWith("products?") ? [parent, { ...parent, id: 999 }] : variations }));
-    const products = await getRoastReservationProducts();
+    api.get.mockImplementation(async (path: string) => ({ data: path.startsWith("products?") ? [parent, { ...parent, id: 999, name: "Unassigned Roast" }] : variations }));
+    const products = await getRoastReservationProducts("siesels-meats");
     expect(products.map(product => product.id)).toEqual([191]);
     expect(products[0].variations.map(variation => [variation.id, variation.grade, variation.seasoning]))
       .toEqual([[13, "USDA Prime", "Plain"], [12, "USDA Prime", "Seasoned"], [14, "USDA Choice", "Plain"], [11, "USDA Choice", "Seasoned"]]);
@@ -38,7 +38,6 @@ it("recognizes Easy Carve variation attributes without requiring them on legacy 
   expect(getRoastEasyCarve({ id: 1 })).toBeNull();
 });
 
-it("rejects unlisted roast parents before looking up inventory", async () => {
+it("rejects roast submissions without a selected store", async () => {
   expect(await validateRoastReservationLines([{ productId: 999, variationId: 11, quantity: 1 }])).not.toBeNull();
-  expect(api.get).not.toHaveBeenCalled();
 });
