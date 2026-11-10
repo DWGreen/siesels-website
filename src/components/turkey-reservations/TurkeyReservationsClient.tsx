@@ -1,5 +1,6 @@
 "use client";
 
+import ReservationPricingPanel from "@/components/reservations/ReservationPricingPanel";
 import CollectionNotice from "@/components/privacy/CollectionNotice";
 
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
@@ -170,7 +171,14 @@ export default function TurkeyReservationsClient({ products, initialStoreLocatio
           </div>
         ) : (
           <form {...validationProps} onSubmit={handleSubmit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
-        <CollectionNotice />
+            <CollectionNotice />
+            <ReservationPricingPanel
+              title="Fresh Turkeys"
+              brand="Diestel"
+              price="$5.99"
+              image="/images/pricing-images/diestel-turkey.webp"
+              imageAlt="Thanksgiving turkey in a pan beside a whole Diestel turkey"
+            />
             <div className="min-w-0">
             <section className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
