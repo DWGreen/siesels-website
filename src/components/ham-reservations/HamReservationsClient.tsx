@@ -1,5 +1,6 @@
 "use client";
 
+import ReservationPricingPanel from "@/components/reservations/ReservationPricingPanel";
 import CollectionNotice from "@/components/privacy/CollectionNotice";
 
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
@@ -263,7 +264,22 @@ export default function HamReservationsClient({ products, initialStoreLocationId
         </header>
 
         <form {...validationProps} onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
-        <CollectionNotice />
+          <CollectionNotice />
+          <div className="col-span-full grid gap-2">
+            <ReservationPricingPanel
+              title="Siesel's Signature Smoked Ham"
+              price="$5.49"
+              image="/images/pricing-images/smoked-ham.webp"
+              imageAlt="Siesel's signature smoked ham"
+            />
+            <ReservationPricingPanel
+              title="Kruse Ham"
+              price="$4.49"
+              image="/images/pricing-images/kruse-ham.webp"
+              imageAlt="Kruse ham"
+              imageSide="right"
+            />
+          </div>
           <div className="min-w-0">
             <section className="min-w-0 border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6" aria-labelledby="ham-selections-title">
             <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">

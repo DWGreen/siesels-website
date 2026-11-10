@@ -1,6 +1,7 @@
 "use client";
 
 import { sortRoastsByBoneCount } from "@/utils/roastOptions";
+import ReservationPricingPanel from "@/components/reservations/ReservationPricingPanel";
 import CollectionNotice from "@/components/privacy/CollectionNotice";
 
 import { useAccessibleValidation } from "@/hooks/useAccessibleValidation";
@@ -213,7 +214,16 @@ export default function RoastReservationsClient({ products, initialStoreLocation
           <div className="border border-[#b8aa97] bg-[#faf8f3] p-6 font-serif text-sm">Standing rib roast options are not currently available. Please check back soon.</div>
         ) : (
           <form {...validationProps} onSubmit={submit} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
-        <CollectionNotice />
+            <CollectionNotice />
+            <ReservationPricingPanel
+              title="Standing Rib Roasts"
+              prices={[
+                { label: "USDA Choice", price: "$29.99" },
+                { label: "USDA Prime", price: "$35.99" },
+              ]}
+              image="/images/pricing-images/ribroast.webp"
+              imageAlt="Standing rib roast"
+            />
             <div className="min-w-0">
             <section className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-4 border-b border-[#b8aa97] pb-3">
