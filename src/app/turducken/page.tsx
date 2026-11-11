@@ -1,3 +1,4 @@
+import ReservationPricingPanel from "@/components/reservations/ReservationPricingPanel";
 import MeatArticleLogo from "@/components/reservations/MeatArticleLogo";
 import ReservationNavigation from "@/components/reservations/ReservationNavigation";
 import type { Metadata } from "next";
@@ -50,6 +51,26 @@ export default function TurduckenPage() {
                 ))}
               </ol>
             </header>
+            <div className="mb-7 grid gap-2">
+              <ReservationPricingPanel
+                title="Turducken"
+                prices={[
+                  { label: "Large", price: "$195" },
+                  { label: "Small", price: "$170" },
+                ]}
+                unit="EA"
+                image="/images/pricing-images/turducken.webp"
+                imageAlt="Handcrafted turducken"
+              />
+              <ReservationPricingPanel
+                title="Turducken Roll"
+                price="$125"
+                unit="EA"
+                image="/images/pricing-images/turducken-roll.webp"
+                imageAlt="Handcrafted turducken roll"
+                imageSide="right"
+              />
+            </div>
             <div className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.65fr)_minmax(290px,0.85fr)]">
               <section aria-labelledby="turducken-details" className="border border-[#b8aa97] bg-[#faf8f3] p-4 sm:p-6">
                 <h2 id="turducken-details" className="border-b border-[#b8aa97] pb-3 font-heading text-lg font-bold uppercase tracking-[0.12em]">Your Holiday Centerpiece</h2>

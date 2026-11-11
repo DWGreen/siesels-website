@@ -3,6 +3,7 @@ import Image from "next/image";
 type Props = {
   title: string;
   brand?: string;
+  unit?: "LB" | "EA";
   price?: string;
   prices?: Array<{ label: string; price: string }>;
   image: string;
@@ -10,7 +11,7 @@ type Props = {
   imageSide?: "left" | "right";
 };
 
-export default function ReservationPricingPanel({ title, brand, price, prices, image, imageAlt, imageSide = "left" }: Props) {
+export default function ReservationPricingPanel({ title, brand, price, prices, image, imageAlt, imageSide = "left", unit = "LB" }: Props) {
   return (
     <section aria-label={`${title} pricing`} className="col-span-full grid overflow-hidden sm:h-[280px] sm:grid-cols-2">
       <div className={`relative h-48 sm:h-full ${imageSide === "right" ? "sm:order-2" : ""}`}>
@@ -28,12 +29,12 @@ export default function ReservationPricingPanel({ title, brand, price, prices, i
               {prices.map(option => (
                 <div key={option.label}>
                   <p className="font-barlow text-sm font-semibold uppercase tracking-[0.08em] text-white/85 lg:text-base">{option.label}</p>
-                  <p className="mt-2 whitespace-nowrap font-heading text-[1.8rem] font-bold text-[#f6e3b0] lg:text-[2.4rem]">{option.price}<span className="ml-1 text-sm">LB</span></p>
+                  <p className="mt-2 whitespace-nowrap font-heading text-[1.8rem] font-bold text-[#f6e3b0] lg:text-[2.4rem]">{option.price}<span className="ml-1 text-sm">{unit}</span></p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="mt-3 font-heading text-[2.7rem] font-bold uppercase tracking-[0.08em] text-[#f6e3b0]">{price}<span className="ml-2 text-[1.5rem]">LB</span></p>
+            <p className="mt-3 font-heading text-[2.7rem] font-bold uppercase tracking-[0.08em] text-[#f6e3b0]">{price}<span className="ml-2 text-[1.5rem]">{unit}</span></p>
           )}
           <p className="mt-3 font-body text-[0.9rem] text-white/90">Payment is handled at pickup.</p>
         </div>
